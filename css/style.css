@@ -437,6 +437,12 @@ li {
 
 /* FORMS */
 
+.form--email {
+    max-width: 640px;
+    position: relative;
+    margin: auto;
+}
+
 form {
   display:flex;
   max-width: 640px;

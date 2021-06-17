@@ -437,7 +437,7 @@ li {
     display: none;
 }
 
-.field {
+.input[type=email] {
     border: 1px solid #daddde;
     width: 100%;
     height: auto;
@@ -451,8 +451,12 @@ li {
     transition: border-color .2s ease;
 }
 
-.field:active, .field:focus, .field:hover {
+.input[type=email]:active, .input[type=email]:focus, .input[type=email]:hover {
     border-color: #FDD32F;
+}
+
+ul.no-list.hs-error-msgs.inputs-list {
+    display: none !important;
 }
 
 button, input, optgroup, select, textarea {

@@ -433,6 +433,10 @@ li {
 
 /* FORMS */
 
+form {
+  display:flex;
+}
+
 .hbspt-form label {
     display: none;
 }

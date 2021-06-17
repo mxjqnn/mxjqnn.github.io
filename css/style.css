@@ -93,6 +93,10 @@ a {
 .text {
   font-weight: 400;
 }
+.text.xbig {
+    font-size: 24px;
+    line-height: 1.4;
+}
 .text.big {
   font-size:18px;
 }
@@ -435,6 +439,11 @@ li {
 
 form {
   display:flex;
+  margin-top: 40px;
+}
+
+.field {
+  width: 100%;
 }
 
 .hbspt-form label {
@@ -456,7 +465,7 @@ input[type=email] {
 }
 
 input[type=email]:active, input[type=email]:focus, input[type=email]:hover {
-    border-color: #FDD32F;
+    border:1px solid #fdd32f;
 }
 
 ul.no-list.hs-error-msgs.inputs-list {
@@ -470,6 +479,10 @@ button, input, optgroup, select, textarea {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
+}
+
+:focus-visible {
+    outline: none;
 }
 
 input[type=submit] {
@@ -492,15 +505,12 @@ input[type=submit] {
     border-radius: 100px;
     border: none;
     font-family: 'Avant Garde', sans-serif;
-    -webkit-transition: border-color .2s ease;
-    -o-transition: border-color .2s ease;
-    transition: border-color .2s ease;
+    transition-duration:.2s;
     height:60px;
 }
 
 input[type=submit]:hover {
-  color: #fff;
-  background: #000;
+  background: #E5BA1C;
 }
 
 

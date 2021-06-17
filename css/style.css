@@ -455,7 +455,7 @@ input[type=email] {
     border: 1px solid #daddde;
     width: 100%;
     height: auto;
-    padding: 16px 20px;
+    padding: 18px 20px;
     border-radius: 100px;
     background-color: #fff;
     font-size: 18px;
@@ -488,6 +488,9 @@ button, input, optgroup, select, textarea {
 
 input[type=submit] {
     display: inline-block;
+    position: absolute;
+    right: 0px;
+    min-width: 180px;
     vertical-align: middle;
     -webkit-box-shadow: none;
     box-shadow: none;

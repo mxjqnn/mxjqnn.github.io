@@ -439,7 +439,8 @@ li {
 
 form {
   display:flex;
-  margin-top: 40px;
+  max-width: 640px;
+  margin: auto;
 }
 
 .field {

@@ -453,6 +453,10 @@ form {
   width: 100%;
 }
 
+.hbspt-form {
+  min-width:480px;
+}
+
 .hbspt-form label {
     display: none;
 }

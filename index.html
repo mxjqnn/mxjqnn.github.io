@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mayku Multiplier</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Mayku" />
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <meta property="og:title" content="Mayku Multiplier" />
+    <meta property='og:image' content=''/>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:description" content=""/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="shortcut icon" href="//cdn.shopify.com/s/files/1/1373/5663/files/MK_006_Favicon_32x32.png?v=1508782101" type="image/png" />
+</head>
+
+<body>
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
+<script>
+$(function() {
+  $('.onload').addClass('animate');
+});
+</script>
+
+<script>
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 500) {
+        $(".slidein").addClass("visible");
+    } else {
+        $(".slidein").removeClass("visible");
+    }
+});
+</script>
+
+<div id="nav">
+  <img class="logo onload animate1" src="images/logo--mayku.svg">
+  <div class="socials animate11 onload">
+    <a href="#"><img class="socialicon" src="images/icon--facebook.svg"></a>
+    <a href="#"><img class="socialicon" src="images/icon--twitter.svg"></a>
+    <a href="#"><img class="socialicon" src="images/icon--instagram.svg"></a>
+  </div>
+</div>
+
+<div id="fixedcta" class="slidein">
+  <div class="contentwidth row" style="align-items: center;">
+    <p class="title xsmall black">Stay updated on the un-industrial revolution:</p>
+    <img class="placeholder--email" src="images/placeholder--email--onlight.png" style="width:407px; max-width:100%;">
+  </div>
+</div>
+
+<div id="hero">
+  <div class="plus plus-1 onload animateplus"><img src="images/icon--plusyellow.svg" data-scroll-speed="3"></div>
+  <div class="plus plus-2 onload animateplus"><img src="images/icon--plusyellow.svg" data-scroll-speed="0"></div>
+  <div class="plus plus-3 onload animateplus"><img src="images/icon--plusyellow.svg" data-scroll-speed="0.2"></div>
+  <div class="plus plus-4 onload animateplus"><img src="images/icon--plusyellow.svg" data-scroll-speed="2"></div>
+
+  <div class="hero--content bottomleft">
+    <h1 class="title xbig white onload animate2" style="margin:0px">The Revolution Starts 2021</h1>
+    <p class="text big white onload animate3">This Autumn, Mayku launches a brand new product. It’s mission? To lead the charge as we take back making for the masses.</p>
+    <p class="text big white onload animate4">Anyone is welcome to join us in the new age of making.</p>
+    <img class="placeholder--email onload animate41" src="images/placeholder--email.png" style="width:407px; max-width:100%; margin-top: 16px;">
+  </div>
+  <img src="images/icon--arrowdown.svg" class="scrollarrow bounce onload animate5">
+  <div class="circletext-revolution spin onload animate6">
+    <img src="images/circletext--revolution.svg">
+  </div>
+  <div class="videobg">
+    <video playsinline autoplay muted loop poster="images/Home_Poster.jpg" id="bgvid">
+    <source src="images/Home_Video.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="videobgmobile">
+    <video playsinline autoplay muted loop poster="images/Home_Poster_Mob.jpg" id="bgvid">
+    <source src="images/Home_Video_Mob.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<div id="content">
+  <div class="contentwidth">
+    <img class="contentwidth" src="images/image--revolution-min.jpg">
+    <div class="title--pluses">
+      <h1 class="title big white" style="margin:0px;max-width:760px;">The revolution will not be industrialized</h1>
+    </div>
+    <ul class="arrows">
+      <li class="text big white">The Great Industrial Revolution. Chimneys flew up. Production lines erupted into life. Skills swapped for speed. Making was mobilised, mechanised, and centralised. Gone were the days of objects crafted by hand, now things were made by the many.</li>
+      <li class="text big white">It was hailed the world over for taking humanity forward. For launching an empire. But what if it actually took us back? What if handing over control, creativity and choice to the few, the factories; actually set us down a poorer path?</li>
+      <li class="text big white">Today's factories are no different. Sure we've got robots, and wares Victorians couldn't even imagine, But they still stifle creativity, Creativity does not come first, even in creative business.</li>
+      <li class="text big white">After 191 years, isn't it time for a different way? Let’s give back freedom to makers everywhere. Our mission is to lead the charge as we take back making for the masses. Anyone is welcome to join us, people and companies alike.</li>
+      <li class="text big white">It’s time to start the un-industrial revolution.</li>
+    </ul>
+  </div>
+  <div class="circletext-revolution-bottom spin">
+    <img src="images/circletext--revolution.svg">
+  </div>
+  <div class="cta contentwidth">
+    <h1 class="title big white" style="max-width:640px;margin:0px auto 20px;;">Join the Un-Industrial Revolution</h1>
+    <p class="text big white" style="max-width:640px;margin:0px auto 20px;;">Sign up to see the what we’re building before anyone else and get one of our first batch of machines when they launch later this year. Oh, and did we mention the first 100 available will be 50% off ;)</p>
+    <img class="placeholder--email" src="images/placeholder--email.png" style="width:407px; max-width:100%; margin-top: 16px;">
+  </div>
+</div>
+
+<div class="banner">
+  <div class="marquee">
+    <p class="title small yellow">REVOLUTION IN PROGRESS  •  REVOLUTION IN PROGRESS  •  REVOLUTION IN PROGRESS  •  REVOLUTION IN PROGRESS  •  REVOLUTION IN PROGRESS  •  REVOLUTION IN PROGRESS</p>
+  </div>
+</div>
+
+<div id="footer">
+  <div class="row contentwidth">
+    <div class="col third">
+      <img class="logo" src="images/logo--mayku.svg" style="margin-bottom:21px;">
+      <div class="divider"></div>
+      <a class="footer--link" href="https://help.mayku.me/hc/en-us" target="_blank" style="margin-top:24px;">Help</a>
+      <a class="footer--link" href="https://www.mayku.me/pages/about" target="_blank">About</a>
+      <a class="footer--link" href="https://www.mayku.me/collections" target="_blank">Materials Store</a>
+      <a class="footer--link" href="https://make.mayku.me/projects" target="_blank">Make</a>
+      <a class="footer--link" href="https://www.mayku.me/pages/careers" target="_blank">Careers</a>
+      <a class="footer--link" href="https://www.mayku.me/blogs/news" target="_blank">Blog</a>
+      <a class="footer--link" href="https://www.mayku.me/pages/become-a-reseller" target="_blank">Become a reseller</a>
+      <a class="footer--link" href="https://www.mayku.me/pages/privacy-and-terms" target="_blank">Privacy & Terms</a>
+      <a class="footer--link" href="https://www.mayku.me/pages/cookie-usage-policy" target="_blank">Cookie policy</a>
+    </div>
+    <div class="col third">
+      <p class="title xsmall white" style="margin: 0 0 24px;">Be the first to know</p>
+      <div class="divider"></div>
+      <p class="text big white" style="margin: 24px 0 24px;">Enter your email address to stay in the loop</p>
+      <img class="placeholder--email" src="images/placeholder--email.png" style="width:407px; max-width:100%;">
+    </div>
+    <div class="col third">
+      <p class="title xsmall white" style="margin: 0 0 24px;">Contact us</p>
+      <div class="divider"></div>
+      <a class="title small white" href="mailto:hello@mayku.me" style="margin-top:24px;margin-bottom:24px;font-size:28px;">hello@mayku.me</a>
+      <p class="text big white">Unit 25 DeBeauvoir Block<br/>London, N14EN</p>
+    </div>
+  </div>
+</div>
+
+<script>
+$.fn.moveIt = function(){
+  var $window = $(window);
+  var instances = [];
+  
+  $(this).each(function(){
+    instances.push(new moveItItem($(this)));
+  });
+  
+  window.onscroll = function(){
+    var scrollTop = $window.scrollTop();
+    instances.forEach(function(inst){
+      inst.update(scrollTop);
+    });
+  }
+}
+
+var moveItItem = function(el){
+  this.el = $(el);
+  this.speed = parseInt(this.el.attr('data-scroll-speed'));
+};
+
+moveItItem.prototype.update = function(scrollTop){
+  var pos = scrollTop / this.speed;
+  this.el.css('transform', 'translateY(' + -pos + 'px)');
+};
+
+// Initialization
+$(function(){
+  $('[data-scroll-speed]').moveIt();
+});
+</script>
+
+</body>
+</html>

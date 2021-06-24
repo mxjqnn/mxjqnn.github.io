@@ -1,241 +1,134 @@
-<!doctype html>
-<html>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="UTF-8">
-<title>Mayku Multiplier</title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="Mayku" />
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <meta property="og:title" content="Mayku Multiplier" />
-    <meta property='og:image' content=''/>
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="" />
-    <meta property="og:description" content=""/>
-    <meta name="robots" content="noindex">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <link rel="shortcut icon" href="//cdn.shopify.com/s/files/1/1373/5663/files/MK_006_Favicon_32x32.png?v=1508782101" type="image/png" />
+<title></title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
+
+<style>
+
+body {
+
+	background-image: url('grunge_patterns.jpg');
+	background-attachment: fixed;
+	color: #333;
+}
+
+.box {
+	border-radius: 3px;
+	background: rgba(101, 101, 101, 0.7); margin: auto; padding: 12px;
+}
+
+.lightbox {
+	zoom: 1.5;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(10, 10, 10, 0.8);
+	text-align: center;
+	margin: auto;
+
+}
+
+div.horizontal {
+	display: flex;
+	justify-content: center;
+	height: 100%;
+}
+
+div.vertical {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+}
+
+::-webkit-input-placeholder {
+   color: #955;
+   text-align: center;
+}
+
+::-moz-placeholder {
+   color: #955;
+   text-align: center;
+}
+
+:-ms-input-placeholder {
+   color: #955;
+   text-align: center;
+}
+
+</style>
 
 <body>
 
-<script>
-$(document).ready(function(){
-  // Add smooth scrolling to all links
-  $("a").on('click', function(event) {
+	<div id="loginbox" class="lightbox" >
+		<div class="horizontal">
+			<div class="vertical">
+				<div class="box">
+					<input style="margin: 16px; text-align: center;" id="password" type="password" placeholder="password" /> <br />
+					<button id="loginbutton" type="button">Enter</button>
+					<p id="wrongPassword" style="display: none">wrong password</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
 
-      // Store hash
-      var hash = this.hash;
 
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 800, function(){
-   
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
-  });
-});
-</script>
-<script>
-$(function() {
-  $('.onload').addClass('animate');
-});
-</script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 
-<script>
-$(window).scroll(function() {    
-    var scroll = $(window).scrollTop();
 
-    if (scroll >= 500) {
-        $(".slidein").addClass("visible");
-    } else {
-        $(".slidein").removeClass("visible");
-    }
-});
-</script>
+	 <script type="text/javascript" src="https://rawcdn.githack.com/chrisveness/crypto/7067ee62f18c76dd4a9d372a00e647205460b62b/sha1.js"></script>
 
-<div id="nav">
-  <img class="logo onload animate1" src="images/logo--mayku.svg">
-  <div class="socials animate11 onload">
-    <a href="#"><img class="socialicon" src="images/icon--facebook.svg"></a>
-    <a href="#"><img class="socialicon" src="images/icon--twitter.svg"></a>
-    <a href="#"><img class="socialicon" src="images/icon--instagram.svg"></a>
-  </div>
-</div>
+	<script type="text/javascript">
+	"use strict";
 
-<div id="fixedcta" class="slidein">
-  <div class="contentwidth row" style="align-items: center;">
-    <p class="title xsmall black">Stay updated on the un-industrial revolution:</p>
-    <div class="form--email">
-    <!--[if lte IE 8]>
-    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-    <![endif]-->
-    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-    <script>
-      hbspt.forms.create({
-      region: "na1",
-      portalId: "9286585",
-      formId: "7b274279-d853-46a6-b01d-ac21a82f2a77"
-    });
-    </script>
-  </div>
-  </div>
-</div>
 
-<div id="hero">
-  <div class="plus plus-1 onload animateplus"><img src="images/icon--plusyellow.svg" data-scroll-speed="3"></div>
-  <div class="plus plus-2 onload animateplus"><img src="images/icon--plusyellow.svg" data-scroll-speed="0"></div>
-  <div class="plus plus-3 onload animateplus"><img src="images/icon--plusyellow.svg" data-scroll-speed="0.2"></div>
-  <div class="plus plus-4 onload animateplus"><img src="images/icon--plusyellow.svg" data-scroll-speed="2"></div>
+	function loadPage(pwd) {
 
-  <div class="hero--content bottomleft">
-    <h1 class="title xbig white onload animate2" style="margin:0px">The Revolution Starts 2021</h1>
-    <p class="text xbig white onload animate3" style="margin-bottom:40px">This Autumn, Mayku launches a brand new productt o lead the charge as we take back making for the masses. Join us in the new age.</p>
-    <div class="form--email onload animate41">
-    <!--[if lte IE 8]>
-    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-    <![endif]-->
-    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-    <script>
-      hbspt.forms.create({
-      region: "na1",
-      portalId: "9286585",
-      formId: "7b274279-d853-46a6-b01d-ac21a82f2a77"
-    });
-    </script>
-    </div>
-  </div>
-  <img src="images/icon--arrowdown.svg" class="scrollarrow bounce onload animate5">
-  <div class="circletext-revolution spin onload animate6">
-    <img src="images/circletext--revolution.svg">
-  </div>
-  <div class="videobg">
-    <video playsinline autoplay muted loop poster="images/Home_Poster.jpg" id="bgvid">
-    <source src="images/Home_Video.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="videobgmobile">
-    <video playsinline autoplay muted loop poster="images/Home_Poster_Mob.jpg" id="bgvid">
-    <source src="images/Home_Video_Mob.mp4" type="video/mp4">
-    </video>
-  </div>
-</div>
+		var hash= pwd;
+		hash= Sha1.hash(pwd);
+		var url= hash + "/index.html";
 
-<div id="content">
-  <div class="contentwidth">
-    <img class="contentwidth" src="images/image--revolution-min.jpg">
-    <div class="title--pluses">
-      <h1 class="title big white" style="margin:0px;max-width:760px;">The revolution will not be industrialized</h1>
-    </div>
-    <ul class="arrows">
-      <li class="text big white">The Great Industrial Revolution. Chimneys flew up. Production lines erupted into life. Skills swapped for speed. Making was mobilised, mechanised, and centralised. Gone were the days of objects crafted by hand, now things were made by the many.</li>
-      <li class="text big white">It was hailed the world over for taking humanity forward. For launching an empire. But what if it actually took us back? What if handing over control, creativity and choice to the few, the factories; actually set us down a poorer path?</li>
-      <li class="text big white">Today's factories are no different. Sure we've got robots, and wares Victorians couldn't even imagine, But they still stifle creativity, Creativity does not come first, even in creative business.</li>
-      <li class="text big white">After 191 years, isn't it time for a different way? Let’s give back freedom to makers everywhere. Our mission is to lead the charge as we take back making for the masses. Anyone is welcome to join us, people and companies alike.</li>
-      <li class="text big white">It’s time to start the un-industrial revolution.</li>
-    </ul>
-  </div>
-  <div class="circletext-revolution-bottom spin">
-    <img src="images/circletext--revolution.svg">
-  </div>
-  <div class="cta contentwidth">
-    <h1 class="title big white" style="max-width:640px;margin:0px auto 20px;;">Join the Un-Industrial Revolution</h1>
-    <p class="text xbig white" style="max-width:640px;margin:0px auto 40px;;">Sign up to see the what we’re building before anyone else and get one of our first batch of machines when they launch later this year. Oh, and did we mention the first 100 available will be 50% off ;)</p>
-      <div class="form--email">
-      <!--[if lte IE 8]>
-      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-      <![endif]-->
-      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-      <script>
-        hbspt.forms.create({
-        region: "na1",
-        portalId: "9286585",
-        formId: "7b274279-d853-46a6-b01d-ac21a82f2a77"
-      });
-      </script>
-      </div>
-  </div>
-</div>
+		$.ajax({
+			url : url,
+			dataType : "html",
+			success : function(data) {
 
-<div class="banner">
-  <div class="marquee">
-    <p class="title small yellow">REVOLUTION IN PROGRESS  •  REVOLUTION IN PROGRESS  •  REVOLUTION IN PROGRESS  •  REVOLUTION IN PROGRESS  •  REVOLUTION IN PROGRESS  •  REVOLUTION IN PROGRESS</p>
-  </div>
-</div>
+				window.location= url;
 
-<div id="footer">
-  <div class="row contentwidth">
-    <div class="col third">
-      <img class="logo" src="images/logo--mayku.svg" style="margin-bottom:21px;">
-      <div class="divider"></div>
-      <a class="footer--link" href="https://help.mayku.me/hc/en-us" target="_blank" style="margin-top:24px;">Help</a>
-      <a class="footer--link" href="https://www.mayku.me/pages/about" target="_blank">About</a>
-      <a class="footer--link" href="https://www.mayku.me/collections" target="_blank">Materials Store</a>
-      <a class="footer--link" href="https://make.mayku.me/projects" target="_blank">Make</a>
-      <a class="footer--link" href="https://www.mayku.me/pages/careers" target="_blank">Careers</a>
-      <a class="footer--link" href="https://www.mayku.me/blogs/news" target="_blank">Blog</a>
-      <a class="footer--link" href="https://www.mayku.me/pages/become-a-reseller" target="_blank">Become a reseller</a>
-      <a class="footer--link" href="https://www.mayku.me/pages/privacy-and-terms" target="_blank">Privacy & Terms</a>
-      <a class="footer--link" href="https://www.mayku.me/pages/cookie-usage-policy" target="_blank">Cookie policy</a>
-    </div>
-    <div class="col third">
-      <p class="title xsmall white" style="margin: 0 0 24px;">Be the first to know</p>
-      <div class="divider"></div>
-      <p class="text big white" style="margin: 24px 0 24px;">Enter your email address to stay in the loop</p>
-      <img class="placeholder--email" src="images/placeholder--email.png" style="width:407px; max-width:100%;">
-    </div>
-    <div class="col third">
-      <p class="title xsmall white" style="margin: 0 0 24px;">Contact us</p>
-      <div class="divider"></div>
-      <a class="title small white" href="mailto:hello@mayku.me" style="margin-top:24px;margin-bottom:24px;font-size:28px;">hello@mayku.me</a>
-      <p class="text big white">Unit 25 DeBeauvoir Block<br/>London, N14EN</p>
-    </div>
-  </div>
-</div>
+			},
+			error : function(xhr, ajaxOptions, thrownError) {
 
-<script>
-$.fn.moveIt = function(){
-  var $window = $(window);
-  var instances = [];
-  
-  $(this).each(function(){
-    instances.push(new moveItItem($(this)));
-  });
-  
-  window.onscroll = function(){
-    var scrollTop = $window.scrollTop();
-    instances.forEach(function(inst){
-      inst.update(scrollTop);
-    });
-  }
-}
 
-var moveItItem = function(el){
-  this.el = $(el);
-  this.speed = parseInt(this.el.attr('data-scroll-speed'));
-};
+				parent.location.hash= hash;
 
-moveItItem.prototype.update = function(scrollTop){
-  var pos = scrollTop / this.speed;
-  this.el.css('transform', 'translateY(' + -pos + 'px)');
-};
+				//$("#wrongPassword").show();
+				$("#password").attr("placeholder","wrong password");
+				$("#password").val("");
+			}
+		});
+	}
 
-// Initialization
-$(function(){
-  $('[data-scroll-speed]').moveIt();
-});
-</script>
+
+	$("#loginbutton").on("click", function() {
+		loadPage($("#password").val());
+	});
+	$("#password").keypress(function(e) {
+		if (e.which == 13) {
+
+			loadPage($("#password").val());
+		}
+	});
+	$("#password").focus();
+
+	</script>
 
 </body>
 </html>

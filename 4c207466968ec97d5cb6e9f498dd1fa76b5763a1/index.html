@@ -82,6 +82,25 @@ const scroller = new LocomotiveScroll({
 });
 </script>
 
+<script>
+  $(window).on("load",function() {
+  $(window).scroll(function() {
+    var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+    $(".fade").each(function() {
+      /* Check the location of each desired element */
+      var objectBottom = $(this).offset().top + $(this).outerHeight();
+      
+      /* If the element is completely within bounds of the window, fade it in */
+      if (objectBottom < windowBottom) { //object comes into view (scrolling down)
+        if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
+      } else { //object goes out of view (scrolling up)
+        if ($(this).css("opacity")==1) {$(this).fadeTo(500,0);}
+      }
+    });
+  }).scroll(); //invoke scroll-handler on page-load
+});
+</script>
+
 <div id="nav">
   <img class="logo onload animate1" src="images/logo--mayku.svg">
   <div class="socials animate11 onload">
@@ -113,7 +132,7 @@ const scroller = new LocomotiveScroll({
 <div id="hero">
   <div class="hero--content bottomleft">
     <h1 class="title xbig white onload animate2" style="margin:0px">The Revolution Starts 2021</h1>
-    <p class="text xbig white onload animate3" style="margin-bottom:40px">This Autumn, Mayku launches a brand new product to lead the charge as we take back making for the masses. Join us in the new age.</p>
+    <p class="text big white onload animate3" style="margin-bottom:40px;opacity:0.8;">This Autumn, Mayku launches a brand new product to lead the charge as we take back making for the masses. Sign up to join us in the new age of making.</p>
     <div class="form--email onload animate41">
     <!--[if lte IE 8]>
     <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
@@ -146,8 +165,8 @@ const scroller = new LocomotiveScroll({
 
 <main data-scroll-container>
       <section id="info1-header" class="info-header">
-         <p class="text big yellow" style="margin-bottom:20px">1830</p>
-        <h3 class="title xbig white" style="margin:0px;max-width:800px;" data-scroll data-scroll-speed="2">The Great<br/>Industrial Revolution.</h1>
+         <p class="text big yellow fade" style="margin-bottom:20px">1830</p>
+        <h3 class="title xbig white fade" style="margin:0px;max-width:800px;" data-scroll data-scroll-speed="2">The Great<br/>Industrial Revolution</h1>
       </section>
       <section class="tiles tiles--rotated" id="grid2">
         <div class="tiles__wrap">
@@ -194,15 +213,15 @@ const scroller = new LocomotiveScroll({
         </div>
       </section>
       <section id="info2-body" class="info-body">
-        <p class="text xbig white" style="margin-bottom:20px">Making was mobilised, mechanised, and centralised. Gone were the days of hand crafting. Now, things were made by the many.</p>
-        <p class="text xbig white">It was hailed the world over for taking humanity forward. But what if handing over control to the few actually took us back?</p>
+        <p class="text xbig white fade" style="margin-bottom:20px">Making was mobilised, mechanised, and centralised. Gone were the days of hand crafting. Now, things were made by the many.</p>
+        <p class="text xbig white fade">It was hailed the world over for taking humanity forward. But what if handing over control to the few actually took us back?</p>
       </section>
       <section id="reprise" class="info-reprise">
-        <h1 class="title xbig white" style="margin:0px;max-width:1080px;" data-scroll data-scroll-speed="2">After 200 years, isn’t it time to put power into the hands of makers again?</h1>
+        <h1 class="title xbig white fade" style="margin:0px;max-width:1080px;" data-scroll data-scroll-speed="2">After 200 years, isn’t it time to put power into the hands of makers again?</h1>
       </section>
       <section id="info1-header" class="info-header" style="margin-top:0px;">
-         <p class="text big yellow" style="margin-bottom:20px">2021</p>
-        <h3 class="title xbig white" style="margin:0px;max-width:960px;" data-scroll data-scroll-speed="2">It’s time to start the<br/>Un-Industrial Revolution</h1>
+         <p class="text big yellow fade" style="margin-bottom:20px">2021</p>
+        <h3 class="title xbig white fade" style="margin:0px;max-width:960px;" data-scroll data-scroll-speed="2">It’s time to start the<br/>Un-Industrial Revolution</h1>
       </section>
       <section class="tiles tiles--rotated" id="grid2">
         <div class="tiles__wrap">
@@ -249,9 +268,9 @@ const scroller = new LocomotiveScroll({
         </div>
       </section>
       <section id="info2-body" class="info-body">
-        <p class="text xbig white" style="margin-bottom:20px">This Autumn, we’re launching something that will give back freedom to makers everywhere.</p>
-        <p class="text xbig white" style="margin-bottom:20px">It will de-centralise creation, allowing you to create scalable production lines on your desktop.</p>
-        <p class="text xbig white">Join us, as we lead the charge to take back making for the masses.</p>
+        <p class="text xbig white fade" style="margin-bottom:20px">This Autumn, we’re launching something that will give back freedom to makers everywhere.</p>
+        <p class="text xbig white fade" style="margin-bottom:20px">It will de-centralise creation, allowing you to create scalable production lines on your desktop.</p>
+        <p class="text xbig white fade">Join us, as we lead the charge to take back making for the masses.</p>
       </section>
   </main>
 
@@ -274,7 +293,7 @@ const scroller = new LocomotiveScroll({
   </div>
 
 <section id="makers-header" class="info-header" style="padding-top:320px;">
-  <h3 class="title xbig white" style="margin:0px;max-width:1080px;" data-scroll data-scroll-speed="2">Meet the makers leading the un-industrial revolution</h1>
+  <h3 class="title xbig white fade" style="margin:0px;max-width:1080px;" data-scroll data-scroll-speed="2">Meet the makers leading the un-industrial revolution</h1>
 </section>
 
 <section id="maker-evkahome" class="row maker leftimage">
@@ -355,7 +374,7 @@ const scroller = new LocomotiveScroll({
       </div>
   </div>
   
-  <img src="images/image--machineplinth.jpg" class="width" style="width:100%;">
+  <img src="images/image--machineplinth.jpg" class="width fade" style="width:100%;">
 
 <div id="footer">
   <div class="row">

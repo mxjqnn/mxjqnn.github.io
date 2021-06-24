@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Mayku Multiplier</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/base.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -17,6 +18,8 @@
     <meta name="robots" content="noindex">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="shortcut icon" href="//cdn.shopify.com/s/files/1/1373/5663/files/MK_006_Favicon_32x32.png?v=1508782101" type="image/png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"/> 
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"/>
 </head>
 
 <body>
@@ -65,6 +68,20 @@ $(window).scroll(function() {
 });
 </script>
 
+<script src="js/locomotive-scroll.min.js"></script>
+<script>
+    (function () {
+        var scroll = new LocomotiveScroll();
+    })();
+</script>
+
+<script>
+const scroller = new LocomotiveScroll({
+  el: document.querySelector('[data-scroll-container]'),
+  smooth: true
+});
+</script>
+
 <div id="nav">
   <img class="logo onload animate1" src="images/logo--mayku.svg">
   <div class="socials animate11 onload">
@@ -76,7 +93,7 @@ $(window).scroll(function() {
 
 <div id="fixedcta" class="slidein">
   <div class="contentwidth row" style="align-items: center;">
-    <p class="title xsmall black">Stay updated on the un-industrial revolution:</p>
+    <p class="title tiny black">Stay updated on the un-industrial revolution:</p>
     <div class="form--email">
     <!--[if lte IE 8]>
     <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
@@ -94,11 +111,6 @@ $(window).scroll(function() {
 </div>
 
 <div id="hero">
-  <div class="plus plus-1 onload animateplus"><img src="images/icon--plusyellow.svg" data-scroll-speed="3"></div>
-  <div class="plus plus-2 onload animateplus"><img src="images/icon--plusyellow.svg" data-scroll-speed="0"></div>
-  <div class="plus plus-3 onload animateplus"><img src="images/icon--plusyellow.svg" data-scroll-speed="0.2"></div>
-  <div class="plus plus-4 onload animateplus"><img src="images/icon--plusyellow.svg" data-scroll-speed="2"></div>
-
   <div class="hero--content bottomleft">
     <h1 class="title xbig white onload animate2" style="margin:0px">The Revolution Starts 2021</h1>
     <p class="text xbig white onload animate3" style="margin-bottom:40px">This Autumn, Mayku launches a brand new product to lead the charge as we take back making for the masses. Join us in the new age.</p>
@@ -132,26 +144,120 @@ $(window).scroll(function() {
   </div>
 </div>
 
-<div id="content">
-  <div class="contentwidth">
-    <img class="contentwidth" src="images/image--revolution-min.jpg">
-    <div class="title--pluses">
-      <h1 class="title big white" style="margin:0px;max-width:760px;">The revolution will not be industrialized</h1>
-    </div>
-    <ul class="arrows">
-      <li class="text big white">The Great Industrial Revolution. Chimneys flew up. Production lines erupted into life. Skills swapped for speed. Making was mobilised, mechanised, and centralised. Gone were the days of objects crafted by hand, now things were made by the many.</li>
-      <li class="text big white">It was hailed the world over for taking humanity forward. For launching an empire. But what if it actually took us back? What if handing over control, creativity and choice to the few, the factories; actually set us down a poorer path?</li>
-      <li class="text big white">Today's factories are no different. Sure we've got robots, and wares Victorians couldn't even imagine, But they still stifle creativity, Creativity does not come first, even in creative business.</li>
-      <li class="text big white">After 191 years, isn't it time for a different way? Let’s give back freedom to makers everywhere. Our mission is to lead the charge as we take back making for the masses. Anyone is welcome to join us, people and companies alike.</li>
-      <li class="text big white">It’s time to start the un-industrial revolution.</li>
-    </ul>
-  </div>
-  <div class="circletext-revolution-bottom spin">
-    <img src="images/circletext--revolution.svg">
-  </div>
-  <div class="cta contentwidth">
-    <h1 class="title big white" style="max-width:640px;margin:0px auto 20px;;">Join the Un-Industrial Revolution</h1>
-    <p class="text xbig white" style="max-width:640px;margin:0px auto 40px;;">Sign up to see the what we’re building before anyone else and get one of our first batch of machines when they launch later this year. Oh, and did we mention the first 100 available will be 50% off ;)</p>
+<main data-scroll-container>
+      <section id="info1-header" class="info-header">
+         <p class="text big yellow" style="margin-bottom:20px">1830</p>
+        <h3 class="title xbig white" style="margin:0px;max-width:800px;" data-scroll data-scroll-speed="2">The Great<br/>Industrial Revolution.</h1>
+      </section>
+      <section class="tiles tiles--rotated" id="grid2">
+        <div class="tiles__wrap">
+          <div class="tiles__line" data-scroll data-scroll-speed="1" data-scroll-target="#grid2" data-scroll-direction="horizontal">
+            <div class="tiles__line-img"></div>
+            <div class="tiles__line-img"></div>
+            <div class="tiles__line-img"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/4.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/5.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/6.jpg)"></div>
+          </div>
+          <div class="tiles__line" data-scroll data-scroll-speed="-1" data-scroll-target="#grid2" data-scroll-direction="horizontal">
+            <div class="tiles__line-img"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/8.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/9.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/10.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/11.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/12.jpg)"></div>
+          </div>
+          <div class="tiles__line" data-scroll data-scroll-speed="1" data-scroll-target="#grid2" data-scroll-direction="horizontal">
+            <div class="tiles__line-img" style="background-image:url(img/demo1/13.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/14.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/15.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/16.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/17.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/18.jpg)"></div>
+          </div>
+          <div class="tiles__line" data-scroll data-scroll-speed="-1" data-scroll-target="#grid2" data-scroll-direction="horizontal">
+            <div class="tiles__line-img" style="background-image:url(img/demo1/19.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/20.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/21.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/22.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/23.jpg)"></div>
+            <div class="tiles__line-img"></div>
+          </div>
+          <div class="tiles__line" data-scroll data-scroll-speed="1" data-scroll-target="#grid2" data-scroll-direction="horizontal">
+            <div class="tiles__line-img"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/26.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/27.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/28.jpg)"></div>
+            <div class="tiles__line-img"></div>
+            <div class="tiles__line-img"></div>
+          </div>
+        </div>
+      </section>
+      <section id="info2-body" class="info-body">
+        <p class="text xbig white" style="margin-bottom:20px">Making was mobilised, mechanised, and centralised. Gone were the days of hand crafting. Now, things were made by the many.</p>
+        <p class="text xbig white">It was hailed the world over for taking humanity forward. But what if handing over control to the few actually took us back?</p>
+      </section>
+      <section id="reprise" class="info-reprise">
+        <h1 class="title xbig white" style="margin:0px;max-width:1080px;" data-scroll data-scroll-speed="2">After 200 years, isn’t it time to put power into the hands of makers again?</h1>
+      </section>
+      <section id="info1-header" class="info-header" style="margin-top:0px;">
+         <p class="text big yellow" style="margin-bottom:20px">2021</p>
+        <h3 class="title xbig white" style="margin:0px;max-width:880px;" data-scroll data-scroll-speed="2">It’s time to start the<br/>Un-Industrial Revolution</h1>
+      </section>
+      <section class="tiles tiles--rotated" id="grid2">
+        <div class="tiles__wrap">
+          <div class="tiles__line" data-scroll data-scroll-speed="1" data-scroll-target="#grid2" data-scroll-direction="horizontal">
+            <div class="tiles__line-img"></div>
+            <div class="tiles__line-img"></div>
+            <div class="tiles__line-img"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/4.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/5.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/6.jpg)"></div>
+          </div>
+          <div class="tiles__line" data-scroll data-scroll-speed="-1" data-scroll-target="#grid2" data-scroll-direction="horizontal">
+            <div class="tiles__line-img"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/8.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/9.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/10.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/11.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/12.jpg)"></div>
+          </div>
+          <div class="tiles__line" data-scroll data-scroll-speed="1" data-scroll-target="#grid2" data-scroll-direction="horizontal">
+            <div class="tiles__line-img" style="background-image:url(img/demo1/13.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/14.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/15.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/16.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/17.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/18.jpg)"></div>
+          </div>
+          <div class="tiles__line" data-scroll data-scroll-speed="-1" data-scroll-target="#grid2" data-scroll-direction="horizontal">
+            <div class="tiles__line-img" style="background-image:url(img/demo1/19.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/20.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/21.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/22.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/23.jpg)"></div>
+            <div class="tiles__line-img"></div>
+          </div>
+          <div class="tiles__line" data-scroll data-scroll-speed="1" data-scroll-target="#grid2" data-scroll-direction="horizontal">
+            <div class="tiles__line-img"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/26.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/27.jpg)"></div>
+            <div class="tiles__line-img" style="background-image:url(img/demo1/28.jpg)"></div>
+            <div class="tiles__line-img"></div>
+            <div class="tiles__line-img"></div>
+          </div>
+        </div>
+      </section>
+      <section id="info2-body" class="info-body">
+        <p class="text xbig white" style="margin-bottom:20px">This Autumn, we’re launching something that will give back freedom to makers everywhere.</p>
+        <p class="text xbig white" style="margin-bottom:20px">It will de-centralise creation, allowing you to create scalable production lines on your desktop.</p>
+        <p class="text xbig white">Join us, as we lead the charge to take back making for the masses.</p>
+      </section>
+  </main>
+
+  <div class="cta width">
+    <h2 class="title xbig black" style="max-width:840px;margin:0px auto 20px;;">Join the Un-Industrial Revolution</h1>
+    <p class="text xbig black" style="max-width:840px;margin:0px auto 40px;opacity:0.8;">Sign up to see the what we’re building before anyone else and get one of our first batch of machines when they launch later this year. Oh, and did we mention the first 100 available will be 50% off ;)</p>
       <div class="form--email">
       <!--[if lte IE 8]>
       <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
@@ -166,76 +272,117 @@ $(window).scroll(function() {
       </script>
       </div>
   </div>
-</div>
 
-<div class="banner">
-  <div class="marquee">
-    <p class="title small yellow">REVOLUTION IN PROGRESS  •  REVOLUTION IN PROGRESS  •  REVOLUTION IN PROGRESS  •  REVOLUTION IN PROGRESS  •  REVOLUTION IN PROGRESS  •  REVOLUTION IN PROGRESS</p>
+<section id="makers-header" class="info-header" style="padding-top:320px;">
+  <h3 class="title xbig white" style="margin:0px;max-width:1080px;" data-scroll data-scroll-speed="2">Meet the makers leading the un-industrial revolution</h1>
+</section>
+
+<section id="maker-evkahome" class="row maker leftimage">
+  <div class="col half makerphoto" style="background-image: url('images/makerimage--evkahome.jpg')">
   </div>
-</div>
+  <div class="col half makerinfo">
+    <h3 class="title small yellow" data-scroll data-scroll-speed="2"style="margin: 0px;">Evka Home</h1>
+    <p class="text big white">Masters of unique, conversation starting homeware, Evka Home produce their extensive product range completely in house.</p>
+    <p class="text small instagram grey">evkahome</p>
+    <p class="title xsmall white quote">It’s a total creativity game changer.</p>
+    <div class="attribution">
+      <img src="images/makerphoto--evkahome.png">
+      <p class="text small white">Ewa Leffman<br/>Founder @ Evka Home</p>
+      <p 
+  </div>
+</section>
+
+<section id="maker-evkahome" class="row maker rightimage">
+  <div class="col half makerphoto" style="background-image: url('images/makerimage--evkahome.jpg')">
+  </div>
+  <div class="col half makerinfo">
+    <h3 class="title small yellow" data-scroll data-scroll-speed="2"style="margin: 0px;">Evka Home</h1>
+    <p class="text big white">Masters of unique, conversation starting homeware, Evka Home produce their extensive product range completely in house.</p>
+    <p class="text small instagram grey">evkahome</p>
+    <p class="title xsmall white quote">It’s a total creativity game changer.</p>
+    <div class="attribution">
+      <img src="images/makerphoto--evkahome.png">
+      <p class="text small white">Ewa Leffman<br/>Founder @ Evka Home</p>
+      <p 
+  </div>
+</section>
+
+<section id="maker-evkahome" class="row maker leftimage">
+  <div class="col half makerphoto" style="background-image: url('images/makerimage--evkahome.jpg')">
+  </div>
+  <div class="col half makerinfo">
+    <h3 class="title small yellow" data-scroll data-scroll-speed="2"style="margin: 0px;">Evka Home</h1>
+    <p class="text big white">Masters of unique, conversation starting homeware, Evka Home produce their extensive product range completely in house.</p>
+    <p class="text small instagram grey">evkahome</p>
+    <p class="title xsmall white quote">It’s a total creativity game changer.</p>
+    <div class="attribution">
+      <img src="images/makerphoto--evkahome.png">
+      <p class="text small white">Ewa Leffman<br/>Founder @ Evka Home</p>
+      <p 
+  </div>
+</section>
+
+<section id="maker-evkahome" class="row maker rightimage">
+  <div class="col half makerphoto" style="background-image: url('images/makerimage--evkahome.jpg')">
+  </div>
+  <div class="col half makerinfo">
+    <h3 class="title small yellow" data-scroll data-scroll-speed="2"style="margin: 0px;">Evka Home</h1>
+    <p class="text big white">Masters of unique, conversation starting homeware, Evka Home produce their extensive product range completely in house.</p>
+    <p class="text small instagram grey">evkahome</p>
+    <p class="title xsmall white quote">It’s a total creativity game changer.</p>
+    <div class="attribution">
+      <img src="images/makerphoto--evkahome.png">
+      <p class="text small white">Ewa Leffman<br/>Founder @ Evka Home</p>
+      <p 
+  </div>
+</section>
+
+  <div class="cta width" style="margin-top:200px;">
+    <h2 class="title xbig black" style="max-width:840px;margin:0px auto 20px;;">Join the Un-Industrial Revolution</h1>
+    <p class="text xbig black" style="max-width:840px;margin:0px auto 40px;opacity:0.8;">Sign up to see the what we’re building before anyone else and get one of our first batch of machines when they launch later this year. Oh, and did we mention the first 100 available will be 50% off ;)</p>
+      <div class="form--email">
+      <!--[if lte IE 8]>
+      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+      <![endif]-->
+      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+      <script>
+        hbspt.forms.create({
+        region: "na1",
+        portalId: "9286585",
+        formId: "7b274279-d853-46a6-b01d-ac21a82f2a77"
+      });
+      </script>
+      </div>
+  </div>
+  
+  <img src="images/image--machineplinth.jpg" class="width" style="width:100%;">
 
 <div id="footer">
-  <div class="row contentwidth">
+  <div class="row">
     <div class="col third">
       <img class="logo" src="images/logo--mayku.svg" style="margin-bottom:21px;">
       <div class="divider"></div>
-      <a class="footer--link" href="https://help.mayku.me/hc/en-us" target="_blank" style="margin-top:24px;">Help</a>
-      <a class="footer--link" href="https://www.mayku.me/pages/about" target="_blank">About</a>
-      <a class="footer--link" href="https://www.mayku.me/collections" target="_blank">Materials Store</a>
-      <a class="footer--link" href="https://make.mayku.me/projects" target="_blank">Make</a>
-      <a class="footer--link" href="https://www.mayku.me/pages/careers" target="_blank">Careers</a>
-      <a class="footer--link" href="https://www.mayku.me/blogs/news" target="_blank">Blog</a>
-      <a class="footer--link" href="https://www.mayku.me/pages/become-a-reseller" target="_blank">Become a reseller</a>
+      <a class="footer--link" href="https://www.mayku.me" target="_blank" style="margin-top:24px;">Main site</a>
+      <a class="footer--link" href="https://help.mayku.me/hc/en-us" target="_blank">Help</a>
       <a class="footer--link" href="https://www.mayku.me/pages/privacy-and-terms" target="_blank">Privacy & Terms</a>
       <a class="footer--link" href="https://www.mayku.me/pages/cookie-usage-policy" target="_blank">Cookie policy</a>
     </div>
     <div class="col third">
-      <p class="title xsmall white" style="margin: 0 0 24px;">Be the first to know</p>
+      <p class="title tiny white" style="margin: 0 0 24px;">Be the first to know</p>
       <div class="divider"></div>
-      <p class="text big white" style="margin: 24px 0 24px;">Enter your email address to stay in the loop</p>
+      <p class="text small white" style="margin: 24px 0 24px;">Enter your email address to stay in the loop</p>
       <img class="placeholder--email" src="images/placeholder--email.png" style="width:407px; max-width:100%;">
     </div>
     <div class="col third">
-      <p class="title xsmall white" style="margin: 0 0 24px;">Contact us</p>
+      <p class="title tiny white" style="margin: 0 0 24px;">Contact us</p>
       <div class="divider"></div>
       <a class="title small white" href="mailto:hello@mayku.me" style="margin-top:24px;margin-bottom:24px;font-size:28px;">hello@mayku.me</a>
-      <p class="text big white">Unit 25 DeBeauvoir Block<br/>London, N14EN</p>
+      <p class="text small white">Unit 25 DeBeauvoir Block<br/>London, N14EN</p>
     </div>
   </div>
 </div>
 
-<script>
-$.fn.moveIt = function(){
-  var $window = $(window);
-  var instances = [];
-  
-  $(this).each(function(){
-    instances.push(new moveItItem($(this)));
-  });
-  
-  window.onscroll = function(){
-    var scrollTop = $window.scrollTop();
-    instances.forEach(function(inst){
-      inst.update(scrollTop);
-    });
-  }
-}
-
-var moveItItem = function(el){
-  this.el = $(el);
-  this.speed = parseInt(this.el.attr('data-scroll-speed'));
-};
-
-moveItItem.prototype.update = function(scrollTop){
-  var pos = scrollTop / this.speed;
-  this.el.css('transform', 'translateY(' + -pos + 'px)');
-};
-
-// Initialization
-$(function(){
-  $('[data-scroll-speed]').moveIt();
-});
-</script>
+<script src="js/index.js"></script>
 
 </body>
 </html>

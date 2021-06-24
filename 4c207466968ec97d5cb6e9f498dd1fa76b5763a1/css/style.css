@@ -229,7 +229,7 @@ img.socialicon:hover {
 
 .hero--content.bottomleft {
   width:100%;
-  max-width: 720px;
+  max-width: 840px;
   padding:0 20px;
   position:absolute;
   left:40px;
@@ -370,7 +370,7 @@ img.scrollarrow {
 }
 
 .info-body p {
-  max-width:720px;
+  max-width:780px;
 }
 
 .info-reprise {
@@ -536,6 +536,10 @@ li {
 
 /* FORMS */
 
+.hero--content .form--email {
+  max-width:100%;
+}
+
 .form--email {
     max-width: 640px;
     position: relative;
@@ -620,6 +624,15 @@ input[type=submit] {
     font-family: 'Avant Garde', sans-serif;
     transition-duration:.2s;
     height:60px;
+}
+
+.cta input[type=submit] {
+  color: #FDD32F;
+  background: #000;
+}
+
+.cta input[type=submit]:hover {
+  background: #2F2F2F;
 }
 
 input[type=submit]:hover {

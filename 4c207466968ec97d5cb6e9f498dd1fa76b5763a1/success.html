@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mayku Multiplier</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/base.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Mayku" />
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <meta property="og:title" content="Mayku Multiplier" />
+    <meta property='og:image' content=''/>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:description" content=""/>
+    <meta name="robots" content="noindex">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="shortcut icon" href="//cdn.shopify.com/s/files/1/1373/5663/files/MK_006_Favicon_32x32.png?v=1508782101" type="image/png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"/> 
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"/>
+</head>
+
+<body>
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
+<script>
+$(function() {
+  $('.onload').addClass('animate');
+});
+</script>
+
+<script>
+  $(window).on("load",function() {
+  $(window).scroll(function() {
+    var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+    $(".fade").each(function() {
+      /* Check the location of each desired element */
+      var objectBottom = $(this).offset().top + $(this).outerHeight();
+      
+      /* If the element is completely within bounds of the window, fade it in */
+      if (objectBottom < windowBottom) { //object comes into view (scrolling down)
+        if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
+      } else { //object goes out of view (scrolling up)
+        if ($(this).css("opacity")==1) {$(this).fadeTo(500,0);}
+      }
+    });
+  }).scroll(); //invoke scroll-handler on page-load
+});
+</script>
+
+<div id="nav">
+  <img class="logo onload animate1 animate" src="images/logo--mayku.svg">
+  <div class="socials animate11 onload animate">
+    <a href="https://www.facebook.com/TeamMayku/" target="_blank"><img class="socialicon" src="images/icon--facebook.svg"></a>
+    <a href="https://twitter.com/TeamMayku" target="_blank"><img class="socialicon" src="images/icon--twitter.svg"></a>
+    <a href="https://www.instagram.com/teammayku/?hl=en" target="_blank"><img class="socialicon" src="images/icon--instagram.svg"></a>
+  </div>
+</div>
+
+<section id="content" class="row">
+  <div class="col half col--rightpadding">
+    <h3 class="title xbig white fade" style="margin:40px 0px 0px 0px;max-width:1080px;" data-scroll data-scroll-speed="2">Don't miss the big reveal</h1>
+    <p class="text big white">Want to know what’s going on before anyone else? Join Co-Founders Ben and Alex at the exclusive reveal event to find out exactly what's coming.</p>
+    <div class="row">
+      <div class="col half">
+        <ul><li>
+        <p class="text big yellow" style="margin-block-end: 0px;margin-block-start: 0px;">Date:</p>
+        <p class="text big grey" style="margin-block-end: 0px;margin-block-start: 0px;">7th September</p>
+      </li></ul>
+      </div>
+      <div class="col half">
+        <ul><li>
+        <p class="text big yellow" style="margin-block-end: 0px;margin-block-start: 0px;">Time:</p>
+        <p class="text big grey" style="margin-block-end: 0px;margin-block-start: 0px;">3pm BST</p>
+        </li></ul>
+      </div>
+      <div class="col half">
+        <ul><li>
+        <p class="text big yellow" style="margin-block-end: 0px;margin-block-start: 0px;">Location:</p>
+        <p class="text big grey" style="margin-block-end: 0px;margin-block-start: 0px;">Online</p>
+        </li></ul>
+      </div>
+    </div>
+    <p class="text big white">Complete the form to secure your spot. Can’t make it? Register to access the video recording.</p>
+  </div>
+  <div class="col half bigform">
+    <p class="text big white">Welcome to the revolution!</p>
+    <p class="text big white">Over the next few weeks, we'll be dropping sneak peaks of what's coming. Then, we'll send you a secret access link for the reveal event.</p>
+    <p class="text big white">In the meantime, share on socials to help lead the charge.</p>
+    <div class="socialbuttons">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Frevolution.mayku.me%2F&amp%3Bsrc=sdkpreparse" class="button outline"><span class="twitter">Share on Twitter</span></a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Frevolution.mayku.me%2F&amp%3Bsrc=sdkpreparse" class="button outline"><span class="facebook">Share on Facebook</span></a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Frevolution.mayku.me%2F&amp%3Bsrc=sdkpreparse" class="button outline"><span class="instagram">Share on Instagram</span></a>
+    </div>
+  </div>
+</section>
+
+<img src="images/image--machineplinth.jpg" class="width" style="width:100%;">
+
+<div id="footer">
+  <div class="row">
+    <div class="col third">
+      <img class="logo" src="images/logo--mayku.svg" style="margin-bottom:21px;">
+      <div class="divider"></div>
+      <a class="footer--link" href="https://www.mayku.me" target="_blank" style="margin-top:24px;">Main site</a>
+      <a class="footer--link" href="https://help.mayku.me/hc/en-us" target="_blank">Help</a>
+      <a class="footer--link" href="https://www.mayku.me/pages/become-a-reseller" target="_blank">Become a reseller</a>
+      <a class="footer--link" href="https://www.mayku.me/pages/privacy-and-terms" target="_blank">Privacy & Terms</a>
+      <a class="footer--link" href="https://www.mayku.me/pages/cookie-usage-policy" target="_blank">Cookie policy</a>
+    </div>
+    <div class="col third">
+      <p class="title tiny white" style="margin: 0 0 24px;">Be the first to know</p>
+      <div class="divider"></div>
+      <p class="text small white" style="margin: 24px 0 24px;">Enter your email address to stay in the loop</p>
+      <div class="form--email">
+        <!--[if lte IE 8]>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+          region: "na1",
+          portalId: "9286585",
+          formId: "7b274279-d853-46a6-b01d-ac21a82f2a77"
+        });
+        </script>
+    </div>
+    </div>
+    <div class="col third">
+      <p class="title tiny white" style="margin: 0 0 24px;">Contact us</p>
+      <div class="divider"></div>
+      <a class="title small white" href="mailto:hello@mayku.me" style="margin-top:24px;margin-bottom:24px;font-size:28px;">hello@mayku.me</a>
+      <p class="text small white">Unit 25 DeBeauvoir Block<br/>London, N14EN</p>
+    </div>
+  </div>
+</div>
+
+<script src="js/index.js"></script>
+
+</body>
+</html>

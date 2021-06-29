@@ -383,6 +383,16 @@ img.scrollarrow {
   animation: bounce 2s infinite;
 }
 
+#content {
+  opacity:0;
+  transition-duration: 1s;
+}
+#content.animate {
+  opacity:1;
+}
+
+
+
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
     transform: translateY(0);

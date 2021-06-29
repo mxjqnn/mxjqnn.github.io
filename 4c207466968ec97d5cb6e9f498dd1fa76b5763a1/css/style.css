@@ -635,6 +635,10 @@ ul.no-list.hs-error-msgs.inputs-list {
     display: none !important;
 }
 
+.bigform ul.no-list.hs-error-msgs.inputs-list {
+    display: block !important;
+}
+
 button, input, optgroup, select, textarea {
     font-family: inherit;
     font-size: inherit;

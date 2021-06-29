@@ -784,6 +784,10 @@ input[type=submit]:hover {
     width: 50%;
 }
 
+.col--rightpadding {
+   padding-right:80px;
+}
+
 .col.third {
     width: 33%;
     padding: 20px;

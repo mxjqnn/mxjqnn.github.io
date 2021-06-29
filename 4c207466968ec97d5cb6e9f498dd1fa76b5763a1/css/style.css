@@ -627,8 +627,11 @@ input#invited_user_1-eeee45f3-d186-44e3-960e-b2cdcf19a778, input#invited_user_2-
     width: 100% !important;
 }
 
-.field {
-    padding-right: 20px;
+fieldset.form-columns-2 .field:first-of-type {
+    padding-right: 10px;
+}
+fieldset.form-columns-2 .field:last-of-type {
+    padding-left: 10px;
 }
 
 ul.no-list.hs-error-msgs.inputs-list {

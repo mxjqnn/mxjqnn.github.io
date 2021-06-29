@@ -556,6 +556,12 @@ form {
   margin: auto;
 }
 
+.bigform form {
+  display:block;
+  max-width: 100%;
+  margin: auto;
+}
+
 .field {
   width: 100%;
 }
@@ -566,6 +572,10 @@ form {
 
 .hbspt-form label {
     display: none;
+}
+
+.bigform .hbspt-form label {
+    display: block;
 }
 
 input[type=email] {
@@ -584,6 +594,27 @@ input[type=email] {
 }
 
 input[type=email]:active, input[type=email]:focus, input[type=email]:hover {
+    border:1px solid #fdd32f;
+}
+
+.bigform input[type=email], .bigform input[type=text], .bigform input[type=tel], .bigform input[type=number], .bigform select {
+    border: 1px solid #daddde;
+    color: #000;
+    width: 100%;
+    height: auto;
+    padding: 12px 20px;
+    border-radius: 100px;
+    background-color: #fff;
+    font-size: 18px;
+    line-height: 1;
+    -webkit-transition: border-color .2s ease;
+    -o-transition: border-color .2s ease;
+    transition: border-color .2s ease;
+    margin-top:8px;
+    margin-bottom:20px;
+}
+
+.bigform input[type=email]:active, .bigform input[type=text]:active, .bigform input[type=tel]:active, .bigform input[type=number]:active, .bigform select:active {
     border:1px solid #fdd32f;
 }
 

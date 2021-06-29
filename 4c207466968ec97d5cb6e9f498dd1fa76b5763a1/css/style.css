@@ -610,7 +610,7 @@ input[type=email]:active, input[type=email]:focus, input[type=email]:hover {
     -webkit-transition: border-color .2s ease;
     -o-transition: border-color .2s ease;
     transition: border-color .2s ease;
-    margin-top:8px;
+    margin-top:12px;
     margin-bottom:20px;
 }
 
@@ -619,11 +619,15 @@ input[type=email]:active, input[type=email]:focus, input[type=email]:hover {
 }
 
 fieldset.form-columns-1, fieldset.form-columns-2 {
-    max-width: 100%;
+    max-width: 100% !important;
 }
 
 .hs-form-eeee45f3-d186-44e3-960e-b2cdcf19a778_304a2427-9577-4d73-99ec-144375013442 fieldset.form-columns-1 .hs-input {
-    width: 100%;
+    width: 100% !important;
+}
+
+input#invited_user_1-eeee45f3-d186-44e3-960e-b2cdcf19a778, input#invited_user_2-eeee45f3-d186-44e3-960e-b2cdcf19a778, input#invited_user_3-eeee45f3-d186-44e3-960e-b2cdcf19a778 {
+    margin-bottom: 4px;
 }
 
 .field {

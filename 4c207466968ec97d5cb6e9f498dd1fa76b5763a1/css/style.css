@@ -639,6 +639,20 @@ ul.no-list.hs-error-msgs.inputs-list {
     display: block !important;
 }
 
+.bigform .hs_error_rollup {
+    display: none;
+}
+
+ul.no-list.hs-error-msgs.inputs-list {
+    margin-top: -8px;
+}
+ul.no-list.hs-error-msgs.inputs-list li {
+    padding: 0px;
+}
+ul.no-list.hs-error-msgs.inputs-list li label.hs-error-msg {
+    opacity: 0.6;
+}
+
 button, input, optgroup, select, textarea {
     font-family: inherit;
     font-size: inherit;

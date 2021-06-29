@@ -152,8 +152,6 @@ img.socialicon:hover {
 
 .socialbuttons {
     margin-top: 40px;
-    display: flex;
-    justify-content: space-between;
 }
 
 a.button.outline {

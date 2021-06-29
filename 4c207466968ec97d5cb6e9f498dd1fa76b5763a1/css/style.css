@@ -618,6 +618,18 @@ input[type=email]:active, input[type=email]:focus, input[type=email]:hover {
     border:1px solid #fdd32f;
 }
 
+fieldset.form-columns-1, fieldset.form-columns-2 {
+    max-width: 100%;
+}
+
+.hs-form-eeee45f3-d186-44e3-960e-b2cdcf19a778_304a2427-9577-4d73-99ec-144375013442 fieldset.form-columns-1 .hs-input {
+    width: 100%;
+}
+
+.field {
+    padding-right: 20px;
+}
+
 ul.no-list.hs-error-msgs.inputs-list {
     display: none !important;
 }
@@ -660,6 +672,12 @@ input[type=submit] {
     font-family: 'Avant Garde', sans-serif;
     transition-duration:.2s;
     height:60px;
+}
+
+.bigform input[type=submit] {
+    display: inline-block;
+    position: inherit;
+    margin-top: 20px;
 }
 
 .cta input[type=submit] {

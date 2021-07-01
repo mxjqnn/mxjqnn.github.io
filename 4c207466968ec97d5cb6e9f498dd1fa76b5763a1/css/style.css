@@ -1300,6 +1300,19 @@ fieldset.form-columns-2 .field:last-of-type {
 
 }
 
+@media only screen and (max-width:560px) {
+
+input[type=submit] {
+    display: block;
+    position: inherit;
+    width: 100%;
+    margin-top:8px;
+}
+
+form {
+    display: block;
+}
+
 @media (pointer:none), (pointer:coarse) {
 .mobileonly {
   display: inline-block !important;

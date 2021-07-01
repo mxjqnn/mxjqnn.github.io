@@ -1015,6 +1015,7 @@ html.has-scroll-dragging {
 
 .hero--content.bottomleft {
   left: 0px;
+  width:100%;
 }
 
 .info-header {
@@ -1152,6 +1153,10 @@ html.has-scroll-dragging {
   padding: 0 20px;
 }
 
+.hero--content.bottomleft {
+  left: 0px;
+}
+
 #content {
   padding: 120px 20px;
 }
@@ -1182,6 +1187,21 @@ fieldset.form-columns-2 .field:first-of-type {
 }
 fieldset.form-columns-2 .field:last-of-type {
     padding-left: 6px;
+}
+
+.width {
+    width: calc(100% - 40px);
+}
+
+.cta {
+  padding:60px 20px 80px;
+}
+
+.cta .text.xbig {
+    font-size: 20px;
+}
+.cta .title.xbig {
+    font-size: 48px;
 }
 
 }

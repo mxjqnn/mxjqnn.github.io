@@ -609,6 +609,11 @@ li {
     position: relative;
 }
 
+#fixedcta .form--email {
+  margin: 8px 0;
+}
+}
+
 .cta .form--email {
     margin: auto;
 }
@@ -1005,6 +1010,10 @@ html.has-scroll-dragging {
   margin-top: 40px;
 }
 
+#fixedcta .title.tiny {
+  font-size: 20px;
+}
+
 }
 
 @media only screen and (max-width: 960px) {
@@ -1083,6 +1092,10 @@ html.has-scroll-dragging {
     padding: 40px 20px;
 }
 
+#fixedcta {
+  transform:translateY(90px);
+}
+
 }
 
 @media only screen and (max-width: 840px) {
@@ -1135,6 +1148,14 @@ html.has-scroll-dragging {
 }
 .title.small {
   font-size:40px;
+}
+
+#fixedcta .title.tiny {
+  margin-bottom:8px;
+}
+
+#fixedcta {
+  transform:translateY(129px);
 }
 
 }

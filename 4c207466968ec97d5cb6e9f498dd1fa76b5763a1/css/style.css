@@ -1186,6 +1186,10 @@ html.has-scroll-dragging {
   padding: 120px 20px;
 }
 
+.row.maker {
+  padding: 0px 20px;
+}
+
 .title.xbig {
     font-size: 64px;
 }

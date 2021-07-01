@@ -1298,9 +1298,6 @@ fieldset.form-columns-2 .field:last-of-type {
 }
 
 @media (pointer:none), (pointer:coarse) {
-.desktoponly {
-  display: none;
-}
 .mobileonly {
   display: inline-block !important;
 }

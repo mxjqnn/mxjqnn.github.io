@@ -1095,6 +1095,10 @@ html.has-scroll-dragging {
   transform:translateY(90px);
 }
 
+#footer {
+  padding:80px 80px 130px;
+}
+
 }
 
 @media only screen and (max-width: 840px) {
@@ -1155,6 +1159,10 @@ html.has-scroll-dragging {
 
 #fixedcta {
   transform:translateY(129px);
+}
+
+#footer {
+  padding:80px 80px 200px;
 }
 
 }

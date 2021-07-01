@@ -1330,6 +1330,11 @@ form, #footer form {
 }
 }
 
+@media only screen and (max-height:760px) {
+.hero--content.bottomleft {
+  top:120px;
+}
+
 
 @media (pointer:none), (pointer:coarse) {
 .mobileonly {

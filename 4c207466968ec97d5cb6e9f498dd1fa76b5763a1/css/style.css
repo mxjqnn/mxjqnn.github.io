@@ -470,6 +470,17 @@ img.scrollarrow {
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
+/* VIDEO */
+
+.video {
+    width: 100%;
+    padding: 200px 80px 0;
+}
+
+video {
+    width: 100%;
+}
+
 /* CONTENT */
 
 .info-header {
@@ -1109,6 +1120,10 @@ html.has-scroll-dragging {
   padding: 120px 40px;
 }
 
+.video {
+    padding: 200px 40px 0;
+}
+
 .maker.leftimage .col.half.makerinfo {
     padding: 80px 0px 80px 40px;
 }
@@ -1238,6 +1253,10 @@ html.has-scroll-dragging {
 
 .info-reprise {
     padding: 200px 20px;
+}
+
+.video {
+    padding: 200px 20px 0;
 }
 
 .hero--content.bottomleft {

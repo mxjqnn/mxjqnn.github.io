@@ -477,8 +477,10 @@ img.scrollarrow {
     padding: 200px 80px 0;
 }
 
-video {
+.video video {
     width: 100%;
+    max-height:80vh;
+    margin:auto;
 }
 
 /* CONTENT */

@@ -154,7 +154,11 @@ img.socialicon:hover {
 }
 
 .socialbuttons {
-    margin-top: 40px;
+    margin-top: 24px;
+}
+
+.socialbuttons a {
+    margin-top: 16px;
 }
 
 a.button.outline {

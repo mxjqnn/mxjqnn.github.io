@@ -116,6 +116,10 @@ a {
 .white {
   color: #fff;
 }
+.darkgrey {
+  color: #fff;
+  opacity:0.9;
+}
 .grey {
   color: #fff;
   opacity:60%;

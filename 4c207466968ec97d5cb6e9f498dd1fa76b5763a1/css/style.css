@@ -851,6 +851,9 @@ input[type=submit]:hover {
 
 .col.third {
     width: 33%;
+}
+
+#footer .col.third {
     padding: 20px;
 }
 
@@ -984,7 +987,7 @@ html.has-scroll-dragging {
 }
 
 .earlybreak .col--rightpadding {
-    padding-right: 40px;
+    padding-right: 0px;
 }
 
 .earlybreak .col.half:last-child {
@@ -1025,6 +1028,10 @@ html.has-scroll-dragging {
 
 .row.maker {
     padding: 0px 40px;
+}
+
+#content {
+  padding: 120px 40px;
 }
 
 .maker.leftimage .col.half.makerinfo {
@@ -1113,6 +1120,10 @@ html.has-scroll-dragging {
 
 .hero--content.bottomleft {
   padding: 0 20px;
+}
+
+#content {
+  padding: 120px 20px;
 }
 
 }

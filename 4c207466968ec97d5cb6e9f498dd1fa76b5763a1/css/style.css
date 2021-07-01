@@ -246,7 +246,7 @@ a.button.outline:hover {
   display: inline-block;
   width: 32px;
   height: 32px;
-  background-image: url(../images/icon-email--yellow.svg);
+  background-image: url(../images/icon--email--yellow.svg);
   background-size: cover;
   margin-right: 12px;
   margin-bottom: -9px;

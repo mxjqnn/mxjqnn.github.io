@@ -1151,7 +1151,7 @@ html.has-scroll-dragging {
 }
 
 #footer {
-  padding:80px 80px 130px;
+  padding:80px 40px 130px;
 }
 
 }
@@ -1217,7 +1217,7 @@ html.has-scroll-dragging {
 }
 
 #footer {
-  padding:80px 80px 200px;
+  padding:80px 40px 200px;
 }
 
 }
@@ -1293,6 +1293,9 @@ fieldset.form-columns-2 .field:last-of-type {
 }
 .cta .title.xbig {
     font-size: 48px;
+}
+#footer {
+  padding:80px 20px 200px;
 }
 
 }

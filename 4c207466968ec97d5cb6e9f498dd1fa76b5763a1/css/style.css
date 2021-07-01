@@ -1220,6 +1220,10 @@ html.has-scroll-dragging {
   padding:80px 40px 200px;
 }
 
+.hero--content.bottomleft {
+  bottom:40px;
+}
+
 }
 
 @media only screen and (max-width: 640px) {

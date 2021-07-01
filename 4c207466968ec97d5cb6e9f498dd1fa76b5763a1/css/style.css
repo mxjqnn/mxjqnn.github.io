@@ -971,6 +971,22 @@ html.has-scroll-dragging {
   display:none;
 }
 
+.row.earlybreak {
+  flex-direction:column;
+}
+
+.earlybreak .col.half {
+  width:100%;
+}
+
+.earlybreak .col--rightpadding {
+    padding-right: 40px;
+}
+
+.earlybreak .col.half:last-child {
+  margin-top: 40px;
+}
+
 }
 
 @media only screen and (max-width: 960px) {
@@ -1036,6 +1052,10 @@ html.has-scroll-dragging {
     display: flex;
 }
 
+.col--rightpadding {
+    padding-right: 40px;
+}
+
 }
 
 @media only screen and (max-width: 840px) {
@@ -1065,6 +1085,10 @@ html.has-scroll-dragging {
 
 .maker.rightimage .col.half.makerinfo {
     padding: 40px 0px 80px 0px;
+}
+
+.col--rightpadding {
+    padding-right: 0px;
 }
 
 }

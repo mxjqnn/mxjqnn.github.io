@@ -117,8 +117,7 @@ a {
   color: #fff;
 }
 .darkgrey {
-  color: #fff;
-  opacity:0.9;
+  color: #ccc;
 }
 .grey {
   color: #fff;
@@ -620,6 +619,10 @@ form {
   position:relative;
 }
 
+#fixedcta form {
+    min-width: 480px;
+}
+
 .bigform form {
   display:block;
   max-width: 100%;
@@ -699,6 +702,10 @@ fieldset.form-columns-2 .field:first-of-type {
 }
 fieldset.form-columns-2 .field:last-of-type {
     padding-left: 10px;
+}
+
+fieldset .input {
+    margin-right: 0px !important;
 }
 
 ul.no-list.hs-error-msgs.inputs-list {
@@ -1067,6 +1074,10 @@ html.has-scroll-dragging {
     padding-right: 40px;
 }
 
+.col.half.bigform {
+    padding: 40px 20px;
+}
+
 }
 
 @media only screen and (max-width: 840px) {
@@ -1077,9 +1088,18 @@ html.has-scroll-dragging {
 .col.half.makerphoto {
   width:100%;
 }
+.col.third {
+    width: 100%;
+}
+.latebreak .col.third {
+    width: 33%;
+}
 
 .row {
   flex-direction:column;
+}
+.row.latebreak {
+  flex-direction:row;
 }
 
 .row.maker.rightimage {
@@ -1100,6 +1120,16 @@ html.has-scroll-dragging {
 
 .col--rightpadding {
     padding-right: 0px;
+}
+
+.text.big {
+  font-size:20px;
+}
+.text.xbig {
+  font-size:28px;
+}
+.title.small {
+  font-size:40px;
 }
 
 }
@@ -1124,6 +1154,34 @@ html.has-scroll-dragging {
 
 #content {
   padding: 120px 20px;
+}
+
+.title.xbig {
+    font-size: 64px;
+}
+
+.row.latebreak {
+  flex-direction:column;
+}
+
+.latebreak .col.third {
+    width: 33%;
+}
+
+.latebreak .col.third p {
+  display: inline-block;
+}
+
+.latebreak .col.third ul {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+fieldset.form-columns-2 .field:first-of-type {
+    padding-right: 6px;
+}
+fieldset.form-columns-2 .field:last-of-type {
+    padding-left: 6px;
 }
 
 }

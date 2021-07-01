@@ -988,7 +988,7 @@ html.has-scroll-dragging {
 }
 
 .info-header {
-  padding: 240px ​40px 120p;
+  padding: 240px ​40px 120px;
 }
 
 .info-body {
@@ -1032,15 +1032,59 @@ html.has-scroll-dragging {
     margin-top: 0px;
 }
 
- input[type=submit] {
-    display: block;
-    position: inherit;
-    width: 100%;
-    margin-top:8px;
-}
-
 #footer form {
     display: flex;
+}
+
+}
+
+@media only screen and (max-width: 840px) {
+
+.col.half {
+  width:100%;
+}
+.col.half.makerphoto {
+  width:100%;
+}
+
+.row {
+  flex-direction:column;
+}
+
+.row.maker.rightimage {
+  flex-direction:column;
+}
+
+.col.half.makerphoto {
+  height:480px;
+}
+
+.maker.leftimage .col.half.makerinfo {
+    padding: 40px 0px 80px 0px;
+}
+
+.maker.rightimage .col.half.makerinfo {
+    padding: 40px 0px 80px 0px;
+}
+
+}
+
+@media only screen and (max-width: 640px) {
+
+.info-header {
+  padding: 240px ​20px 120px;
+}
+
+.info-body {
+    padding: 200px 20px;
+}
+
+.info-reprise {
+    padding: 200px 20px;
+}
+
+.hero--content.bottomleft {
+  padding: 0 20px;
 }
 
 }

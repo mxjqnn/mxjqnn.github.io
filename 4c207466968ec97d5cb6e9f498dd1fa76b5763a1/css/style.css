@@ -1245,6 +1245,10 @@ html.has-scroll-dragging {
 
 @media only screen and (max-width: 640px) {
 
+#nav {
+  padding: 32px 20px;
+}
+
 .info-header {
   padding: 240px 20px 120px;
 }
@@ -1351,6 +1355,10 @@ form, #footer form {
 }
 #fixedcta .form--email {
   width:100%;
+}
+
+#content {
+    padding: 80px 20px;
 }
 }
 

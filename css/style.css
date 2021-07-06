@@ -764,6 +764,7 @@ input#invited_user_1-eeee45f3-d186-44e3-960e-b2cdcf19a778, input#invited_user_2-
     margin-bottom: 4px;
     width: 100% !important;
     background-color: transparent;
+    color: #fff;
 }
 
 fieldset.form-columns-2 .field:first-of-type {

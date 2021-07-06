@@ -619,6 +619,7 @@ li {
 
 .attribution img {
   width:80px;
+  height: 80px;
   margin-right:24px;
 }
 
@@ -1250,15 +1251,15 @@ html.has-scroll-dragging {
 }
 
 .info-header {
-  padding: 240px 20px 120px;
+  padding: 120px 20px 120px;
 }
 
 .info-body {
-    padding: 200px 20px;
+    padding: 120px 20px;
 }
 
 .info-reprise {
-    padding: 200px 20px;
+    padding: 120px 20px;
 }
 
 .video {
@@ -1315,6 +1316,7 @@ fieldset.form-columns-2 .field:last-of-type {
 
 .cta {
   padding:60px 20px 80px;
+  margin-top: 120px !important;
 }
 
 .cta .text.xbig {
@@ -1325,6 +1327,10 @@ fieldset.form-columns-2 .field:last-of-type {
 }
 #footer {
   padding:80px 20px 200px;
+}
+img.morefoot--image {
+    width: 140% !important;
+    margin-left: -20%;
 }
 
 }

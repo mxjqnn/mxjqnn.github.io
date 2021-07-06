@@ -1333,6 +1333,17 @@ img.morefoot--image {
     margin-left: -20%;
 }
 
+.videobgmobile {
+  display:block;
+}
+.videobgmobile video {
+  height:100%;
+}
+
+.videobg {
+  display:none;
+}
+
 }
 
 @media only screen and (max-width:560px) {
@@ -1366,6 +1377,7 @@ form, #footer form {
 #content {
     padding: 80px 20px;
 }
+
 }
 
 @media only screen and (max-height:760px) {

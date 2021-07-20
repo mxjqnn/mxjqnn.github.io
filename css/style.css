@@ -574,6 +574,15 @@ li {
     display: block;
     background-size: cover;
     background-position: center;
+    position:relative;
+}
+
+.image--attribution {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    color: #000;
+    opacity: 0.4;
 }
 
 .maker.leftimage .col.half.makerinfo {

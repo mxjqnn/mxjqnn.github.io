@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Contact | Max Quinn | Freelance Digital Product Designer</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
+<meta name="description" content="A London based freelance digital product designer with clients including Jaguar Land Rover, InMotion Ventures, Ve Interactive and Alexandra Palace."/>
+<meta name="keywords" content="Product Design, Digital, UX, UI, User Experience, User Interface, London, Design, App Design, Website Design, Design Strategy, Startup" />
+<meta name="author" content="Max Quinn" />
+<meta property="og:title" content="Max Quinn | Freelance Digital Product Designer" />
+<meta property='og:image' content="https://maxjquinn.com/images/MaxJQuinn_ShareImage.jpg"/>
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maxjquinn.com" />
+<meta property="og:description" content="A London based freelance digital product designer with clients including Jaguar Land Rover, InMotion Ventures, Ve Interactive and Alexandra Palace."/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<link rel="stylesheet" href="form.css" >
+<script src="form.js"></script>
+
+</head>
+
+<body>
+
+<div class="nav">
+	<div class="nav--logo"><a href="index"><img class="img--logo" src="images/logo_gradient.png"></a></div>
+	<div class="nav--menu">
+		<a class="nav--text" href="index">WORK</a>
+		<span class="gold">/</span>
+		<a class="nav--text" href="about">ABOUT</a>
+		<span class="gold">/</span>
+		<a class="nav--text current" href="contact">CONTACT</a>
+	</div>
+</div>
+
+<div class="hero">
+	<p class="label--primary container--small">Max Quinn</p>
+	<h1 class="title--big container--small">I'm always looking for new challenges. Get in touch and <span class="highlight contact">let's build something</span>.</h1>
+</div>
+
+<div class="form">
+	<form role="form" method="post" id="reused_form">
+	<input class="field left form-control" input type="text" id="name" name="name" required maxlength="50" placeholder="Name *" required><input class="field right" type="text" name="company" placeholder="Company"><input class="field left" type="text" name="email" placeholder="Email *" required><input class="field right" type="text" name="tel" placeholder="Telephone">
+	<textarea class="field--message" type="text" name="message" id="message" size="100" placeholder="What do you want to achieve, solve or discuss? *" required></textarea><br><br>
+	<input class="button--submit" type="submit" value="SUBMIT">
+	</form>
+	<div id="success_message" style="width:100%; height:100%; display:none; "> <h3>Thanks! I've received your message and will be in touch within 2 working days.</h3></div>
+    <div id="error_message" style="width:100%; height:100%; display:none; "> <h3>Error</h3> Sorry there was an error sending your form. Please try again.</div>
+</div>
+
+<div class="footer">
+	<div class="footer--text">
+		<p class="p--footer">HAND-CODED WITH ❤, ☾ AND ♫ IN LDN.</p>
+	</div>
+	<div class="footer--social">
+		<a href="https://dribbble.com/maxquinn" target="_blank"><img class="icon--social" src="images/icon_dribbble.svg"></a>
+		<a href="http://twitter.com/mxjqnn" target="_blank"><img class="icon--social" src="images/icon_twitter.svg"></a>
+		<a href="https://www.instagram.com/maxquinnstagram/" target="_blank"><img class="icon--social" src="images/icon_instagram.svg"></a>
+		<a href="https://www.linkedin.com/in/max-quinn/" target="_blank"><img class="icon--social" src="images/icon_linkedin.svg"></a>
+		<a href="http://brokenculture.tumblr.com/" target="_blank"><img class="icon--social" src="images/icon_tumblr.svg"></a>
+		<a href="https://medium.com/@maxjquinn/" target="_blank"><img class="icon--social" src="images/icon_medium.svg"></a>
+	</div>
+</div>
+
+<script>
+$(document).ready(function() {
+  $('.highlight').addClass('in-view');
+});
+</script>
+
+<script>
+var $animation_elements = $('.animationelement');
+var $window = $(window);
+
+function check_if_in_view() {
+  var window_height = $window.height();
+  var window_top_position = $window.scrollTop();
+  var window_bottom_position = (window_top_position + window_height);
+ 
+  $.each($animation_elements, function() {
+    var $element = $(this);
+    var element_height = $element.outerHeight();
+    var element_top_position = $element.offset().top;
+    var element_bottom_position = (element_top_position + element_height);
+ 
+    //check to see if this current container is within viewport
+    if ((element_bottom_position >= window_top_position) &&
+        (element_top_position <= window_bottom_position)) {
+      $element.addClass('in-view');
+    }
+  });
+}
+
+$window.on('scroll resize', check_if_in_view);
+$window.trigger('scroll');
+</script>
+</body>
+</html>

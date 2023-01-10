@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_medium</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home" transform="translate(-1350.000000, -3507.000000)" fill="#203A4B" fill-rule="nonzero">
+            <g id="Footer" transform="translate(60.000000, 3507.000000)">
+                <g id="Social" transform="translate(1080.000000, 0.000000)">
+                    <g id="icon_medium" transform="translate(210.000000, 0.000000)">
+                        <g id="if_53-medium_843778" transform="translate(7.200000, 8.400000)">
+                            <path d="M10.8,10.9430163 L15.57588,13.1905267 C15.584346,13.1944965 15.5920133,13.1975339 15.5986582,13.2 C15.5994569,13.193504 15.6,13.1855345 15.6,13.1765725 L15.6,3.6 L10.8,10.9430163 Z" id="Shape"></path>
+                            <polygon id="Shape" points="10.3609025 0 7.2 5.18821301 10.2398577 10.2 15 2.35300202"></polygon>
+                            <polygon id="Shape" points="5.4 8.16935041 9.6 10.2 5.4 3.6"></polygon>
+                            <path d="M0,10.763084 C0,10.8325981 0.0714468082,10.9429766 0.136423901,10.9740039 L4.77626734,13.1906383 C4.78478995,13.1945613 4.792255,13.1980385 4.79869362,13.2 C4.79950233,13.1935806 4.8,13.1857049 4.8,13.1768187 L4.8,2.89301378 L0.000248835205,0.6 L0,10.763084 Z" id="Shape"></path>
+                        </g>
+                        <path d="M15,30 C6.71572836,30 0,23.2842716 0,15 C0,6.71572836 6.71572836,0 15,0 C23.2842716,0 30,6.71572836 30,15 C30,23.2842716 23.2842716,30 15,30 Z M15,28.2 C22.2901591,28.2 28.2,22.2901591 28.2,15 C28.2,7.70984094 22.2901591,1.8 15,1.8 C7.70984094,1.8 1.8,7.70984094 1.8,15 C1.8,22.2901591 7.70984094,28.2 15,28.2 Z" id="Oval-1"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

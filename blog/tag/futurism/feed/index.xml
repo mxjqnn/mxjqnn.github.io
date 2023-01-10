@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Futurism Archives - Blog | Max Quinn</title>
+	<atom:link href="/tag/futurism/feed/?simply_static_page=145" rel="self" type="application/rss+xml" />
+	<link>/tag/futurism/</link>
+	<description>Freelance Digital Product Designer</description>
+	<lastBuildDate>Fri, 08 May 2020 17:45:45 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>1: Regnosis</title>
+		<link>/regnosis/</link>
+					<comments>/regnosis/#respond</comments>
+		
+		<dc:creator><![CDATA[Max]]></dc:creator>
+		<pubDate>Fri, 08 May 2020 17:30:04 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[Design]]></category>
+		<category><![CDATA[Futurism]]></category>
+		<category><![CDATA[Product]]></category>
+		<category><![CDATA[Strategy]]></category>
+		<guid isPermaLink="false">/?p=28</guid>
+
+					<description><![CDATA[<p>Futurist is a job title shrouded in mystery. In short, it&#8217;s the study of trends in an effort to predict the future. It&#8217;s something everyone does to an extent, whether consciously or subconsciously. From the small decisions of when to have a barbecue during an English summer right up to company decisions of what markets [&#8230;]</p>
+<p>The post <a rel="nofollow" href="/regnosis/">1: Regnosis</a> appeared first on <a rel="nofollow" href="">Blog | Max Quinn</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<p><em>Futurist</em> is a job title shrouded in mystery. In short, it&#8217;s the study of trends in an effort to predict the future. It&#8217;s something everyone does to an extent, whether consciously or subconsciously. From the small decisions of when to have a barbecue during an English summer right up to company decisions of what markets to go after and what products to build.</p>
+
+
+
+<p>For product managers, strategists and designers it&#8217;s even more essential to have an idea of how the world might change, it&#8217;s what enables us to build products for it. But while we all think loosely about what the future might hold, it&#8217;s rare that we really dedicate the time and effort to create diligent predictions. What&#8217;s more, like a designer with no knowledge of the human interface guidelines or a product manager trying to prioritise without data, we operate without frameworks that can help us synthesise information and understand our thoughts.</p>
+
+
+
+<p>As such, the term <em>futurism</em> still comes with an intimidating cloak of blade-runner esque cool. So what do these mystic people know that the rest of us don&#8217;t, what enables them to be so good at predicting the future that they can make a job title out of it? Well, perhaps the difference between lay-people and practitioners is no different to many other fields: focused effort, tools and structure. </p>
+
+
+
+<hr class="wp-block-separator"/>
+
+
+
+<h3>Enter &#8216;Regnosis&#8217;&#8230;</h3>
+
+
+
+<p>One of those tools for thinking about the future is the idea of Regnosis, something I came across in the work of German trend forecaster <a href="https://www.horx.com/">Matthias Horx</a>. While a traditional prognosis looks forward, from the present to the future, a regnosis takes a somewhat counter intuitive approach. It looks backwards, <em>from</em> the future.</p>
+
+
+
+<p>If we are to take a date in the future, say a year from now, and metaphorically position ourselves there, how will today look? What will we be desperate to tell our past selves? What will have surprised us most in the last year?</p>
+
+
+
+<p>Thinking into the future can be a daunting task, cripplingly so. But by placing ourselves in the future to start with, we create a more natural bridge between today and tomorrow. As Horx puts it, we &#8220;<em>form a loop of knowledge in which we include ourselves and our inner change in the future&#8230; If you do it right, something like future intelligence is created.&#8221;</em></p>
+
+
+
+<p>This bridge, and the inclusion of our &#8216;inner change&#8217;, helps us take a different view. Rather than be paralysed by problems, we take a view on how they effected us or what change they instigated. Rather than just uncover opportunities, we take a view of what we gained from them.</p>
+
+
+
+<p>Try it for a minute. Ask yourself the question: <em>If I was looking back from a year today, what would have surprised me in the last year?</em> You may notice that your answers are somewhat different to if you had asked yourself simply what will surprise you the next year. Perhaps problems seem more surmountable &#8211; our experience of looking forwards shows us that there will always be hurdles, but our experience of looking backwards shows us that we have always navigated them with reasonable success. Perhaps what comes to mind is completely different.</p>
+
+
+
+<hr class="wp-block-separator"/>
+
+
+
+<h3>So how can we use this in practice?</h3>
+
+
+
+<p>As product people, we can apply Regnosis to make more diligent predictions, spot issues or opportunities we wouldn&#8217;t have otherwise and prioritise more effectively</p>
+
+
+
+<p><strong>To focus strategy discussions</strong>, try casting your mind into various futures. One might be the dream scenario, your company has achieved all of it&#8217;s growth targets and is quickly becoming a market leader. Another might be a nightmare scenario, you&#8217;ve struggled to find product market fit and are quickly burning your capital. In both cases, what has surprised you? What&#8217;s had to happen to make those outcomes possible? For the ideal scenario, these are the things you need to ensure you are positioned to make the most of. For the nightmare scenario, these are the things you need to work around.</p>
+
+
+
+<p><strong>To improve execution</strong>, try applying it to upcoming projects or features. Again, take an ideal scenario; the project has been completed and is a great success. And then try a nightmare scenario, the project hit insurmountable blockers or didn&#8217;t achieve it&#8217;s purpose. You can use these answers to uncover edge cases, implementation issues and risky dependencies that must be accounted for or even replaced.</p>
+
+
+
+<p><strong>To improve our predictions.</strong> An essential part of making predictions of this nature is to check their accuracy, learn from failures and analyse patterns. We can do this by using the exact same questions. Set yourself up for success by looking at trends of the past: what has surprised you most in the last year? How about the year before that? And when you reach your eventual future, how do the results differ from your predictions? Only by asking these questions regularly, both before the fact and afterwards, can we start to get better at predicting the future. As well as kick-offs and strategic workshops, use them as part of retro&#8217;s and post-mortems to bring structure to your discussion, test your original predictions and uncover common patterns.</p>
+
+
+
+<p>The novelty of the exercise, and the core question it poses, frees up our minds in a way that enables us to think differently, while still providing enough structure to create synthesised results that a team can rally around. And the regularity with which we can carry it out provides the kind of evolving log &#8211; of predictions we made and the realities that came to be &#8211; that is essential for pattern recognition.</p>
+
+
+
+<hr class="wp-block-separator"/>
+
+
+
+<p>I&#8217;m sure this is only one of many tools in a true futurist&#8217;s locker, and it&#8217;s no silver bullet &#8211; you still need to do the thinking and balance it with other methods. But it&#8217;s one that provides a new lens with which to think about the direction of your product or company and the effectiveness of your execution. People often say there&#8217;s no accounting for experience, but all too often we meander through that experience without learning from it. The structure and focused effort of tools such as regnosis can help supercharge the relationship between experience and effectiveness.</p>
+<p>The post <a rel="nofollow" href="/regnosis/">1: Regnosis</a> appeared first on <a rel="nofollow" href="">Blog | Max Quinn</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/regnosis/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

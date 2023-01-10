@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>research Archives - Blog | Max Quinn</title>
+	<atom:link href="/tag/research/feed/?simply_static_page=153" rel="self" type="application/rss+xml" />
+	<link>/tag/research/</link>
+	<description>Freelance Digital Product Designer</description>
+	<lastBuildDate>Fri, 14 Aug 2020 13:35:31 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>2: Building a learning machine</title>
+		<link>/building-a-learning-machine-part-1/</link>
+					<comments>/building-a-learning-machine-part-1/#respond</comments>
+		
+		<dc:creator><![CDATA[Max]]></dc:creator>
+		<pubDate>Wed, 12 Aug 2020 18:23:34 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[Design]]></category>
+		<category><![CDATA[Product]]></category>
+		<category><![CDATA[research]]></category>
+		<category><![CDATA[startups]]></category>
+		<category><![CDATA[Strategy]]></category>
+		<guid isPermaLink="false">/?p=36</guid>
+
+					<description><![CDATA[<p>In the startup world, one of the most common tropes is the idea of learning from users. Gathering insight and implementing it into your product is essential to building the right thing, and building it well. The problem? It&#8217;s often much harder to do than it sounds, particularly in early stage companies moving quickly with [&#8230;]</p>
+<p>The post <a rel="nofollow" href="/building-a-learning-machine-part-1/">2: Building a learning machine</a> appeared first on <a rel="nofollow" href="">Blog | Max Quinn</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<p>In the startup world, one of the most common tropes is the idea of learning from users. Gathering insight and implementing it into your product is essential to building the right thing, and building it well. The problem? It&#8217;s often much harder to do than it sounds, particularly in early stage companies moving quickly with little process and even less resource.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" width="702" height="79" src="/wp-content/uploads/2020/08/illu-insightquestioning.svg" alt="" class="wp-image-63"/></figure>
+
+
+
+<p>Having worked in a wide range of startups worldwide, I&#8217;ve noticed a few common themes that prevent companies from really leveraging user insight&#8230;</p>
+
+
+
+<p></p>
+
+
+
+<h3>Problem 1: Effort &amp; Resource</h3>
+
+
+
+<p>Where moving quickly is essential, everything becomes about balancing resource and effort with quality or scope. For that reason, a large amount of strategy work in early stage companies boils down to a simple question: What is good enough?</p>
+
+
+
+<p>ie: What does a minimum viable product need to do? How polished does our brand need to be? How scalable should our engineering processes be? etc.</p>
+
+
+
+<p>Understanding users is no different, and it&#8217;s a hard balance to strike. The question becomes: When do we know enough about users to have confidence in our general direction?</p>
+
+
+
+<p>To simplify, there are generally two schools of thought&#8230;</p>
+
+
+
+<figure class="wp-block-table"><table><tbody><tr><td><h4>Design Thinking</h4></td><td><h4>Lean startup</h4></td></tr><tr><td>Often advocated by design and research agencies, the type of research implemented in effective design thinking involves in depth, largely up front research.</td><td>Advocates of the lean startup aim to ship products as quickly as possible and then learn from them in the wild. They live by the mantra of &#8216;move fast and break things&#8217;.</td></tr><tr><td><strong>Methods:</strong> Interviews and focus groups, ethnographic studies, prototype testing, co-designing with users, task diaries, surveys.</td><td><strong>Methods:</strong> Product analytics, metric tracking, user surveys, ad-hoc customer learnings, user testing, NPS score.</td></tr><tr><td><strong>Pros:</strong> In depth understanding. Discover what to build, not just how.</td><td><strong>Pros:</strong> Beat competitors to market. Learn from real, active users.</td></tr><tr><td><strong>Cons:</strong> Time and effort. Expertise required. Insights generated in bulk after a long timeframe. </td><td><strong>Cons:</strong> Risk building the wrong things or for the wrong people. Reduce effectiveness of design. Create product debt.</td></tr></tbody></table></figure>
+
+
+
+<p>On one end of the scale, design research is in depth and can provide more confidence in decisions, but is expensive, cumbersome and to product people looks a lot like &#8216;the dreaded waterfall&#8217;. On the other, a narrative based on speed has lowered the bar to a dangerous level where companies risk building the wrong things ineffectively. What&#8217;s more, the &#8216;learn&#8217; phase too often gets lost in the melee of running a live product.</p>
+
+
+
+<p></p>
+
+
+
+<h3>Problem 2: The Insight → Product Gap</h3>
+
+
+
+<p>All too often in both of the above approaches, the process of collecting learnings and generating insights stops there. People sit back with a smile on their face, pleased at developing all this insight and doing what they&#8217;ve read startups should do. Then they store their learnings in a document buried on a drive somewhere and promptly forget about them. Or even worse, they are stored only in people&#8217;s heads.</p>
+
+
+
+<p>Companies often seem to be lacking a clear process of how to actually incorporate learnings into product development and ensure they have a measurable impact. Without this, it&#8217;s hard to tie them to business goals and product metrics, or know how to prioritise them</p>
+
+
+
+<p>What&#8217;s more, there&#8217;s also a gap in the other direction. Learning is too often haphazard and self directed, rather than aimed at specific product goals and issues. This misses the fact that learning should be a cyclical process, one that aims for constant growth of understanding and refinement of product. It should also be as much about understanding how well you are solving problems or taking opportunities as it is about gathering the learnings you need to do those things.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="637" height="378" src="/wp-content/uploads/2020/08/illu-researchproductgap.svg" alt="" class="wp-image-65"/></figure>
+
+
+
+<p></p>
+
+
+
+<h3>Problem 3: The narrow lens</h3>
+
+
+
+<p>When talking about generating product insights, different team members often focus on different things. Designers focus on learning from users, product managers on analytics, business leads on business goals, developers on engineering metrics such as uptime, load time etc.</p>
+
+
+
+<p>That&#8217;s ok, we have specialism for a reason. The problem comes when these are looked at too separately, with completely different work-streams and systems. It makes it difficult to see the connections between them all and even more difficult to prioritise them. They end up battling with each other for space in a product&#8217;s roadmap, rather than building upon each other in harmony.</p>
+
+
+
+<p>To be clear, all of these approaches can generate great and equally important insights. If looked at together, they&#8217;re also often much more connected than they first appear to be.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="640" height="253" src="/wp-content/uploads/2020/08/illu-blockage.svg" alt="" class="wp-image-66"/></figure>
+
+
+
+<p></p>
+
+
+
+<h3>Introducing the learning machine</h3>
+
+
+
+<p>As a product design &amp; strategy consultant, the most valuable work I&#8217;ve done in companies has been all about trying to solve these problems. It&#8217;s led me to develop what I call <em>The Learning Machine,</em> a framework that aims to develop a process and culture of both learning, action and measurement within a company or product team.</p>
+
+
+
+<p>It has the following goals and benefits&#8230;</p>
+
+
+
+<ol><li><strong>Input agnostic<br></strong>Combine inputs from a wide range of sources and data types, particularly those that are already generating useful (but often unused) data<br></li><li><strong>Agile<br></strong>Provide an agile process that is constantly generating actionable insights<br></li><li><strong>Connected<br></strong>Ensure insights move into the product development process in a logical way<br></li><li><strong>Cyclical<br></strong>Provide a cyclical system that creates a framework for digging deeper into learnings and re-evaluating them after product improvements<br></li><li><strong>Analytical<br></strong>Provide a framework for measuring the impact of our actions</li></ol>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="640" height="347" src="/wp-content/uploads/2020/08/illu-condensedlearning.svg" alt="" class="wp-image-73"/></figure>
+
+
+
+<p>The learning machine is a system based around gathering learnings, distilling the patterns in them to uncover what&#8217;s important, and then finding ways we can act on them and measuring the effectiveness of those actions. Over the course of my working life it&#8217;s become an all encompassing framework for looking at the development of products.</p>
+
+
+
+<p>It combines elements of design, product strategy and business to move away from the concept of purely &#8216;user centricity&#8217; and towards the wider idea of &#8216;insight centricity&#8217; &#8211; the difference being that useful insights can come from lots of different places.</p>
+
+
+
+<p>It&#8217;s a step by step process to show how this can actually be implemented on the ground in fast moving companies, particularly in the world of early stage startups.</p>
+
+
+
+<p></p>
+
+
+
+<h3>What to expect from this series</h3>
+
+
+
+<p style="padding:0px;">Over the next two posts in this series, I&#8217;ll cover the following things:</p>
+
+
+
+<figure class="wp-block-table"><table><tbody><tr><td><h4>Part 2: Generating insights</h4></td></tr><tr><td><strong>1. Collecting &amp; organising learning<br></strong>Where to look for learnings and how to manage a large amount of data from different sources.</td></tr><tr><td><strong>2. <strong>Generating insights<br></strong></strong>How to move from data to useful insight.</td></tr><tr><td><strong>3. Prioritising insights<br></strong>How to prioritise insights and understand where to focus.</td></tr></tbody></table></figure>
+
+
+
+<figure class="wp-block-table"><table><tbody><tr><td><h4>Part 3: Taking action &amp; measuring effect</h4></td></tr><tr><td><strong>1. Develop hypothesis<br></strong>How to start defining the action that an insight leads to</td></tr><tr><td><strong>2. Prioritise hypothesis<br></strong>How to prioritise the multiple actions you could take</td></tr><tr><td><strong>3. Evaluation &amp; continuation<br></strong>How to know if you&#8217;re moving the needle and what to do next</td></tr></tbody></table></figure>
+
+
+
+<p>It&#8217;s important to note I will be spending very little time (if any) on software and tools. This is a system of thinking that can be implemented using many tool-stacks, dependent on the individual and company preference. Instead, this series will encourage you to think about products in a new way and understand the practical process to implement this thinking.</p>
+
+
+
+<p>With that in mind, sign up below to be notified when I publish <em>Part 2: Generating Insights</em>.</p>
+
+
+
+<div id="mc_embed_signup">
+<h3>Sign up for articles straight to your inbox</h3>
+<form action="https://maxjquinn.us16.list-manage.com/subscribe/post?u=91299ba70dc87e5deb25816bd&amp;id=7c26487202" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+    <div id="mc_embed_signup_scroll">
+	
+<div class="mc-field-group">
+	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Enter your email">
+</div>
+	<div id="mce-responses" class="clear">
+		<div class="response" id="mce-error-response" style="display:none"></div>
+		<div class="response" id="mce-success-response" style="display:none"></div>
+	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_91299ba70dc87e5deb25816bd_7c26487202" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button button--submit"></div>
+    </div>
+</form>
+</div>
+<p>The post <a rel="nofollow" href="/building-a-learning-machine-part-1/">2: Building a learning machine</a> appeared first on <a rel="nofollow" href="">Blog | Max Quinn</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/building-a-learning-machine-part-1/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

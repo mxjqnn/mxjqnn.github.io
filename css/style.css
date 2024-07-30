@@ -204,7 +204,7 @@ a .title--med {
   font-size: 12px;
   text-transform:uppercase;
   letter-spacing: 1px;
-  opacity: 0.4;
+  opacity: 0.8;
   margin-top: 12px;
   font-weight: 400 !important;
 }
@@ -510,11 +510,28 @@ a.tile--right {
 }
 
 .tile--image--outer {
-  width: 100%;
-  height: 480px;
-  padding-bottom: 30px;
-  transition: all 1.5s ease-in-out;
-  overflow: hidden !important;
+    width: 100%;
+    height: 480px;
+    margin-bottom: 30px;
+    transition: all 1.5s ease-in-out;
+    overflow: hidden !important;
+    position: relative;
+}
+
+.tile--comingsoon {
+  position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 32px;
+    background-color: rgba(00, 00, 00, 0.6);
+    color: #F5F5F5;
+    border-radius: 100px;
+    z-index:999;
+}
+
+.comingsoon {
+  cursor: default !important;
 }
 
 .tile--image--middleman {
@@ -532,7 +549,24 @@ a.tile--right {
   transition: all 1.5s ease-in-out;
 }
 
-
+.tile--image--inner.conductor {
+  background-image: url("../images/tile--conductor.jpg");
+}
+.tile--image--inner.onehouse {
+  background-image: url("../images/tile--onehouse.jpg");
+}
+.tile--image--inner.mayku {
+  background-image: url("../images/tile--mayku.jpg");
+}
+.tile--image--inner.rwl {
+  background-image: url("../images/tile--rwl.jpg");
+}
+.tile--image--inner.etcho {
+  background-image: url("../images/tile--etcho.jpg");
+}
+.tile--image--inner.jarvo {
+  background-image: url("../images/tile--jarvo.jpg");
+}
 .tile--image--inner.chosen {
   background-image: url("../images/tile--chosen.jpg");
 }

@@ -428,11 +428,20 @@ hr.wp-block-separator {
   padding: 18px 60px;
   display:flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .nav.small {
   align-items: center;
+}
+
+.nav--menu {
+  display:flex;
+  align-items:center;
+}
+
+.nav--links.mobile {
+  display:none;
 }
 
 img.img--logo {
@@ -449,10 +458,31 @@ img.img--logo {
 } 
 }
 
+@media only screen and (max-width: 860px) { 
+.nav .gold {
+  padding: 0px 4px;
+}
+}
+
+@media only screen and (max-width: 780px) { 
+.nav--links {
+  display:none;
+}
+.nav--links.mobile {
+  display:flex;
+  padding:0 48px;
+  width:100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav .gold {
+  padding: 0px 8px;
+}
+}
+
 @media only screen and (max-width: 580px) { 
   .nav {
   padding: 18px 30px;
-  display:block;
   } 
   .nav.small {
     display:flex;
@@ -466,6 +496,12 @@ img.img--logo {
   }
   .nav .gold {
     padding: 0px 3px;
+}
+.nav--links.mobile {
+  display:flex;
+  padding:0 30px;
+  width:100%;
+  justify-content: space-between;
 }
 }
 
@@ -702,7 +738,7 @@ p.copy.text--white a {
   margin:12px auto;
 }
 
-a.button--outline {
+.button--outline {
   padding:16px 24px;
   letter-spacing:1px;
   border-radius:40px;
@@ -711,7 +747,13 @@ a.button--outline {
   border: 1px solid #D8A564;
 }
 
-a.button--outline.small {
+.button--outline.inactive {
+  border: 1px solid #D2D8DB;
+  transition: all 0.5s ease-in-out;
+  font-weight: bold;
+}
+
+.button--outline.small {
   padding:12px 20px;
 }
 
@@ -719,7 +761,8 @@ a.button--outline:hover {
   color:#D8A564;
 }
 
-a.button--fill {
+
+.button--fill {
   padding:16px 24px;
   letter-spacing:1px;
   border-radius:40px;
@@ -730,7 +773,7 @@ a.button--fill {
   transition-duration:0.4s;
 }
 
-a.button--fill:hover {
+.button--fill:hover {
   background-color:transparent;
   color:#D8A564;
 }
@@ -822,6 +865,10 @@ a.button--fill:hover {
   .mosaic-row.wrap-later .mosaic-block {
     width:100%;
   }
+  .divider {
+  margin-top:20px;
+  margin-bottom:20px;
+}
 }
 
 /* Logos */
@@ -936,6 +983,7 @@ a.tile--right {
     transition: all 1.5s ease-in-out;
     overflow: hidden !important;
     position: relative;
+    border-radius:20px;
 }
 
 .tile--comingsoon {

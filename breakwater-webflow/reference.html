@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Breakwater — Webflow reference build</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  REFERENCE ONLY. This page is built exactly the way the Webflow page should be:
+  plain elements with the class names from BUILD-SHEET.md, plus breakwater.css and
+  breakwater.js. Open it through a local server to compare against the Webflow build.
+-->
+<style>
+/* Stand-in for the font Webflow will serve once it's uploaded as "Arizona Flare" */
+@font-face { font-family: 'Arizona Flare'; src: url('assets/ABCArizonaFlareVariable-Trial.ttf') format('truetype'); font-weight: 200 700; font-display: block; }
+/* Stand-in for Webflow's base stylesheet, so this page hits the same defaults the real build will */
+body { margin: 0; min-height: 100%; background-color: #fff; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px; color: #333; }
+img { max-width: 100%; vertical-align: middle; display: inline-block; }
+h1 { font-size: 38px; line-height: 44px; margin-top: 20px; margin-bottom: 10px; font-weight: bold; }
+p { margin-top: 0; margin-bottom: 10px; }
+label { display: block; margin-bottom: 5px; font-weight: bold; }
+.w-inline-block { max-width: 100%; display: inline-block; }
+.w-form { margin: 0 0 15px; }
+.w-input { display: block; width: 100%; height: 38px; padding: 8px 12px; margin-bottom: 10px; font-size: 14px; line-height: 1.42857143; color: #333; background-color: #fff; border: 1px solid #ccc; }
+.w-button { display: inline-block; padding: 9px 15px; background-color: #3898EC; color: white; border: 0; line-height: inherit; text-decoration: none; cursor: pointer; border-radius: 0; }
+</style>
+<link rel="stylesheet" href="breakwater.css">
+<!-- Same token mapping the Webflow page uses. No Webflow Variables exist here, so the fallbacks apply. -->
+<style>
+/* Breakwater tokens: maps the Webflow Variables in the "Breakwater" collection onto the stylesheet. Must sit AFTER the styles embed. Fallbacks are the original values. */
+:root{--dark:var(--_breakwater---dark,#2B2929);--beige:var(--_breakwater---beige,#DFD8D0);--light:var(--_breakwater---light,#EEEDEC);--yellow:var(--_breakwater---yellow,#F6F675);--size-body:var(--_breakwater---body-copy-size-vw,1.95);--size-headline:var(--_breakwater---headline-size-vw,7.6);--size-hero:var(--_breakwater---hero-and-wave-headline-size-vw,6.1)}
+.para,.bridge .more{font-size:clamp(18px,calc(var(--size-body) * 1vw),calc(var(--size-body) * 14.8718px))}
+.tile::after{background:color-mix(in srgb,var(--yellow) 60%,transparent)}
+.foot,.foot-top{border-color:color-mix(in srgb,var(--light) 14%,transparent)}
+.news-input{border-bottom-color:color-mix(in srgb,var(--light) 50%,transparent)}
+.news-input::placeholder{color:color-mix(in srgb,var(--light) 50%,transparent)}
+.foot-bottom{color:color-mix(in srgb,var(--light) 70%,transparent)}
+@media (min-width:768px){:root{--gutter:var(--_breakwater---page-gutter,2.8vw)}.big,.who-title,.bridge-title,.sec-title{font-size:clamp(56px,calc(var(--size-headline) * 1vw),calc(var(--size-headline) * 15.7895px))}.hero-text,.wave-text,.wwd-title,.wwa-title{font-size:clamp(40px,calc(var(--size-hero) * 1vw),calc(var(--size-hero) * 15.7377px))}}
+</style>
+<script>document.documentElement.classList.add('bw-js')</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu left">
+    <a class="wipe" href="#">What we do</a>
+    <a class="wipe" href="#">Who we are</a>
+  </div>
+  <a class="logo w-inline-block" href="#" aria-label="Breakwater Initiative">
+    <div class="logo-shape"><img class="row-top" src="assets/logo-yellow.svg" alt=""><img class="row-bot" src="assets/logo-yellow.svg" alt=""></div>
+  </a>
+  <div class="menu right">
+    <a class="wipe" href="#">Journal</a>
+    <a class="nav-btn wipe" href="#">Get involved</a>
+    <a class="burger" href="#" role="button" aria-label="Menu"><span class="burger-ico"></span></a>
+  </div>
+</div>
+
+<!-- Mobile menu drawer (hidden above 767px) -->
+<div class="drawer">
+  <div class="drawer-top">
+    <div class="drawer-mark"></div>
+    <a class="drawer-close" href="#" role="button" aria-label="Close menu"></a>
+  </div>
+  <nav class="drawer-links">
+    <a class="mlink" href="#">Why we exist</a>
+    <a class="mlink" href="#">What we do</a>
+    <a class="mlink" href="#">Who we are</a>
+    <a class="mlink" href="#">Journal</a>
+    <a class="mlink mcta" href="#">Get involved</a>
+  </nav>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-mark"><div class="mark-shape"></div></div>
+  <div class="fig"></div>
+  <div class="hero-img">
+    <img src="assets/hero-sculptor.jpg" alt="" data-fig="Fig 1.1" data-caption="Chloe Bernardt, sculptor &amp; clay modeller" data-x="-14.9,-26,-21,-7.4" data-pos="0% 50%">
+    <img src="assets/hero-accountant.jpg" alt="" data-fig="Fig 1.2" data-caption="Mary Yan, accountant, New York" data-x="-9.3,-19.2,-15.7,-4.4" data-pos="25% 50%">
+    <img src="assets/hero-welder.jpg" alt="" data-fig="Fig 1.3" data-caption="James Gray, industrial welder, Adelaide" data-x="-9.6,-1,-13.1,1.3" data-pos="25% 50%">
+  </div>
+  <h1 class="hero-text"><span class="word">The</span><span class="word">future</span><span class="word">of work</span><span class="word">is still ours</span><span class="word">to shape</span></h1>
+</div>
+
+<!-- Why -->
+<div class="why">
+  <p class="para p1"><strong>Over the next decade, AI will upend work as we know it.</strong> Whole job categories will be eliminated. Others transformed beyond recognition. The disruption will be uneven, radical, and politically explosive.</p>
+  <div class="slot slot-tailor right">
+    <div class="pic from-right mask-tailor"><img src="assets/photo-tailor.jpg" alt=""></div>
+  </div>
+  <div class="fig"><strong>(Fig 2)</strong> Mark Klattenburgh, Atelier at Edwin Jeans Co.</div>
+  <div class="big" role="heading" aria-level="2" aria-label="Right now, nobody has a plan">
+    <div class="line">Right</div>
+    <div class="line">now,</div>
+    <div class="line"><span class="hl">nobody</span></div>
+    <div class="line">has</div>
+    <div class="line">a plan</div>
+  </div>
+  <p class="para p3">The people closest to the technology are quietly, seriously worried. The people whose livelihoods are at stake are watching something that feels unstoppable, with no say in what comes next.</p>
+</div>
+
+<!-- Who -->
+<div class="who">
+  <div class="who-title" role="heading" aria-level="2" aria-label="The Breakwater Initiative is an action-oriented policy shop">
+    <div class="line"><span class="hl">The</span></div>
+    <div class="line"><span class="hl">Breakwater</span></div>
+    <div class="line"><span class="hl">Initiative</span> is</div>
+    <div class="line">an action-</div>
+    <div class="line">oriented</div>
+    <div class="line">policy shop</div>
+  </div>
+  <div class="slot slot-team right">
+    <div class="cap cap-tr"><strong>(Fig 5)</strong> Staff at Meredian Systems, Pittsburgh, reviewing how new automation tools will affect day to day operations</div>
+    <div class="pic from-right"><img src="assets/photo-team.jpg" alt=""></div>
+  </div>
+  <p class="para p1">Independent of industry and political tribe; pioneering the solutions, building the political will, and co-creating the public vision that AI transformation demands.</p>
+  <p class="para p2">We ask the hard questions and stay in the room for the answer. Working at the frontier and bringing the rest of the room along.</p>
+  <a class="cta wipe" href="#">Our work &amp; solutions</a>
+  <div class="qs">
+    <a class="question w-inline-block" href="#"><div class="qtext"><div class="qline">How do we</div><div class="qline">manage the</div><div class="qline">pace of job</div><div class="qline">loss?</div></div></a>
+    <a class="question w-inline-block" href="#"><div class="qtext"><div class="qline">How can</div><div class="qline">and should</div><div class="qline">we share the</div><div class="qline">gains of AI?</div></div></a>
+    <a class="question w-inline-block" href="#"><div class="qtext"><div class="qline">How might</div><div class="qline">we reconcile</div><div class="qline">work and</div><div class="qline">purpose?</div></div></a>
+  </div>
+</div>
+
+<!-- Bridge -->
+<div class="bridge">
+  <div class="bridge-title" role="heading" aria-level="2" aria-label="We bridge the gap between tech and big government">
+    <div class="line"><span class="hl">We bridge</span></div>
+    <div class="line"><span class="hl">the gap</span></div>
+    <div class="line">between tech</div>
+    <div class="line">and big</div>
+    <div class="line">government</div>
+  </div>
+  <div class="bridge-copy">
+    <p class="para">Our organisation combines deep policy expertise and networks, frontier-AI knowledge, investor fluency and field-building experience, supported by a wealth of personal and organisational experience.</p>
+    <a class="more wipe" href="#">More about us</a>
+  </div>
+  <div class="people-title">Meet our people</div>
+  <div class="tiles">
+    <a class="tile w-inline-block" href="#"><img src="assets/people-core.jpg" alt=""><div class="tile-title"><div class="trow"><div class="tline">Core</div></div><div class="trow"><div class="tline">team</div></div></div></a>
+    <a class="tile w-inline-block" href="#"><img src="assets/people-fellows.jpg" alt=""><div class="tile-title"><div class="trow"><div class="tline">Breakwater</div></div><div class="trow"><div class="tline">fellows</div></div></div></a>
+    <a class="tile w-inline-block" href="#"><img src="assets/people-advisors.jpg" alt=""><div class="tile-title"><div class="trow"><div class="tline">Our</div></div><div class="trow"><div class="tline">advisors</div></div></div></a>
+  </div>
+</div>
+
+<!-- Wave -->
+<div class="wave">
+  <div class="wave-mark"><div class="mark-shape"></div></div>
+  <div class="wave-text" role="heading" aria-level="2" aria-label="The wave is coming. Help us build the breakwater">
+    <div class="wave-row"><div class="word">The</div></div>
+    <div class="wave-row"><div class="word">wave</div></div>
+    <div class="wave-row"><div class="word">is coming</div><div class="word">help us</div></div>
+    <div class="wave-row"><div class="word">build the</div></div>
+    <div class="wave-row"><div class="word">breakwater</div></div>
+  </div>
+  <p class="para p1">Policy takes time. If we don&rsquo;t act now, we will miss the window of opportunity. To invest, collaborate or find out more, get in touch.</p>
+  <a class="cta-dark wipe" href="#">Contact us</a>
+</div>
+
+<!-- Footer -->
+<div class="foot">
+  <div class="foot-top">
+    <div class="foot-about">
+      <a class="foot-logo w-inline-block" href="#"><img src="assets/logo-light.svg" alt="Breakwater Initiative"></a>
+      <p>An action-oriented policy shop &mdash; independent of industry, independent of political tribe. We&rsquo;re pioneering the solutions, building the political will, and co-creating a public vision that AI transformation demands. <a href="#">Company setup &amp; legals</a></p>
+    </div>
+    <div class="news w-form">
+      <form>
+        <label for="news-email">The occasional briefing on the future of work. No noise.</label>
+        <div class="news-row">
+          <input class="news-input w-input" id="news-email" type="email" name="email" placeholder="Email address" required>
+          <input class="news-submit w-button" type="submit" value="Subscribe">
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p class="legal">&copy; 2026 The Breakwater Initiative. All rights reserved. An independent, non-partisan policy initiative. Views expressed are those of the authors.</p>
+    <div class="foot-links">
+      <a class="wipe" href="#">LinkedIn</a>
+      <a class="wipe" href="#">X</a>
+      <a class="wipe" href="#">Terms &amp; conditions</a>
+      <a class="wipe" href="#">Privacy policy</a>
+    </div>
+  </div>
+</div>
+
+<script src="breakwater.js"></script>
+</body>
+</html>

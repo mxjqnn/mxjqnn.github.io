@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Breakwater — Post (Webflow reference build)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  REFERENCE ONLY. This page is built exactly the way the Webflow page should be:
+  plain elements with the class names from BUILD-SHEET.md, plus breakwater.css and
+  breakwater.js. Open it through a local server to compare against the Webflow build.
+-->
+<style>
+/* Stand-in for the font Webflow will serve once it's uploaded as "Arizona Flare" */
+@font-face { font-family: 'Arizona Flare'; src: url('assets/ABCArizonaFlareVariable-Trial.ttf') format('truetype'); font-weight: 200 700; font-display: block; }
+/* Stand-in for Webflow's base stylesheet, so this page hits the same defaults the real build will */
+body { margin: 0; min-height: 100%; background-color: #fff; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px; color: #333; }
+img { max-width: 100%; vertical-align: middle; display: inline-block; }
+h1 { font-size: 38px; line-height: 44px; margin-top: 20px; margin-bottom: 10px; font-weight: bold; }
+p { margin-top: 0; margin-bottom: 10px; }
+label { display: block; margin-bottom: 5px; font-weight: bold; }
+.w-inline-block { max-width: 100%; display: inline-block; }
+.w-form { margin: 0 0 15px; }
+.w-input { display: block; width: 100%; height: 38px; padding: 8px 12px; margin-bottom: 10px; font-size: 14px; line-height: 1.42857143; color: #333; background-color: #fff; border: 1px solid #ccc; }
+.w-button { display: inline-block; padding: 9px 15px; background-color: #3898EC; color: white; border: 0; line-height: inherit; text-decoration: none; cursor: pointer; border-radius: 0; }
+</style>
+<link rel="stylesheet" href="breakwater.css">
+<!-- Same token mapping the Webflow page uses. No Webflow Variables exist here, so the fallbacks apply. -->
+<style>
+/* Breakwater tokens: maps the Webflow Variables in the "Breakwater" collection onto the stylesheet. Must sit AFTER the styles embed. Fallbacks are the original values. */
+:root{--dark:var(--_breakwater---dark,#2B2929);--beige:var(--_breakwater---beige,#DFD8D0);--light:var(--_breakwater---light,#EEEDEC);--yellow:var(--_breakwater---yellow,#F6F675);--size-body:var(--_breakwater---body-copy-size-vw,1.95);--size-headline:var(--_breakwater---headline-size-vw,7.6);--size-hero:var(--_breakwater---hero-and-wave-headline-size-vw,6.1)}
+.para,.bridge .more{font-size:clamp(18px,calc(var(--size-body) * 1vw),calc(var(--size-body) * 14.8718px))}
+.tile::after{background:color-mix(in srgb,var(--yellow) 60%,transparent)}
+.foot,.foot-top{border-color:color-mix(in srgb,var(--light) 14%,transparent)}
+.news-input{border-bottom-color:color-mix(in srgb,var(--light) 50%,transparent)}
+.news-input::placeholder{color:color-mix(in srgb,var(--light) 50%,transparent)}
+.foot-bottom{color:color-mix(in srgb,var(--light) 70%,transparent)}
+@media (min-width:768px){:root{--gutter:var(--_breakwater---page-gutter,2.8vw)}.big,.who-title,.bridge-title,.sec-title{font-size:clamp(56px,calc(var(--size-headline) * 1vw),calc(var(--size-headline) * 15.7895px))}.hero-text,.wave-text,.wwd-title,.wwa-title{font-size:clamp(40px,calc(var(--size-hero) * 1vw),calc(var(--size-hero) * 15.7377px))}}
+</style>
+<script>document.documentElement.classList.add('bw-js')</script>
+</head>
+<body>
+
+<div class="nav on-light">
+  <div class="menu left">
+    <a class="wipe" href="#">What we do</a>
+    <a class="wipe" href="#">Who we are</a>
+  </div>
+  <a class="logo w-inline-block" href="#" aria-label="Breakwater Initiative">
+    <div class="logo-shape"><img class="row-top" src="assets/logo-yellow.svg" alt=""><img class="row-bot" src="assets/logo-yellow.svg" alt=""></div>
+  </a>
+  <div class="menu right">
+    <a class="wipe" href="#">Journal</a>
+    <a class="nav-btn wipe" href="#">Get involved</a>
+    <a class="burger" href="#" role="button" aria-label="Menu"><span class="burger-ico"></span></a>
+  </div>
+</div>
+
+<!-- Mobile menu drawer (hidden above 767px) -->
+<div class="drawer">
+  <div class="drawer-top">
+    <div class="drawer-mark"></div>
+    <a class="drawer-close" href="#" role="button" aria-label="Close menu"></a>
+  </div>
+  <nav class="drawer-links">
+    <a class="mlink" href="#">Why we exist</a>
+    <a class="mlink" href="#">What we do</a>
+    <a class="mlink" href="#">Who we are</a>
+    <a class="mlink" href="#">Journal</a>
+    <a class="mlink mcta" href="#">Get involved</a>
+  </nav>
+</div>
+
+<!-- Post: the Collection Page template. The "Read more" list holds every post; the script keeps three from the same category -->
+<div class="post light-top">
+  <div class="post-wrap">
+    <h1 class="post-title">A better future</h1>
+    <p class="post-ex">This week, high profile resignations at Open AI and Anthropic caused a media stir. Our CEO, Molly Kinder, explores the impacts.</p>
+    <div class="post-meta"><a class="tag post-cat wipe w-inline-block" href="/journal"><div class="post-cat-text">Ideas</div></a><span class="sep">/</span><span class="post-date">2026-09-02</span><span class="sep">/</span><span class="post-author">Molly Kinder</span></div>
+    <div class="post-body w-richtext"><p>We do not have all the answers yet. AI's disruption will hit different communities, careers, and generations in ways we have not seen before, and will stretch our current systems beyond their capacity. The only way to find out what will work is to get into the field and test it.</p><p>We are already collaborating with networks of state leaders to identify pilot opportunities. Each pilot has pre-specified success criteria, independent evaluation, and a hard decision point: scale, revise, or kill. We will publish results, including failures.</p><figure><div><img src="https://cdn.prod.website-files.com/6abaf46b46ac1a767baffaee/6ac6487496e530a43080a58b_wwd-hero-headphones.webp" alt=""></div></figure><p>Some of our pilot ideas include:</p><ul><li><strong>Young Workers:</strong> We are collaborating with two states to reinvent national service, modeled on the legal aid clinic concept, to provide entry-level experience. Other pilots: testing medical residency-type models for white-collar industries, entrepreneurship stipends for young people without a financial cushion, and employer experiments to rebuild how junior talent gets developed.</li><li><strong>Displacement Response:</strong> We are exploring pilots to test wage insurance, expanded unemployment insurance for displaced knowledge workers, and retraining programs to understand what models (if any) actually work.</li><li><strong>Worker Ownership and Agency:</strong> We will pilot sectoral bargaining frameworks for AI deployment decisions, test gain-sharing agreements at the firm level, and explore new models of worker ownership in AI-augmented industries.</li><li><strong>Good Life Pilots:</strong> What does a good life look like when work no longer structures it? We will run real-world experiments testing new social institutions and employment models: reimagined public spaces, subsidized civic and creative roles, and community-led pilots where people themselves design what comes next.</li></ul></div>
+  </div>
+</div>
+<div class="readmore">
+  <div class="jlabel readmore-label">Read more&hellip;</div>
+  <div class="jrows">
+      <a class="jrow w-inline-block" href="post.html" data-slug="breakwater-in-the-financial-times">
+        <div class="jrow-main"><div class="jrow-title wipe">Breakwater in the Financial Times</div><div class="jrow-ex">Our research on entry-level work featured in the FT's series on AI and the labour market.</div></div>
+        <div class="jrow-meta"><span class="tag jcat">Press & media</span><span class="sep">/</span><span class="jdate">2026-08-12</span><span class="sep">/</span><span class="jauthor">Breakwater team</span></div>
+        <div class="jdata"><span class="jfeat-flag">false</span></div>
+      </a>
+      <a class="jrow w-inline-block" href="post.html" data-slug="our-policy-agenda">
+        <div class="jrow-main"><div class="jrow-title wipe">Our policy agenda</div><div class="jrow-ex">A standfirst for the agenda post: the policies we think can hold the line for workers through the transition, and how we will test them.</div></div>
+        <div class="jrow-meta"><span class="tag jcat">Ideas</span><span class="sep">/</span><span class="jdate">2026-09-09</span><span class="sep">/</span><span class="jauthor">Molly Kinder</span></div>
+        <div class="jdata"><span class="jfeat-flag">true</span></div>
+      </a>
+      <a class="jrow w-inline-block" href="post.html" data-slug="early-career-lab-launches">
+        <div class="jrow-main"><div class="jrow-title wipe">Early career lab launches</div><div class="jrow-ex">Two states join us to reinvent national service, modelled on the legal aid clinic, to give graduates a first rung.</div></div>
+        <div class="jrow-meta"><span class="tag jcat">News</span><span class="sep">/</span><span class="jdate">2026-06-22</span><span class="sep">/</span><span class="jauthor">Breakwater team</span></div>
+        <div class="jdata"><span class="jfeat-flag">false</span></div>
+      </a>
+      <a class="jrow w-inline-block" href="post.html" data-slug="a-better-future">
+        <div class="jrow-main"><div class="jrow-title wipe">A better future</div><div class="jrow-ex">This week, high profile resignations at Open AI and Anthropic caused a media stir. Our CEO, Molly Kinder, explores the impacts.</div></div>
+        <div class="jrow-meta"><span class="tag jcat">Ideas</span><span class="sep">/</span><span class="jdate">2026-09-02</span><span class="sep">/</span><span class="jauthor">Molly Kinder</span></div>
+        <div class="jdata"><span class="jfeat-flag">false</span></div>
+      </a>
+      <a class="jrow w-inline-block" href="post.html" data-slug="fellows-cohort-announced">
+        <div class="jrow-main"><div class="jrow-title wipe">Fellows cohort announced</div><div class="jrow-ex">Meet the first Breakwater fellows: twelve engineers and researchers spending a year inside the policy process.</div></div>
+        <div class="jrow-meta"><span class="tag jcat">News</span><span class="sep">/</span><span class="jdate">2026-04-30</span><span class="sep">/</span><span class="jauthor">Breakwater team</span></div>
+        <div class="jdata"><span class="jfeat-flag">false</span></div>
+      </a>
+      <a class="jrow w-inline-block" href="post.html" data-slug="pilot-results-from-ohio">
+        <div class="jrow-main"><div class="jrow-title wipe">Pilot results from Ohio</div><div class="jrow-ex">Six months into the wage insurance pilot, the first numbers are in. What held, what did not, and what we are changing.</div></div>
+        <div class="jrow-meta"><span class="tag jcat">Field notes</span><span class="sep">/</span><span class="jdate">2026-08-20</span><span class="sep">/</span><span class="jauthor">Breakwater team</span></div>
+        <div class="jdata"><span class="jfeat-flag">false</span></div>
+      </a>
+      <a class="jrow w-inline-block" href="post.html" data-slug="sharing-the-gains">
+        <div class="jrow-main"><div class="jrow-title wipe">Sharing the gains</div><div class="jrow-ex">If AI makes the economy richer, who gets the money? Three mechanisms worth testing.</div></div>
+        <div class="jrow-meta"><span class="tag jcat">Ideas</span><span class="sep">/</span><span class="jdate">2026-05-28</span><span class="sep">/</span><span class="jauthor">Molly Kinder</span></div>
+        <div class="jdata"><span class="jfeat-flag">false</span></div>
+      </a>
+      <a class="jrow w-inline-block" href="post.html" data-slug="welcome-to-the-breakwater-initiative">
+        <div class="jrow-main"><div class="jrow-title wipe">Welcome to the Breakwater Initiative</div><div class="jrow-ex">Why we exist, what we are setting out to do, and how you can get involved.</div></div>
+        <div class="jrow-meta"><span class="tag jcat">News</span><span class="sep">/</span><span class="jdate">2026-07-30</span><span class="sep">/</span><span class="jauthor">Molly Kinder</span></div>
+        <div class="jdata"><span class="jfeat-flag">true</span></div>
+      </a>
+      <a class="jrow w-inline-block" href="post.html" data-slug="notes-from-pittsburgh">
+        <div class="jrow-main"><div class="jrow-title wipe">Notes from Pittsburgh</div><div class="jrow-ex">Two days with the operations team at Meredian Systems as new automation tools arrive on the floor.</div></div>
+        <div class="jrow-meta"><span class="tag jcat">Field notes</span><span class="sep">/</span><span class="jdate">2026-07-05</span><span class="sep">/</span><span class="jauthor">Breakwater team</span></div>
+        <div class="jdata"><span class="jfeat-flag">false</span></div>
+      </a>
+      <a class="jrow w-inline-block" href="post.html" data-slug="what-wage-insurance-could-look-like">
+        <div class="jrow-main"><div class="jrow-title wipe">What wage insurance could look like</div><div class="jrow-ex">A sketch of a policy that softens the fall for displaced knowledge workers without slowing the transition.</div></div>
+        <div class="jrow-meta"><span class="tag jcat">Ideas</span><span class="sep">/</span><span class="jdate">2026-07-18</span><span class="sep">/</span><span class="jauthor">Molly Kinder</span></div>
+        <div class="jdata"><span class="jfeat-flag">false</span></div>
+      </a>
+      <a class="jrow w-inline-block" href="post.html" data-slug="field-notes-hudson-valley">
+        <div class="jrow-main"><div class="jrow-title wipe">Field notes: Hudson Valley</div><div class="jrow-ex">What a ceramics studio, a tailor and a small accountancy told us about the shape of local work.</div></div>
+        <div class="jrow-meta"><span class="tag jcat">Field notes</span><span class="sep">/</span><span class="jdate">2026-05-14</span><span class="sep">/</span><span class="jauthor">Breakwater team</span></div>
+        <div class="jdata"><span class="jfeat-flag">false</span></div>
+      </a>
+      <a class="jrow w-inline-block" href="post.html" data-slug="interview-the-next-decade-of-work">
+        <div class="jrow-main"><div class="jrow-title wipe">Interview: the next decade of work</div><div class="jrow-ex">Molly Kinder in conversation with the Work Shift podcast on what the next ten years hold for workers.</div></div>
+        <div class="jrow-meta"><span class="tag jcat">Press & media</span><span class="sep">/</span><span class="jdate">2026-06-10</span><span class="sep">/</span><span class="jauthor">Molly Kinder</span></div>
+        <div class="jdata"><span class="jfeat-flag">false</span></div>
+      </a>
+  </div>
+</div>
+
+<!-- Wave -->
+<div class="wave">
+  <div class="wave-mark"><div class="mark-shape"></div></div>
+  <div class="wave-text" role="heading" aria-level="2" aria-label="The wave is coming. Help us build the breakwater">
+    <div class="wave-row"><div class="word">The</div></div>
+    <div class="wave-row"><div class="word">wave</div></div>
+    <div class="wave-row"><div class="word">is coming</div><div class="word">help us</div></div>
+    <div class="wave-row"><div class="word">build the</div></div>
+    <div class="wave-row"><div class="word">breakwater</div></div>
+  </div>
+  <p class="para p1">Policy takes time. If we don&rsquo;t act now, we will miss the window of opportunity. To invest, collaborate or find out more, get in touch.</p>
+  <a class="cta-dark wipe" href="#">Contact us</a>
+</div>
+
+<!-- Footer -->
+<div class="foot">
+  <div class="foot-top">
+    <div class="foot-about">
+      <a class="foot-logo w-inline-block" href="#"><img src="assets/logo-light.svg" alt="Breakwater Initiative"></a>
+      <p>An action-oriented policy shop &mdash; independent of industry, independent of political tribe. We&rsquo;re pioneering the solutions, building the political will, and co-creating a public vision that AI transformation demands. <a href="#">Company setup &amp; legals</a></p>
+    </div>
+    <div class="news w-form">
+      <form>
+        <label for="news-email">The occasional briefing on the future of work. No noise.</label>
+        <div class="news-row">
+          <input class="news-input w-input" id="news-email" type="email" name="email" placeholder="Email address" required>
+          <input class="news-submit w-button" type="submit" value="Subscribe">
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p class="legal">&copy; 2026 The Breakwater Initiative. All rights reserved. An independent, non-partisan policy initiative. Views expressed are those of the authors.</p>
+    <div class="foot-links">
+      <a class="wipe" href="#">LinkedIn</a>
+      <a class="wipe" href="#">X</a>
+      <a class="wipe" href="#">Terms &amp; conditions</a>
+      <a class="wipe" href="#">Privacy policy</a>
+    </div>
+  </div>
+</div>
+
+<script src="breakwater.js"></script>
+</body>
+</html>

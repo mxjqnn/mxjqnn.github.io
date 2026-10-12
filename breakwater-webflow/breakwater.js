@@ -1,0 +1,603 @@
+/* ==========================================================================
+   Breakwater Initiative — homepage motion for Webflow
+   Paste into Site settings > Custom code > Footer (inside <script>), or host
+   this file and link it before </body>. Needs breakwater.css.
+
+   The script finds elements by class name (see BUILD-SHEET.md). Sections it
+   cannot find are skipped, so the page can be built up a section at a time.
+   ========================================================================== */
+(function () {
+  var BREAKPOINT = 767;          // Webflow "mobile landscape" and below use the stacked layout
+  var HERO_INTERVAL = 3000;      // ms between hero photos
+  var ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="SW" stroke-linecap="square" aria-hidden="true"><path d="M3 12h17M13 5l7 7-7 7"/></svg>';
+
+  document.documentElement.classList.add('bw-js');   // switches the CSS from "finished" to "animate in"
+  var body = document.body;
+  var $ = function (sel, root) { return (root || document).querySelector(sel); };
+  var $$ = function (sel, root) { return [].slice.call((root || document).querySelectorAll(sel)); };
+  var hero = $('.hero');
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var skipToEnd = /state=after/.test(location.search);   // debug: ?state=after jumps to the final layout
+  var SECTIONS = '.why, .who, .bridge, .wave, .wwd-hero, .prong, .faq, .start, .wwa-hero, .pgroup, .chero, .contact';
+
+  /* ---------- Set-up: add the helper elements Webflow doesn't need to know about ---------- */
+  function el(tag, cls, html) { var n = document.createElement(tag); n.className = cls; if (html) n.innerHTML = html; return n; }
+
+  // Hover wipes and the "Who" headline highlights copy their label from data-text
+  $$('.wipe, .who-title .hl, .dark-title .hl, .prong-title .hl, .ptab').forEach(function (a) { if (!a.getAttribute('data-text')) a.setAttribute('data-text', a.textContent.trim()); });
+
+  // Masked photos: .pic > img becomes .pic > .hold > .par > img
+  // Who we are: each people group shows only the cards whose category matches its data-group
+  /* FAQ sections with data-location keep only the questions whose Location names that page (or is empty) */
+  $$('.faq[data-location]').forEach(function (sec) {
+    var loc = sec.getAttribute('data-location').trim();
+    $$('.faq-item', sec).forEach(function (item) {
+      var l = $('.faq-loc', item), v = l ? l.textContent.trim() : '';
+      if (v && v.indexOf(loc) === -1) (item.closest('.w-dyn-item') || item).remove();
+    });
+  });
+  $$('.pgroup[data-group]').forEach(function (sec) {
+    var group = sec.getAttribute('data-group').trim();
+    $$('.person', sec).forEach(function (card) {
+      var cat = $('.person-cat', card);
+      if (cat && cat.textContent.trim() !== group) (card.closest('.w-dyn-item') || card).remove();   // take the Webflow item wrapper with it
+    });
+  });
+  $$('.pic').forEach(function (pic) {
+    if ($('.hold', pic)) return;
+    var hold = el('div', 'hold'), par = el('div', 'par');
+    while (pic.firstChild) par.appendChild(pic.firstChild);
+    hold.appendChild(par); pic.appendChild(hold);
+  });
+
+  // Footer submit button: wrapped so a yellow label copy can wipe over it on hover
+  /* The connector cannot set placeholders, so the contact fields show their field name as the placeholder */
+$$('.cfield, .carea').forEach(function (f) {
+  var ph = f.getAttribute('placeholder'), label = f.getAttribute('data-name') || f.name;
+  if (label && (!ph || ph === 'Example Text')) f.setAttribute('placeholder', label);
+});
+$$('.news-submit, .csubmit').forEach(function (btn) {
+    if (btn.parentNode.classList.contains('news-btn')) return;
+    var w = el('span', 'news-btn'); w.setAttribute('data-text', btn.value || btn.textContent.trim());
+    btn.parentNode.insertBefore(w, btn); w.appendChild(btn);
+  });
+
+  // Arrows and marks
+  $$('.nav-btn').forEach(function (b) { if (!$('.arr', b)) b.appendChild(el('span', 'arr', '&nbsp;&rarr;')); });
+  $$('.tile').forEach(function (t) {
+    var rows = $$('.trow', t);
+    if (rows.length && !$('.tarrow', t)) rows[rows.length - 1].appendChild(el('span', 'tarrow', ARROW.replace('SW', '2.2')));
+  });
+  $$('.srow[href]').forEach(function (r) { if (!$('.sarrow', r)) r.appendChild(el('span', 'sarrow', ARROW.replace('SW', '2'))); });
+  $$('.jfeat').forEach(function (f) { if (!$('.jarrow', f)) f.appendChild(el('span', 'jarrow', ARROW.replace('SW', '2'))); });
+  $$('.jrow-title').forEach(function (t) { if (!$('.jarr', t.parentNode)) t.parentNode.insertBefore(el('span', 'jarr', ARROW.replace('SW', '2.2')), t.nextSibling); });
+  $$('.question').forEach(function (q) {
+    if (!$('.qmark', q)) q.insertBefore(el('span', 'qmark'), q.firstChild);
+    if (!$('.qarrow', q)) q.insertBefore(el('span', 'qarrow', ARROW.replace('SW', '1.8')), q.firstChild);
+  });
+
+  /* ---------- Measured offsets ---------- */
+  function setDx(section, lines, dxs) {
+    body.classList.remove('measuring');
+    body.classList.add('no-anim');            // apply the offsets without animating
+    lines.forEach(function (line, i) { line.style.setProperty('--dx', dxs[i] + 'px'); });
+    void section.offsetWidth;
+    body.classList.remove('no-anim');
+  }
+  /* Dark-section headline: starts centred on the page, lands left-aligned */
+  function measureCentred(section, selector) {
+    if (!section) return;
+    var lines = $$(selector, section); if (!lines.length) return;
+    body.classList.add('measuring');
+    var sec = section.getBoundingClientRect(), W = section.clientWidth;
+    var dxs = lines.map(function (line) { var r = line.getBoundingClientRect(); return (W - r.width) / 2 - (r.left - sec.left); });
+    setDx(section, lines, dxs);
+  }
+  /* "Right now" and "We bridge" headlines: start right-aligned to a shared edge (48.5% of
+     the section), land on their final positions */
+  function measureRightAligned(section, selector) {
+    if (!section) return;
+    var lines = $$(selector, section); if (!lines.length) return;
+    body.classList.add('measuring');
+    var sec = section.getBoundingClientRect();
+    var edge = window.innerWidth > BREAKPOINT ? sec.width * 0.485 : sec.width;
+    var dxs = lines.map(function (line) { var r = line.getBoundingClientRect(); return edge - (r.left - sec.left) - r.width; });
+    setDx(section, lines, dxs);
+  }
+  /* Tiles and question blocks: how far each row slides to sit against the right edge on hover */
+  function measureShift(itemSel, boxSel, rowSel) {
+    $$(itemSel).forEach(function (item) {
+      var box = $(boxSel, item); if (!box) return;
+      var inner = box.clientWidth;
+      $$(rowSel, item).forEach(function (row) { row.style.setProperty('--shift', (inner - row.offsetWidth) + 'px'); });
+    });
+  }
+  /* Desktop alignments that depend on font metrics: the "a plan" baseline on the tailor photo's
+     bottom edge, and the bottom of "More about us" on the baseline of "government" */
+  function baselineOf(line) {
+    var probe = el('span', ''); probe.style.cssText = 'display:inline-block;width:0;height:0;vertical-align:baseline';
+    line.appendChild(probe); var y = probe.getBoundingClientRect().bottom; probe.remove(); return y;
+  }
+  function alignDesktop() {
+    var big = $('.big'), slot = $('.why .slot-tailor'), copy = $('.bridge-copy'), bridge = $('.bridge');
+    if (window.innerWidth <= BREAKPOINT) {
+      // Phones: the headline overlaps the photo so the first line's baseline sits on the photo's bottom edge
+      if (big) {
+        big.style.removeProperty('--bt');
+        var first = $('.line', big);
+        if (first) big.style.setProperty('--ov', (baselineOf(first) - big.getBoundingClientRect().top).toFixed(2) + 'px');
+      }
+      if (copy) { copy.style.removeProperty('--ct'); copy.style.removeProperty('--cb'); }
+      var teamM = $('.who .slot-team'); if (teamM) teamM.style.removeProperty('--tt');
+      var wsM2 = $('.slot-studio'); if (wsM2) { wsM2.style.removeProperty('--sh'); wsM2.style.removeProperty('--nx'); wsM2.style.removeProperty('--ny'); }
+    var wtM = $('.wwd-title'), wsM = $('.slot-wwd'), ssM = $('.slot-start');
+      if (wtM) wtM.style.removeProperty('--wt');
+      if (wsM) wsM.style.removeProperty('--notch');
+      if (ssM) ssM.style.removeProperty('--st');
+      return;
+    }
+    if (big) big.style.removeProperty('--ov');
+    if (big && slot) {
+      var lines = $$('.line', big), sec = big.parentNode.getBoundingClientRect();
+      if (lines.length) {
+        var offset = baselineOf(lines[lines.length - 1]) - big.getBoundingClientRect().top;
+        big.style.setProperty('--bt', (slot.getBoundingClientRect().bottom - sec.top - offset).toFixed(2) + 'px');
+      }
+    }
+    // Team photo: the stepped mask's lower-left edge (74.93% down the box) sits on the baseline of the "Who" headline's last line
+    var team = $('.who .slot-team'), who = $('.who');
+    if (team && who) {
+      var wl = $$('.who-title .line', who);
+      if (wl.length) team.style.setProperty('--tt', (baselineOf(wl[wl.length - 1]) - who.getBoundingClientRect().top - 0.7493 * team.offsetHeight).toFixed(2) + 'px');
+    }
+    // What we do hero: the "shop" baseline sits on the photo's bottom edge, and the mask's lower-left step on the "oriented" baseline
+    var wt = $('.wwd-title'), wslot = $('.slot-wwd'), whero = $('.wwd-hero');
+    if (wt && wslot && whero) {
+      var wl = $$('.line', wt), hr = whero.getBoundingClientRect(), sr = wslot.getBoundingClientRect(), tt = wt.getBoundingClientRect().top;
+      if (wl.length >= 3) {
+        var offLast = baselineOf(wl[wl.length - 1]) - tt, off3 = baselineOf(wl[2]) - tt;
+        var titleTop = sr.bottom - hr.top - offLast;
+        wt.style.setProperty('--wt', titleTop.toFixed(2) + 'px');
+        wslot.style.setProperty('--notch', (((titleTop + off3) - (sr.top - hr.top)) / sr.height * 100).toFixed(2) + '%');
+      }
+    }
+    // "We've made a start": the photo's bottom edge sits on the baseline of "more to come"
+    // Who we are hero: the photo's bottom edge sits on the "knowledge meets" baseline, its lower-left step
+  // on the "AI" baseline, and the step's upright one gap right of the "knowledge meets" fill, where the
+  // gap is the one the font leaves between a baseline and the next line box (so all three gaps match)
+  var wat = $('.wwa-title'), wslot2 = $('.slot-studio'), whero2 = $('.wwa-hero');
+  if (wat && wslot2 && whero2) {
+    var al = $$('.line', wat);
+    if (al.length >= 5) {
+      body.classList.add('measuring');
+      var hr2 = whero2.getBoundingClientRect(), sr2 = wslot2.getBoundingClientRect();
+      var bAI = baselineOf(al[2]), bKM = baselineOf(al[3]);
+      var fill = $('.hl', al[3]) || al[3], fr = fill.getBoundingClientRect();
+      var gap = fr.top - bAI;
+      var H = bKM - sr2.top;
+      wslot2.style.setProperty('--sh', H.toFixed(2) + 'px');
+      wslot2.style.setProperty('--ny', ((bAI - sr2.top) / H * 100).toFixed(2) + '%');
+      wslot2.style.setProperty('--nx', ((fr.right + gap - sr2.left) / sr2.width * 100).toFixed(2) + '%');
+      body.classList.remove('measuring');
+    }
+  }
+  var stt = $('.start-title'), sslot = $('.slot-start'), ssec = $('.start');
+    if (stt && sslot && ssec) {
+      var sl = $$('.line', stt);
+      if (sl.length) sslot.style.setProperty('--st', (baselineOf(sl[sl.length - 1]) - ssec.getBoundingClientRect().top - sslot.offsetHeight).toFixed(2) + 'px');
+    }
+    if (copy && bridge) {
+      var tl = $$('.bridge-title .line', bridge), br = bridge.getBoundingClientRect();
+      if (tl.length) {
+        var base = baselineOf(tl[tl.length - 1]) - br.top;
+        copy.style.setProperty('--ct', 'auto');
+        copy.style.setProperty('--cb', (br.height - base).toFixed(2) + 'px');
+      }
+    }
+  }
+  /* Rebuilds a paragraph as one .line block per wrapped line, so the lines can slide in like a headline's.
+   The original text is kept in data-text and the split is redone on resize. */
+function splitLines(p) {
+  var text = p.getAttribute('data-text') || p.textContent.replace(/\s+/g, ' ').trim();
+  p.setAttribute('data-text', text);
+  var wasIn = !!$('.line.in', p);
+  p.innerHTML = '';
+  var words = text.split(' '), spans = [];
+  words.forEach(function (w, i) {
+    var s = document.createElement('span'); s.textContent = w; spans.push(s); p.appendChild(s);
+    if (i < words.length - 1) p.appendChild(document.createTextNode(' '));
+  });
+  var lines = [], cur = [], top = null;
+  spans.forEach(function (s) {
+    var t = s.offsetTop;
+    if (top !== null && t !== top) { lines.push(cur.join(' ')); cur = []; }
+    cur.push(s.textContent); top = t;
+  });
+  if (cur.length) lines.push(cur.join(' '));
+  p.innerHTML = '';
+  lines.forEach(function (l) { var d = el('div', 'line' + (wasIn ? ' in' : '')); d.textContent = l; p.appendChild(d); });
+}
+function measureAll() {
+    alignDesktop();
+    measureCentred($('.who'), '.who-title .line');
+    measureRightAligned($('.bridge'), '.bridge-title .line');
+    measureRightAligned($('.why'), '.big .line');
+    measureRightAligned($('.wwd-hero'), '.wwd-title .line');
+  measureRightAligned($('.wwa-hero'), '.wwa-title .line');
+  measureRightAligned($('.chero'), '.ctitle .line');
+  $$('.pgroup-intro').forEach(splitLines);
+  $$('.pgroup').forEach(function (sec) { measureRightAligned(sec, '.pgroup-title .line, .pgroup-intro .line'); });
+    measureRightAligned($('.faq'), '.faq-title .line');
+    measureCentred($('.start'), '.start-title .line');
+    measureRightAligned($('.prong'), '.prong-title .line');
+    measureShift('.tile', '.tile-title', '.trow');
+    measureShift('.question', '.qtext', '.qline');
+    measureMenu();
+  }
+
+  /* ---------- Hero cycle ----------
+     Each image in .hero-img can carry:
+       data-fig="Fig 1.1"                   caption label (bold)
+       data-caption="Name, role"            caption text
+       data-x="-14.9,-26,-21,-7.4"          offsets (vw from centre) for lines 2-5
+       data-pos="0% 50%"                    object-position for the crop
+     Every HERO_INTERVAL the next photo fades in, the caption swaps and the lines shift. */
+  var slides = hero ? $$('.hero-img img', hero) : [];
+  var heroIdx = 0;
+  /* Word offsets for a photo. On phones each word is kept inside the gutters: the offset is
+     converted to pixels and clamped, taking the CSS --mk scale and --nx nudge into account. */
+  function placeWords(im) {
+    var xs = (im.getAttribute('data-x') || '').split(',');
+    var mobile = window.innerWidth <= BREAKPOINT, W = window.innerWidth, gutter = 20;
+    $$('.hero-text .word:not(:first-child)', hero).forEach(function (w, n) {
+      if (!(xs[n] && xs[n].trim() !== '')) return;
+      var x = parseFloat(xs[n]);
+      if (!mobile) { w.style.setProperty('--x', x + 'vw'); return; }
+      var cs = getComputedStyle(w), mk = parseFloat(cs.getPropertyValue('--mk')) || 1, nx = parseFloat(cs.getPropertyValue('--nx')) || 0;
+      var left = W / 2 + (x / 100) * W * mk + nx;
+      left = Math.max(gutter, Math.min(left, W - gutter - w.offsetWidth));
+      w.style.setProperty('--x', ((left - W / 2 - nx) / mk).toFixed(1) + 'px');
+    });
+  }
+  function applySlide(i, instant) {
+    var im = slides[i]; if (!im) return;
+    placeWords(im);
+    var fig = $('.fig', hero), cap = im.getAttribute('data-caption');
+    if (fig && cap) {
+      var html = (im.getAttribute('data-fig') ? '<strong>(' + im.getAttribute('data-fig') + ')</strong> ' : '') + cap;
+      if (instant) { fig.innerHTML = html; return; }
+      fig.classList.add('swap');
+      setTimeout(function () { fig.innerHTML = html; fig.classList.remove('swap'); }, 450);
+    }
+  }
+  function heroStep() {
+    var prev = heroIdx;
+    heroIdx = (heroIdx + 1) % slides.length;
+    hero.classList.add('cycling');
+    slides.forEach(function (im, i) {
+      if (i === heroIdx) { im.classList.remove('out'); im.classList.add('on'); }
+      else if (i === prev) {
+        im.classList.remove('on'); im.classList.add('out');          // holds still underneath the new shot
+        setTimeout(function () { im.classList.remove('out'); }, 1700);
+      }
+    });
+    applySlide(heroIdx, false);
+  }
+  if (slides.length) {
+    slides.forEach(function (im, i) {
+      if (im.getAttribute('data-pos')) im.style.objectPosition = im.getAttribute('data-pos');
+      im.classList.toggle('on', i === 0);
+    });
+    applySlide(0, true);
+  }
+
+  /* ---------- Scroll reveals ----------
+     The first element of a section to reach the trigger line sets off the whole section;
+     the per-element delays in the CSS then stagger it top to bottom. */
+  var targets = '.big .line, .who-title .line, .slot, .bridge-title .line, .why .fig, .wave-mark, .wave .word, .sec-title .line, .pgroup-intro .line';
+  function mark(elm) {
+    if (elm.classList.contains('slot')) { elm.classList.add('in'); elm = $('.pic', elm) || elm; }
+    elm.classList.add('in');
+  }
+  function reveal(elm) {
+    var section = elm.closest(SECTIONS) || elm;
+    section.classList.add('in');
+    $$(targets, section).forEach(mark);
+  }
+
+  function start() {
+    measureAll();
+    body.classList.add('ready');                          // show the "before" state; the intro mark plays
+    if (hero) {
+      setTimeout(function () { hero.classList.add('in'); body.classList.add('go'); }, 1550);
+      if (slides.length > 1 && !reduceMotion && !skipToEnd) {
+        setTimeout(function () { setInterval(heroStep, HERO_INTERVAL); }, 1550 + 2200);
+      }
+    } else {
+      body.classList.add('go');
+    }
+
+    var els = $$(targets);
+    if (skipToEnd || !('IntersectionObserver' in window)) {
+      els.forEach(reveal);
+      $$(SECTIONS).forEach(function (sec) { sec.classList.add('in'); });
+      return;
+    }
+    // Each piece triggers once its top is 35% up from the bottom of the viewport
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); } });
+    }, { threshold: 0, rootMargin: '0px 0px -35% 0px' });
+    els.forEach(function (elm) { io.observe(elm); });
+    // The wave section starts earlier: as soon as its top clears the bottom 15% of the viewport
+    var wave = $('.wave');
+    if (wave) {
+      var ioWave = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { reveal(wave); ioWave.disconnect(); } });
+      }, { threshold: 0, rootMargin: '0px 0px -15% 0px' });
+      ioWave.observe(wave);
+    }
+    // Anything near the foot of the page that can't reach the trigger line is revealed at the bottom
+    window.addEventListener('scroll', function () {
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) els.forEach(reveal);
+    }, { passive: true });
+  }
+
+  /* ---------- Subtle scroll parallax inside the masked photos ---------- */
+  var pics = $$('.pic').filter(function (pic) { return !pic.closest('.prong-slot'); }), ticking = false;   // the pinned photo drifts with the tabs instead
+  function parallax() {
+    ticking = false;
+    var vh = window.innerHeight;
+    pics.forEach(function (pic) {
+      var r = pic.parentNode.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > vh) return;
+      var progress = ((r.top + r.height / 2) - vh / 2) / vh;     // +0.5 entering at the bottom, -0.5 leaving at the top
+      var dir = pic.classList.contains('from-left') ? -1 : 1;
+      var par = $('.par', pic);
+      if (par) par.style.setProperty('--px', (progress * dir * r.width * 0.035).toFixed(1) + 'px');
+    });
+  }
+  function onScroll() { if (!ticking) { ticking = true; window.requestAnimationFrame(parallax); } }
+  if (!reduceMotion && pics.length) {
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    parallax();
+  }
+
+  /* ---------- Nav: fixed from the start, becomes the dark floating bar after 80px ---------- */
+  var nav = $('.nav');
+  if (nav) {
+    if ($('.light-top')) nav.classList.add('on-light');
+    var stick = function () { nav.classList.toggle('stuck', window.scrollY > 80); };
+    window.addEventListener('scroll', stick, { passive: true });
+    stick();
+  }
+
+  /* ---------- Mobile menu (below 768px): .burger opens .drawer, .drawer-close and the links close it ---------- */
+  var drawer = $('.drawer'), burger = $('.burger');
+  function measureMenu() { measureShift('.drawer', '.drawer-links', '.mlink'); }
+  if (drawer && burger) {
+    if (!$('.burger-ico', burger)) burger.appendChild(el('span', 'burger-ico'));
+    burger.setAttribute('aria-expanded', 'false');
+    $$('.mlink', drawer).forEach(function (a) {
+      var cta = a.classList.contains('mcta');
+      if (!a.getAttribute('data-text')) a.setAttribute('data-text', a.textContent.trim() + (cta ? ' →' : ''));
+      if (cta && !$('.arr', a)) a.appendChild(el('span', 'arr', '&nbsp;&rarr;'));
+    });
+    var closeTimer;
+    var openMenu = function () {
+      clearTimeout(closeTimer);
+      drawer.classList.remove('closing');
+      measureMenu();
+      void drawer.offsetWidth;                            // links take their right-aligned start before the transition begins
+      drawer.classList.add('open');
+      document.documentElement.classList.add('menu-open');
+      burger.setAttribute('aria-expanded', 'true');
+    };
+    var closeMenu = function (instant) {
+      if (!drawer.classList.contains('open')) return;
+      drawer.classList.remove('open');
+      document.documentElement.classList.remove('menu-open');
+      burger.setAttribute('aria-expanded', 'false');
+      if (instant || reduceMotion) return;
+      drawer.classList.add('closing');                    // keeps it visible while it wipes out
+      closeTimer = setTimeout(function () { drawer.classList.remove('closing'); }, 700);
+    };
+    burger.addEventListener('click', function (e) { e.preventDefault(); openMenu(); });
+    $$('.drawer-close', drawer).forEach(function (c) { c.addEventListener('click', function (e) { e.preventDefault(); closeMenu(); }); });
+    $$('.mlink', drawer).forEach(function (a) { a.addEventListener('click', function () { closeMenu(); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+    window.addEventListener('resize', function () { if (window.innerWidth > BREAKPOINT) closeMenu(true); });
+  }
+
+  /* ---------- Three pronged approach: scroll drives the tabs while the pin holds ----------
+     Progress through .prong-stage (0..1) is split evenly between the tabs. The active tab's
+     highlight fills left to right with progress, earlier tabs stay filled, and the title,
+     photo and paragraphs swap when the tab changes. Clicking a tab scrolls to it. */
+  var stage = $('.prong-stage');
+  if (stage) {
+    var ptabs = $$('.ptab', stage), ptitles = $$('.ptitle', stage), pimgs = $$('.prong-slot img', stage), psets = $$('.pset', stage);
+    var pn = ptabs.length, pcur = -1;
+    var ppar = $('.prong-slot .par', stage), outTimer;
+    var setProng = function (i) {
+      if (i === pcur) return;
+      var prev = pcur; pcur = i;
+      ptabs.forEach(function (t, k) { t.classList.toggle('on', k === i); t.classList.toggle('done', k < i); });
+      ptitles.forEach(function (t, k) { t.classList.toggle('on', k === i); });
+      // the new shot slides in over the old one, which holds still underneath (as the home hero does)
+      pimgs.forEach(function (im, k) {
+        im.classList.toggle('on', k === i);
+        im.classList.toggle('out', k === prev && prev >= 0);
+      });
+      clearTimeout(outTimer);
+      outTimer = setTimeout(function () { pimgs.forEach(function (im) { im.classList.remove('out'); }); }, 1400);
+      psets.forEach(function (p, k) { p.classList.toggle('on', k === i); });
+    };
+    var prongScroll = function () {
+      var range = stage.offsetHeight - window.innerHeight;
+      if (range <= 0) { setProng(0); ptabs.forEach(function (t, k) { t.style.setProperty('--fill', k === 0 ? '100%' : '0%'); }); return; }
+      var p = Math.min(1, Math.max(0, -stage.getBoundingClientRect().top / range));
+      var f = p * pn, i = Math.min(pn - 1, Math.floor(f)), frac = (p >= 1) ? 1 : f - i;
+      setProng(i);
+      if (ppar) ppar.style.setProperty('--px', ((0.5 - p) * stage.clientWidth * 0.04).toFixed(1) + 'px');   // slow right-to-left drift inside the mask
+      ptabs.forEach(function (t, k) { t.style.setProperty('--fill', (k < i ? 100 : k === i ? frac * 100 : 0).toFixed(1) + '%'); });
+    };
+    ptabs.forEach(function (t, k) {
+      t.addEventListener('click', function (e) {
+        e.preventDefault();
+        var top = stage.getBoundingClientRect().top + window.scrollY, range = stage.offsetHeight - window.innerHeight;
+        window.scrollTo({ top: top + (k / pn) * range + 2, behavior: reduceMotion ? 'auto' : 'smooth' });
+      });
+    });
+    window.addEventListener('scroll', prongScroll, { passive: true });
+    window.addEventListener('resize', prongScroll);
+    prongScroll();
+  }
+
+  /* ---------- FAQ accordion (first item open; one open at a time) ---------- */
+  var faqItems = $$('.faq-item');
+  if (faqItems.length && !$('.faq-item.open')) faqItems[0].classList.add('open');
+  faqItems.forEach(function (item) {
+    var q = $('.faq-q', item); if (!q) return;
+    q.setAttribute('role', 'button'); q.setAttribute('tabindex', '0');
+    var toggle = function () {
+      var open = !item.classList.contains('open');
+      $$('.faq-item.open').forEach(function (o) { o.classList.remove('open'); });   // one open at a time
+      item.classList.toggle('open', open);
+    };
+    q.addEventListener('click', toggle);
+    q.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+  });
+
+  // ----- Who we are: person pop-up. One modal on the page; each card carries its own bio and link (hidden) -----
+var modal = $('.modal');
+if (modal) {
+  var mImg = $('.modal-photo img', modal), mName = $('.modal-name', modal), mRole = $('.modal-role', modal), mBio = $('.modal-bio', modal), mLink = $('.modal-link', modal), lastCard = null;
+  var openPerson = function (card) {
+    var img = $('.person-pic img', card), bio = $('.person-bio', card), link = $('.person-link', card), name = $('.person-name', card), role = $('.person-role', card);
+    if (img && mImg) { mImg.src = img.currentSrc || img.src; mImg.alt = img.alt || ''; }
+    if (mName) mName.textContent = name ? name.textContent.trim() : '';
+    if (mRole) mRole.textContent = role ? role.textContent.trim() : '';
+    if (mBio) mBio.innerHTML = bio ? bio.innerHTML : '';
+    if (mLink) {
+      var href = link && link.getAttribute('href');
+      if (href && href !== '#') { mLink.setAttribute('href', href); mLink.style.display = ''; } else { mLink.style.display = 'none'; }
+    }
+    lastCard = card;
+    modal.classList.add('open');
+    document.documentElement.classList.add('modal-open');
+    var c = $('.modal-close', modal); if (c) c.focus();
+  };
+  var closePerson = function () {
+    if (!modal.classList.contains('open')) return;
+    modal.classList.remove('open');
+    document.documentElement.classList.remove('modal-open');
+    if (lastCard) lastCard.focus();
+  };
+  $$('.person').forEach(function (card) {
+    card.setAttribute('role', 'button'); card.setAttribute('tabindex', '0');
+    card.addEventListener('click', function (e) { e.preventDefault(); openPerson(card); });
+    card.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPerson(card); } });
+  });
+  var bg = $('.modal-bg', modal); if (bg) bg.addEventListener('click', closePerson);
+  $$('.modal-close', modal).forEach(function (c) { c.addEventListener('click', function (e) { e.preventDefault(); closePerson(); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePerson(); });
+}
+
+// ----- Journal: one Collection List of every post. The script sorts by date, puts the newest featured
+// post in the card at the top, filters by category, searches, and pages ten at a time -----
+var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+function fmtDate(s) {
+  var d = new Date(s); if (isNaN(d)) return s;
+  var n = d.getDate(), sfx = (n % 10 === 1 && n !== 11) ? 'st' : (n % 10 === 2 && n !== 12) ? 'nd' : (n % 10 === 3 && n !== 13) ? 'rd' : 'th';
+  return n + sfx + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear();
+}
+function rowInfo(row) {
+  var t = function (sel) { var e = $(sel, row); return e ? e.textContent.trim() : ''; };
+  var slug = row.getAttribute('data-slug');
+  if (slug && !/^https?:/.test(slug)) row.setAttribute('href', '/posts/' + slug);
+  var dateEl = $('.jdate', row), raw = dateEl ? dateEl.textContent.trim() : '';
+  if (dateEl) dateEl.textContent = fmtDate(raw);
+  return { el: row.closest('.w-dyn-item') || row, row: row, title: t('.jrow-title'), ex: t('.jrow-ex'), cat: t('.jcat'), author: t('.jauthor'),
+    date: new Date(raw).getTime() || 0, featured: /^(true|yes|on|1)$/i.test(t('.jfeat-flag')), href: row.getAttribute('href') || '' };
+}
+function sortedRows(scope) {
+  var rows = $$('.jrow', scope).map(rowInfo);
+  rows.sort(function (a, b) { return b.date - a.date; });
+  rows.forEach(function (r) { r.el.parentNode.appendChild(r.el); });   // newest first in the DOM too
+  return rows;
+}
+var journal = $('.journal');
+if (journal) {
+  var jrows = sortedRows(journal), PAGE = 10, jpage = 1, jcat = 'All', jq = '';
+  /* /journal?cat=Ideas opens with that category selected (the post page's category tag links here) */
+  var want = (location.search.match(/[?&]cat=([^&]*)/) || [])[1];
+  if (want) {
+    want = decodeURIComponent(want.replace(/\+/g, ' '));
+    $$('.jcat-btn', journal).forEach(function (b) {
+      var on = (b.getAttribute('data-cat') || b.textContent.trim()) === want;
+      b.classList.toggle('on', on); if (on) jcat = want;
+    });
+  }
+  var feat = null;
+  for (var fi = 0; fi < jrows.length; fi++) { if (jrows[fi].featured) { feat = jrows[fi]; break; } }
+  var card = $('.jfeat', journal), label = $('.jlabel', journal);
+  if (card && feat) {
+    var ct = $('.agenda-title', card);
+    if (ct) { ct.textContent = feat.title; splitLines(ct); $$('.line', ct).forEach(function (l) { l.classList.add('wipe'); l.setAttribute('data-text', l.textContent); }); }
+    var cx = $('.agenda-ex', card); if (cx) cx.textContent = feat.ex;
+    var set = function (sel, v) { var e = $(sel, card); if (e) e.textContent = v; };
+    set('.jcat', feat.cat); set('.jdate', fmtDate(feat.date)); set('.jauthor', feat.author);
+    card.setAttribute('href', feat.href);
+  } else { if (card) card.style.display = 'none'; if (label) label.style.display = 'none'; }
+  var more = $('.jmore', journal), empty = $('.jempty', journal);
+  var apply = function () {
+    var list = jrows.filter(function (r) {
+      if (r === feat) return false;
+      if (jcat !== 'All' && r.cat !== jcat) return false;
+      return !jq || (r.title + ' ' + r.ex + ' ' + r.author + ' ' + r.cat).toLowerCase().indexOf(jq) !== -1;
+    });
+    jrows.forEach(function (r) { r.el.style.display = 'none'; });
+    list.slice(0, jpage * PAGE).forEach(function (r) { r.el.style.display = ''; });
+    if (more) more.classList.toggle('gone', list.length <= jpage * PAGE);
+    if (empty) empty.classList.toggle('show', !list.length);
+  };
+  $$('.jcat-btn', journal).forEach(function (b) {
+    b.addEventListener('click', function (e) {
+      e.preventDefault();
+      jcat = b.getAttribute('data-cat') || b.textContent.trim(); jpage = 1;
+      $$('.jcat-btn', journal).forEach(function (o) { o.classList.toggle('on', o === b); });
+      apply();
+    });
+  });
+  var sin = $('.jsearch-input', journal);
+  if (sin) sin.addEventListener('input', function () { jq = sin.value.trim().toLowerCase(); jpage = 1; apply(); });
+  if (more) more.addEventListener('click', function (e) { e.preventDefault(); jpage++; apply(); });
+  apply();
+}
+// ----- Post: format the date and pick three "Read more" posts, same category first -----
+var postSec = $('.post');
+if (postSec) {
+  var pd = $('.post-date', postSec); if (pd) pd.textContent = fmtDate(pd.textContent.trim());
+  $$('a.post-cat', postSec).forEach(function (a) { a.setAttribute('href', '/journal?cat=' + encodeURIComponent(a.textContent.trim())); });
+  var moreSec = $('.readmore');
+  if (moreSec) {
+    var here = location.pathname.replace(/\/$/, ''), pc = $('.post-cat', postSec), myCat = pc ? pc.textContent.trim() : '';
+    var rows = sortedRows(moreSec);
+    rows.forEach(function (r) { r.el.style.display = 'none'; });
+    var all = rows.filter(function (r) { return r.href.replace(/\/$/, '') !== here; });
+    var same = all.filter(function (r) { return r.cat === myCat; }), rest = all.filter(function (r) { return r.cat !== myCat; });
+    var pick = same.concat(rest).slice(0, 3);
+    pick.forEach(function (r) { r.el.parentNode.appendChild(r.el); r.el.style.display = ''; });
+    if (!pick.length) moreSec.style.display = 'none';
+  }
+}
+
+var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () { measureAll(); if (slides.length) placeWords(slides[heroIdx]); }, 120);
+  });
+
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(start);
+  else window.addEventListener('load', start);
+})();

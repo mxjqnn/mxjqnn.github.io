@@ -1,0 +1,11 @@
+<style>
+/* Breakwater tokens: maps the Webflow Variables in the "Breakwater" collection onto the stylesheet. Must sit AFTER the styles embed. Fallbacks are the original values. */
+:root{--dark:var(--_breakwater---dark,#2B2929);--beige:var(--_breakwater---beige,#DFD8D0);--light:var(--_breakwater---light,#EEEDEC);--yellow:var(--_breakwater---yellow,#F6F675);--size-body:var(--_breakwater---body-copy-size-vw,1.95);--size-headline:var(--_breakwater---headline-size-vw,7.6);--size-hero:var(--_breakwater---hero-and-wave-headline-size-vw,6.1)}
+.para,.bridge .more{font-size:clamp(18px,calc(var(--size-body) * 1vw),calc(var(--size-body) * 14.8718px))}
+.tile::after{background:color-mix(in srgb,var(--yellow) 60%,transparent)}
+.foot,.foot-top{border-color:color-mix(in srgb,var(--light) 14%,transparent)}
+.news-input{border-bottom-color:color-mix(in srgb,var(--light) 50%,transparent)}
+.news-input::placeholder{color:color-mix(in srgb,var(--light) 50%,transparent)}
+.foot-bottom{color:color-mix(in srgb,var(--light) 70%,transparent)}
+@media (min-width:768px){:root{--gutter:var(--_breakwater---page-gutter,2.8vw)}.big,.who-title,.bridge-title,.sec-title{font-size:clamp(56px,calc(var(--size-headline) * 1vw),calc(var(--size-headline) * 15.7895px))}.hero-text,.wave-text,.wwd-title,.wwa-title{font-size:clamp(40px,calc(var(--size-hero) * 1vw),calc(var(--size-hero) * 15.7377px))}.ctitle{font-size:clamp(42px,calc(var(--size-hero) * 1.08vw),calc(var(--size-hero) * 17px))}}
+</style>

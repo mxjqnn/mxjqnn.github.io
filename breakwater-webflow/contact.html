@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Breakwater — Journal (Webflow reference build)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  REFERENCE ONLY. This page is built exactly the way the Webflow page should be:
+  plain elements with the class names from BUILD-SHEET.md, plus breakwater.css and
+  breakwater.js. Open it through a local server to compare against the Webflow build.
+-->
+<style>
+/* Stand-in for the font Webflow will serve once it's uploaded as "Arizona Flare" */
+@font-face { font-family: 'Arizona Flare'; src: url('assets/ABCArizonaFlareVariable-Trial.ttf') format('truetype'); font-weight: 200 700; font-display: block; }
+/* Stand-in for Webflow's base stylesheet, so this page hits the same defaults the real build will */
+body { margin: 0; min-height: 100%; background-color: #fff; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px; color: #333; }
+img { max-width: 100%; vertical-align: middle; display: inline-block; }
+h1 { font-size: 38px; line-height: 44px; margin-top: 20px; margin-bottom: 10px; font-weight: bold; }
+p { margin-top: 0; margin-bottom: 10px; }
+label { display: block; margin-bottom: 5px; font-weight: bold; }
+.w-inline-block { max-width: 100%; display: inline-block; }
+.w-form { margin: 0 0 15px; }
+.w-input { display: block; width: 100%; height: 38px; padding: 8px 12px; margin-bottom: 10px; font-size: 14px; line-height: 1.42857143; color: #333; background-color: #fff; border: 1px solid #ccc; }
+.w-button { display: inline-block; padding: 9px 15px; background-color: #3898EC; color: white; border: 0; line-height: inherit; text-decoration: none; cursor: pointer; border-radius: 0; }
+</style>
+<link rel="stylesheet" href="breakwater.css">
+<!-- Same token mapping the Webflow page uses. No Webflow Variables exist here, so the fallbacks apply. -->
+<style>
+/* Breakwater tokens: maps the Webflow Variables in the "Breakwater" collection onto the stylesheet. Must sit AFTER the styles embed. Fallbacks are the original values. */
+:root{--dark:var(--_breakwater---dark,#2B2929);--beige:var(--_breakwater---beige,#DFD8D0);--light:var(--_breakwater---light,#EEEDEC);--yellow:var(--_breakwater---yellow,#F6F675);--size-body:var(--_breakwater---body-copy-size-vw,1.95);--size-headline:var(--_breakwater---headline-size-vw,7.6);--size-hero:var(--_breakwater---hero-and-wave-headline-size-vw,6.1)}
+.para,.bridge .more{font-size:clamp(18px,calc(var(--size-body) * 1vw),calc(var(--size-body) * 14.8718px))}
+.tile::after{background:color-mix(in srgb,var(--yellow) 60%,transparent)}
+.foot,.foot-top{border-color:color-mix(in srgb,var(--light) 14%,transparent)}
+.news-input{border-bottom-color:color-mix(in srgb,var(--light) 50%,transparent)}
+.news-input::placeholder{color:color-mix(in srgb,var(--light) 50%,transparent)}
+.foot-bottom{color:color-mix(in srgb,var(--light) 70%,transparent)}
+@media (min-width:768px){:root{--gutter:var(--_breakwater---page-gutter,2.8vw)}.big,.who-title,.bridge-title,.sec-title{font-size:clamp(56px,calc(var(--size-headline) * 1vw),calc(var(--size-headline) * 15.7895px))}.hero-text,.wave-text,.wwd-title,.wwa-title{font-size:clamp(40px,calc(var(--size-hero) * 1vw),calc(var(--size-hero) * 15.7377px))}.ctitle{font-size:clamp(42px,calc(var(--size-hero) * 1.08vw),calc(var(--size-hero) * 17px))}}
+</style>
+<script>document.documentElement.classList.add('bw-js')</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu left">
+    <a class="wipe" href="#">What we do</a>
+    <a class="wipe" href="#">Who we are</a>
+  </div>
+  <a class="logo w-inline-block" href="#" aria-label="Breakwater Initiative">
+    <div class="logo-shape"><img class="row-top" src="assets/logo-yellow.svg" alt=""><img class="row-bot" src="assets/logo-yellow.svg" alt=""></div>
+  </a>
+  <div class="menu right">
+    <a class="wipe" href="#">Journal</a>
+    <a class="nav-btn wipe" href="#">Get involved</a>
+    <a class="burger" href="#" role="button" aria-label="Menu"><span class="burger-ico"></span></a>
+  </div>
+</div>
+
+<!-- Mobile menu drawer (hidden above 767px) -->
+<div class="drawer">
+  <div class="drawer-top">
+    <div class="drawer-mark"></div>
+    <a class="drawer-close" href="#" role="button" aria-label="Close menu"></a>
+  </div>
+  <nav class="drawer-links">
+    <a class="mlink" href="#">Why we exist</a>
+    <a class="mlink" href="#">What we do</a>
+    <a class="mlink" href="#">Who we are</a>
+    <a class="mlink" href="#">Journal</a>
+    <a class="mlink mcta" href="#">Get involved</a>
+  </nav>
+</div>
+
+<!-- Journal: one Collection List of every post; the script picks the featured one, sorts, filters, searches and pages -->
+<!-- Contact: hero photo with the stacked headline, the copy + form, then the FAQs filtered to this page -->
+<div class="chero">
+  <div class="chero-img"><img src="https://cdn.prod.website-files.com/6abaf46b46ac1a767baffaee/6ac6487496e530a43080a58b_wwd-hero-headphones.webp" alt=""></div>
+  <div class="ctitle sec-title" role="heading" aria-level="1" aria-label="Play a part in the solution">
+    <div class="line">Play</div>
+    <div class="line">a part</div>
+    <div class="line">in the</div>
+    <div class="line">solution</div>
+  </div>
+</div>
+<div class="contact">
+  <div class="contact-copy">
+    <p class="cpara">This will only succeed if everyone raises their hand. We need builders and thinkers, communicators and wonks, partners in the field and people inside the labs. We're looking for your ideas, and yes, the funding to make it happen.</p>
+    <p class="cpara">If any of this resonates, we want to hear from you.<br>Email <a class="cmail wipe" href="mailto:contact@breakwaterinitiative.com">contact@breakwaterinitiative.com</a></p>
+  </div>
+  <div class="cform-box">
+    <div class="cform w-form">
+      <form name="Contact" data-name="Contact" method="get">
+        <div class="cform-row">
+          <input class="cfield w-input" type="text" name="Name" placeholder="Name" required>
+          <input class="cfield w-input" type="email" name="Email" placeholder="Email" required>
+        </div>
+        <textarea class="carea w-input" name="Message" placeholder="Message" required></textarea>
+        <input class="csubmit w-button" type="submit" value="Submit">
+      </form>
+      <div class="w-form-done"><div>Thank you. We'll be in touch.</div></div>
+      <div class="w-form-fail"><div>Something went wrong. Please email us instead.</div></div>
+    </div>
+  </div>
+</div>
+<div class="faq faq-dark" data-location="Contact">
+  <div class="faq-title sec-title dark-title" role="heading" aria-level="2" aria-label="Frequently asked questions">
+    <div class="line">Frequently</div>
+    <div class="line">asked</div>
+    <div class="line"><span class="hl">questions</span></div>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item"><div class="faq-loc">Who we are and Contact</div>
+      <div class="faq-q"><span>How can I help?</span><span class="faq-ico"></span></div>
+      <div class="faq-a"><div class="faq-rich"><p>Is there an optimal speed of displacement, and how can we set it? If China is proactively managing the pace of dislocation, what are the best ways for the US to lead on this? What levers work best, what are the tradeoffs, and what frictions genuinely protect vs delay the inevitable?</p><p><strong>Our work</strong><br>We are collaborating with several leading economists on this question and plan to put out some policy ideas.</p></div></div>
+    </div>
+    <div class="faq-item"><div class="faq-loc">Who we are and Contact</div>
+      <div class="faq-q"><span>Another question</span><span class="faq-ico"></span></div>
+      <div class="faq-a"><div class="faq-rich"><p>Placeholder answer.</p></div></div>
+    </div>
+    <div class="faq-item"><div class="faq-loc">Who we are and Contact</div>
+      <div class="faq-q"><span>Another question</span><span class="faq-ico"></span></div>
+      <div class="faq-a"><div class="faq-rich"><p>Placeholder answer.</p></div></div>
+    </div>
+    <div class="faq-item"><div class="faq-loc">Who we are and Contact</div>
+      <div class="faq-q"><span>Another question</span><span class="faq-ico"></span></div>
+      <div class="faq-a"><div class="faq-rich"><p>Placeholder answer.</p></div></div>
+    </div>
+    <div class="faq-item"><div class="faq-loc">Who we are and Contact</div>
+      <div class="faq-q"><span>Another question</span><span class="faq-ico"></span></div>
+      <div class="faq-a"><div class="faq-rich"><p>Placeholder answer.</p></div></div>
+    </div>
+    <div class="faq-item"><div class="faq-loc">Who we are</div>
+      <div class="faq-q"><span>Another question</span><span class="faq-ico"></span></div>
+      <div class="faq-a"><div class="faq-rich"><p>Placeholder answer.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Wave -->
+<!-- Footer -->
+<div class="foot">
+  <div class="foot-top">
+    <div class="foot-about">
+      <a class="foot-logo w-inline-block" href="#"><img src="assets/logo-light.svg" alt="Breakwater Initiative"></a>
+      <p>An action-oriented policy shop &mdash; independent of industry, independent of political tribe. We&rsquo;re pioneering the solutions, building the political will, and co-creating a public vision that AI transformation demands. <a href="#">Company setup &amp; legals</a></p>
+    </div>
+    <div class="news w-form">
+      <form>
+        <label for="news-email">The occasional briefing on the future of work. No noise.</label>
+        <div class="news-row">
+          <input class="news-input w-input" id="news-email" type="email" name="email" placeholder="Email address" required>
+          <input class="news-submit w-button" type="submit" value="Subscribe">
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p class="legal">&copy; 2026 The Breakwater Initiative. All rights reserved. An independent, non-partisan policy initiative. Views expressed are those of the authors.</p>
+    <div class="foot-links">
+      <a class="wipe" href="#">LinkedIn</a>
+      <a class="wipe" href="#">X</a>
+      <a class="wipe" href="#">Terms &amp; conditions</a>
+      <a class="wipe" href="#">Privacy policy</a>
+    </div>
+  </div>
+</div>
+
+<script src="breakwater.js"></script>
+</body>
+</html>

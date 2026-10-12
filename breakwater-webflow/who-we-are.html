@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Breakwater — Who we are (Webflow reference build)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  REFERENCE ONLY. This page is built exactly the way the Webflow page should be:
+  plain elements with the class names from BUILD-SHEET.md, plus breakwater.css and
+  breakwater.js. Open it through a local server to compare against the Webflow build.
+-->
+<style>
+/* Stand-in for the font Webflow will serve once it's uploaded as "Arizona Flare" */
+@font-face { font-family: 'Arizona Flare'; src: url('assets/ABCArizonaFlareVariable-Trial.ttf') format('truetype'); font-weight: 200 700; font-display: block; }
+/* Stand-in for Webflow's base stylesheet, so this page hits the same defaults the real build will */
+body { margin: 0; min-height: 100%; background-color: #fff; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px; color: #333; }
+img { max-width: 100%; vertical-align: middle; display: inline-block; }
+h1 { font-size: 38px; line-height: 44px; margin-top: 20px; margin-bottom: 10px; font-weight: bold; }
+p { margin-top: 0; margin-bottom: 10px; }
+label { display: block; margin-bottom: 5px; font-weight: bold; }
+.w-inline-block { max-width: 100%; display: inline-block; }
+.w-form { margin: 0 0 15px; }
+.w-input { display: block; width: 100%; height: 38px; padding: 8px 12px; margin-bottom: 10px; font-size: 14px; line-height: 1.42857143; color: #333; background-color: #fff; border: 1px solid #ccc; }
+.w-button { display: inline-block; padding: 9px 15px; background-color: #3898EC; color: white; border: 0; line-height: inherit; text-decoration: none; cursor: pointer; border-radius: 0; }
+</style>
+<link rel="stylesheet" href="breakwater.css">
+<!-- Same token mapping the Webflow page uses. No Webflow Variables exist here, so the fallbacks apply. -->
+<style>
+/* Breakwater tokens: maps the Webflow Variables in the "Breakwater" collection onto the stylesheet. Must sit AFTER the styles embed. Fallbacks are the original values. */
+:root{--dark:var(--_breakwater---dark,#2B2929);--beige:var(--_breakwater---beige,#DFD8D0);--light:var(--_breakwater---light,#EEEDEC);--yellow:var(--_breakwater---yellow,#F6F675);--size-body:var(--_breakwater---body-copy-size-vw,1.95);--size-headline:var(--_breakwater---headline-size-vw,7.6);--size-hero:var(--_breakwater---hero-and-wave-headline-size-vw,6.1)}
+.para,.bridge .more{font-size:clamp(18px,calc(var(--size-body) * 1vw),calc(var(--size-body) * 14.8718px))}
+.tile::after{background:color-mix(in srgb,var(--yellow) 60%,transparent)}
+.foot,.foot-top{border-color:color-mix(in srgb,var(--light) 14%,transparent)}
+.news-input{border-bottom-color:color-mix(in srgb,var(--light) 50%,transparent)}
+.news-input::placeholder{color:color-mix(in srgb,var(--light) 50%,transparent)}
+.foot-bottom{color:color-mix(in srgb,var(--light) 70%,transparent)}
+@media (min-width:768px){:root{--gutter:var(--_breakwater---page-gutter,2.8vw)}.big,.who-title,.bridge-title,.sec-title{font-size:clamp(56px,calc(var(--size-headline) * 1vw),calc(var(--size-headline) * 15.7895px))}.hero-text,.wave-text,.wwd-title,.wwa-title{font-size:clamp(40px,calc(var(--size-hero) * 1vw),calc(var(--size-hero) * 15.7377px))}}
+</style>
+<script>document.documentElement.classList.add('bw-js')</script>
+</head>
+<body>
+
+<div class="nav on-light">
+  <div class="menu left">
+    <a class="wipe" href="#">What we do</a>
+    <a class="wipe" href="#">Who we are</a>
+  </div>
+  <a class="logo w-inline-block" href="#" aria-label="Breakwater Initiative">
+    <div class="logo-shape"><img class="row-top" src="assets/logo-yellow.svg" alt=""><img class="row-bot" src="assets/logo-yellow.svg" alt=""></div>
+  </a>
+  <div class="menu right">
+    <a class="wipe" href="#">Journal</a>
+    <a class="nav-btn wipe" href="#">Get involved</a>
+    <a class="burger" href="#" role="button" aria-label="Menu"><span class="burger-ico"></span></a>
+  </div>
+</div>
+
+<!-- Mobile menu drawer (hidden above 767px) -->
+<div class="drawer">
+  <div class="drawer-top">
+    <div class="drawer-mark"></div>
+    <a class="drawer-close" href="#" role="button" aria-label="Close menu"></a>
+  </div>
+  <nav class="drawer-links">
+    <a class="mlink" href="#">Why we exist</a>
+    <a class="mlink" href="#">What we do</a>
+    <a class="mlink" href="#">Who we are</a>
+    <a class="mlink" href="#">Journal</a>
+    <a class="mlink mcta" href="#">Get involved</a>
+  </nav>
+</div>
+
+<!-- Hero: a light section, so the nav gets .on-light (the script adds it when a .light-top section exists) -->
+<div class="wwa-hero light-top">
+  <div class="wwa-title sec-title" role="heading" aria-level="1" aria-label="Where frontier AI knowledge meets policy experience">
+    <div class="line">Where</div>
+    <div class="line">frontier</div>
+    <div class="line"><span class="hl">AI</span></div>
+    <div class="line"><span class="hl">knowledge meets</span></div>
+    <div class="line"><span class="hl">policy experience</span></div>
+  </div>
+  <div class="slot slot-studio right">
+    <div class="cap cap-tr"><strong>(Fig 1)</strong> Adaeze Okonkwo and Leon Marsh, Grounded Studio, Oakland [caption placeholder]</div>
+    <div class="pic from-right"><img src="assets/wwa-hero-studio.webp" alt=""></div>
+  </div>
+  <p class="para p1">We&rsquo;re working to ensure AI&rsquo;s transformation of work isn&rsquo;t at odds with American livelihoods.</p>
+  <div class="slot slot-potter right">
+    <div class="cap cap-bl"><strong>(Fig 2)</strong> Caroline Duffy, ceramicist, Hudson, New York [caption placeholder]</div>
+    <div class="pic from-right"><img src="assets/wwa-potter.webp" alt=""></div>
+  </div>
+  <p class="para p2">Independent and nonpartisan, Breakwater pioneers solutions, builds public momentum, and will co-create a vision for the future of work that AI&rsquo;s transformation demands.</p>
+  <div class="slot slot-headphones left">
+    <div class="cap cap-tr"><strong>(Fig 3)</strong> Sofia Zhou, recently laid off from an administrative role [caption placeholder]</div>
+    <div class="pic from-left"><img src="assets/wwd-hero-headphones.webp" alt=""></div>
+  </div>
+  <p class="para p3">Joining forces with the best minds tackling this challenge to ideate, test, scale and pitch what works together.</p>
+</div>
+
+<!-- People: three groups. In Webflow each grid is a Collection List of People filtered by Category -->
+<div class="pgroup pgroup-team" data-group="Core team">
+  <div class="pgroup-title sec-title" role="heading" aria-level="2" aria-label="Core team">
+    <div class="line">Core</div>
+    <div class="line"><span class="hl">team</span></div>
+  </div>
+  <p class="para pgroup-intro">A sentence or two on the company and what the core team brings to the table [placeholder]</p>
+  <div class="pgrid cols-3"><div class="pcards">
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Molly Kinder</div>
+          <div class="person-role">Founder &amp; CEO</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Core team</div>
+          <div class="person-bio w-richtext"><p>Molly Kinder is one of the country's leading experts on AI, work, and what comes next for workers. Her research combines rigorous analysis with deep field work, centering the workers, families, and communities who will bear the costs of this transition first.</p><p>Molly has spent 25 years at the intersection of policy, technology, and social change. Her work has shaped federal policy, moved more than $1 billion in public investment, and reached more than two million workers.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Team member 2</div>
+          <div class="person-role">Role placeholder</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Core team</div>
+          <div class="person-bio w-richtext"><p>Placeholder bio. A short paragraph on this person's background and what they bring to Breakwater.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Team member 3</div>
+          <div class="person-role">Role placeholder</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Core team</div>
+          <div class="person-bio w-richtext"><p>Placeholder bio. A short paragraph on this person's background and what they bring to Breakwater.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Team member 4</div>
+          <div class="person-role">Role placeholder</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Core team</div>
+          <div class="person-bio w-richtext"><p>Placeholder bio. A short paragraph on this person's background and what they bring to Breakwater.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Team member 5</div>
+          <div class="person-role">Role placeholder</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Core team</div>
+          <div class="person-bio w-richtext"><p>Placeholder bio. A short paragraph on this person's background and what they bring to Breakwater.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Team member 6</div>
+          <div class="person-role">Role placeholder</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Core team</div>
+          <div class="person-bio w-richtext"><p>Placeholder bio. A short paragraph on this person's background and what they bring to Breakwater.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Team member 7</div>
+          <div class="person-role">Role placeholder</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Core team</div>
+          <div class="person-bio w-richtext"><p>Placeholder bio. A short paragraph on this person's background and what they bring to Breakwater.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>
+
+<div class="pgroup pgroup-fellows" data-group="Breakwater fellows">
+  <div class="pgroup-title sec-title" role="heading" aria-level="2" aria-label="Breakwater fellows">
+    <div class="line">Breakwater</div>
+    <div class="line"><span class="hl">fellows</span></div>
+  </div>
+  <p class="para pgroup-intro">A sentence or two about Breakwater fellows &ndash; what they do and add [placeholder]</p>
+  <div class="pgrid cols-4"><div class="pcards">
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Fellow 1</div>
+          <div class="person-role">AI Engineer @ Anthropic</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Breakwater fellows</div>
+          <div class="person-bio w-richtext"><p>Placeholder bio. A short paragraph on this fellow's background and what they are working on with Breakwater.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Fellow 2</div>
+          <div class="person-role">AI Engineer @ Anthropic</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Breakwater fellows</div>
+          <div class="person-bio w-richtext"><p>Placeholder bio. A short paragraph on this fellow's background and what they are working on with Breakwater.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Fellow 3</div>
+          <div class="person-role">AI Engineer @ Anthropic</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Breakwater fellows</div>
+          <div class="person-bio w-richtext"><p>Placeholder bio. A short paragraph on this fellow's background and what they are working on with Breakwater.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Fellow 4</div>
+          <div class="person-role">AI Engineer @ Anthropic</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Breakwater fellows</div>
+          <div class="person-bio w-richtext"><p>Placeholder bio. A short paragraph on this fellow's background and what they are working on with Breakwater.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Fellow 5</div>
+          <div class="person-role">AI Engineer @ Anthropic</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Breakwater fellows</div>
+          <div class="person-bio w-richtext"><p>Placeholder bio. A short paragraph on this fellow's background and what they are working on with Breakwater.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Fellow 6</div>
+          <div class="person-role">AI Engineer @ Anthropic</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Breakwater fellows</div>
+          <div class="person-bio w-richtext"><p>Placeholder bio. A short paragraph on this fellow's background and what they are working on with Breakwater.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Fellow 7</div>
+          <div class="person-role">AI Engineer @ Anthropic</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Breakwater fellows</div>
+          <div class="person-bio w-richtext"><p>Placeholder bio. A short paragraph on this fellow's background and what they are working on with Breakwater.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Fellow 8</div>
+          <div class="person-role">AI Engineer @ Anthropic</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Breakwater fellows</div>
+          <div class="person-bio w-richtext"><p>Placeholder bio. A short paragraph on this fellow's background and what they are working on with Breakwater.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Fellow 9</div>
+          <div class="person-role">AI Engineer @ Anthropic</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Breakwater fellows</div>
+          <div class="person-bio w-richtext"><p>Placeholder bio. A short paragraph on this fellow's background and what they are working on with Breakwater.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Fellow 10</div>
+          <div class="person-role">AI Engineer @ Anthropic</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Breakwater fellows</div>
+          <div class="person-bio w-richtext"><p>Placeholder bio. A short paragraph on this fellow's background and what they are working on with Breakwater.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Fellow 11</div>
+          <div class="person-role">AI Engineer @ Anthropic</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Breakwater fellows</div>
+          <div class="person-bio w-richtext"><p>Placeholder bio. A short paragraph on this fellow's background and what they are working on with Breakwater.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Fellow 12</div>
+          <div class="person-role">AI Engineer @ Anthropic</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Breakwater fellows</div>
+          <div class="person-bio w-richtext"><p>Placeholder bio. A short paragraph on this fellow's background and what they are working on with Breakwater.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>
+
+<div class="pgroup pgroup-advisors" data-group="Our advisors">
+  <div class="pgroup-title sec-title" role="heading" aria-level="2" aria-label="Our advisors">
+    <div class="line">Our</div>
+    <div class="line"><span class="hl">Advisors</span></div>
+  </div>
+  <p class="para pgroup-intro">A sentence or two about Breakwater advisors &ndash; what they do and add [placeholder]</p>
+  <div class="pgrid cols-4"><div class="pcards">
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Advisor 1</div>
+          <div class="person-role">AI Engineer @ Anthropic</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Our advisors</div>
+          <div class="person-bio w-richtext"><p>Placeholder bio. A short paragraph on this advisor's background and how they support Breakwater.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Advisor 2</div>
+          <div class="person-role">AI Engineer @ Anthropic</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Our advisors</div>
+          <div class="person-bio w-richtext"><p>Placeholder bio. A short paragraph on this advisor's background and how they support Breakwater.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Advisor 3</div>
+          <div class="person-role">AI Engineer @ Anthropic</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Our advisors</div>
+          <div class="person-bio w-richtext"><p>Placeholder bio. A short paragraph on this advisor's background and how they support Breakwater.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person" role="button" tabindex="0">
+        <div class="person-pic"><img src="assets/person-placeholder.webp" alt=""></div>
+        <div class="person-bar">
+          <div class="person-name wipe">Advisor 4</div>
+          <div class="person-role">AI Engineer @ Anthropic</div>
+          <div class="person-about"><span>About</span><span class="arr">&nbsp;&rarr;</span></div>
+        </div>
+        <div class="person-data">
+          <div class="person-cat">Our advisors</div>
+          <div class="person-bio w-richtext"><p>Placeholder bio. A short paragraph on this advisor's background and how they support Breakwater.</p></div>
+          <a class="person-link" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>
+
+<!-- Person pop-up: one shared modal, filled by the script from the card that was clicked -->
+<div class="modal" role="dialog" aria-modal="true" aria-label="About this person">
+  <div class="modal-bg"></div>
+  <div class="modal-panel">
+    <div class="modal-photo"><img src="assets/person-placeholder.webp" alt=""></div>
+    <div class="modal-body">
+      <div class="modal-name">Molly Kinder</div>
+      <div class="modal-role">Founder &amp; CEO</div>
+      <div class="modal-bio"></div>
+      <a class="modal-link wipe" href="#" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <a class="modal-close" href="#" role="button" aria-label="Close"></a>
+  </div>
+</div>
+
+<!-- FAQs: dark variant of the What we do accordion. In Webflow this is a Collection List of Who we are FAQs -->
+<div class="faq faq-dark">
+  <div class="faq-title sec-title dark-title" role="heading" aria-level="2" aria-label="Frequently asked questions">
+    <div class="line">Frequently</div>
+    <div class="line">asked</div>
+    <div class="line"><span class="hl">questions</span></div>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q"><span>How can I help?</span><span class="faq-ico"></span></div>
+      <div class="faq-a"><div class="faq-rich"><p>Is there an optimal speed of displacement, and how can we set it? If China is proactively managing the pace of dislocation, what are the best ways for the US to lead on this? What levers work best, what are the tradeoffs, and what frictions genuinely protect vs delay the inevitable?</p><p><strong>Our work</strong><br>We are collaborating with several leading economists on this question and plan to put out some policy ideas.</p></div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>Another question</span><span class="faq-ico"></span></div>
+      <div class="faq-a"><div class="faq-rich"><p>Placeholder answer.</p></div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>Another question</span><span class="faq-ico"></span></div>
+      <div class="faq-a"><div class="faq-rich"><p>Placeholder answer.</p></div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>Another question</span><span class="faq-ico"></span></div>
+      <div class="faq-a"><div class="faq-rich"><p>Placeholder answer.</p></div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>Another question</span><span class="faq-ico"></span></div>
+      <div class="faq-a"><div class="faq-rich"><p>Placeholder answer.</p></div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>Another question</span><span class="faq-ico"></span></div>
+      <div class="faq-a"><div class="faq-rich"><p>Placeholder answer.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Wave -->
+<div class="wave">
+  <div class="wave-mark"><div class="mark-shape"></div></div>
+  <div class="wave-text" role="heading" aria-level="2" aria-label="The wave is coming. Help us build the breakwater">
+    <div class="wave-row"><div class="word">The</div></div>
+    <div class="wave-row"><div class="word">wave</div></div>
+    <div class="wave-row"><div class="word">is coming</div><div class="word">help us</div></div>
+    <div class="wave-row"><div class="word">build the</div></div>
+    <div class="wave-row"><div class="word">breakwater</div></div>
+  </div>
+  <p class="para p1">Policy takes time. If we don&rsquo;t act now, we will miss the window of opportunity. To invest, collaborate or find out more, get in touch.</p>
+  <a class="cta-dark wipe" href="#">Contact us</a>
+</div>
+
+<!-- Footer -->
+<div class="foot">
+  <div class="foot-top">
+    <div class="foot-about">
+      <a class="foot-logo w-inline-block" href="#"><img src="assets/logo-light.svg" alt="Breakwater Initiative"></a>
+      <p>An action-oriented policy shop &mdash; independent of industry, independent of political tribe. We&rsquo;re pioneering the solutions, building the political will, and co-creating a public vision that AI transformation demands. <a href="#">Company setup &amp; legals</a></p>
+    </div>
+    <div class="news w-form">
+      <form>
+        <label for="news-email">The occasional briefing on the future of work. No noise.</label>
+        <div class="news-row">
+          <input class="news-input w-input" id="news-email" type="email" name="email" placeholder="Email address" required>
+          <input class="news-submit w-button" type="submit" value="Subscribe">
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p class="legal">&copy; 2026 The Breakwater Initiative. All rights reserved. An independent, non-partisan policy initiative. Views expressed are those of the authors.</p>
+    <div class="foot-links">
+      <a class="wipe" href="#">LinkedIn</a>
+      <a class="wipe" href="#">X</a>
+      <a class="wipe" href="#">Terms &amp; conditions</a>
+      <a class="wipe" href="#">Privacy policy</a>
+    </div>
+  </div>
+</div>
+
+<script src="breakwater.js"></script>
+</body>
+</html>

@@ -94,9 +94,8 @@ Div Block .nav                               (optional: set Tag to Header)
     Text Link .wipe            "What we do"
     Text Link .wipe            "Who we are"
   Link Block .logo
-    Div Block .logo-shape
-      Image .row-top           logo-yellow.svg
-      Image .row-bot           logo-yellow.svg   (same file, added twice)
+    Div Block .lrow .ltop > Div Block .ltxt > Image   logo-yellow.svg     (the BREAKWATER block)
+    Div Block .lrow .lbot > Div Block .ltxt > Image   logo-yellow.svg     (the INITIATIVE block; same file twice)
   Div Block .menu .right
     Text Link .wipe            "Journal"
     Text Link .nav-btn .wipe   "Get involved"
@@ -452,6 +451,10 @@ Section .faq .faq-dark   custom attribute data-location="Contact"
 ## Font (updated 13 October 2026)
 
 The full ABC Arizona Flare family replaced the variable trial font on 13 October. Site settings > Fonts holds four files under the one family name "Arizona Flare": Regular (400), Italic (400 italic), Bold (700) and Bold Italic (700 italic). The stylesheet uses weights 400 and 700 only; the semibold (575) and the slant axis the trial font offered no longer exist, so emphasis is true Bold and captions use the real Italic. The reference pages load the same four woff2 files from `assets/`, which `.gitignore` keeps out of the public repo because the font is licensed.
+
+## Logo contraction (updated 13 October 2026)
+
+The nav logo is two yellow blocks, one per row of the wordmark, each clipping its own copy of the logo SVG so only its row shows. When the nav sticks, each block's box contracts towards its own centre over 0.6s while the SVG stays put, so the lettering is cut off by the closing edges, and a mask on the text layer (`--fade`, animated through a registered custom property) greys the letters as the edge reaches them. The boxes land on the stepped mark's proportions (the same `--stepmask` geometry used elsewhere) and the last letters fade out as it settles. Scrolling back up plays the same motion in reverse. The box geometry is in percentages of `.logo`, so the phone size works from the same rules; the SVG's position inside each box is derived from `--logo-w`/`--logo-h`. Matches the reference clip `Breakwater-Logo-Condense.mp4`.
 
 ## Where to change things later
 

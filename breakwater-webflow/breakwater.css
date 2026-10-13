@@ -95,16 +95,24 @@ h1, h2, h3, p, figure { margin: 0; }
 
 /* The logo: two yellow rows clipped by the stepped shape. On scroll the shape shrinks
    to the icon, clipping the wordmark away as it fades. */
-.logo { position: relative; display: block; width: 276px; height: 48px; max-width: none; justify-self: center; transition: width .6s var(--magnet), height .6s var(--magnet); }
-.logo-shape { position: absolute; inset: 0; overflow: hidden; clip-path: var(--stepmask); background: rgba(246, 246, 117, 0); transition: background .4s ease .1s; }
-.logo img { position: absolute; left: 0; top: 0; width: 276px; height: 48px; transition: opacity .3s ease, clip-path .55s var(--magnet) var(--d, 0s); }
-.logo .row-top { clip-path: inset(0 0 47.8% 100%); }            /* top line masks right-to-left */
-.logo .row-bot { clip-path: inset(52.2% 100% 0 0); --d: .15s; } /* bottom line masks left-to-right */
-.go .logo .row-top { clip-path: inset(0 0 47.8% 0); }
-.go .logo .row-bot { clip-path: inset(52.2% 0 0 0); }
+/* Logo: two yellow blocks, each holding one row of the wordmark. On the way to the sticky bar each block
+   contracts towards its own centre while the lettering stays put and is clipped, the letters fading as the
+   edge passes them (--fade widens the mask), until the blocks settle into the stepped mark. Reverse on the way back. */
+@property --fade { syntax: '<length-percentage>'; inherits: true; initial-value: 5px; }
+.logo { position: relative; display: block; width: 276px; height: 48px; --logo-w: 276px; --logo-h: 48px; max-width: none; justify-self: center; transition: width .6s var(--magnet), height .6s var(--magnet); }
+.lrow { position: absolute; overflow: hidden; background: var(--yellow); --fade: 5px; transition: left .6s var(--magnet), top .6s var(--magnet), width .6s var(--magnet), height .6s var(--magnet), --fade .6s var(--magnet), clip-path .55s var(--magnet) var(--d, 0s); }
+.ltop { left: 0; top: 0; width: 71.27%; height: 52.16%; clip-path: inset(0 0 0 100%); }            /* the SVG's top block; wipes in right-to-left */
+.lbot { left: 52.49%; top: 51.98%; width: 47.51%; height: 48.02%; clip-path: inset(0 100% 0 0); --d: .15s; }   /* the SVG's bottom block; wipes in left-to-right */
+.go .lrow { clip-path: inset(0 0 0 0); }
+.ltxt { position: absolute; inset: 0; transition: opacity .3s ease .05s; -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fade), #000 calc(100% - var(--fade)), transparent 100%); mask-image: linear-gradient(to right, transparent 0, #000 var(--fade), #000 calc(100% - var(--fade)), transparent 100%); }
+.ltxt img { position: absolute; width: var(--logo-w); height: var(--logo-h); max-width: none; }
+.ltop .ltxt img { left: calc(50% - .3563 * var(--logo-w)); top: calc(50% - .2608 * var(--logo-h)); }   /* the row's block centre sits on the box centre, so the text holds still while the box moves */
+.lbot .ltxt img { left: calc(50% - .7624 * var(--logo-w)); top: calc(50% - .7599 * var(--logo-h)); }
 .nav.stuck .logo { width: 40px; height: 24px; }
-.nav.stuck .logo-shape { background: var(--yellow); }
-.nav.stuck .logo img { opacity: 0; }
+.nav.stuck .lrow { --fade: 45%; }
+.nav.stuck .ltxt { opacity: 0; transition: opacity .3s ease .25s; }   /* the last letters go as the mark settles; on the way back they return early */
+.nav.stuck .ltop { width: 73.16%; height: 74.93%; }                           /* the stepped mark */
+.nav.stuck .lbot { left: 48.1%; top: 46.85%; width: 51.9%; height: 53.15%; }
 
 /* ---------- Mobile menu: hamburger in the nav + a yellow drawer (below 768px only) ----------
    Open:  the drawer wipes in from the right with the links sitting against the right edge,
@@ -980,8 +988,7 @@ html:not(.bw-js) .hero-img img:first-child { opacity: 1; transform: none; }
 html:not(.bw-js) .hero-text .word { clip-path: none; transform: none; }
 html:not(.bw-js) .hero-text .word:first-child { transform: translateX(-50%); }
 html:not(.bw-js) .hero .fig, html:not(.bw-js) .why .fig, html:not(.bw-js) .slot .cap, html:not(.bw-js) .menu a { clip-path: none; }
-html:not(.bw-js) .logo .row-top { clip-path: inset(0 0 47.8% 0); }
-html:not(.bw-js) .logo .row-bot { clip-path: inset(52.2% 0 0 0); }
+html:not(.bw-js) .lrow { clip-path: none; }
 html:not(.bw-js) .pic, html:not(.bw-js) .pic img, html:not(.bw-js) .line { transform: none; }
 html:not(.bw-js) .hl { background-size: 100% 84%; }
 html:not(.bw-js) .who-title .hl, html:not(.bw-js) .dark-title .hl, html:not(.bw-js) .prong-title .hl { background: var(--yellow); color: var(--dark); }
@@ -1006,7 +1013,7 @@ html:not(.bw-js) .faq-a { grid-template-rows: 1fr; }
   .nav { grid-template-columns: 1fr auto; padding-top: 12px; }
   .menu.left { display: none; }
   .menu a:not(.burger) { display: none; }
-  .logo { width: 190px; height: 33px; justify-self: start; } .logo img { width: 190px; height: 33px; }
+  .logo { width: 190px; height: 33px; --logo-w: 190px; --logo-h: 33px; justify-self: start; }
   .nav.stuck .logo { width: 32px; height: 19px; }
   .menu .burger { display: block; padding: 19px 0 19px 16px; margin: 0; --d: .3s; }
   .burger-ico, .burger-ico::before, .burger-ico::after { display: block; width: 18px; height: 1.5px; background: currentColor; }

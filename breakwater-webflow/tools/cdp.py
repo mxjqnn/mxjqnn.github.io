@@ -1,14 +1,15 @@
 # Headless Chrome driver used to test the reference pages: python3 cdp.py <outdir> <url> <width> <height> '<json steps>' [load wait]
-# Steps: {"js": "..."} evaluates (result collected), {"wait": s}, {"shot": "name"} saves <outdir>/name.png, {"mouse": [x, y]} moves the pointer.
+# Steps: {"js": "..."} evaluates (result collected), {"wait": s}, {"shot": "name"} saves <outdir>/name.png, {"mouse": [x, y]} moves the pointer, {"cdp": "Method", "params": {...}} sends any CDP command (e.g. Emulation.setFocusEmulationEnabled so :focus works headless).
 import asyncio, json, base64, subprocess, time, urllib.request, sys
 import websockets
 CH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 S=sys.argv[1]; url=sys.argv[2]; w=int(sys.argv[3]); h=int(sys.argv[4]); steps=json.loads(sys.argv[5])
 proc=subprocess.Popen([CH,"--headless=new","--disable-gpu","--remote-debugging-port=9333","--user-data-dir="+S+"/prof",f"--window-size={w},{h}","about:blank"],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
 try:
-    for _ in range(50):
+    for _ in range(150):
         try: targets=json.load(urllib.request.urlopen("http://localhost:9333/json")); break
         except Exception: time.sleep(0.2)
+    else: raise SystemExit("Chrome did not open its debug port in 30s")
     ws_url=[t for t in targets if t["type"]=="page"][0]["webSocketDebuggerUrl"]
     async def main():
         async with websockets.connect(ws_url,max_size=50_000_000) as ws:
@@ -26,6 +27,7 @@ try:
                 if "js" in st:
                     r=await send("Runtime.evaluate",{"expression":st["js"],"awaitPromise":True,"returnByValue":True})
                     out.append(r.get("result",{}).get("value"))
+                if "cdp" in st: await send(st["cdp"], st.get("params"))
                 if "mouse" in st: await send("Input.dispatchMouseEvent",{"type":"mouseMoved","x":st["mouse"][0],"y":st["mouse"][1]})
                 if "wait" in st: await asyncio.sleep(st["wait"])
                 if "shot" in st:

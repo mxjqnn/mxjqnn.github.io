@@ -443,7 +443,7 @@ Section .faq .faq-dark   custom attribute data-location="Contact"
     Collection Item > Div Block .faq-item > Div .faq-loc (Location, hidden), Div .faq-q > Div (Question), Div .faq-ico; Div .faq-a > Rich Text .faq-rich (Answer)
 ```
 
-**FAQ locations.** The "Who we are FAQs" collection has a **Location** option: "Who we are", "Contact" or "Who we are and Contact"; empty means both. Both pages' FAQ sections read the whole collection, carry a `data-location` attribute naming their page, and the script drops any question whose Location does not mention that page. The Who we are page's item gained the same hidden `.faq-loc` block. Submissions arrive in Webflow's Forms panel under "Contact". The connector cannot set input placeholders, so the script fills each field's placeholder from its field name (Name, Email, Message).
+**FAQ locations.** The "Who we are FAQs" collection has a **Location** option: "Who we are", "Contact" or "Who we are and Contact"; empty means both. Both pages' FAQ sections read the whole collection, carry a `data-location` attribute naming their page, and the script drops any question whose Location does not mention that page. The Who we are page's item gained the same hidden `.faq-loc` block. Submissions arrive in Webflow's Forms panel under "Contact" (the footer newsletter form is named "Newsletter" there); notification emails go to the addresses set in Site settings > Forms. The active field shows a yellow underline. The connector cannot set input placeholders, so the script fills each field's placeholder from its field name (Name, Email, Message).
 
 **Headline size.** `.ctitle` is mapped in the tokens embed to the hero size variable at 1.08x, so it follows the same Webflow Variable as the other heroes.
 

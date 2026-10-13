@@ -10,8 +10,11 @@
   breakwater.js. Open it through a local server to compare against the Webflow build.
 -->
 <style>
-/* Stand-in for the font Webflow will serve once it's uploaded as "Arizona Flare" */
-@font-face { font-family: 'Arizona Flare'; src: url('assets/ABCArizonaFlareVariable-Trial.ttf') format('truetype'); font-weight: 200 700; font-display: block; }
+/* The four Arizona Flare faces; Webflow serves the same family from Site settings > Fonts */
+@font-face { font-family: 'Arizona Flare'; src: url('assets/ABCArizonaFlare-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: block; }
+@font-face { font-family: 'Arizona Flare'; src: url('assets/ABCArizonaFlare-RegularItalic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: block; }
+@font-face { font-family: 'Arizona Flare'; src: url('assets/ABCArizonaFlare-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: block; }
+@font-face { font-family: 'Arizona Flare'; src: url('assets/ABCArizonaFlare-BoldItalic.woff2') format('woff2'); font-weight: 700; font-style: italic; font-display: block; }
 /* Stand-in for Webflow's base stylesheet, so this page hits the same defaults the real build will */
 body { margin: 0; min-height: 100%; background-color: #fff; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px; color: #333; }
 img { max-width: 100%; vertical-align: middle; display: inline-block; }

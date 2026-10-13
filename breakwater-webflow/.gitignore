@@ -1,0 +1,4 @@
+# Licensed font files stay out of the public repo
+assets/*.woff2
+assets/*.otf
+assets/*.ttf

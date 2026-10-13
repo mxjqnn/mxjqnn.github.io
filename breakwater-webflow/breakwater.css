@@ -4,8 +4,8 @@
    this file and link it. Build the elements in the Designer with the class
    names in BUILD-SHEET.md; this stylesheet does the rest.
 
-   Font: upload the Arizona Flare variable font in Site settings > Fonts and
-   name the family exactly "Arizona Flare".
+   Font: the four ABC Arizona Flare faces (Regular, Italic, Bold, Bold Italic) are uploaded in
+   Site settings > Fonts as one family named exactly "Arizona Flare".
    ========================================================================== */
 
 :root {
@@ -131,7 +131,7 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 
 /* ---------- Shared pieces ---------- */
 .para { font-size: clamp(18px, 1.95vw, 29px); line-height: 1.4; }
-.para strong { font-weight: 575; }
+.para strong { font-weight: 700; }
 
 /* Masked photos. Build as .slot > .pic > img; the script adds the two inner wrappers
    (.hold > .par). The stepped mask (.pic) slides across the photo from --from to 0.
@@ -176,10 +176,9 @@ html.menu-open, html.menu-open body { overflow: hidden; }
   font-size: 13px;
   line-height: 1.35;
   font-style: italic;
-  font-variation-settings: "slnt" -12;
   pointer-events: none;
 }
-.cap strong, .cap b { font-style: normal; font-variation-settings: "slnt" 0; font-weight: 575; }
+.cap strong, .cap b { font-style: normal; font-weight: 700; }
 .slot .cap { clip-path: inset(0 100% 0 0); transition: clip-path .5s var(--snap) var(--d, 0s); }
 .slot.in .cap { clip-path: inset(0 0 0 0); }
 .cap-tr { left: 75.5%; bottom: 55.5%; max-width: 23%; }   /* top-right notch */
@@ -193,7 +192,7 @@ html.menu-open, html.menu-open body { overflow: hidden; }
   opacity: .85;
   pointer-events: none;
 }
-.fig strong, .fig b { font-weight: 575; }
+.fig strong, .fig b { font-weight: 700; }
 
 /* Staggered headline lines. --dx (the "before" offset) is measured by the script. */
 .line {
@@ -755,7 +754,7 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 .faq-list { align-self: start; }
 .faq-item { border-top: 1px solid rgba(43, 41, 41, .18); }
 .faq-list { border-bottom: 1px solid rgba(43, 41, 41, .18); }
-.faq-q { display: flex; justify-content: space-between; align-items: flex-start; gap: 2vw; padding: 1.5vw 0; font-size: clamp(16px, 1.3vw, 20px); font-weight: 575; line-height: 1.35; cursor: pointer; }
+.faq-q { display: flex; justify-content: space-between; align-items: flex-start; gap: 2vw; padding: 1.5vw 0; font-size: clamp(16px, 1.3vw, 20px); font-weight: 700; line-height: 1.35; cursor: pointer; }
 .faq-ico { position: relative; flex: none; width: 1.1em; height: 1.1em; margin-top: .1em; }
 .faq-ico::before, .faq-ico::after { content: ''; position: absolute; left: 0; top: 50%; width: 100%; height: 1.5px; margin-top: -.75px; background: currentColor; transition: transform .45s var(--magnet); }
 .faq-ico::after { transform: rotate(90deg); }
@@ -765,7 +764,7 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 .faq-rich { overflow: hidden; font-size: 18px; line-height: 1.45; color: rgba(43, 41, 41, .85); }
 .faq-rich > :last-child { padding-bottom: 1.6vw; }
 .faq-rich p { margin: 0 0 .8em; }
-.faq-rich strong { font-weight: 575; color: var(--dark); }
+.faq-rich strong { font-weight: 700; color: var(--dark); }
 .faq-rich a { text-decoration: underline; text-underline-offset: 3px; }
 
 /* ---------- We've made a start ---------- */
@@ -855,7 +854,7 @@ html.modal-open, html.modal-open body { overflow: hidden; }
 .modal-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
 .modal-body { min-height: 0; overflow: auto; padding: 6vw 4vw 3.4vw 3.9vw; }
 .modal-name { font-size: clamp(32px, 3.3vw, 52px); line-height: 1.1; }
-.modal-role { margin-top: .9em; font-size: 18px; font-weight: 575; line-height: 1.35; }
+.modal-role { margin-top: .9em; font-size: 18px; font-weight: 700; line-height: 1.35; }
 .modal-bio { margin-top: 2.6em; font-size: 18px; line-height: 1.45; }
 .modal-bio p { margin: 0 0 .9em; }
 .modal-bio p:last-child { margin-bottom: 0; }
@@ -931,7 +930,7 @@ html.modal-open, html.modal-open body { overflow: hidden; }
 .post-body h4 { font-size: 20px; }
 .post-body ul, .post-body ol { margin: 0 0 1.4em; padding-left: 1.2em; }
 .post-body li { margin: .35em 0; }
-.post-body strong { font-weight: 575; color: var(--dark); }
+.post-body strong { font-weight: 700; color: var(--dark); }
 .post-body a { text-decoration: underline; text-underline-offset: 3px; }
 .post-body blockquote { margin: 1.6em 0; padding: 0 0 0 1.2em; border-left: 3px solid var(--yellow); font-size: 1.15em; line-height: 1.45; }
 .post-body figure { margin: 2.4em 0; max-width: none; }

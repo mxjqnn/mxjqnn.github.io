@@ -64,7 +64,7 @@ The stylesheet is now about 52,000 characters, over Webflow's 50,000-character l
 
 ## Set-up, in order
 
-1. **Font.** Site settings > Fonts > upload `assets/ABCArizonaFlareVariable-Trial.ttf`. Name the family exactly `Arizona Flare`. This is the trial file. Swap in the licensed web font from Dinamo before launch, keeping the same family name.
+1. **Font.** Site settings > Fonts holds the four licensed ABC Arizona Flare woff2 files (Regular, Italic, Bold, Bold Italic) under the family name `Arizona Flare`. Done; see the Font section below.
 2. **Assets.** Upload everything else in `assets/` to the Assets panel.
 3. **Head code.** Paste `webflow-1-head.html`.
 4. **Styles.** Add a Code Embed as the first element in the page body and paste `webflow-2-styles-embed.html`. An embed is used so the styles show on the Designer canvas. Turning it into a Component lets you reuse it on other pages.
@@ -448,6 +448,10 @@ Section .faq .faq-dark   custom attribute data-location="Contact"
 **Headline size.** `.ctitle` is mapped in the tokens embed to the hero size variable at 1.08x, so it follows the same Webflow Variable as the other heroes.
 
 **Phones.** Hero 110vw tall with the headline stacked at 13vw; copy above the form; form fields in one column.
+
+## Font (updated 13 October 2026)
+
+The full ABC Arizona Flare family replaced the variable trial font on 13 October. Site settings > Fonts holds four files under the one family name "Arizona Flare": Regular (400), Italic (400 italic), Bold (700) and Bold Italic (700 italic). The stylesheet uses weights 400 and 700 only; the semibold (575) and the slant axis the trial font offered no longer exist, so emphasis is true Bold and captions use the real Italic. The reference pages load the same four woff2 files from `assets/`, which `.gitignore` keeps out of the public repo because the font is licensed.
 
 ## Where to change things later
 

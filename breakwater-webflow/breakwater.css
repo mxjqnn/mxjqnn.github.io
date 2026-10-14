@@ -238,7 +238,7 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  height: clamp(540px, 54.2vw, 100vh);
+  height: 100vh; height: 100svh;
   overflow: hidden;
   background: var(--dark);
 }
@@ -903,6 +903,15 @@ html.modal-open, html.modal-open body { overflow: hidden; }
 .jarrow { position: absolute; right: 40px; bottom: 40px; width: 2.2vw; height: 2.2vw; color: var(--yellow); opacity: 0; transform: translateX(-10px); transition: opacity .45s ease .1s, transform .45s var(--magnet) .1s; }
 .jarrow svg { display: block; width: 100%; height: 100%; }
 .jfeat:hover .jarrow, .jfeat:focus-visible .jarrow { opacity: 1; transform: none; }
+/* Journal intro (14 October): the dark card wipes in from the left, the title slides in from the centre of the screen (the script measures the offsets, as for the section titles) and the label, standfirst and meta follow more quietly */
+.journal .jfeat { clip-path: inset(0 100% 0 0); transition: clip-path .9s var(--magnet); }
+.journal.in .jfeat { clip-path: inset(0 0 0 0); }
+.jfeat .agenda-title .line:nth-child(1) { --d: .3s; }
+.jfeat .agenda-title .line:nth-child(2) { --d: .38s; }
+.jfeat .agenda-title .line:nth-child(3) { --d: .46s; }
+.jfeat .agenda-title .line:nth-child(4) { --d: .54s; }
+.jfeat .jlabel, .jfeat .agenda-body { opacity: 0; transform: translateX(24px); transition: opacity .7s ease .75s, transform .9s var(--magnet) .75s; }
+.journal.in .jfeat .jlabel, .journal.in .jfeat .agenda-body { opacity: 1; transform: none; }
 .jfilter { display: flex; align-items: center; gap: 2.2vw; margin-top: 4vw; padding-bottom: 1.4vw; border-bottom: 1px solid rgba(43, 41, 41, .18); font-size: clamp(16px, 1.4vw, 20px); line-height: 1.3; }
 .jcat-btn { padding: 0 .25em; color: rgba(43, 41, 41, .5); transition: color .3s ease; }
 .jcat-btn.on { color: var(--dark); }
@@ -1007,6 +1016,8 @@ html:not(.bw-js) .wave-mark .mark-shape, html:not(.bw-js) .cta-dark { background
 html:not(.bw-js) .cta-dark { color: var(--light); }
 html:not(.bw-js) .sec-title { opacity: 1; }
 html:not(.bw-js) .chero-img { opacity: 1; transform: none; }
+html:not(.bw-js) .jfeat { clip-path: none; }
+html:not(.bw-js) .jfeat .jlabel, html:not(.bw-js) .jfeat .agenda-body { opacity: 1; transform: none; }
 html:not(.bw-js) .wwa-title .hl { background-size: 100% 100%; }
 html:not(.bw-js) .wwd-hero .fig { clip-path: none; }
 html:not(.bw-js) .prong-slot .pic img:first-child, html:not(.bw-js) .ptitle:first-child, html:not(.bw-js) .pset:first-child { opacity: 1; transform: none; }
@@ -1067,7 +1078,7 @@ html:not(.bw-js) .faq-a { grid-template-rows: 1fr; }
   .closing .mlink { transform: translateX(16vw); transition: transform .55s cubic-bezier(.55, 0, .85, .45) var(--dc, 0s); }
   .closing .mlink::after { clip-path: inset(0 0 0 0); }
 
-  .hero { height: clamp(520px, 135vw, 760px); }
+  .hero { height: 100vh; height: 100svh; }
   .hero-text { font-size: 15vw; --mk: .45; }   /* all headlines are 15vw on phones; the script clamps each word to the gutters */
   .hero-text .word:not(:first-child) { --nx: -8px; }
   .hero .fig { left: var(--gutter); top: calc(100% - 20px); width: 33vw; font-size: 11px; }

@@ -19,7 +19,7 @@
   var hero = $('.hero');
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var skipToEnd = /state=after/.test(location.search);   // debug: ?state=after jumps to the final layout
-  var SECTIONS = '.why, .who, .bridge, .wave, .wwd-hero, .prong, .faq, .start, .wwa-hero, .pgroup, .chero, .contact';
+  var SECTIONS = '.why, .who, .bridge, .wave, .wwd-hero, .prong, .faq, .start, .wwa-hero, .pgroup, .chero, .contact, .journal';
 
   /* ---------- Set-up: add the helper elements Webflow doesn't need to know about ---------- */
   function el(tag, cls, html) { var n = document.createElement(tag); n.className = cls; if (html) n.innerHTML = html; return n; }
@@ -96,12 +96,12 @@ $$('.news-submit, .csubmit').forEach(function (btn) {
   }
   /* "Right now" and "We bridge" headlines: start right-aligned to a shared edge (48.5% of
      the section), land on their final positions */
-  function measureRightAligned(section, selector) {
+  function measureRightAligned(section, selector, frac) {   // frac: where the lines' right edges start, as a share of the section width
     if (!section) return;
     var lines = $$(selector, section); if (!lines.length) return;
     body.classList.add('measuring');
     var sec = section.getBoundingClientRect();
-    var edge = window.innerWidth > BREAKPOINT ? sec.width * 0.485 : sec.width;
+    var edge = window.innerWidth > BREAKPOINT ? sec.width * (frac || 0.485) : sec.width;
     var dxs = lines.map(function (line) { var r = line.getBoundingClientRect(); return edge - (r.left - sec.left) - r.width; });
     setDx(section, lines, dxs);
   }
@@ -226,6 +226,7 @@ function measureAll() {
     measureRightAligned($('.wwd-hero'), '.wwd-title .line');
   measureRightAligned($('.wwa-hero'), '.wwa-title .line');
   measureRightAligned($('.chero'), '.ctitle .line');
+    measureRightAligned($('.journal'), '.jfeat .agenda-title .line', 0.5);   // featured title starts with its right edge on the centre of the screen
   $$('.pgroup-intro').forEach(splitLines);
   $$('.pgroup').forEach(function (sec) { measureRightAligned(sec, '.pgroup-title .line, .pgroup-intro .line'); });
     measureRightAligned($('.faq'), '.faq-title .line');
@@ -295,7 +296,7 @@ function measureAll() {
   /* ---------- Scroll reveals ----------
      The first element of a section to reach the trigger line sets off the whole section;
      the per-element delays in the CSS then stagger it top to bottom. */
-  var targets = '.big .line, .who-title .line, .slot, .bridge-title .line, .why .fig, .wave-mark, .wave .word, .sec-title .line, .pgroup-intro .line';
+  var targets = '.big .line, .who-title .line, .slot, .bridge-title .line, .why .fig, .wave-mark, .wave .word, .sec-title .line, .pgroup-intro .line, .jfeat .agenda-title .line';
   function mark(elm) {
     if (elm.classList.contains('slot')) { elm.classList.add('in'); elm = $('.pic', elm) || elm; }
     elm.classList.add('in');
@@ -309,6 +310,7 @@ function measureAll() {
   function start() {
     measureAll();
     body.classList.add('ready');                          // show the "before" state; the intro mark plays
+    var jsec = $('.journal'); if (jsec) reveal(jsec);     // the featured card sits at the top of the page: its intro plays on load
     if (hero) {
       setTimeout(function () { hero.classList.add('in'); body.classList.add('go'); }, 1550);
       if (slides.length > 1 && !reduceMotion && !skipToEnd) {

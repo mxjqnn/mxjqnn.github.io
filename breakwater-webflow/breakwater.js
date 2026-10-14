@@ -12,6 +12,7 @@
   var ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="SW" stroke-linecap="square" aria-hidden="true"><path d="M3 12h17M13 5l7 7-7 7"/></svg>';
 
   document.documentElement.classList.add('bw-js');   // switches the CSS from "finished" to "animate in"
+/* Pages reached through a cross-document view transition skip the nav wipe-in: the header stayed on screen */
   var body = document.body;
   var $ = function (sel, root) { return (root || document).querySelector(sel); };
   var $$ = function (sel, root) { return [].slice.call((root || document).querySelectorAll(sel)); };
@@ -598,6 +599,11 @@ var resizeTimer;
     resizeTimer = setTimeout(function () { measureAll(); if (slides.length) placeWords(slides[heroIdx]); }, 120);
   });
 
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(start);
-  else window.addEventListener('load', start);
+  /* A prerendered page waits until it is actually shown before its motion begins */
+
+  function boot() { if (document.prerendering) document.addEventListener('prerenderingchange', start, { once: true }); else start(); }
+
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(boot);
+
+  else window.addEventListener('load', boot);
 })();

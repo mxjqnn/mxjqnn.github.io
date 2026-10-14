@@ -40,6 +40,12 @@ label { display: block; margin-bottom: 5px; font-weight: bold; }
 @media (min-width:768px){:root{--gutter:var(--_breakwater---page-gutter,2.8vw)}.big,.who-title,.bridge-title,.sec-title{font-size:clamp(56px,calc(var(--size-headline) * 1vw),calc(var(--size-headline) * 15.7895px))}.hero-text,.wave-text,.wwd-title,.wwa-title{font-size:clamp(40px,calc(var(--size-hero) * 1vw),calc(var(--size-hero) * 15.7377px))}}
 </style>
 <script>document.documentElement.classList.add('bw-js')</script>
+<style>@view-transition{navigation:auto}.nav{view-transition-name:nav}</style>
+<script>
+if(document.referrer.indexOf(location.origin+'/')===0)document.write('<link rel="expect" href="#bw-foot" blocking="render">');
+addEventListener('pagereveal',function(e){if(e.viewTransition)document.documentElement.classList.add('vt')});
+if(window.HTMLScriptElement&&HTMLScriptElement.supports&&HTMLScriptElement.supports('speculationrules')){var s=document.createElement('script');s.type='speculationrules';s.textContent='{"prerender":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}';document.head.appendChild(s)}
+</script>
 </head>
 <body>
 
@@ -524,6 +530,7 @@ label { display: block; margin-bottom: 5px; font-weight: bold; }
   </div>
 </div>
 
+<div id="bw-foot" hidden></div>
 <script src="breakwater.js"></script>
 </body>
 </html>

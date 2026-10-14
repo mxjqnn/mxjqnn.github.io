@@ -92,6 +92,13 @@ h1, h2, h3, p, figure { margin: 0; }
 /* Pages whose first section is light (class .light-top) get dark menu text until the bar sticks.
    The script adds .on-light; the :has() rule covers the Designer canvas. */
 .nav.on-light:not(.stuck) .menu, body:has(.light-top) .nav:not(.stuck) .menu { color: var(--dark); }
+/* Page to page: the browser crossfades between pages and keeps the header in place (Chrome, Edge, Safari 18.2+;
+   other browsers just load the next page). A page reached that way skips the nav wipe-in, since the header
+   never left the screen; the hero wipes still play. */
+html.vt .menu a { clip-path: inset(0 0 0 0); }
+html.vt .lrow { clip-path: inset(0 0 0 0); }
+html:active-view-transition .menu a { clip-path: inset(0 0 0 0); }
+html:active-view-transition .lrow { clip-path: inset(0 0 0 0); }
 
 /* The logo: two yellow rows clipped by the stepped shape. On scroll the shape shrinks
    to the icon, clipping the wordmark away as it fades. */

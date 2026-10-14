@@ -1,3 +1,10 @@
 <!-- Breakwater: paste into Site settings > Custom code > Head code -->
 <script>document.documentElement.classList.add('bw-js')</script>
 <style>.news .w-form{margin:0}.srow.soon .news label{display:none}</style>
+<!-- Page to page. Opts in to the browser's cross-document view transition (the rule has to be in the head to count on a cold load) and keeps the header in place through it. When the visitor came from another page of this site, holds the first frame until the end of the body has parsed (the footer code puts #bw-foot there) so the new page arrives complete. Marks such arrivals so the nav doesn't wipe in again, and prerenders a page when its link is hovered -->
+<style>@view-transition{navigation:auto}.nav{view-transition-name:nav}</style>
+<script>
+if(document.referrer.indexOf(location.origin+'/')===0)document.write('<link rel="expect" href="#bw-foot" blocking="render">');
+addEventListener('pagereveal',function(e){if(e.viewTransition)document.documentElement.classList.add('vt')});
+if(window.HTMLScriptElement&&HTMLScriptElement.supports&&HTMLScriptElement.supports('speculationrules')){var s=document.createElement('script');s.type='speculationrules';s.textContent='{"prerender":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}';document.head.appendChild(s)}
+</script>

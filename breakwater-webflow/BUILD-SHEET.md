@@ -60,7 +60,7 @@ Colours and key sizes are Webflow Variables in the **Breakwater** collection. Ch
 | `reference.html` | Working reference built the Webflow way |
 | `assets/` | Photos, both logos and the font to upload |
 
-The stylesheet is now about 52,000 characters, over Webflow's 50,000-character limit for one Code Embed, so the `Breakwater styles` component holds it in two embeds back to back (`tools/styles-a.min.css` and `tools/styles-b.min.css`, written by `tools/minify.py`), followed by the tokens embed. The script is about 28,000 characters. If Webflow rejects the styles embed for length, split it across two embeds at any `}`.
+The stylesheet is now about 52,000 characters, over Webflow's 50,000-character limit for one Code Embed, so the `Breakwater styles` component holds it in two embeds back to back (`tools/styles-a.min.css` and `tools/styles-b.min.css`, written by `tools/minify.py`, split at the `.wwa-hero` rule so a change in one half leaves the other untouched), followed by the tokens embed. The script is about 28,000 characters. If Webflow rejects the styles embed for length, split it across two embeds at any `}`.
 
 ## Set-up, in order
 
@@ -455,6 +455,10 @@ The full ABC Arizona Flare family replaced the variable trial font on 13 October
 ## Logo contraction (updated 13 October 2026)
 
 The nav logo is two yellow blocks, one per row of the wordmark, each clipping its own copy of the logo SVG so only its row shows. When the nav sticks, each block's box contracts towards its own centre over 0.6s while the SVG stays put, so the lettering is cut off by the closing edges, and a mask on the text layer (`--fade`, animated through a registered custom property) greys the letters as the edge reaches them. The boxes land on the stepped mark's proportions (the same `--stepmask` geometry used elsewhere) and the last letters fade out as it settles. Scrolling back up plays the same motion in reverse. The box geometry is in percentages of `.logo`, so the phone size works from the same rules; the SVG's position inside each box is derived from `--logo-w`/`--logo-h`. Matches the reference clip `Breakwater-Logo-Condense.mp4`.
+
+## Page to page (added 14 October 2026)
+
+Moving between pages uses the browser's cross-document view transition. The head code (`webflow-1-head.html`) opts in with `@view-transition { navigation: auto }` and gives the header `view-transition-name: nav`, so the two pages crossfade and the header stays put. Those two rules have to live in the head: on a cold load the browser decides whether to run the transition before the body's stylesheet embed has been parsed, so the same rules in the stylesheet would be skipped. When the visitor came from another page of the site (checked by referrer), the head also holds the page's first frame until the end of the body has parsed (`<link rel="expect" href="#bw-foot" blocking="render">`, pointing at a hidden `#bw-foot` div that the footer custom code puts before the script), so the new page arrives complete instead of streaming in under the fade; first visits from outside paint as early as before. A page that arrives this way gets `html.vt` from the head script (via the `pagereveal` event), which the stylesheet uses to show the nav links and logo blocks straight away instead of wiping them in again; the hero and section motion still play as before. Chrome, Edge and Safari 18.2+ do this; other browsers load pages as they always did. The head script also adds a speculation-rules block so Chrome prerenders a page when its link is hovered, and the footer script holds a prerendered page's motion until it is actually shown (`document.prerendering` / `prerenderingchange`).
 
 ## Where to change things later
 

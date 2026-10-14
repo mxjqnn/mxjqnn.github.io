@@ -464,7 +464,7 @@ Moving between pages uses the browser's cross-document view transition. The head
 
 - The nav logo and the footer logo link to the home page (`/`).
 - The home hero always fills the window: `height: 100svh` (falls back to `100vh`) on every breakpoint, instead of the earlier width-based height.
-- Journal intro: the dark featured card wipes in from the left (`clip-path` on `.jfeat`, released by `.journal.in`), the title's lines slide in from the centre of the screen to their place on the left (the script measures the offsets with `measureRightAligned(..., 0.5)`, the same mechanism as the section titles), and the "Featured" label, standfirst and meta fade and drift in a little later. The section is revealed on load like the others.
+- Journal intro: the dark featured card wipes in from the right (`clip-path` on `.jfeat`, released by `.journal.in`), the title's lines slide in from the centre of the screen to their place on the left (the script measures the offsets with `measureRightAligned(..., 0.5)`, the same mechanism as the section titles), and the "Featured" label, standfirst and meta fade and drift in a little later. The section is revealed on load like the others.
 
 ## Where to change things later
 

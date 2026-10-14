@@ -903,8 +903,8 @@ html.modal-open, html.modal-open body { overflow: hidden; }
 .jarrow { position: absolute; right: 40px; bottom: 40px; width: 2.2vw; height: 2.2vw; color: var(--yellow); opacity: 0; transform: translateX(-10px); transition: opacity .45s ease .1s, transform .45s var(--magnet) .1s; }
 .jarrow svg { display: block; width: 100%; height: 100%; }
 .jfeat:hover .jarrow, .jfeat:focus-visible .jarrow { opacity: 1; transform: none; }
-/* Journal intro (14 October): the dark card wipes in from the left, the title slides in from the centre of the screen (the script measures the offsets, as for the section titles) and the label, standfirst and meta follow more quietly */
-.journal .jfeat { clip-path: inset(0 100% 0 0); transition: clip-path .9s var(--magnet); }
+/* Journal intro (14 October): the dark card wipes in from the right, the title slides in from the centre of the screen (the script measures the offsets, as for the section titles) and the label, standfirst and meta follow more quietly */
+.journal .jfeat { clip-path: inset(0 0 0 100%); transition: clip-path .9s var(--magnet); }
 .journal.in .jfeat { clip-path: inset(0 0 0 0); }
 .jfeat .agenda-title .line:nth-child(1) { --d: .3s; }
 .jfeat .agenda-title .line:nth-child(2) { --d: .38s; }

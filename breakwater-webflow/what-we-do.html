@@ -42,8 +42,8 @@ label { display: block; margin-bottom: 5px; font-weight: bold; }
 <script>document.documentElement.classList.add('bw-js')</script>
 <style>@view-transition{navigation:auto}.nav{view-transition-name:nav}</style>
 <script>
-if(document.referrer.indexOf(location.origin+'/')===0)document.write('<link rel="expect" href="#bw-foot" blocking="render">');
-addEventListener('pagereveal',function(e){if(e.viewTransition)document.documentElement.classList.add('vt')});
+if(document.referrer.indexOf(location.origin+'/')===0){document.documentElement.classList.add('vt');document.write('<link rel="expect" href="#bw-foot" blocking="render">')}
+addEventListener('pagereveal',function(e){document.documentElement.classList.toggle('vt',!!e.viewTransition)});
 if(window.HTMLScriptElement&&HTMLScriptElement.supports&&HTMLScriptElement.supports('speculationrules')){var s=document.createElement('script');s.type='speculationrules';s.textContent='{"prerender":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}';document.head.appendChild(s)}
 </script>
 </head>

@@ -466,6 +466,10 @@ Moving between pages uses the browser's cross-document view transition. The head
 - The home hero always fills the window: `height: 100svh` (falls back to `100vh`) on every breakpoint, instead of the earlier width-based height.
 - Journal intro: the dark featured card wipes in from the right (`clip-path` on `.jfeat`, released by `.journal.in`), the title's lines slide in from the centre of the screen to their place on the left (the script measures the offsets with `measureRightAligned(..., 0.5)`, the same mechanism as the section titles), and the "Featured" label, standfirst and meta fade and drift in a little later. The section is revealed on load like the others.
 
+## Designer canvas (15 October 2026)
+
+The canvas showed every page unstyled although the published site was right. The cause: an HTML Embed whose code contains a literal `<` inside the `<style>` block (here the `@property --fade { syntax: '<length-percentage>' }` rule) is not rendered on the Designer canvas at all, so the whole first stylesheet embed was dropped there. The `<` is now written as the CSS escape `\00003C` in the syntax string, which browsers read the same way, and the canvas styles the pages again. Keep this in mind for any future rule that needs a `<` inside an embed (there is no other one in the stylesheet today). Scripts still never run on the canvas, so the pages show their finished state there.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

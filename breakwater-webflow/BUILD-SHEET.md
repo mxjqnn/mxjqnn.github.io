@@ -474,6 +474,12 @@ The canvas showed every page unstyled although the published site was right. The
 
 The three tiles on the home page link to `/who-we-are#core-team`, `/who-we-are#fellows` and `/who-we-are#advisors`. On Who we are each people group section carries the matching name as a `data-anchor` attribute (not an `id`, so the browser does not jump on load); the script lands the page at the top and glides down to the group a moment later. If a group is renamed, keep the `data-anchor` value and the tile link in step.
 
+## Home links and CMS-driven cards (15 October 2026)
+
+- **Buttons.** "Our work & solutions" (`.cta`) links to `/what-we-do`; "More about us" (`.more`) links to `/who-we-are`.
+- **Big question cards on Home** now come from the **Big Questions** collection. The collection has a new "Pin to home page" field (Yes / No): the Yes items show as the cards, lowest Order first, three at most. The grid holds one Collection List; each item is `.question > .qtext` (bound to Question) plus a hidden `.jdata` with the pin and order values. The script drops the unpinned items, splits each question into lines once the font has loaded (so the hover slide works as before) and links every card to `/what-we-do#questions`, where the big questions section carries `data-anchor="questions"` and the page glides down to it.
+- **Policy agenda card on What we do** comes from the **Posts** collection. Posts have a new "Pin to What we do" field (Yes / No): the newest Yes post becomes the card and the card links to that post. The card is one Collection List (`.agenda-list`); each item is `.agenda` with the title, excerpt and meta bound to the post fields, and the script keeps only the pinned one, splits its title into wipe lines and formats the date. Change which post appears by moving the Yes to another post.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

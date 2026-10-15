@@ -412,6 +412,7 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 }
 
 /* Question blocks. Build as a.question > .qtext > .qline; the script adds the mark and arrow. */
+.qs .w-dyn-list, .qs .w-dyn-items, .qs .w-dyn-item { display: contents; }   /* the Collection List wrappers step aside so the cards sit in the grid */
 .qs {
   position: absolute;
   left: var(--gutter); right: var(--gutter);
@@ -753,7 +754,7 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 
 /* The policy agenda card: a link to the post */
 .agenda { display: grid; grid-template-columns: calc(48.6vw - 40px) 1fr; align-items: last baseline; margin: 3vw var(--gutter) 0; padding: 40px; background: var(--beige); color: var(--dark); max-width: none; }   /* right column starts at 51.4vw, like the page's other right columns */
-.agenda-title { font-size: clamp(28px, 3.1vw, 48px); line-height: 1.1; }
+.agenda-title { font-size: clamp(28px, 3.1vw, 48px); line-height: 1.1; max-width: 4.2em; }   /* narrow so the title wraps into short lines, as the design has it */
 .agenda-title .line { display: block; width: max-content; padding: 0 .08em; margin-left: -.08em; }
 .agenda-title .line::after { top: -1px; bottom: -1px; }   /* fills overlap by a pixel so no hairline shows between lines on Retina screens */
 .agenda-title .line:nth-child(2)::after { transition-delay: .07s; }

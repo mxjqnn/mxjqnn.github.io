@@ -72,6 +72,18 @@ $$('.news-submit, .csubmit').forEach(function (btn) {
   $$('.srow[href]').forEach(function (r) { if (!$('.sarrow', r)) r.appendChild(el('span', 'sarrow', ARROW.replace('SW', '2'))); });
   $$('.jfeat').forEach(function (f) { if (!$('.jarrow', f)) f.appendChild(el('span', 'jarrow', ARROW.replace('SW', '2'))); });
   $$('.jrow-title').forEach(function (t) { if (!$('.jarr', t.parentNode)) t.parentNode.insertBefore(el('span', 'jarr', ARROW.replace('SW', '2.2')), t.nextSibling); });
+  // Home: the question cards are the Big Questions with "Pin to home page" = Yes, lowest Order first, three at most
+  var qcards = $$('.question[data-slug]');
+  if (qcards.length) {
+    var qinfo = qcards.map(function (q) {
+      var t = function (sel) { var e = $(sel, q); return e ? e.textContent.trim() : ''; };
+      return { el: q.closest('.w-dyn-item') || q, pinned: /^yes$/i.test(t('.qpin')), order: parseFloat(t('.qorder')) || 0 };
+    });
+    var kept = qinfo.filter(function (i) { return i.pinned; }).sort(function (a, b) { return a.order - b.order; }).slice(0, 3);
+    qinfo.forEach(function (i) { if (kept.indexOf(i) === -1) i.el.remove(); });
+    kept.forEach(function (i) { i.el.parentNode.appendChild(i.el); });
+    var qsBox = $('.qs'); if (qsBox && !kept.length) qsBox.style.display = 'none';
+  }
   $$('.question').forEach(function (q) {
     if (!$('.qmark', q)) q.insertBefore(el('span', 'qmark'), q.firstChild);
     if (!$('.qarrow', q)) q.insertBefore(el('span', 'qarrow', ARROW.replace('SW', '1.8')), q.firstChild);
@@ -198,10 +210,11 @@ $$('.news-submit, .csubmit').forEach(function (btn) {
   }
   /* Rebuilds a paragraph as one .line block per wrapped line, so the lines can slide in like a headline's.
    The original text is kept in data-text and the split is redone on resize. */
-function splitLines(p) {
+function splitLines(p, cls) {   // cls: class for the line divs (default 'line')
+  cls = cls || 'line';
   var text = p.getAttribute('data-text') || p.textContent.replace(/\s+/g, ' ').trim();
   p.setAttribute('data-text', text);
-  var wasIn = !!$('.line.in', p);
+  var wasIn = !!$('.' + cls + '.in', p);
   p.innerHTML = '';
   var words = text.split(' '), spans = [];
   words.forEach(function (w, i) {
@@ -216,7 +229,7 @@ function splitLines(p) {
   });
   if (cur.length) lines.push(cur.join(' '));
   p.innerHTML = '';
-  lines.forEach(function (l) { var d = el('div', 'line' + (wasIn ? ' in' : '')); d.textContent = l; p.appendChild(d); });
+  lines.forEach(function (l) { var d = el('div', cls + (wasIn ? ' in' : '')); d.textContent = l; p.appendChild(d); });
 }
 function measureAll() {
     alignDesktop();
@@ -233,6 +246,11 @@ function measureAll() {
     measureCentred($('.start'), '.start-title .line');
     measureRightAligned($('.prong'), '.prong-title .line');
     measureShift('.tile', '.tile-title', '.trow');
+    $$('.question[data-slug] .qtext').forEach(function (qt) { splitLines(qt, 'qline'); });   // CMS questions wrap into lines once the font is in
+    $$('.agenda[data-slug] .agenda-title').forEach(function (at) {
+      splitLines(at);
+      $$('.line', at).forEach(function (l) { l.classList.add('wipe'); l.setAttribute('data-text', l.textContent); });
+    });
     measureShift('.question', '.qtext', '.qline');
     measureMenu();
   }
@@ -597,6 +615,23 @@ if (postSec) {
     pick.forEach(function (r) { r.el.parentNode.appendChild(r.el); r.el.style.display = ''; });
     if (!pick.length) moreSec.style.display = 'none';
   }
+}
+
+// What we do: the policy agenda card is the post with "Pin to What we do" = Yes (the newest if several), linked to the post
+var acards = $$('.agenda[data-slug]');
+if (acards.length) {
+  var ainfo = acards.map(function (a) {
+    var t = function (sel) { var e = $(sel, a); return e ? e.textContent.trim() : ''; };
+    return { el: a.closest('.w-dyn-item') || a, a: a, pinned: /^yes$/i.test(t('.apin')), date: new Date(t('.jdate')).getTime() || 0 };
+  });
+  ainfo.sort(function (x, y) { return y.date - x.date; });
+  var apick = null;
+  ainfo.forEach(function (i) { if (i.pinned && !apick) apick = i; else i.el.remove(); });
+  if (apick) {
+    var aslug = apick.a.getAttribute('data-slug');
+    if (aslug && !/^https?:/.test(aslug)) apick.a.setAttribute('href', '/posts/' + aslug);
+    var ad = $('.jdate', apick.a); if (ad) ad.textContent = fmtDate(ad.textContent.trim());
+  } else { var alist = $('.agenda-list'); if (alist) alist.style.display = 'none'; }
 }
 
 var resizeTimer;

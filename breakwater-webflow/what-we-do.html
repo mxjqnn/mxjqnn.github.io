@@ -141,21 +141,29 @@ if(window.HTMLScriptElement&&HTMLScriptElement.supports&&HTMLScriptElement.suppo
       </div>
     </div>
   </div>
-  <a class="agenda w-inline-block" href="#">
-    <div class="agenda-title" role="heading" aria-level="3" aria-label="Our policy agenda">
-      <div class="line wipe">Our</div>
-      <div class="line wipe">policy</div>
-      <div class="line wipe">agenda</div>
-    </div>
-    <div class="agenda-body">
-      <p>Placeholder summary of the policy agenda post. A short standfirst that explains what the agenda covers and why it matters, replacing the lorem ipsum in the design.</p>
-      <div class="agenda-meta"><span class="tag">Ideas</span><span class="sep">/</span><span>9th September 2026</span><span class="sep">/</span><span>Molly Kinder</span></div>
-    </div>
-  </a>
+  <!-- Collection List of Posts. The script keeps the newest post with Pin to What we do = Yes, links it to the post and splits the title into lines -->
+  <div class="w-dyn-list agenda-list"><div class="w-dyn-items">
+    <div class="w-dyn-item"><a class="agenda w-inline-block" href="post.html" data-slug="our-policy-agenda">
+      <div class="agenda-title" role="heading" aria-level="3">Our policy agenda</div>
+      <div class="agenda-body">
+        <p class="agenda-ex">A standfirst for the agenda post: the policies we think can hold the line for workers through the transition, and how we will test them.</p>
+        <div class="agenda-meta"><div class="tag jcat">Ideas</div><div class="sep">/</div><div class="jdate">2026-09-09</div><div class="sep">/</div><div class="jauthor">Molly Kinder</div></div>
+      </div>
+      <div class="jdata"><div class="apin">Yes</div></div>
+    </a></div>
+    <div class="w-dyn-item"><a class="agenda w-inline-block" href="post.html" data-slug="a-better-future">
+      <div class="agenda-title" role="heading" aria-level="3">A better future</div>
+      <div class="agenda-body">
+        <p class="agenda-ex">This week, high profile resignations at Open AI and Anthropic caused a media stir. Our CEO, Molly Kinder, explores the impacts.</p>
+        <div class="agenda-meta"><div class="tag jcat">Ideas</div><div class="sep">/</div><div class="jdate">2026-09-02</div><div class="sep">/</div><div class="jauthor">Molly Kinder</div></div>
+      </div>
+      <div class="jdata"><div class="apin">No</div></div>
+    </a></div>
+  </div></div>
 </div>
 
 <!-- FAQs: in Webflow this is a Collection List of .faq-item -->
-<div class="faq">
+<div class="faq" data-anchor="questions">
   <div class="faq-title sec-title" role="heading" aria-level="2" aria-label="Answering the big questions with action, not words">
     <div class="line">Answering</div>
     <div class="line">the big</div>

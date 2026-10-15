@@ -211,7 +211,7 @@ $$('.news-submit, .csubmit').forEach(function (btn) {
   /* Rebuilds a paragraph as one .line block per wrapped line, so the lines can slide in like a headline's.
    The original text is kept in data-text and the split is redone on resize. */
 function splitLines(p, cls) {   // cls: class for the line divs (default 'line')
-  cls = cls || 'line';
+  cls = typeof cls === 'string' ? cls : 'line';   // guards against forEach passing the index as the second argument
   var text = p.getAttribute('data-text') || p.textContent.replace(/\s+/g, ' ').trim();
   p.setAttribute('data-text', text);
   var wasIn = !!$('.' + cls + '.in', p);
@@ -240,7 +240,7 @@ function measureAll() {
   measureRightAligned($('.wwa-hero'), '.wwa-title .line');
   measureRightAligned($('.chero'), '.ctitle .line');
     measureRightAligned($('.journal'), '.jfeat .agenda-title .line', 0.5);   // featured title starts with its right edge on the centre of the screen
-  $$('.pgroup-intro').forEach(splitLines);
+  $$('.pgroup-intro').forEach(function (p) { splitLines(p); });
   $$('.pgroup').forEach(function (sec) { measureRightAligned(sec, '.pgroup-title .line, .pgroup-intro .line'); });
     measureRightAligned($('.faq'), '.faq-title .line');
     measureCentred($('.start'), '.start-title .line');

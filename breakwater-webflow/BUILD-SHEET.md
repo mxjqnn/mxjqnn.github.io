@@ -470,6 +470,10 @@ Moving between pages uses the browser's cross-document view transition. The head
 
 The canvas showed every page unstyled although the published site was right. The cause: an HTML Embed whose code contains a literal `<` inside the `<style>` block (here the `@property --fade { syntax: '<length-percentage>' }` rule) is not rendered on the Designer canvas at all, so the whole first stylesheet embed was dropped there. The `<` is now written as the CSS escape `\00003C` in the syntax string, which browsers read the same way, and the canvas styles the pages again. Keep this in mind for any future rule that needs a `<` inside an embed (there is no other one in the stylesheet today). Scripts still never run on the canvas, so the pages show their finished state there.
 
+## Team tiles (15 October 2026)
+
+The three tiles on the home page link to `/who-we-are#core-team`, `/who-we-are#fellows` and `/who-we-are#advisors`. On Who we are each people group section carries the matching name as a `data-anchor` attribute (not an `id`, so the browser does not jump on load); the script lands the page at the top and glides down to the group a moment later. If a group is renamed, keep the `data-anchor` value and the tile link in step.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

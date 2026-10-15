@@ -311,6 +311,10 @@ function measureAll() {
     measureAll();
     body.classList.add('ready');                          // show the "before" state; the intro mark plays
     var jsec = $('.journal'); if (jsec) reveal(jsec);     // the featured card sits at the top of the page: its intro plays on load
+    // The home page's team tiles link to /who-we-are#core-team, #fellows and #advisors. The groups carry the name as
+    // data-anchor rather than an id, so the browser does not jump there on load; the page lands at the top and glides down
+    var anchor = location.hash.length > 1 && $('[data-anchor="' + location.hash.slice(1).replace(/[^\w-]/g, '') + '"]');
+    if (anchor) setTimeout(function () { window.scrollTo({ top: anchor.getBoundingClientRect().top + window.scrollY, behavior: reduceMotion ? 'auto' : 'smooth' }); }, 300);
     if (hero) {
       setTimeout(function () { hero.classList.add('in'); body.classList.add('go'); }, 1550);
       if (slides.length > 1 && !reduceMotion && !skipToEnd) {

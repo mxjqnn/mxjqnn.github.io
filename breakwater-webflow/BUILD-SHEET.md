@@ -480,6 +480,10 @@ The three tiles on the home page link to `/who-we-are#core-team`, `/who-we-are#f
 - **Big question cards on Home** now come from the **Big Questions** collection. The collection has a new "Pin to home page" field (Yes / No): the Yes items show as the cards, lowest Order first, three at most. The grid holds one Collection List; each item is `.question > .qtext` (bound to Question) plus a hidden `.jdata` with the pin and order values. The script drops the unpinned items, splits each question into lines once the font has loaded (so the hover slide works as before) and links every card to `/what-we-do#questions`, where the big questions section carries `data-anchor="questions"` and the page glides down to it.
 - **Policy agenda card on What we do** comes from the **Posts** collection. Posts have a new "Pin to What we do" field (Yes / No): the newest Yes post becomes the card and the card links to that post. The card is one Collection List (`.agenda-list`); each item is `.agenda` with the title, excerpt and meta bound to the post fields, and the script keeps only the pinned one, splits its title into wipe lines and formats the date. Change which post appears by moving the Yes to another post.
 
+## FAQ blocks hidden (15 October 2026)
+
+The FAQ sections on Who we are and Contact are hidden for now, not removed: in the Designer each section's Visibility is off (Element settings > Visibility), the Who we are FAQs collection and its Location field are untouched, and the reference pages carry the markup with a `hidden` attribute. To bring them back, switch the two sections visible again and remove the `hidden` attributes. The big questions on the home page and on What we do are a different collection and stay as they are.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

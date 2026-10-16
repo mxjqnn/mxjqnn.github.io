@@ -239,7 +239,7 @@ function measureAll() {
     measureRightAligned($('.wwd-hero'), '.wwd-title .line');
   measureRightAligned($('.wwa-hero'), '.wwa-title .line');
   measureRightAligned($('.chero'), '.ctitle .line');
-    measureRightAligned($('.journal'), '.jfeat .agenda-title .line', 0.5);   // featured title starts with its right edge on the centre of the screen
+    measureRightAligned($('.jfeat'), '.agenda-title .line', 0.33);   // featured title starts with its right edge a third of the way across the card
   $$('.pgroup-intro').forEach(function (p) { splitLines(p); });
   $$('.pgroup').forEach(function (sec) { measureRightAligned(sec, '.pgroup-title .line, .pgroup-intro .line'); });
     measureRightAligned($('.faq'), '.faq-title .line');

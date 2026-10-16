@@ -491,7 +491,7 @@ The placeholder paragraph under each people group headline (Core team, Breakwate
 ## Later on 16 October
 
 - **No hairlines between stacked blocks.** The home hero words, the wave headline words and the Contact title lines each carry a 1px box-shadow above and below in their own colour, so neighbouring blocks overlap by a pixel and sub-pixel rounding can never open a gap. Where a block is wiped in with `clip-path`, the inset is `-1px` top and bottom so the overlap is not clipped away (the wave words switch the shadow colour with `--wb` when the section turns yellow).
-- **Journal featured card intro, quieter.** The card no longer wipes in: it fades in while drifting left a little (`opacity` + `translateX(24px)` → none), the same move its label and standfirst make. The title lines still slide from the centre of the screen but fade in part-way through the slide (opacity delayed by .35s after each line's start), so less of the travel is visible.
+- **Journal featured card intro, quieter.** The card no longer wipes in: it fades in while drifting left a little (`opacity` + `translateX(24px)` → none), the same move its label and standfirst make. The title lines slide in from a shorter distance: each starts with its right edge a third of the way across the card (`measureRightAligned($('.jfeat'), '.agenda-title .line', 0.33)`) and travels to the left edge, with no fade.
 
 ## Where to change things later
 

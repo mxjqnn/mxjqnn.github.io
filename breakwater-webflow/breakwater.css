@@ -908,8 +908,6 @@ html.modal-open, html.modal-open body { overflow: hidden; }
 /* Journal intro (14 October): the dark card wipes in from the right, the title slides in from the centre of the screen (the script measures the offsets, as for the section titles) and the label, standfirst and meta follow more quietly */
 .journal .jfeat { opacity: 0; transform: translateX(24px); transition: opacity .7s ease, transform .9s var(--magnet); }   /* the card fades in and drifts left a little, like its text */
 .journal.in .jfeat { opacity: 1; transform: none; }
-.jfeat .agenda-title .line { opacity: 0; transition: transform var(--dur-text) var(--snap) var(--d, 0s), opacity .5s ease calc(var(--d, 0s) + .35s); }   /* the title fades in part-way through its slide so less of the travel shows */
-.jfeat .agenda-title .line.in { opacity: 1; }
 .jfeat .agenda-title .line:nth-child(1) { --d: .3s; }
 .jfeat .agenda-title .line:nth-child(2) { --d: .38s; }
 .jfeat .agenda-title .line:nth-child(3) { --d: .46s; }
@@ -1020,7 +1018,7 @@ html:not(.bw-js) .wave-mark .mark-shape, html:not(.bw-js) .cta-dark { background
 html:not(.bw-js) .cta-dark { color: var(--light); }
 html:not(.bw-js) .sec-title { opacity: 1; }
 html:not(.bw-js) .chero-img { opacity: 1; transform: none; }
-html:not(.bw-js) .jfeat, html:not(.bw-js) .jfeat .agenda-title .line { opacity: 1; transform: none; }
+html:not(.bw-js) .jfeat { opacity: 1; transform: none; }
 html:not(.bw-js) .jfeat .jlabel, html:not(.bw-js) .jfeat .agenda-body { opacity: 1; transform: none; }
 html:not(.bw-js) .wwa-title .hl { background-size: 100% 100%; }
 html:not(.bw-js) .wwd-hero .fig { clip-path: none; }

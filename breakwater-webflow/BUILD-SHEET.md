@@ -488,6 +488,11 @@ The FAQ sections on Who we are and Contact are hidden for now, not removed: in t
 
 The placeholder paragraph under each people group headline (Core team, Breakwater fellows, Our advisors) is gone from the page and the reference build. The `.pgroup-intro` styles and the script's handling of it remain, so a paragraph with the classes `para pgroup-intro` placed under a group title would pick the layout and motion back up.
 
+## Later on 16 October
+
+- **No hairlines between stacked blocks.** The home hero words, the wave headline words and the Contact title lines each carry a 1px box-shadow above and below in their own colour, so neighbouring blocks overlap by a pixel and sub-pixel rounding can never open a gap. Where a block is wiped in with `clip-path`, the inset is `-1px` top and bottom so the overlap is not clipped away (the wave words switch the shadow colour with `--wb` when the section turns yellow).
+- **Journal featured card intro, quieter.** The card no longer wipes in: it fades in while drifting left a little (`opacity` + `translateX(24px)` → none), the same move its label and standfirst make. The title lines still slide from the centre of the screen but fade in part-way through the slide (opacity delayed by .35s after each line's start), so less of the travel is visible.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

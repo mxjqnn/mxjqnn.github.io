@@ -484,6 +484,10 @@ The three tiles on the home page link to `/who-we-are#core-team`, `/who-we-are#f
 
 The FAQ sections on Who we are and Contact are hidden for now, not removed: in the Designer each section's Visibility is off (Element settings > Visibility), the Who we are FAQs collection and its Location field are untouched, and the reference pages carry the markup with a `hidden` attribute. To bring them back, switch the two sections visible again and remove the `hidden` attributes. The big questions on the home page and on What we do are a different collection and stay as they are.
 
+## Who we are group intros removed (16 October 2026)
+
+The placeholder paragraph under each people group headline (Core team, Breakwater fellows, Our advisors) is gone from the page and the reference build. The `.pgroup-intro` styles and the script's handling of it remain, so a paragraph with the classes `para pgroup-intro` placed under a group title would pick the layout and motion back up.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

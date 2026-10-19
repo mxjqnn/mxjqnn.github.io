@@ -961,7 +961,13 @@ html.modal-open, html.modal-open body { overflow: hidden; }
 .post-body a { text-decoration: underline; text-underline-offset: 3px; }
 .post-body blockquote { margin: 1.6em 0; padding: 0 0 0 1.2em; border-left: 3px solid var(--yellow); font-size: 1.15em; line-height: 1.45; }
 .post-body figure { margin: 2.4em 0; max-width: none; }
-.post-body figure img, .post-body > img { display: block; width: 100%; height: auto; clip-path: polygon(0 0, 92% 0, 92% 10%, 100% 10%, 100% 100%, 10% 100%, 10% 94%, 0 94%); }   /* the stepped mask from the design */
+/* Post images get the stepped corners from the design. The post's "Image corners" option (Square) turns them off for the
+   whole post (the script adds .square-images), and one image can go the other way by ending its alt text with #square or #cut */
+.post-body { --cut: polygon(0 0, 92% 0, 92% 10%, 100% 10%, 100% 100%, 10% 100%, 10% 94%, 0 94%); }
+.post.square-images .post-body { --cut: none; }
+.post-body figure img, .post-body > img { display: block; width: 100%; height: auto; clip-path: var(--cut); }
+.post-body img.cut { --cut: polygon(0 0, 92% 0, 92% 10%, 100% 10%, 100% 100%, 10% 100%, 10% 94%, 0 94%); }
+.post-body img.square { --cut: none; }
 .post-body figcaption { margin-top: .8em; font-size: 13px; font-style: italic; color: rgba(43, 41, 41, .7); }
 .post-body .w-embed iframe, .post-body iframe { max-width: 100%; }
 .post-body .w-video { margin: 2.4em 0; }

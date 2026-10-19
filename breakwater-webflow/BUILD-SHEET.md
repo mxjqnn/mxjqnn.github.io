@@ -507,6 +507,10 @@ Each person card carries a hidden `.person-order` text bound to the People colle
 
 The home page people tiles stack their two title blocks with no gap, closed with the same 1px box-shadows the hero words use.
 
+## Post image corners (19 October 2026)
+
+Images inside a post's body get the stepped corner mask. The Posts collection has an "Image corners" option: Cut-out (the default, also what an empty value means) or Square, which the post template writes into a hidden `.pcorners` text; when it says Square the script adds `square-images` to the `.post` section and the CSS drops the mask for every image in that post. One image can go the other way: end its alt text with `#square` or `#cut` and the script moves that word onto the image as a class and strips it from the alt text. The mask lives in a `--cut` custom property on `.post-body`, so the overrides only change the property.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

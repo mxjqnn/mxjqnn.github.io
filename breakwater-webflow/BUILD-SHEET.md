@@ -497,6 +497,10 @@ The placeholder paragraph under each people group headline (Core team, Breakwate
 
 The staging site (`breakwater-initiative-website.webflow.io`) is behind Webflow's whole-site password (Site settings > General > Password protection). The password is not written down in this repo; ask Max. It covers every domain the site publishes to, so it must be switched off before the custom domain goes live. `tools/cdp.py` submits the gate itself when the `WF_PASS` environment variable holds the password.
 
+## People social links (19 October 2026)
+
+The People collection has three link fields: LinkedIn, Substack and X (Twitter). Each person card carries a hidden `.person-link` per network (`data-net` = linkedin, substack or x) bound to the matching field, and the pop-up has a `.modal-links` row with one `.modal-link` per network in that order. When a card opens, the script copies each URL across and hides any link whose field is empty; if all three are empty the row is hidden. Links open in a new tab.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

@@ -496,17 +496,25 @@ function measureAll() {
   // ----- Who we are: person pop-up. One modal on the page; each card carries its own bio and link (hidden) -----
 var modal = $('.modal');
 if (modal) {
-  var mImg = $('.modal-photo img', modal), mName = $('.modal-name', modal), mRole = $('.modal-role', modal), mBio = $('.modal-bio', modal), mLink = $('.modal-link', modal), lastCard = null;
+  var mImg = $('.modal-photo img', modal), mName = $('.modal-name', modal), mRole = $('.modal-role', modal), mBio = $('.modal-bio', modal), mLinks = $$('.modal-link', modal), mLinkBox = $('.modal-links', modal), lastCard = null;
   var openPerson = function (card) {
-    var img = $('.person-pic img', card), bio = $('.person-bio', card), link = $('.person-link', card), name = $('.person-name', card), role = $('.person-role', card);
+    var img = $('.person-pic img', card), bio = $('.person-bio', card), name = $('.person-name', card), role = $('.person-role', card);
     if (img && mImg) { mImg.src = img.currentSrc || img.src; mImg.alt = img.alt || ''; }
     if (mName) mName.textContent = name ? name.textContent.trim() : '';
     if (mRole) mRole.textContent = role ? role.textContent.trim() : '';
     if (mBio) mBio.innerHTML = bio ? bio.innerHTML : '';
-    if (mLink) {
-      var href = link && link.getAttribute('href');
-      if (href && href !== '#') { mLink.setAttribute('href', href); mLink.style.display = ''; } else { mLink.style.display = 'none'; }
-    }
+    // Social links: LinkedIn, Substack, X. Each card carries one hidden .person-link per network (data-net);
+    // a link with no URL in the CMS is left out of the pop-up, and the whole row goes if none is left
+    var shown = 0;
+    mLinks.forEach(function (ml) {
+      var net = ml.getAttribute('data-net');
+      var src = $('.person-link[data-net="' + net + '"]', card) || (net === 'linkedin' ? $('.person-link:not([data-net])', card) : null);
+      var href = src ? (src.getAttribute('href') || '').trim() : '';
+      var ok = href && href !== '#';
+      if (ok) { ml.setAttribute('href', href); shown++; }
+      ml.style.display = ok ? '' : 'none';
+    });
+    if (mLinkBox) mLinkBox.style.display = shown ? '' : 'none';
     lastCard = card;
     modal.classList.add('open');
     document.documentElement.classList.add('modal-open');

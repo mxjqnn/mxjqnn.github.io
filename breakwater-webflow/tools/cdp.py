@@ -1,4 +1,5 @@
 # Headless Chrome driver used to test the reference pages: python3 cdp.py <outdir> <url> <width> <height> '<json steps>' [load wait]
+# Env: DPR (device scale factor), WF_PASS (the staging site password; the Webflow password gate is submitted before the steps run)
 # Steps: {"js": "..."} evaluates (result collected), {"wait": s}, {"shot": "name"} saves <outdir>/name.png, {"mouse": [x, y]} moves the pointer, {"cdp": "Method", "params": {...}} sends any CDP command (e.g. Emulation.setFocusEmulationEnabled so :focus works headless).
 import asyncio, json, base64, subprocess, time, urllib.request, sys
 import websockets
@@ -22,6 +23,14 @@ try:
             await send("Emulation.setDeviceMetricsOverride",{"width":w,"height":h,"deviceScaleFactor":float(__import__("os").environ.get("DPR","1")),"mobile":False})
             await send("Page.enable"); await send("Runtime.enable")
             await send("Page.navigate",{"url":url}); await asyncio.sleep(float(sys.argv[6]) if len(sys.argv)>6 else 2.5)
+            # Staging is behind Webflow's site password. With WF_PASS set, the gate is filled in and submitted, then the page loads as normal
+            wfpass=__import__("os").environ.get("WF_PASS")
+            if wfpass:
+                r=await send("Runtime.evaluate",{"expression":"!!document.querySelector('form.w-password-page input[name=pass]')","returnByValue":True})
+                if r.get("result",{}).get("value"):
+                    await send("Runtime.evaluate",{"expression":"var f=document.querySelector('form.w-password-page');f.querySelector('input[name=pass]').value="+__import__("json").dumps(wfpass)+";f.submit();"})
+                    await asyncio.sleep(2.5)
+                    await send("Page.navigate",{"url":url}); await asyncio.sleep(float(sys.argv[6]) if len(sys.argv)>6 else 2.5)
             out=[]
             for st in steps:
                 if "js" in st:

@@ -513,9 +513,9 @@ html.menu-open, html.menu-open body { overflow: hidden; }
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.3vw;
+  gap: 0;                                      /* the two title blocks stack with no gap; the 1px shadows close any hairline between them */
   font-size: clamp(30px, 4.2vw, 64px);
-  line-height: 1.18;
+  line-height: 1.12;
 }
 .trow {
   display: inline-flex;
@@ -527,7 +527,7 @@ html.menu-open, html.menu-open body { overflow: hidden; }
   will-change: transform;
 }
 .trow:nth-child(2) { --d: .06s; }
-.tline { background: var(--dark); color: var(--light); padding: 0 .14em; }
+.tline { background: var(--dark); color: var(--light); padding: 0 .14em; box-shadow: 0 1px 0 0 var(--dark), 0 -1px 0 0 var(--dark); }
 .tarrow {
   width: .55em; height: .55em;
   color: var(--dark);
@@ -1123,7 +1123,7 @@ html:not(.bw-js) .faq-a { grid-template-rows: 1fr; }
   .people-title::before { content: ''; position: absolute; z-index: -1; left: calc(-1 * var(--gutter)); right: calc(-1 * var(--gutter)); top: 0; bottom: -300vh; background: var(--beige); }   /* the beige lower half; the section's overflow clips it */
   .tiles { position: static; grid-template-columns: 1fr; gap: 4vw; }
   .tile { height: 110vw; }
-  .tile-title { font-size: 11vw; left: 20px; right: 20px; bottom: 20px; gap: 3vw; }
+  .tile-title { font-size: 11vw; left: 20px; right: 20px; bottom: 20px; }
 
   .wave { --wfs: 8.5vw; height: auto; padding: 16vw var(--gutter) 14vw; }
   .wave-text { position: static; font-size: var(--wfs); margin: 0 0 8vw; }

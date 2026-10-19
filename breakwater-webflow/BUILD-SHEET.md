@@ -501,6 +501,12 @@ The staging site (`breakwater-initiative-website.webflow.io`) is behind Webflow'
 
 The People collection has three link fields: LinkedIn, Substack and X (Twitter). Each person card carries a hidden `.person-link` per network (`data-net` = linkedin, substack or x) bound to the matching field, and the pop-up has a `.modal-links` row with one `.modal-link` per network in that order. When a card opens, the script copies each URL across and hides any link whose field is empty; if all three are empty the row is hidden. Links open in a new tab.
 
+## People order (19 October 2026)
+
+Each person card carries a hidden `.person-order` text bound to the People collection's Order number (the field now sits below the three social links in the item editor; it was recreated there, so any old binding to it is gone). Within each group the script puts cards with an Order number first, lowest first, then the rest alphabetically by name: no numbers means the whole group is alphabetical, every number filled means the group follows the numbers exactly. On push, the core team kept its numbers (1 to 7) and the fellows and advisors had theirs cleared.
+
+The home page people tiles stack their two title blocks with no gap, closed with the same 1px box-shadows the hero words use.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

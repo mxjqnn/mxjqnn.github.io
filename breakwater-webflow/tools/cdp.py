@@ -36,7 +36,9 @@ try:
                 if "js" in st:
                     r=await send("Runtime.evaluate",{"expression":st["js"],"awaitPromise":True,"returnByValue":True})
                     out.append(r.get("result",{}).get("value"))
-                if "cdp" in st: await send(st["cdp"], st.get("params"))
+                if "cdp" in st:
+                    r=await send(st["cdp"], st.get("params"))
+                    if st.get("out"): out.append(r)   # {"cdp":..., "out":true} collects the command's result
                 if "mouse" in st: await send("Input.dispatchMouseEvent",{"type":"mouseMoved","x":st["mouse"][0],"y":st["mouse"][1]})
                 if "wait" in st: await asyncio.sleep(st["wait"])
                 if "shot" in st:

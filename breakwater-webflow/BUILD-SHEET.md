@@ -511,6 +511,10 @@ The home page people tiles stack their two title blocks with no gap, closed with
 
 Images inside a post's body get the stepped corner mask. The Posts collection has an "Image corners" option: Cut-out (the default, also what an empty value means) or Square, which the post template writes into a hidden `.pcorners` text; when it says Square the script adds `square-images` to the `.post` section and the CSS drops the mask for every image in that post. One image can go the other way: end its alt text with `#square` or `#cut` and the script moves that word onto the image as a class and strips it from the alt text. The mask lives in a `--cut` custom property on `.post-body`, so the overrides only change the property.
 
+## Home page: people blocks and question tiles swapped (20 October 2026)
+
+The "Meet our people" blocks no longer carry photos: they use the Big Question card design (`.question` with a `.qtext` of preset `.qline` rows, light card, yellow wipe, mark and arrow) and still link to the three groups on Who we are. The pinned Big Questions now use the photo tile design (`.tile` with an image, title rows that slide on hover, 60% yellow wipe). The Big Questions collection has an optional "Home photo" image field, bound to the image in the home page's question list; it only matters for the three questions pinned to the home page. The question text arrives as one string, so the script splits it into `.trow > .tline` rows (and adds the arrow) each time it measures; the `.tile-title` is a normal block for that reason. The pin filter now looks for `.qs [data-slug]`, so it does not care which class the card has. Section heights moved with the card heights: `.who` is 137.6vw and `.bridge` 97.5vw.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

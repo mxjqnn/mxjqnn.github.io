@@ -517,7 +517,7 @@ The "Meet our people" blocks no longer carry photos: they use the Big Question c
 
 ## Legal pages (20 October 2026)
 
-Three static pages share one layout: Terms & conditions (`/terms-and-conditions`), Privacy policy (`/privacy-policy`) and Company setup & legals (`/company-setup-and-legals`). Each is the header, a `.post.light-top` section holding `.post-wrap` > `.post-title` (h1), `.post-ex` (standfirst with the "last updated" date) and `.post-body` (h2 and p blocks), then the footer. They reuse the journal post styles, so there is no CSS of their own; the text is example copy to be replaced. The footer's Terms and Privacy links point at the first two; the Company page is not linked from anywhere yet. `legal.html` is the local reference.
+Three static pages share one layout: Terms & conditions (`/terms-and-conditions`), Privacy policy (`/privacy-policy`) and Company setup & legals (`/company-setup-and-legals`). Each is the header, a `.post.light-top` section holding `.post-wrap` > `.post-title` (h1), `.post-ex` (standfirst with the "last updated" date) and `.post-body` (h2 and p blocks), then the footer. They reuse the journal post styles, so there is no CSS of their own; the text is example copy to be replaced. The footer's Terms and Privacy links point at the first two; the Company page is linked from the footer paragraph. `legal.html` is the local reference.
 
 ## Where to change things later
 

@@ -459,7 +459,7 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 .bridge {
   position: relative;
   background: var(--light);
-  height: 97.5vw;    /* the people cards (33.3vw tall) sit at 58.2vw with 6vw below them */
+  height: 87.5vw;    /* the people cards (25vw tall) sit at 56.5vw with 6vw below them */
   overflow: hidden;
 }
 .bridge::before { content: ''; position: absolute; left: 0; right: 0; top: 47.2vw; bottom: 0; background: var(--beige); }
@@ -484,11 +484,12 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 .tiles {
   position: absolute;
   left: var(--gutter); right: var(--gutter);
-  top: 58.2vw;
+  top: 56.5vw;                                 /* about 1.7vw under the "Meet our people" label */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.9vw 2.64vw;
 }
+.tiles .question { height: 25vw; }            /* the people cards are shallower than a Big Question card */
 .tile {
   position: relative;
   display: block;
@@ -1128,6 +1129,7 @@ html:not(.bw-js) .faq-a { grid-template-rows: 1fr; }
   .people-title { position: relative; left: auto; top: auto; z-index: 0; padding-top: 10vw; margin: 0 0 5vw; }
   .people-title::before { content: ''; position: absolute; z-index: -1; left: calc(-1 * var(--gutter)); right: calc(-1 * var(--gutter)); top: 0; bottom: -300vh; background: var(--beige); }   /* the beige lower half; the section's overflow clips it */
   .tiles { position: static; grid-template-columns: 1fr; gap: 4vw; }
+  .tiles .question { height: 52vw; }
   .tile { height: 110vw; }
   .tile-title { font-size: 11vw; left: 20px; right: 20px; bottom: 20px; }
 

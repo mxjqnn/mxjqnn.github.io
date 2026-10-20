@@ -515,6 +515,10 @@ Images inside a post's body get the stepped corner mask. The Posts collection ha
 
 The "Meet our people" blocks no longer carry photos: they use the Big Question card design (`.question` with a `.qtext` of preset `.qline` rows, light card, yellow wipe, mark and arrow) and still link to the three groups on Who we are. The pinned Big Questions now use the photo tile design (`.tile` with an image, title rows that slide on hover, 60% yellow wipe). The Big Questions collection has an optional "Home photo" image field, bound to the image in the home page's question list; it only matters for the three questions pinned to the home page. The question text arrives as one string, so the script splits it into `.trow > .tline` rows (and adds the arrow) each time it measures; the `.tile-title` is a normal block for that reason. The pin filter now looks for `.qs [data-slug]`, so it does not care which class the card has. Section heights moved with the card heights: `.who` is 137.6vw and `.bridge` 87.5vw; the people cards are 25vw tall (52vw on phones) and sit 1.7vw under the label.
 
+## Legal pages (20 October 2026)
+
+Three static pages share one layout: Terms & conditions (`/terms-and-conditions`), Privacy policy (`/privacy-policy`) and Company setup & legals (`/company-setup-and-legals`). Each is the header, a `.post.light-top` section holding `.post-wrap` > `.post-title` (h1), `.post-ex` (standfirst with the "last updated" date) and `.post-body` (h2 and p blocks), then the footer. They reuse the journal post styles, so there is no CSS of their own; the text is example copy to be replaced. The footer's Terms and Privacy links point at the first two; the Company page is not linked from anywhere yet. `legal.html` is the local reference.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Breakwater — Privacy policy (Webflow reference build)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  REFERENCE ONLY. This page is built exactly the way the Webflow page should be:
+  plain elements with the class names from BUILD-SHEET.md, plus breakwater.css and
+  breakwater.js. Open it through a local server to compare against the Webflow build.
+-->
+<style>
+/* The four Arizona Flare faces; Webflow serves the same family from Site settings > Fonts */
+@font-face { font-family: 'Arizona Flare'; src: url('assets/ABCArizonaFlare-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: block; }
+@font-face { font-family: 'Arizona Flare'; src: url('assets/ABCArizonaFlare-RegularItalic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: block; }
+@font-face { font-family: 'Arizona Flare'; src: url('assets/ABCArizonaFlare-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: block; }
+@font-face { font-family: 'Arizona Flare'; src: url('assets/ABCArizonaFlare-BoldItalic.woff2') format('woff2'); font-weight: 700; font-style: italic; font-display: block; }
+/* Stand-in for Webflow's base stylesheet, so this page hits the same defaults the real build will */
+body { margin: 0; min-height: 100%; background-color: #fff; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px; color: #333; }
+img { max-width: 100%; vertical-align: middle; display: inline-block; }
+h1 { font-size: 38px; line-height: 44px; margin-top: 20px; margin-bottom: 10px; font-weight: bold; }
+p { margin-top: 0; margin-bottom: 10px; }
+label { display: block; margin-bottom: 5px; font-weight: bold; }
+.w-inline-block { max-width: 100%; display: inline-block; }
+.w-form { margin: 0 0 15px; }
+.w-input { display: block; width: 100%; height: 38px; padding: 8px 12px; margin-bottom: 10px; font-size: 14px; line-height: 1.42857143; color: #333; background-color: #fff; border: 1px solid #ccc; }
+.w-button { display: inline-block; padding: 9px 15px; background-color: #3898EC; color: white; border: 0; line-height: inherit; text-decoration: none; cursor: pointer; border-radius: 0; }
+</style>
+<link rel="stylesheet" href="breakwater.css">
+<!-- Same token mapping the Webflow page uses. No Webflow Variables exist here, so the fallbacks apply. -->
+<style>
+/* Breakwater tokens: maps the Webflow Variables in the "Breakwater" collection onto the stylesheet. Must sit AFTER the styles embed. Fallbacks are the original values. */
+:root{--dark:var(--_breakwater---dark,#2B2929);--beige:var(--_breakwater---beige,#DFD8D0);--light:var(--_breakwater---light,#EEEDEC);--yellow:var(--_breakwater---yellow,#F6F675);--size-body:var(--_breakwater---body-copy-size-vw,1.95);--size-headline:var(--_breakwater---headline-size-vw,7.6);--size-hero:var(--_breakwater---hero-and-wave-headline-size-vw,6.1)}
+.para,.bridge .more{font-size:clamp(18px,calc(var(--size-body) * 1vw),calc(var(--size-body) * 14.8718px))}
+.tile::after{background:color-mix(in srgb,var(--yellow) 60%,transparent)}
+.foot,.foot-top{border-color:color-mix(in srgb,var(--light) 14%,transparent)}
+.news-input{border-bottom-color:color-mix(in srgb,var(--light) 50%,transparent)}
+.news-input::placeholder{color:color-mix(in srgb,var(--light) 50%,transparent)}
+.foot-bottom{color:color-mix(in srgb,var(--light) 70%,transparent)}
+@media (min-width:768px){:root{--gutter:var(--_breakwater---page-gutter,2.8vw)}.big,.who-title,.bridge-title,.sec-title{font-size:clamp(56px,calc(var(--size-headline) * 1vw),calc(var(--size-headline) * 15.7895px))}.hero-text,.wave-text,.wwd-title,.wwa-title{font-size:clamp(40px,calc(var(--size-hero) * 1vw),calc(var(--size-hero) * 15.7377px))}.ctitle{font-size:clamp(42px,calc(var(--size-hero) * 1.08vw),calc(var(--size-hero) * 17px))}}
+</style>
+<script>document.documentElement.classList.add('bw-js')</script>
+<style>@view-transition{navigation:auto}.nav{view-transition-name:nav}</style>
+<script>
+if(document.referrer.indexOf(location.origin+'/')===0){document.documentElement.classList.add('vt');document.write('<link rel="expect" href="#bw-foot" blocking="render">')}
+addEventListener('pagereveal',function(e){document.documentElement.classList.toggle('vt',!!e.viewTransition)});
+if(window.HTMLScriptElement&&HTMLScriptElement.supports&&HTMLScriptElement.supports('speculationrules')){var s=document.createElement('script');s.type='speculationrules';s.textContent='{"prerender":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}';document.head.appendChild(s)}
+</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu left">
+    <a class="wipe" href="#">What we do</a>
+    <a class="wipe" href="#">Who we are</a>
+  </div>
+  <a class="logo w-inline-block" href="reference.html" aria-label="Breakwater Initiative">
+    <div class="lrow ltop"><div class="ltxt"><img src="assets/logo-yellow.svg" alt=""></div></div><div class="lrow lbot"><div class="ltxt"><img src="assets/logo-yellow.svg" alt=""></div></div>
+  </a>
+  <div class="menu right">
+    <a class="wipe" href="#">Journal</a>
+    <a class="nav-btn wipe" href="#">Get involved</a>
+    <a class="burger" href="#" role="button" aria-label="Menu"><span class="burger-ico"></span></a>
+  </div>
+</div>
+
+<!-- Mobile menu drawer (hidden above 767px) -->
+<div class="drawer">
+  <div class="drawer-top">
+    <div class="drawer-mark"></div>
+    <a class="drawer-close" href="#" role="button" aria-label="Close menu"></a>
+  </div>
+  <nav class="drawer-links">
+    <a class="mlink" href="#">Why we exist</a>
+    <a class="mlink" href="#">What we do</a>
+    <a class="mlink" href="#">Who we are</a>
+    <a class="mlink" href="#">Journal</a>
+    <a class="mlink mcta" href="#">Get involved</a>
+  </nav>
+</div>
+
+<!-- Journal: one Collection List of every post; the script picks the featured one, sorts, filters, searches and pages -->
+<!-- Contact: hero photo with the stacked headline, the copy + form, then the FAQs filtered to this page -->
+<!-- Legal pages (Privacy policy, Company setup & legals, Accessibility) all use this layout: the journal post's
+     title, standfirst and body styles, nothing else. In Webflow each is its own static page built the same way. -->
+<main>
+<!-- Legal pages (Privacy policy, Company setup & legals, Accessibility) all use this layout: the journal post's
+     title, standfirst and body styles, nothing else. In Webflow each is its own static page built the same way. -->
+<div class="post light-top">
+  <div class="post-wrap">
+    <h1 class="post-title">Privacy policy</h1>
+    <p class="post-ex">What we collect when you use this website, why we collect it and how we look after it. Last updated 29 October 2026.</p>
+    <div class="post-body">
+      <h2>1. Who we are</h2>
+      <p>The Breakwater Initiative ("Breakwater", "we", "us") is a fiscally sponsored project of RF Catalytic Capital, a subsidiary of The Rockefeller Foundation. RF Catalytic Capital is the legal entity responsible for the information described in this policy, and <a href="https://www.rockefellerfoundation.org/privacy-policy/" target="_blank" rel="noopener">The Rockefeller Foundation's privacy policy</a> applies alongside it. Questions about this policy can be sent to hello@breakwaterinitiative.org.</p>
+      <h2>2. What we collect</h2>
+      <p><strong>Contact form.</strong> When you write to us through the contact page we collect your name, your email address and your message.</p>
+      <p><strong>Newsletter.</strong> When you sign up for our briefing we collect your email address.</p>
+      <p><strong>How the site is used.</strong> We use Google Analytics to understand which pages people visit, how they arrive at the site and what kind of device they use. Google Analytics records this with cookies and an anonymised identifier; it does not tell us who you are.</p>
+      <p><strong>Server logs.</strong> Like every website, our hosting provider keeps short-lived logs of requests to the site, including the IP address they came from, for security and to keep the site running.</p>
+      <h2>3. How we use it</h2>
+      <p>We use your contact details to reply to you, and your newsletter address to send you the briefing you asked for. We use analytics to improve the site and to understand which of our work people find useful. We do not sell, rent or trade your information, and we do not use it for advertising.</p>
+      <h2>4. Who handles it for us</h2>
+      <p>The site is built and hosted on Webflow, which stores form submissions and serves the site from servers in the United States. Google provides the analytics described above. The newsletter is sent through our email service provider, which holds subscriber addresses on our behalf. Each of these companies may only use your information to provide its service to us. As our fiscal sponsor, RF Catalytic Capital may also have access to information we hold.</p>
+      <h2>5. Cookies</h2>
+      <p>Google Analytics sets cookies, named _ga and _ga_ followed by an identifier, that last up to two years and let it tell one visit from another. The site sets no advertising cookies and no other tracking cookies. You can block cookies in your browser settings, or stop Google Analytics in every website by installing <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google's opt-out add-on</a>. The site works without cookies.</p>
+      <h2>6. How long we keep it</h2>
+      <p>We keep messages sent through the contact form for up to two years so that we can follow up on them. We keep your newsletter address until you unsubscribe. Analytics data is kept for fourteen months, the shortest period Google Analytics offers, and only in a form that does not identify you.</p>
+      <h2>7. Your choices and rights</h2>
+      <p>Every newsletter includes an unsubscribe link. You can ask us for a copy of the information we hold about you, ask us to correct it or ask us to delete it by writing to hello@breakwaterinitiative.org. We will respond within a month. If you are in a place whose law gives you further rights over your personal information, those rights apply, and we will honour them.</p>
+      <h2>8. Changes to this policy</h2>
+      <p>We will update this page if what we collect or how we use it changes. The date at the top shows when it was last reviewed.</p>
+      <h2>9. Contact</h2>
+      <p>Questions about privacy can be sent to hello@breakwaterinitiative.org or through the contact page.</p>
+    </div>
+  </div>
+</div>
+
+</main>
+<div class="foot">
+  <div class="foot-top">
+    <div class="foot-about">
+      <a class="foot-logo w-inline-block" href="reference.html"><img src="assets/logo-light.svg" alt="Breakwater Initiative"></a>
+      <p>An action-oriented policy shop &mdash; independent of industry, independent of political tribe. We&rsquo;re pioneering the solutions, building the political will, and co-creating a public vision that AI transformation demands. <a href="#">Company setup &amp; legals</a></p>
+    </div>
+    <div class="news w-form">
+      <form>
+        <label for="news-email">The occasional briefing on the future of work. No noise.</label>
+        <div class="news-row">
+          <input class="news-input w-input" id="news-email" type="email" name="email" placeholder="Email address" required>
+          <input class="news-submit w-button" type="submit" value="Subscribe">
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p class="legal">&copy; 2026 The Breakwater Initiative. All rights reserved. An independent, non-partisan policy initiative. Views expressed are those of the authors.</p>
+    <div class="foot-links">
+      <a class="wipe" href="#">LinkedIn</a>
+      <a class="wipe" href="#">X</a>
+      <a class="wipe" href="privacy.html">Privacy policy</a>
+      <a class="wipe" href="accessibility.html">Accessibility</a>
+    </div>
+  </div>
+</div>
+
+<div id="bw-foot" hidden></div>
+<script src="breakwater.js"></script>
+</body>
+</html>

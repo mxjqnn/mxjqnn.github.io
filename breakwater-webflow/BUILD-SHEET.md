@@ -519,6 +519,10 @@ The "Meet our people" blocks no longer carry photos: they use the Big Question c
 
 Three static pages share one layout: Terms & conditions (`/terms-and-conditions`), Privacy policy (`/privacy-policy`) and Company setup & legals (`/company-setup-and-legals`). Each is the header, a `.post.light-top` section holding `.post-wrap` > `.post-title` (h1), `.post-ex` (standfirst with the "last updated" date) and `.post-body` (h2 and p blocks), then the footer. They reuse the journal post styles, so there is no CSS of their own; the text is example copy to be replaced. The footer's Terms and Privacy links point at the first two; the Company page is linked from the footer paragraph. `legal.html` is the local reference.
 
+## Accessibility pass (29 October 2026)
+
+An axe audit (WCAG 2.1 A and AA plus best practice) on staging found no A or AA failures; the four best-practice items were fixed: every page's content between the header and the footer now sits in a `main` element (a custom-tag element in Webflow); the Journal page has a visually hidden h1 "Journal" (class `sr-only`, a native Webflow class); each form gets an aria-label from its label text at load, so the two newsletter forms on What we do are distinguishable; and the person pop-up, which already carried `role="dialog"` and `aria-modal`, now keeps Tab inside itself while open. Remaining manual checks: contrast of text over photographs, a screen reader pass over the split-line headlines, and visible labels on form fields.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

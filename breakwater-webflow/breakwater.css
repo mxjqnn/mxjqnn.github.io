@@ -1005,7 +1005,8 @@ html.modal-open, html.modal-open body { overflow: hidden; }
 .cform-box .news-btn { display: inline-flex; }   /* the wrapper hugs the button here (in the footer it sits in a flex row) */
 .cform-box .news-btn::after { padding: 20px 20px; }   /* the script wraps the submit like the newsletter button, for the same yellow wipe */
 .cform-box .w-form-done, .cform-box .w-form-fail { background: none; padding: 0; margin: 0; text-align: left; font-size: 18px; line-height: 1.4; color: var(--dark); }   /* same size as the copy on the left; the box padding alone frames it */
-.faq-loc { display: none; }   /* the question's Location, read by the script to keep it on the right page(s) */
+.faq-loc { display: none; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; white-space: nowrap; clip: rect(0 0 0 0); margin: -1px; }   /* screen-reader-only text, e.g. the Journal page's h1 (in Webflow it is a native class) */   /* the question's Location, read by the script to keep it on the right page(s) */
 
 html:not(.bw-js) .hero-mark { display: none; }
 html:not(.bw-js) .hero-text, html:not(.bw-js) .who-title, html:not(.bw-js) .bridge-title { opacity: 1; }

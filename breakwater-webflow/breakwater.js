@@ -64,6 +64,13 @@
     hold.appendChild(par); pic.appendChild(hold);
   });
 
+  // Forms are landmarks: give each one an accessible name from its label (or a generic one) so two on a page can be told apart
+  $$('form').forEach(function (f) {
+    if (f.getAttribute('aria-label') || f.getAttribute('aria-labelledby')) return;
+    var box = f.closest('.news, .cform-box') || f.parentNode, l = box ? $('label', box) : null;
+    var nm = l && l.textContent.trim() ? l.textContent.trim() : (f.getAttribute('data-name') || f.getAttribute('name') || 'Form');
+    f.setAttribute('aria-label', nm);
+  });
   // Footer submit button: wrapped so a yellow label copy can wipe over it on hover
   /* The connector cannot set placeholders, so the contact fields show their field name as the placeholder */
 $$('.cfield, .carea').forEach(function (f) {
@@ -541,6 +548,15 @@ if (modal) {
     document.documentElement.classList.add('modal-open');
     var c = $('.modal-close', modal); if (c) c.focus();
   };
+  // Keep Tab inside the open pop-up (it is a dialog: role, aria-modal and label are on the element)
+  modal.addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab' || !modal.classList.contains('open')) return;
+    var f = $$('a[href], button, input, [tabindex]:not([tabindex="-1"])', modal).filter(function (x) { return x.offsetParent !== null; });
+    if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
   var closePerson = function () {
     if (!modal.classList.contains('open')) return;
     modal.classList.remove('open');

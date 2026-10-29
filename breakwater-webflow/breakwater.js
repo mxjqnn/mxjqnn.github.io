@@ -65,10 +65,15 @@
   });
 
   // Forms are landmarks: give each one an accessible name from its label (or a generic one) so two on a page can be told apart
+  var formNames = [];
   $$('form').forEach(function (f) {
     if (f.getAttribute('aria-label') || f.getAttribute('aria-labelledby')) return;
     var box = f.closest('.news, .cform-box') || f.parentNode, l = box ? $('label', box) : null;
     var nm = l && l.textContent.trim() ? l.textContent.trim() : (f.getAttribute('data-name') || f.getAttribute('name') || 'Form');
+    var row = f.closest('.srow'), rt = row ? $('.srow-title', row) : null;   // the "coming soon" sign-up on What we do carries its row's title
+    if (rt) nm = rt.textContent.trim() + ': ' + nm;
+    if (formNames.indexOf(nm) !== -1) nm += ' (' + (formNames.length + 1) + ')';
+    formNames.push(nm);
     f.setAttribute('aria-label', nm);
   });
   // Footer submit button: wrapped so a yellow label copy can wipe over it on hover

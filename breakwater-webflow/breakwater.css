@@ -729,7 +729,7 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 .wwd-hero .p1 { position: absolute; left: var(--gutter); top: calc(61vw - var(--up)); max-width: 42vw; }
 .wwd-hero .p2 { position: absolute; left: 51.4vw; top: calc(61vw - var(--up)); max-width: 42vw; }
 .wwd-mark { display: none; }   /* desktop draws the mark as the paragraph's ::after so it always sits below the copy, however long it runs */
-.wwd-hero .p1::after { content: ""; display: block; width: 2.1vw; height: 1.26vw; margin-top: 2.4vw; background: var(--dark); clip-path: var(--stepmask); }
+.wwd-hero .p1::after { content: ""; display: block; width: 2.1vw; height: 1.26vw; margin-top: calc(.7em - .63vw); background: var(--dark); clip-path: var(--stepmask); }   /* centred on the line box a fourth line would occupy (half the 1.4 line height minus half the mark), so it sits level with the right paragraph's fourth line */
 
 /* ---------- Three pronged approach ---------- */
 .prong { position: relative; background: var(--dark); color: var(--light); padding: 6.5vw 0 7vw; }

@@ -531,6 +531,10 @@ The header links read Our Work (What we do page), Our People (Who we are), Our I
 
 The hero reads "Tackling / AI's / threat / to work" on four lines (it was five). The first word is centred and the others keep the per-line offsets in `.hero-text .word:nth-child(n)` and each slide's `data-x`, which already matched the design; the block is 4.32em tall and sits at `top: calc(50% + .4vw)`. A slide's `data-x` may still list four offsets; the fourth is ignored.
 
+## Layout cleanup after the final copy (2 November 2026)
+
+Max entered the final copy in the Webflow Editor; a pass over staging at 1440px and 390px found two things the longer paragraphs had broken and both are fixed in the CSS. On What we do, the small step mark under the right-hand hero paragraph was absolutely positioned at a fixed height and the longer paragraph ran into it; the mark is now drawn as the paragraph's `::after`, so it always sits 2.4vw below the last line whatever the copy length (the `.wwd-mark` element is hidden on desktop and still used on phones, where everything flows), and the hero is 2vw taller to keep it clear of the section edge. On phones, the captions tucked into the photo notches (home team photo, What we do start photo, Who we are studio photo) stacked seven narrow lines and ran up into the headline; they now sit under the photo, left-aligned to it, like the hero caption already does, and each slot reserves 48px for them. The layout scan (overflow, overlaps, aria-labels) and the axe audit were re-run on every page at both widths: no overflow, no unintended overlaps, zero axe violations.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

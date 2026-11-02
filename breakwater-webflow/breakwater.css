@@ -708,7 +708,7 @@ html.menu-open, html.menu-open body { overflow: hidden; }
    ========================================================================== */
 
 /* ---------- Hero: light section, stepped headline left, masked photo right ---------- */
-.wwd-hero { --up: calc(5.7vw - 79px); position: relative; background: var(--light); height: calc(77.4vw - var(--up)); overflow: hidden; }   /* --up lifts everything so the photo's top edge sits as far under the logo as the logo sits under the top of the screen */
+.wwd-hero { --up: calc(5.7vw - 79px); position: relative; background: var(--light); height: calc(79.4vw - var(--up)); overflow: hidden; }   /* 2vw taller than the design so the mark under the longer paragraph keeps clear of the section edge */   /* --up lifts everything so the photo's top edge sits as far under the logo as the logo sits under the top of the screen */
 .sec-title { display: flex; flex-direction: column; align-items: flex-start; font-size: clamp(56px, 7.6vw, 120px); font-weight: 400; line-height: .95; opacity: 0; }
 .sec-title.dark-title, .prong-title { line-height: 1.08; }
 .ready .sec-title { opacity: 1; }
@@ -726,7 +726,8 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 .wwd-hero.in .fig { clip-path: inset(0 0 0 0); }
 .wwd-hero .p1 { position: absolute; left: var(--gutter); top: calc(61vw - var(--up)); max-width: 42vw; }
 .wwd-hero .p2 { position: absolute; left: 51.4vw; top: calc(61vw - var(--up)); max-width: 42vw; }
-.wwd-mark { position: absolute; left: 51.4vw; top: calc(69.6vw - var(--up)); width: 2.1vw; height: 1.26vw; background: var(--dark); clip-path: var(--stepmask); }
+.wwd-mark { display: none; }   /* desktop draws the mark as the paragraph's ::after so it always sits below the copy, however long it runs */
+.wwd-hero .p2::after { content: ""; display: block; width: 2.1vw; height: 1.26vw; margin-top: 2.4vw; background: var(--dark); clip-path: var(--stepmask); }
 
 /* ---------- Three pronged approach ---------- */
 .prong { position: relative; background: var(--dark); color: var(--light); padding: 6.5vw 0 7vw; }
@@ -1114,6 +1115,7 @@ html:not(.bw-js) .faq-a { grid-template-rows: 1fr; }
   .who-title { font-size: 15vw; margin: 0 0 12vw; }
   .who .p1 { margin-bottom: 1.4em; }
   .who .p2 { margin-bottom: 2.1em; }
+  .slot.slot-team { margin-bottom: calc(12vw + 48px); }
   .why .slot-tailor { left: auto; top: auto; width: 92vw; height: 72vw; margin: 0 calc(-21vw - var(--gutter)) 0 auto; }   /* starts 29vw in and runs off the right edge */
   .why .fig { display: none; }
   .qs { position: static; grid-template-columns: 1fr; gap: 5vw; margin-top: 12vw; }
@@ -1161,7 +1163,8 @@ html:not(.bw-js) .faq-a { grid-template-rows: 1fr; }
   .slot.slot-wwd { left: auto; top: auto; width: auto; height: 76vw; margin: 0 calc(-1 * var(--gutter)) 10vw 0; }   /* left edge on the text gutter, bleeds right */
   .wwd-hero .fig { display: none; }
   .wwd-hero .p1, .wwd-hero .p2 { position: static; max-width: none; margin: 0 0 7vw; }
-  .wwd-mark { position: static; width: 8vw; height: 4.8vw; }
+  .wwd-mark { display: block; position: static; width: 8vw; height: 4.8vw; }
+  .wwd-hero .p2::after { content: none; }
 
   .prong { padding: 16vw 0 14vw; }
   .prong-title { margin: 0 var(--gutter); }
@@ -1189,8 +1192,7 @@ html:not(.bw-js) .faq-a { grid-template-rows: 1fr; }
 
   .start { padding: 16vw var(--gutter) 14vw; }
   .start-title { margin: 0 0 10vw; }
-  .slot.slot-start { left: auto; top: auto; width: auto; height: 64vw; margin: 0 calc(-1 * var(--gutter)) 12vw 0; }   /* left edge on the text gutter, bleeds right */
-  .slot-start .cap { max-width: 30%; }
+  .slot.slot-start { left: auto; top: auto; width: auto; height: 64vw; margin: 0 calc(-1 * var(--gutter)) calc(12vw + 48px) 0; }   /* left edge on the text gutter, bleeds right */
   .srows { margin-top: 0; }
   .srow { grid-template-columns: 1fr; grid-template-areas: "num" "title" "desc"; gap: 0; padding: 6vw 0; align-items: start; }
   .snum { grid-area: num; font-size: 13px; margin-bottom: 10px; }
@@ -1207,7 +1209,7 @@ html:not(.bw-js) .faq-a { grid-template-rows: 1fr; }
   .wwa-title .line:nth-child(1) { margin-left: 6vw; }
   .wwa-title .line:nth-child(3) { margin-left: 14vw; }
   .wwa-title .line:nth-child(5) { margin-left: 4vw; }
-  .slot.slot-studio { left: auto; top: auto; width: auto; height: 70vw; margin: 0 calc(-1 * var(--gutter)) 8vw 0; }
+  .slot.slot-studio { left: auto; top: auto; width: auto; height: 70vw; margin: 0 calc(-1 * var(--gutter)) calc(8vw + 48px) 0; }
   .slot.slot-potter { left: auto; top: auto; width: 72vw; height: 56vw; margin: 0 calc(-1 * var(--gutter)) 8vw auto; }
   .slot.slot-headphones { left: auto; top: auto; width: 72vw; height: 46vw; margin: 0 auto 8vw calc(-1 * var(--gutter)); }
   .slot-potter .cap, .slot-headphones .cap { display: none; }
@@ -1269,6 +1271,8 @@ html:not(.bw-js) .faq-a { grid-template-rows: 1fr; }
   .cform-row { grid-template-columns: 1fr; gap: 14px; margin-bottom: 14px; }
   .carea { margin-bottom: 14px; }
   .cap { font-size: 11px; }
+  /* Captions move out of the notch and under the photo on phones, like the hero's; the slot reserves 48px for them */
+  .slot-team .cap, .slot-start .cap, .slot-studio .cap { left: 0; right: auto; top: calc(100% + 8px); bottom: auto; max-width: 88%; font-size: 11px; text-align: left; }
 
   .foot { padding: 14vw var(--gutter) 8vw; }
   .foot-top { flex-direction: column; align-items: flex-start; gap: 36px; padding-bottom: 9vw; }

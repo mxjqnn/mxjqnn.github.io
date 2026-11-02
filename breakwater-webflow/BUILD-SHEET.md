@@ -539,6 +539,10 @@ Max entered the final copy in the Webflow Editor; a pass over staging at 1440px 
 
 Home: the "Over the next decade" section is 104vw tall (was 100.1vw) so the gap under the last paragraph matches the 8.3vw above the first; the "We bridge the gap" copy and its "More about us" link are 20px, the body size the three-pronged and start copy already use (`.bridge .bridge-copy .more` needs three classes to outweigh the tokens embed's `.para, .bridge .more` rule). What we do: on desktop the step mark follows the left-hand hero paragraph (`.wwd-hero .p1::after`); on phones, where the paragraphs stack, the `.wwd-mark` element after the second paragraph is used. Who we are: the gaps between the three hero paragraphs are doubled (p2 at 88.3vw, p3 at 109.5vw, section 141.9vw tall) and the headphones photo moved with the third paragraph so its top edge stays level with it.
 
+## Home headlines reworded and restaggered (2 November 2026)
+
+The three staggered home headlines now read "There / is / no plan / for what's / ahead" (line offsets 13.4, 19.4, 10.7, 20 and 23.3vw, from the design; the phone stagger is 6, 16, 0, 12 and 24vw), "We are / a policy / shop / built to act" (four lines, the last highlighted) and "Expertise / from / every angle" (three lines, the first highlighted). The aria-labels match. In the headless MCP surface a plain `.line` div will not take `set_text`, and a TextBlock created with text comes in with Webflow's placeholder copy, so new lines are inserted with the WHTML builder (`<div class="line">…</div>`) beside the old ones, which are then removed. The script still pins the "ahead" baseline to the tailor photo's bottom edge and the team photo's step edge to the "built to act" baseline; the paragraphs below those headlines keep their fixed positions, so the gap under the shorter "who" headline is larger than before.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

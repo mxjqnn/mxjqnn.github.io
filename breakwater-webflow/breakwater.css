@@ -346,11 +346,11 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 }
 /* lines start right-aligned to a shared edge and are pushed left to these staggered positions */
 .big .line { margin-left: var(--x, 0vw); }
-.big .line:nth-child(1) { --x: 13.5vw; }
-.big .line:nth-child(2) { --x: 11.8vw; }
-.big .line:nth-child(3) { --x: 7.3vw; }
-.big .line:nth-child(4) { --x: 22.9vw; }
-.big .line:nth-child(5) { --x: 25vw; }
+.big .line:nth-child(1) { --x: 13.4vw; }   /* There / is / no plan / for what's / ahead, offsets from the 2 November design */
+.big .line:nth-child(2) { --x: 19.4vw; }
+.big .line:nth-child(3) { --x: 10.7vw; }
+.big .line:nth-child(4) { --x: 20vw; }
+.big .line:nth-child(5) { --x: 23.3vw; }
 .why .slot-tailor { left: 36.8vw; top: 27.1vw; width: 60.4vw; height: 49.3vw; }
 .slot-tailor img { object-position: 50% 30%; }
 .why .fig { left: 93.3vw; top: 44.3vw; width: 16vw; font-size: 12px; clip-path: inset(0 100% 0 0); transition: clip-path .5s var(--snap) .45s; }
@@ -1110,10 +1110,11 @@ html:not(.bw-js) .faq-a { grid-template-rows: 1fr; }
      to the exact baseline offset; the fallback is computed from the font's metrics). Lines step right as designed. */
   .big { position: relative; left: auto; top: auto; z-index: 1; font-size: 15vw; line-height: 1.04; margin: calc(-1 * var(--ov, 13.06vw)) 0 4.4vw; }
   .big .line { margin-left: 0; }
-  .big .line:nth-child(2) { margin-left: 10vw; }
-  .big .line:nth-child(3) { margin-left: 19.7vw; }
-  .big .line:nth-child(4) { margin-left: 37.9vw; }
-  .big .line:nth-child(5) { margin-left: 31vw; }
+  .big .line:nth-child(1) { margin-left: 6vw; }   /* the desktop stagger, compressed for the 15vw type */
+  .big .line:nth-child(2) { margin-left: 16vw; }
+  .big .line:nth-child(3) { margin-left: 0; }
+  .big .line:nth-child(4) { margin-left: 12vw; }
+  .big .line:nth-child(5) { margin-left: 24vw; }
   .who-title { font-size: 15vw; margin: 0 0 12vw; }
   .who .p1 { margin-bottom: 1.4em; }
   .who .p2 { margin-bottom: 2.1em; }

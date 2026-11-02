@@ -362,7 +362,7 @@ function measureAll() {
     measureAll();
     body.classList.add('ready');                          // show the "before" state; the intro mark plays
     var jsec = $('.journal'); if (jsec) reveal(jsec);     // the featured card sits at the top of the page: its intro plays on load
-    // The home page's team tiles link to /who-we-are#core-team, #fellows and #advisors. The groups carry the name as
+    // The home page's team tiles link to /people#core-team, #fellows and #advisors. The groups carry the name as
     // data-anchor rather than an id, so the browser does not jump there on load; the page lands at the top and glides down
     var anchor = location.hash.length > 1 && $('[data-anchor="' + location.hash.slice(1).replace(/[^\w-]/g, '') + '"]');
     if (anchor) setTimeout(function () { window.scrollTo({ top: anchor.getBoundingClientRect().top + window.scrollY, behavior: reduceMotion ? 'auto' : 'smooth' }); }, 300);
@@ -604,7 +604,7 @@ function sortedRows(scope) {
 var journal = $('.journal');
 if (journal) {
   var jrows = sortedRows(journal), PAGE = 10, jpage = 1, jcat = 'All', jq = '';
-  /* /journal?cat=Ideas opens with that category selected (the post page's category tag links here) */
+  /* /insights?cat=Ideas opens with that category selected (the post page's category tag links here) */
   var want = (location.search.match(/[?&]cat=([^&]*)/) || [])[1];
   if (want) {
     want = decodeURIComponent(want.replace(/\+/g, ' '));
@@ -661,7 +661,7 @@ if (postSec) {
     var alt = im.getAttribute('alt') || '', m = alt.match(/\s*#(square|cut)\b/i);
     if (m) { im.classList.add(m[1].toLowerCase()); im.setAttribute('alt', alt.replace(m[0], '').trim()); }
   });
-  $$('a.post-cat', postSec).forEach(function (a) { a.setAttribute('href', '/journal?cat=' + encodeURIComponent(a.textContent.trim())); });
+  $$('a.post-cat', postSec).forEach(function (a) { a.setAttribute('href', '/insights?cat=' + encodeURIComponent(a.textContent.trim())); });
   var moreSec = $('.readmore');
   if (moreSec) {
     var here = location.pathname.replace(/\/$/, ''), pc = $('.post-cat', postSec), myCat = pc ? pc.textContent.trim() : '';

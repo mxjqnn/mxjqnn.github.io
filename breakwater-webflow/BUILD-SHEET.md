@@ -525,7 +525,7 @@ An axe audit (WCAG 2.1 A and AA plus best practice) on staging found no A or AA 
 
 ## Navigation labels (2 November 2026)
 
-The header links read Our Work (What we do page), Our People (Who we are), Our Insights (Journal) and Join Us (Contact), in the desktop bar and the phone drawer alike. The page names and slugs are unchanged; only the labels moved.
+The header links read Our Work (What we do page), Our People (Who we are), Our Insights (Journal) and Join Us (Contact), in the desktop bar and the phone drawer alike. The pages are named to match (Our Work, Our People, Our Insights, Join Us) and the URLs are `/work`, `/people`, `/insights` and `/contact`; the local reference files keep their old names (what-we-do.html, who-we-are.html, journal.html, contact.html). The script's category links go to `/insights?cat=…`.
 
 ## Where to change things later
 

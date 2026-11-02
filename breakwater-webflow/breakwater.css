@@ -282,9 +282,9 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 .hero-text {
   position: absolute;
   left: 0; right: 0;
-  top: calc(50% + 2.75vw);        /* centred between the nav's bottom edge and the hero's bottom */
-  height: 5.4em;
-  margin: -2.7em 0 0;
+  top: calc(50% + .4vw);          /* four lines, sitting a touch above centre as in the design */
+  height: 4.32em;
+  margin: -2.16em 0 0;
   font-size: clamp(40px, 6.1vw, 96px);
   font-weight: 400;
   line-height: 1.08;

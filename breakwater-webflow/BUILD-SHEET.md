@@ -527,6 +527,10 @@ An axe audit (WCAG 2.1 A and AA plus best practice) on staging found no A or AA 
 
 The header links read Our Work (What we do page), Our People (Who we are), Our Insights (Journal) and Join Us (Contact), in the desktop bar and the phone drawer alike. The pages are named to match (Our Work, Our People, Our Insights, Join Us) and the URLs are `/work`, `/people`, `/insights` and `/contact`; the local reference files keep their old names (what-we-do.html, who-we-are.html, journal.html, contact.html). The script's category links go to `/insights?cat=…`.
 
+## Home hero headline (2 November 2026)
+
+The hero reads "Tackling / AI's / threat / to work" on four lines (it was five). The first word is centred and the others keep the per-line offsets in `.hero-text .word:nth-child(n)` and each slide's `data-x`, which already matched the design; the block is 4.32em tall and sits at `top: calc(50% + .4vw)`. A slide's `data-x` may still list four offsets; the fourth is ignored.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

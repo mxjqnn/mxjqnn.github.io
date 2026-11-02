@@ -523,6 +523,10 @@ Static pages sharing one layout: Privacy policy (`/privacy-policy`) and Accessib
 
 An axe audit (WCAG 2.1 A and AA plus best practice) on staging found no A or AA failures; the four best-practice items were fixed: every page's content between the header and the footer now sits in a `main` element (a custom-tag element in Webflow); the Journal page has a visually hidden h1 "Journal" (class `sr-only`, a native Webflow class); each form gets an aria-label from its label text at load, so the two newsletter forms on What we do are distinguishable; and the person pop-up, which already carried `role="dialog"` and `aria-modal`, now keeps Tab inside itself while open. Remaining manual checks: contrast of text over photographs, a screen reader pass over the split-line headlines, and visible labels on form fields.
 
+## Navigation labels (2 November 2026)
+
+The header links read Our Work (What we do page), Our People (Who we are), Our Insights (Journal) and Join Us (Contact), in the desktop bar and the phone drawer alike. The page names and slugs are unchanged; only the labels moved.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

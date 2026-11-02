@@ -346,11 +346,11 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 }
 /* lines start right-aligned to a shared edge and are pushed left to these staggered positions */
 .big .line { margin-left: var(--x, 0vw); }
-.big .line:nth-child(1) { --x: 13.4vw; }   /* There / is / no plan / for what's / ahead, offsets from the 2 November design */
-.big .line:nth-child(2) { --x: 19.4vw; }
-.big .line:nth-child(3) { --x: 10.7vw; }
-.big .line:nth-child(4) { --x: 20vw; }
-.big .line:nth-child(5) { --x: 23.3vw; }
+.big .line:nth-child(1) { --x: 11.3vw; }   /* There / is / no plan / for what's / ahead: the design's stagger, shifted 2.1vw left (2.7vw for "for what's") so "no plan" clears the photo's left edge by 3vw and "for what's" clears its lower-left step by 2.3vw */
+.big .line:nth-child(2) { --x: 17.3vw; }
+.big .line:nth-child(3) { --x: 8.6vw; }
+.big .line:nth-child(4) { --x: 17.3vw; }
+.big .line:nth-child(5) { --x: 21.2vw; }
 .why .slot-tailor { left: 36.8vw; top: 27.1vw; width: 60.4vw; height: 49.3vw; }
 .slot-tailor img { object-position: 50% 30%; }
 .why .fig { left: 93.3vw; top: 44.3vw; width: 16vw; font-size: 12px; clip-path: inset(0 100% 0 0); transition: clip-path .5s var(--snap) .45s; }
@@ -361,7 +361,7 @@ html.menu-open, html.menu-open body { overflow: hidden; }
   position: relative;
   background: var(--dark);
   color: var(--light);
-  height: 137.6vw;   /* the question tiles (38.9vw tall) sit at 93vw with the same 5.7vw below them as before */
+  height: 121.2vw;   /* the question tiles (38.9vw tall) sit at 76.6vw with the same 5.7vw below them as before; everything is 16.4vw higher than with the old six-line headline (two lines of 1.08 x 7.6vw) */
   overflow: hidden;
 }
 .who-title {
@@ -394,8 +394,10 @@ html.menu-open, html.menu-open body { overflow: hidden; }
   transition: clip-path .6s var(--snap) calc(var(--d, 0s) + .4s);
 }
 .who-title .line.in .hl::after, .dark-title .line.in .hl::after, .prong-title .line.in .hl::after { clip-path: inset(0 0 0 0); }
-.who .p1 { position: absolute; left: var(--gutter); top: 57.6vw; max-width: 39.5vw; }
-.who .p2 { position: absolute; left: 51.4vw; top: 71.5vw; max-width: 41vw; }
+/* The overlay copy fills the span's content box (ascent + descent), not a 1.08 line box, so its text would sit 9px above the real baseline the photos are pinned to; line-height: normal puts its baseline on the span's */
+.who-title .hl::after, .dark-title .hl::after, .prong-title .hl::after { line-height: normal; }
+.who .p1 { position: absolute; left: var(--gutter); top: 41.2vw; max-width: 39.5vw; }   /* 4.2vw under the four-line headline */
+.who .p2 { position: absolute; left: 51.4vw; top: 55.1vw; max-width: 41vw; }
 .slot-team { left: 51.4vw; top: var(--tt, 31.17vw); width: 45.8vw; height: 27.8vw; }   /* the script sets --tt so the mask's lower-left edge sits on the "policy shop" baseline */
 .slot-team img { object-position: 50% 20%; }
 .slot-team .pic { --d: .24s; }
@@ -403,7 +405,7 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 .cta {
   position: absolute;
   left: 51.4vw;
-  top: 83vw;
+  top: 66.6vw;
   display: inline-block;
   background: var(--light);
   color: var(--dark);
@@ -416,7 +418,7 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 .qs {
   position: absolute;
   left: var(--gutter); right: var(--gutter);
-  top: 93vw;
+  top: 76.6vw;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2.64vw;
@@ -459,10 +461,10 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 .bridge {
   position: relative;
   background: var(--light);
-  height: 87.5vw;    /* the people cards (25vw tall) sit at 56.5vw with 6vw below them */
+  height: 74vw;    /* the people cards (25vw tall) sit at 43vw with 6vw below them; the light area ends 6vw under the three-line headline, matching the 6vw above it */
   overflow: hidden;
 }
-.bridge::before { content: ''; position: absolute; left: 0; right: 0; top: 47.2vw; bottom: 0; background: var(--beige); }
+.bridge::before { content: ''; position: absolute; left: 0; right: 0; top: 33.7vw; bottom: 0; background: var(--beige); }
 .bridge-title {
   position: absolute;
   left: var(--gutter);
@@ -480,13 +482,13 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 .bridge-copy .para { font-size: 20px; }   /* the 20px body size used by the three-pronged and start copy */
 .bridge .more { display: table; margin-top: .35em; background: var(--dark); color: var(--light); padding: 0 .2em; line-height: 1.3; }
 .bridge .bridge-copy .more { font-size: 20px; }   /* three classes so it beats the tokens embed's `.para, .bridge .more` size; the phone rule below has the same weight and comes later */
-.people-title { position: absolute; left: var(--gutter); top: 53.2vw; font-size: clamp(16px, 1.35vw, 20px); font-weight: 400; }
+.people-title { position: absolute; left: var(--gutter); top: 39.7vw; font-size: clamp(16px, 1.35vw, 20px); font-weight: 400; }
 /* Photo tiles (now the home page's pinned Big Questions). Build as a.tile > img + .tile-title; a CMS tile's title arrives as one
    string and the script splits it into .trow > .tline rows and adds the arrow. The "Meet our people" blocks use .question instead. */
 .tiles {
   position: absolute;
   left: var(--gutter); right: var(--gutter);
-  top: 56.5vw;                                 /* about 1.7vw under the "Meet our people" label */
+  top: 43vw;                                   /* about 1.7vw under the "Meet our people" label */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.9vw 2.64vw;

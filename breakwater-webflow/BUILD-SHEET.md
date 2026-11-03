@@ -563,6 +563,8 @@ The three slide titles are capped at 9.4em (about 300px) so each runs to two lin
 
 The Big Questions collection now holds three items, all pinned to the home page, in this order: young people and the AI economy (`faq-young-people`), the jobs that sustain families (`faq-jobs-that-sustain-families`), and a moonshot program for new jobs (`faq-moonshot-for-new-jobs`). The three keep the home photos the earlier pinned questions used (welder, accountant, potter). The other six items were unpublished and deleted. The questions are far longer than before, so the home tile title is now `clamp(22px, 2.5vw, 38px)` on desktop and 7vw on phones; the tile rows still do not wrap, and the longest line, "the way deindustrialization", clears the tile's right edge by about 24px at 1440 and 14px at 390.
 
+The arrow rides on the last row, and on hover every row slides to the title box's right edge, so a last row that is nearly full width would carry the arrow past the tile. After splitting the question the script checks the last row with its arrow against the title box and, while it does not fit, moves the last word down to a new row (which takes the arrow), so "deindustrialization did?" ends as "did? →" on its own row and "believe in the future?" as "future? →".
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

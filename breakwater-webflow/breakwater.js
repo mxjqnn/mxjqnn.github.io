@@ -271,7 +271,19 @@ function tileLines(t) {   // a CMS tile's title is one string: split it into .tr
   splitLines(title, 'tline');
   $$('.tline', title).forEach(function (l) { var row = el('div', 'trow'); title.insertBefore(row, l); row.appendChild(l); });
   var rows = $$('.trow', title);
-  if (rows.length) rows[rows.length - 1].appendChild(el('span', 'tarrow', ARROW.replace('SW', '2.2')));
+  if (!rows.length) return;
+  var last = rows[rows.length - 1];
+  last.appendChild(el('span', 'tarrow', ARROW.replace('SW', '2.2')));
+  // The arrow rides on the last row, and on hover that row slides to the tile's right edge, so the row plus the arrow must fit
+  // the title box. While it does not, the last word moves down to a new row (with the arrow) until it does.
+  var inner = title.clientWidth;
+  while (last.offsetWidth > inner) {
+    var tl = $('.tline', last), words = tl.textContent.split(' ');
+    if (words.length < 2) break;
+    var moved = words.pop(); tl.textContent = words.join(' ');
+    var row = el('div', 'trow'), nl = el('div', tl.className); nl.textContent = moved; row.appendChild(nl);
+    title.appendChild(row); row.appendChild($('.tarrow', last)); last = row;
+  }
 }
 function measureAll() {
     alignDesktop();

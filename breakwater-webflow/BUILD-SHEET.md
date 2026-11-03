@@ -559,6 +559,10 @@ The Our People hero reads "Turning / big / ideas / into policy" (four lines, the
 
 The three slide titles are capped at 9.4em (about 300px) so each runs to two lines. The photo's lower-left notch no longer has a fixed height: the tab box (`.prong-tabs`) is as tall as its content, the script sets `--pn` on `.prong-slot` so the notch starts just above the tabs (the 1.4vw padding is the breathing room), and sets `--pd` to drop the box below the photo by the distance from the title's last baseline to the box's bottom edge, so that baseline sits level with the photo's bottom-right edge. Both are recomputed on resize and cleared on phones, where the tabs sit under the photo.
 
+## Big Questions cut to three (3 November 2026)
+
+The Big Questions collection now holds three items, all pinned to the home page, in this order: young people and the AI economy (`faq-young-people`), the jobs that sustain families (`faq-jobs-that-sustain-families`), and a moonshot program for new jobs (`faq-moonshot-for-new-jobs`). The three keep the home photos the earlier pinned questions used (welder, accountant, potter). The other six items were unpublished and deleted. The questions are far longer than before, so the home tile title is now `clamp(22px, 2.5vw, 38px)` on desktop and 7vw on phones; the tile rows still do not wrap, and the longest line, "the way deindustrialization", clears the tile's right edge by about 24px at 1440 and 14px at 390.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

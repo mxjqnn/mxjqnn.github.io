@@ -853,7 +853,7 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 .pgrid.cols-4 .w-dyn-items, .pgrid.cols-4 .pcards { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .person { position: relative; display: block; min-width: 0; color: var(--light); cursor: pointer; outline-offset: 4px; }
 .person-pic { position: relative; aspect-ratio: 1.78; overflow: hidden; clip-path: polygon(0 0, 80% 0, 80% 22%, 100% 22%, 100% 100%, 0 100%); }   /* notch top right */
-.person-pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; transition: transform 1.4s var(--magnet); }
+.person-pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; transition: transform 1.4s var(--magnet); }
 .person:hover .person-pic img, .person:focus-visible .person-pic img { transform: scale(1.04); }
 .person-bar { position: relative; background: var(--dark); padding: 20px 20px 18px; min-height: 100px; }
 .person-name { display: inline-block; max-width: 100%; font-size: clamp(20px, 1.8vw, 28px); line-height: 1.15; padding: 0 .12em; margin-left: -.12em; }
@@ -875,7 +875,7 @@ html.modal-open, html.modal-open body { overflow: hidden; }
 .modal-panel { position: relative; display: grid; grid-template-columns: 41.7% 1fr; grid-template-rows: minmax(0, 1fr); width: min(66.7vw, 1280px); max-height: calc(100vh - 80px); background: var(--light); color: var(--dark); clip-path: inset(0 100% 0 0); transition: clip-path .6s var(--magnet); }
 .modal.open .modal-panel { clip-path: inset(0 0 0 0); transition: clip-path .8s var(--magnet) .1s; }
 .modal-photo { position: relative; min-height: 38.9vw; overflow: hidden; }
-.modal-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+.modal-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
 .modal-body { min-height: 0; overflow: auto; padding: 6vw 4vw 3.4vw 3.9vw; }
 .modal-name { font-size: clamp(32px, 3.3vw, 52px); line-height: 1.1; }
 .modal-role { margin-top: .9em; font-size: 18px; font-weight: 700; line-height: 1.35; }

@@ -965,9 +965,10 @@ html.modal-open, html.modal-open body { overflow: hidden; }
 .post-body ul, .post-body ol { margin: 0 0 1.4em; padding-left: 1.2em; }
 .post-body li { margin: .35em 0; }
 .post-body strong { font-weight: 700; color: var(--dark); }
-.post-body a { text-decoration: underline; text-underline-offset: 3px; }
+.post-body a { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 .post-body blockquote { margin: 1.6em 0; padding: 0 0 0 1.2em; border-left: 3px solid var(--yellow); font-size: 1.15em; line-height: 1.45; }
 .post-body figure { margin: 2.4em 0; max-width: none; }
+.post-body figure.w-richtext-figure-type-image > div, .post-body figure > div { display: block; }   /* Webflow wraps the image in an inline-block div (its rule is .w-richtext figure.w-richtext-figure-type-image > div, matched here on specificity), which leaves descender space under it */
 /* Post images get the stepped corners from the design. The post's "Image corners" option (Square) turns them off for the
    whole post (the script adds .square-images), and one image can go the other way by ending its alt text with #square or #cut */
 .post-body { --cut: polygon(0 0, 92% 0, 92% 10%, 100% 10%, 100% 100%, 10% 100%, 10% 94%, 0 94%); }
@@ -975,7 +976,8 @@ html.modal-open, html.modal-open body { overflow: hidden; }
 .post-body figure img, .post-body > img { display: block; width: 100%; height: auto; clip-path: var(--cut); }
 .post-body img.cut { --cut: polygon(0 0, 92% 0, 92% 10%, 100% 10%, 100% 100%, 10% 100%, 10% 94%, 0 94%); }
 .post-body img.square { --cut: none; }
-.post-body figcaption { margin-top: .8em; font-size: 13px; font-style: italic; color: rgba(43, 41, 41, .7); }
+.post-body figcaption { margin-top: 1.5em; font-size: 13px; font-style: italic; color: rgba(43, 41, 41, .7); }   /* about 20px under the image: half the gap a paragraph gets after a figure */
+.post-body sup { line-height: 0; }           /* raised notes and footnote numbers do not open up the line */
 .post-body .w-embed iframe, .post-body iframe { max-width: 100%; }
 .post-body .w-video { margin: 2.4em 0; }
 .readmore { position: relative; background: var(--beige); color: var(--dark); padding: 5vw var(--gutter) 6vw; }

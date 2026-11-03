@@ -200,22 +200,18 @@ $$('.news-submit, .csubmit').forEach(function (btn) {
       }
     }
     // "We've made a start": the photo's bottom edge sits on the baseline of "more to come"
-    // Who we are hero: the photo's bottom edge sits on the "knowledge meets" baseline, its lower-left step
-  // on the "AI" baseline, and the step's upright one gap right of the "knowledge meets" fill, where the
-  // gap is the one the font leaves between a baseline and the next line box (so all three gaps match)
+    // Who we are hero: the photo's bottom edge sits on the last line's baseline ("into policy") and its
+  // lower-left step on the baseline of the line above ("ideas"); the step's upright stays where the CSS puts it
   var wat = $('.wwa-title'), wslot2 = $('.slot-studio'), whero2 = $('.wwa-hero');
   if (wat && wslot2 && whero2) {
     var al = $$('.line', wat);
-    if (al.length >= 5) {
+    if (al.length >= 2) {
       body.classList.add('measuring');
-      var hr2 = whero2.getBoundingClientRect(), sr2 = wslot2.getBoundingClientRect();
-      var bAI = baselineOf(al[2]), bKM = baselineOf(al[3]);
-      var fill = $('.hl', al[3]) || al[3], fr = fill.getBoundingClientRect();
-      var gap = fr.top - bAI;
+      var sr2 = wslot2.getBoundingClientRect();
+      var bAI = baselineOf(al[al.length - 2]), bKM = baselineOf(al[al.length - 1]);
       var H = bKM - sr2.top;
       wslot2.style.setProperty('--sh', H.toFixed(2) + 'px');
       wslot2.style.setProperty('--ny', ((bAI - sr2.top) / H * 100).toFixed(2) + '%');
-      wslot2.style.setProperty('--nx', ((fr.right + gap - sr2.left) / sr2.width * 100).toFixed(2) + '%');
       body.classList.remove('measuring');
     }
   }

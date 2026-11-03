@@ -816,12 +816,14 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 /* ---------- Who we are: hero ---------- */
 .wwa-hero { --up: calc(8.1vw - 79px); position: relative; background: var(--light); height: calc(141.9vw - var(--up)); overflow: hidden; }   /* --up lifts everything so the photo's top edge sits as far under the logo as the logo sits under the top of the screen */
 .wwa-title { position: absolute; left: 0; top: calc(19.5vw - var(--up)); font-size: clamp(40px, 6.1vw, 96px); line-height: 1.08; }   /* hero size, like the What we do hero */
-.wwa-title .line:nth-child(-n+3) { align-self: stretch; width: calc(25.5vw - .5em); text-align: right; }   /* Where / frontier / AI share a right edge, half an em from the photo */
-.wwa-title .line:nth-child(4) { margin-left: var(--gutter); }
-.wwa-title .line:nth-child(5) { align-self: stretch; width: calc(97.3vw - .5em); text-align: right; }
+.wwa-title .line { margin-left: var(--x, 0vw); }   /* Turning / big / ideas / into policy, offsets from the 3 November design */
+.wwa-title .line:nth-child(1) { --x: var(--gutter); }
+.wwa-title .line:nth-child(2) { --x: 12vw; }
+.wwa-title .line:nth-child(3) { --x: 9.75vw; }
+.wwa-title .line:nth-child(4) { --x: 19.25vw; }
 .wwa-title .hl { display: inline-block; line-height: 1.08; background-size: 0% 100%; }   /* a fill exactly one line tall, so the lines' highlights touch */
 .wwa-title .line.in .hl { background-size: 100% 100%; }
-.slot-studio { left: 25.5vw; top: 79px; width: 71.8vw; height: var(--sh, 45vw); }   /* --sh: the script puts the bottom edge on the "knowledge meets" baseline */
+.slot-studio { left: 25.5vw; top: 79px; width: 71.8vw; height: var(--sh, 45vw); }   /* --sh: the script puts the bottom edge on the last line's baseline ("into policy") */
 .slot-studio .pic { clip-path: polygon(0 0, 73.16% 0, 73.16% 46.85%, 100% 46.85%, 100% 100%, var(--nx, 50%) 100%, var(--nx, 50%) var(--ny, 75%), 0 var(--ny, 75%)); }   /* lower-left step: bottom on the "AI" baseline, upright one gap right of "knowledge meets" */
 .slot-studio img { object-position: 50% 25%; }
 .slot-studio .cap { --d: .7s; max-width: 22%; font-size: 12px; }
@@ -987,12 +989,12 @@ html.modal-open, html.modal-open body { overflow: hidden; }
 .chero-img { position: absolute; inset: 0; opacity: 0; transform: scale(1.03); transition: opacity 1.2s ease, transform 2.4s cubic-bezier(.2, .6, .2, 1); }
 .chero-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
 .chero.in .chero-img { opacity: 1; transform: none; }
-.ctitle { position: absolute; left: 0; top: 7.8vw; font-size: clamp(42px, 6.6vw, 100px); line-height: .92; }   /* "Play / a part / in the / solution", each line a dark block */
+.ctitle { position: absolute; left: 0; top: 7.8vw; font-size: clamp(42px, 6.6vw, 100px); line-height: .92; }   /* "Let's / build / the / breakwater", each line a dark block */
 .ctitle .line { background: var(--dark); color: var(--light); padding: .05em .14em; margin-left: var(--x, 0vw); width: max-content; box-shadow: 0 1px 0 0 var(--dark), 0 -1px 0 0 var(--dark); }   /* 1px overlap so there is never a hairline between the lines */
-.ctitle .line:nth-child(1) { --x: 43.5vw; }
-.ctitle .line:nth-child(2) { --x: 33.8vw; }
-.ctitle .line:nth-child(3) { --x: 29.7vw; }
-.ctitle .line:nth-child(4) { --x: 32.6vw; }
+.ctitle .line:nth-child(1) { --x: 43.4vw; }   /* Let's / build / the / breakwater, offsets from the 3 November design */
+.ctitle .line:nth-child(2) { --x: 35.6vw; }
+.ctitle .line:nth-child(3) { --x: 37.1vw; }
+.ctitle .line:nth-child(4) { --x: 29.25vw; }
 .contact { position: relative; display: grid; grid-template-columns: 48.6vw 1fr; background: var(--light); padding: 5.5vw var(--gutter) 5.5vw; }   /* form starts at 51.4vw like the page's other right columns */
 .contact-copy { max-width: 45vw; font-size: 18px; line-height: 1.4; }
 .cpara { margin: 0 0 1.4em; }
@@ -1209,10 +1211,10 @@ html:not(.bw-js) .faq-a { grid-template-rows: 1fr; }
   /* Who we are page */
   .wwa-hero { height: auto; padding: 24vw var(--gutter) 10vw; }
   .wwa-title { position: static; font-size: 11vw; margin: 0 0 8vw; }
-  .wwa-title .line { margin-left: 0; align-self: flex-start; width: auto; text-align: left; }
-  .wwa-title .line:nth-child(1) { margin-left: 6vw; }
-  .wwa-title .line:nth-child(3) { margin-left: 14vw; }
-  .wwa-title .line:nth-child(5) { margin-left: 4vw; }
+  .wwa-title .line { margin-left: 0; }
+  .wwa-title .line:nth-child(2) { margin-left: 10vw; }
+  .wwa-title .line:nth-child(3) { margin-left: 8vw; }
+  .wwa-title .line:nth-child(4) { margin-left: 16vw; }
   .slot.slot-studio { left: auto; top: auto; width: auto; height: 70vw; margin: 0 calc(-1 * var(--gutter)) calc(8vw + 48px) 0; }
   .slot.slot-potter { left: auto; top: auto; width: 72vw; height: 56vw; margin: 0 calc(-1 * var(--gutter)) 8vw auto; }
   .slot.slot-headphones { left: auto; top: auto; width: 72vw; height: 46vw; margin: 0 auto 8vw calc(-1 * var(--gutter)); }
@@ -1265,9 +1267,9 @@ html:not(.bw-js) .faq-a { grid-template-rows: 1fr; }
   .chero { height: 110vw; }
   .ctitle { top: 22vw; font-size: 13vw; }
   .ctitle .line:nth-child(1) { --x: 34vw; }
-  .ctitle .line:nth-child(2) { --x: 14vw; }
-  .ctitle .line:nth-child(3) { --x: 6vw; }
-  .ctitle .line:nth-child(4) { --x: 10vw; }
+  .ctitle .line:nth-child(2) { --x: 22vw; }
+  .ctitle .line:nth-child(3) { --x: 26vw; }
+  .ctitle .line:nth-child(4) { --x: 8vw; }
   .contact { grid-template-columns: 1fr; gap: 10vw; padding: 12vw var(--gutter) 14vw; }
   .contact-copy { max-width: none; font-size: 16px; }
   .cform-box { padding: 14px; }

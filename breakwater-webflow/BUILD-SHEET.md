@@ -551,6 +551,10 @@ The three staggered home headlines now read "There / is / no plan / for what's /
 
 The three staggered Our Work headlines now read "Turning / insight / into / policy" (four lines, "insight" highlighted; offsets 9.3, 7, 21.5 and 25.3vw from the design, 2, 0, 12 and 16vw on phones), "Our / approach" (two lines, the second highlighted) and "Taking / action to / answer / the big / questions" (five lines, "big" and "questions" highlighted). The aria-labels match. The hero photo's lower-left step used to sit on the third line's baseline; the script now uses the line two above the last (`wl[wl.length - 3]`), which is "insight" here and was "oriented" before, so the rule survives a change in line count. The footer custom code was replaced with the regenerated `tools/footer.min.js`.
 
+## Our People and Join Us headlines reworded (3 November 2026)
+
+The Our People hero reads "Turning / big / ideas / into policy" (four lines, the last three highlighted with the full-height fill). The old right-aligned column rules are gone; the lines carry plain offsets (gutter, 12, 9.75 and 19.25vw from the design; 0, 10, 8 and 16vw on phones). The studio photo's bottom edge sits on the last line's baseline and its lower-left step on the line above, whatever the line count (`al[al.length - 1]` and `- 2`); the step's upright is no longer computed from the highlight and stays at the stylesheet's `--nx` default of 50%, which is where the design puts it. The team group title reads "Our / team". The Join Us hero reads "Let's / build / the / breakwater" (block offsets 43.4, 35.6, 37.1 and 29.25vw; 34, 22, 26 and 8vw on phones). Aria-labels match.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

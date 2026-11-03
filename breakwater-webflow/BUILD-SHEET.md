@@ -565,6 +565,10 @@ The Big Questions collection now holds three items, all pinned to the home page,
 
 The arrow rides on the last row, and on hover every row slides to the title box's right edge, so a last row that is nearly full width would carry the arrow past the tile. After splitting the question the script checks the last row with its arrow against the title box and, while it does not fit, moves the last word down to a new row (which takes the arrow), so "deindustrialization did?" ends as "did? →" on its own row and "believe in the future?" as "future? →".
 
+## Core team populated (3 November 2026)
+
+The seven core-team items in the People collection now carry the real team, in Max's order: Molly Kinder (Founder & CEO), Gretchen Phillips (President), Palak Shah (Senior Advisor), Anmol Chaddha (Senior Director, Policy), Mayu Takeuchi (Associate), Diana Degnan (Associate) and Samuel Thorpe (Special Assistant for Economic Policy). Each has its bio as one paragraph, Order 1 to 7, and no social links (the LinkedIn, Substack and X fields are empty, so the pop-up hides its link row). The portraits were resized to 900 x 1350 WebP at quality 82 (56 to 113 KB each) and live in `assets/people/`; the same files are the site assets `person-<slug>.webp`. The pop-up's image is a static Image element in Webflow and so carries its own responsive `srcset`; the script now drops that `srcset` and `sizes` before copying the card's photo across, otherwise the browser kept showing the placeholder. The fellows and advisors are still placeholders.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

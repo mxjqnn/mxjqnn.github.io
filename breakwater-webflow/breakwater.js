@@ -554,7 +554,7 @@ if (modal) {
   var mImg = $('.modal-photo img', modal), mName = $('.modal-name', modal), mRole = $('.modal-role', modal), mBio = $('.modal-bio', modal), mLinks = $$('.modal-link', modal), mLinkBox = $('.modal-links', modal), lastCard = null;
   var openPerson = function (card) {
     var img = $('.person-pic img', card), bio = $('.person-bio', card), name = $('.person-name', card), role = $('.person-role', card);
-    if (img && mImg) { mImg.src = img.currentSrc || img.src; mImg.alt = img.alt || ''; }
+    if (img && mImg) { mImg.removeAttribute('srcset'); mImg.removeAttribute('sizes'); mImg.src = img.currentSrc || img.src; mImg.alt = img.alt || ''; }   // the pop-up image is a static Image element in Webflow, so its own srcset must go or the browser keeps showing it
     if (mName) mName.textContent = name ? name.textContent.trim() : '';
     if (mRole) mRole.textContent = role ? role.textContent.trim() : '';
     if (mBio) mBio.innerHTML = bio ? bio.innerHTML : '';

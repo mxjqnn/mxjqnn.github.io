@@ -555,6 +555,10 @@ The three staggered Our Work headlines now read "Turning / insight / into / poli
 
 The Our People hero reads "Turning / big / ideas / into policy" (four lines, the last three highlighted with the full-height fill). The old right-aligned column rules are gone; the lines carry plain offsets (gutter, 12, 9.75 and 19.25vw from the design; 0, 10, 8 and 16vw on phones). The studio photo's bottom edge sits on the last line's baseline and its lower-left step on the line above, whatever the line count (`al[al.length - 1]` and `- 2`); the step's upright is no longer computed from the highlight and stays at the stylesheet's `--nx` default of 50%, which is where the design puts it. The team group title reads "Our / team". The Join Us hero reads "Let's / build / the / breakwater" (block offsets 43.4, 35.6, 37.1 and 29.25vw; 34, 22, 26 and 8vw on phones). Aria-labels match.
 
+## Our approach slides: two-line titles and a fitted notch (3 November 2026)
+
+The three slide titles are capped at 9.4em (about 300px) so each runs to two lines. The photo's lower-left notch no longer has a fixed height: the tab box (`.prong-tabs`) is as tall as its content, the script sets `--pn` on `.prong-slot` so the notch starts just above the tabs (the 1.4vw padding is the breathing room), and sets `--pd` to drop the box below the photo by the distance from the title's last baseline to the box's bottom edge, so that baseline sits level with the photo's bottom-right edge. Both are recomputed on resize and cleared on phones, where the tabs sit under the photo.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

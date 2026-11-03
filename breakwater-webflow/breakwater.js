@@ -188,12 +188,12 @@ $$('.news-submit, .csubmit').forEach(function (btn) {
       var wl = $$('.who-title .line', who);
       if (wl.length) team.style.setProperty('--tt', (baselineOf(wl[wl.length - 1]) - who.getBoundingClientRect().top - 0.7493 * team.offsetHeight).toFixed(2) + 'px');
     }
-    // What we do hero: the "shop" baseline sits on the photo's bottom edge, and the mask's lower-left step on the "oriented" baseline
+    // What we do hero: the last line's baseline ("policy") sits on the photo's bottom edge, and the mask's lower-left step on the baseline of the line two above it ("insight")
     var wt = $('.wwd-title'), wslot = $('.slot-wwd'), whero = $('.wwd-hero');
     if (wt && wslot && whero) {
       var wl = $$('.line', wt), hr = whero.getBoundingClientRect(), sr = wslot.getBoundingClientRect(), tt = wt.getBoundingClientRect().top;
       if (wl.length >= 3) {
-        var offLast = baselineOf(wl[wl.length - 1]) - tt, off3 = baselineOf(wl[2]) - tt;
+        var offLast = baselineOf(wl[wl.length - 1]) - tt, off3 = baselineOf(wl[wl.length - 3]) - tt;
         var titleTop = sr.bottom - hr.top - offLast;
         wt.style.setProperty('--wt', titleTop.toFixed(2) + 'px');
         wslot.style.setProperty('--notch', (((titleTop + off3) - (sr.top - hr.top)) / sr.height * 100).toFixed(2) + '%');

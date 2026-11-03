@@ -547,6 +547,10 @@ The three staggered home headlines now read "There / is / no plan / for what's /
 
 "There is no plan" sits 2.1vw further left than the design's offsets (2.7vw for "for what's") because the live type runs wider than the mockup's: "no plan" now clears the photo's left edge by 3vw and "for what's" clears its lower-left step by 2.3vw. The yellow highlight on the dark headlines ("built to act", "We've made a start", the three-pronged title) is a `::after` copy of the text that fills the span's content box; with the headline's 1.08 line-height its baseline landed 9px above the real one the photos are pinned to, so the overlay has `line-height: normal`, which puts its text exactly on the span's baseline. With the four-line "We are a policy shop" headline everything under it moved up 16.4vw (two lines of 1.08 x 7.6vw): paragraphs at 41.2vw and 55.1vw, the button at 66.6vw, the question tiles at 76.6vw, section 121.2vw tall, so the gap under the headline and the padding under the tiles are what they were. The "Expertise from every angle" section is 74vw tall (was 87.5vw): the beige band, "Meet our people" and the cards moved up 13.5vw so the light area ends 6vw under the headline, matching the 6vw above it.
 
+## Our Work headlines reworded (3 November 2026)
+
+The three staggered Our Work headlines now read "Turning / insight / into / policy" (four lines, "insight" highlighted; offsets 9.3, 7, 21.5 and 25.3vw from the design, 2, 0, 12 and 16vw on phones), "Our / approach" (two lines, the second highlighted) and "Taking / action to / answer / the big / questions" (five lines, "big" and "questions" highlighted). The aria-labels match. The hero photo's lower-left step used to sit on the third line's baseline; the script now uses the line two above the last (`wl[wl.length - 3]`), which is "insight" here and was "oriented" before, so the rule survives a change in line count. The footer custom code was replaced with the regenerated `tools/footer.min.js`.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

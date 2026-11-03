@@ -718,11 +718,10 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 .ready .sec-title { opacity: 1; }
 .wwd-title { position: absolute; left: var(--gutter); top: var(--wt, calc(26.3vw - var(--up))); font-size: clamp(40px, 6.1vw, 96px); }   /* hero size; --wt puts the "shop" baseline on the photo's bottom edge */
 .wwd-title .line { margin-left: var(--x, 0vw); }
-.wwd-title .line:nth-child(1) { --x: 8.3vw; }
-.wwd-title .line:nth-child(2) { --x: 11.5vw; }
-.wwd-title .line:nth-child(3) { --x: 0vw; }
-.wwd-title .line:nth-child(4) { --x: 15.5vw; }
-.wwd-title .line:nth-child(5) { --x: 26.6vw; }
+.wwd-title .line:nth-child(1) { --x: 9.3vw; }   /* Turning / insight / into / policy, offsets from the 3 November design */
+.wwd-title .line:nth-child(2) { --x: 7vw; }
+.wwd-title .line:nth-child(3) { --x: 21.5vw; }
+.wwd-title .line:nth-child(4) { --x: 25.3vw; }
 .slot-wwd { left: 37vw; top: 79px; width: 60.2vw; height: 48.8vw; }
 .slot-wwd .pic { clip-path: polygon(0 0, 92% 0, 92% 36%, 100% 36%, 100% 100%, 24% 100%, 24% var(--notch, 76.25%), 0 var(--notch, 76.25%)); }   /* lower-left step on the "oriented" baseline */
 .slot-wwd img { object-position: 50% 35%; }
@@ -1162,9 +1161,9 @@ html:not(.bw-js) .faq-a { grid-template-rows: 1fr; }
   .sec-title { font-size: 15vw; }
   .wwd-title { position: static; margin: 0 0 8vw; }
   .wwd-title .line { margin-left: 0; }
-  .wwd-title .line:nth-child(2) { margin-left: 8vw; }
-  .wwd-title .line:nth-child(4) { margin-left: 12vw; }
-  .wwd-title .line:nth-child(5) { margin-left: 24vw; }
+  .wwd-title .line:nth-child(1) { margin-left: 2vw; }
+  .wwd-title .line:nth-child(3) { margin-left: 12vw; }
+  .wwd-title .line:nth-child(4) { margin-left: 16vw; }
   .slot.slot-wwd { left: auto; top: auto; width: auto; height: 76vw; margin: 0 calc(-1 * var(--gutter)) 10vw 0; }   /* left edge on the text gutter, bleeds right */
   .wwd-hero .fig { display: none; }
   .wwd-hero .p1, .wwd-hero .p2 { position: static; max-width: none; margin: 0 0 7vw; }

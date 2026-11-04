@@ -54,7 +54,7 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 - [ ] Page transitions: crossfade with the nav held still in Chrome, Edge and Safari; plain loads in Firefox; back and forward buttons restore pages cleanly; arriving from a tile glides to the right group.
 - [ ] Images: nothing stretched, correct crops and focal points on phones, no missing images on CMS items. *A person with no photo now shows the grey placeholder.*
 - [ ] 404 page: still Webflow's default (plain "Page not found"). *Design it in Pages > Utility pages > 404, and style the password page while the password is on.*
-- [ ] Favicon and webclip: the site still serves Webflow's default favicon.ico and webclip.png. *D: Site settings > General > Favicon, upload `assets/favicon-breakwater.png` (the yellow mark, 128 px); the API cannot set it. Webclip wants 256 px, so upload a larger export of the same mark there.*
+- [x] Favicon and webclip: both uploaded in Site settings on 4 November (`favicon-dark.png`); staging serves them as the tab icon and the Apple touch icon.
 - [ ] Browser matrix: Safari (macOS, iOS), Chrome (macOS, Windows, Android), Firefox, Edge; iPad both orientations.
 
 ## 3. Accessibility (D for fixes, anyone to test)

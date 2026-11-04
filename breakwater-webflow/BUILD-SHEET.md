@@ -624,7 +624,7 @@ The home page's second photo slot (`.slot-tailor`, beside "There is no plan for 
 
 ## Meta descriptions, share image and favicon (4 November 2026)
 
-Home, Our Work, Our People, Our Insights and Join Us have meta descriptions written from their own copy (Privacy policy and Accessibility already had theirs; posts take the Excerpt). Every page, the post template included, uses `assets/og-breakwater.png` (the logo on dark, 1200 x 630; site asset `og-breakwater.png`) as its Open Graph image, with the share title and description copied from the SEO fields, so a post shares with its own title and excerpt. There is no site-wide default share image setting in the API, so a new static page needs the image set on it. The favicon is a Site settings > General upload that the API cannot make; the mark is saved as `assets/favicon-breakwater.png` (128 px) for that.
+Home, Our Work, Our People, Our Insights and Join Us have meta descriptions written from their own copy (Privacy policy and Accessibility already had theirs; posts take the Excerpt). Every page, the post template included, uses `assets/og-breakwater.png` (the logo on dark, 1200 x 630; site asset `og-breakwater.png`) as its Open Graph image, with the share title and description copied from the SEO fields, so a post shares with its own title and excerpt. There is no site-wide default share image setting in the API, so a new static page needs the image set on it. The favicon and webclip were uploaded in Site settings > General (the API cannot set them); the mark is also saved as `assets/favicon-breakwater.png` (128 px).
 
 ## Where to change things later
 

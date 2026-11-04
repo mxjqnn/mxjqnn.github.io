@@ -591,6 +591,12 @@ Every photo caption on the core pages is now empty but still in place: the `.cap
 
 The Posts collection has an optional **Featured image** field (slug `featured-image`), for the Press & media section on Our Work. The three press posts carry theirs (`assets/press/`, 854 x 480 WebP): the Platformer podcast frame, the New York Times video frame and the CNN studio frame.
 
+## Press & media on Our Work; contact hero mirrored (4 November 2026)
+
+The "We've made a start" section on Our Work is gone, replaced by a **Press & media** section (`.press`): a small label, then three cards in a row (one column on phones), each a link block (`.pcard`) holding the post's Featured image in a 16:9 box (`.pcard-pic`), its title (`.pcard-title wipe`, so the yellow highlight wipes across it on hover, as the design shows on the middle card) and its excerpt (`.pcard-ex`). It is a Collection List of Posts (limit 100) bound to the Featured image, Name, Excerpt and Slug fields, with the category and date in a hidden `.jdata` block; the script keeps only the three newest posts in the Press & media category, newest first, sets each card's link to `/posts/<slug>`, and hides the whole section if there are none. A post without a featured image shows an empty dark box in that slot. The cards show the post titles (currently "New York Times Feature", "CNN Feature", "Platformer Feature"); the design mock-up shows the outlet names, so rename the posts if that is what you want on the cards. The `.start` CSS and the script's start-section alignment are still in the files in case the section comes back.
+
+The contact page hero (`.chero-img img`) is mirrored horizontally with `transform: scaleX(-1)` in the CSS; the asset itself is unchanged.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

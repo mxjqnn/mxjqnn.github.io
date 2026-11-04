@@ -33,14 +33,14 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 - [x] Placeholder copy replaced. *The 4 November crawl finds no "placeholder" text on any page; the final copy went in on 2 and 3 November.*
 - [ ] People collection complete. *The core team is real (eight people, Eilis Klein without a photo yet). The fellows and advisors are still the placeholder people: real names, roles, photos, bios and links needed, then the placeholders deleted. No one has a LinkedIn link yet.*
 - [x] Posts: launch set in place. *Six posts: three Ideas pieces by Molly Kinder, three Press & media items (New York Times, CNN, Platformer). "Our policy agenda" is deleted, so nothing is Featured on Insights or pinned to Our Work; both slots hide themselves until a post is marked.*
-- [ ] Decide whether a post should be Featured on Insights and one pinned to Our Work at launch. *Both are a tick box on the post.*
+- [x] Featured and pinned posts: none at launch (decided 4 November). *Both slots stay hidden until a post is marked Featured or Pin to What we do.*
 - [x] Big Questions: cut to three real questions on 3 November, all three pinned to Home.
 - [x] Hidden FAQ blocks on Our People and Join Us: stay hidden (decided 15 October).
 - [ ] Footer: the LinkedIn and X links are still `#`. *The legal line and the Privacy and Accessibility links are done.*
 - [x] Nav and drawer: the phone drawer's first link reads Home and goes to the home page (4 November).
 - [x] Join Us page copy and the email address (hello@breakwaterinitiative.org).
-- [ ] A full read-through of every page by someone who has not seen it before; spelling, capitalisation of Breakwater Initiative, consistent author names, date formats.
-- [ ] Image rights. *Final photos are in for Home (the boardroom beside "There is no plan" and the team photo), Our Work, Our People, Join Us, the approach slides and the second Big Question. Only the home hero slides are still placeholders. Licences and consents for the final photos to be confirmed; the hero captions are empty slots at the moment.*
+- [x] Full read-through of every page (4 November).
+- [x] Image rights confirmed (4 November). *Only the home hero slides are still placeholders; the hero captions are empty slots at the moment.*
 - [x] Font licence: ABC Arizona Flare files stay out of the public repo. *Still to confirm with Breakwater that the licence covers the live domain and expected page views.*
 
 ## 2. Design QA (D)
@@ -54,7 +54,7 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 - [ ] Page transitions: crossfade with the nav held still in Chrome, Edge and Safari; plain loads in Firefox; back and forward buttons restore pages cleanly; arriving from a tile glides to the right group.
 - [ ] Images: nothing stretched, correct crops and focal points on phones, no missing images on CMS items. *A person with no photo now shows the grey placeholder.*
 - [ ] 404 page: still Webflow's default (plain "Page not found"). *Design it in Pages > Utility pages > 404, and style the password page while the password is on.*
-- [ ] Favicon and webclip: both files are set (favicon.ico and webclip.png). *Check they are Breakwater's mark in a tab and on a phone home screen.*
+- [ ] Favicon and webclip: the site still serves Webflow's default favicon.ico and webclip.png. *D: Site settings > General > Favicon, upload `assets/favicon-breakwater.png` (the yellow mark, 128 px); the API cannot set it. Webclip wants 256 px, so upload a larger export of the same mark there.*
 - [ ] Browser matrix: Safari (macOS, iOS), Chrome (macOS, Windows, Android), Firefox, Edge; iPad both orientations.
 
 ## 3. Accessibility (D for fixes, anyone to test)
@@ -71,9 +71,9 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 ## 4. SEO (D, some C)
 
 - [x] Page titles: every page has one. *Home is "Breakwater Initiative"; the post template's title is bound to the post's Title (4 November).*
-- [ ] Meta descriptions: Privacy policy and Accessibility have one, and posts take theirs from the Excerpt (4 November). *Home, Our Work, Our People, Our Insights and Join Us need copy; C can set them once supplied.*
+- [x] Meta descriptions: every page has one. *Home, Our Work, Our People, Our Insights and Join Us were written from each page's own copy on 4 November; Privacy policy and Accessibility had theirs; posts take the Excerpt.*
 - [x] Collection templates: the People, Big Questions, FAQs and Authors templates all return 404 on staging (none of their item pages is reachable), and each carries a noindex tag in its page head code as a safeguard (4 November); Webflow will not draft a template through the API. *D: delete the Authors collection in the Designer, which removes its template.*
-- [ ] Open Graph: nothing set. *Only Our Work copies its title; no page has a share image and there is no default share image in Site settings. Add a default image and per-page titles and descriptions; test with the LinkedIn Post Inspector and X card validator after launch.*
+- [x] Open Graph: every page, including posts, shares the Breakwater logo card (`assets/og-breakwater.png`, 1200 x 630) and copies its title and description from the SEO fields (4 November). *Test with the LinkedIn Post Inspector and X card validator after launch.*
 - [x] Crawlable internal links: the Insights rows, the post page's Read more rows, the press cards and the agenda card now link to the current post in the published HTML (set to Collection page > Current Post in the Designer, 4 November). *The Featured card on Insights is static and stays `#` until the script fills it.*
 - [ ] No remaining `#` links: the footer's LinkedIn and X (see section 1). *The filter buttons, Load more and the approach tabs are `#` by design as the script handles them; they could become buttons.*
 - [x] Heading structure sensible on every page; no empty headings. *Checked 4 November.*
@@ -91,7 +91,7 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 - [ ] Responsive images: the connector-placed hero photos load at their full 2400 px width (three on Our Work, one each on Our People and Join Us). *Switch them to Webflow's responsive variants or upload smaller sources.*
 - [x] Lazy loading below the fold: 8 of 10 images on Our Work, 29 of 31 on Our People, 9 of 11 on Home.
 - [x] Fonts: Regular and Bold are preloaded from the site head (4 November); Italic is not used above the fold and is not preloaded.
-- [ ] Site settings > Publishing: minify HTML, CSS and JS on.
+- [x] Site settings > Publishing: minify HTML, CSS and JS on (4 November).
 - [ ] Re-run Lighthouse mobile and desktop on Home, Our Work, Our People and a post; target 85+ mobile with the intro kept as designed.
 - [ ] Check total page weight on Our People once the fellows' and advisors' real photos are in (31 images today).
 

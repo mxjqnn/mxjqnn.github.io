@@ -622,6 +622,10 @@ The placeholder post "Our policy agenda" is unpublished and deleted, so two slot
 
 The home page's second photo slot (`.slot-tailor`, beside "There is no plan for what's ahead") now shows the empty boardroom photo supplied in chat, saved as `assets/core/home-boardroom.webp` (2400 x 1602 WebP, quality 82) and swapped on the Image element, so the mask, caption slot and entrance motion are untouched. The slot is squarer than the photo (about 1.22:1 against 1.5:1) and crops with `object-position: 50% 30%`, which keeps the figure at the window in view. The tailor placeholder (`assets/photo-tailor.jpg`) is no longer used; of the original placeholders only the home hero slides remain.
 
+## Meta descriptions, share image and favicon (4 November 2026)
+
+Home, Our Work, Our People, Our Insights and Join Us have meta descriptions written from their own copy (Privacy policy and Accessibility already had theirs; posts take the Excerpt). Every page, the post template included, uses `assets/og-breakwater.png` (the logo on dark, 1200 x 630; site asset `og-breakwater.png`) as its Open Graph image, with the share title and description copied from the SEO fields, so a post shares with its own title and excerpt. There is no site-wide default share image setting in the API, so a new static page needs the image set on it. The favicon is a Site settings > General upload that the API cannot make; the mark is saved as `assets/favicon-breakwater.png` (128 px) for that.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

@@ -88,23 +88,23 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 ## 5. Performance (D, some C)
 
 - [x] Hero intro versus LCP: keep the 1.55 s hold before the hero words as designed (decided 4 November).
-- [ ] Responsive images: the connector-placed hero photos load at their full 2400 px width (three on Our Work, one each on Our People and Join Us). *Switch them to Webflow's responsive variants or upload smaller sources.*
+- [x] Responsive images (4 November). *Every static photo, the heroes included, already serves Webflow's responsive variants (a 500 to 2600 px srcset with sizes), so a 1440 px screen gets the 1080 or 1600 px file. CMS-bound images get no variants from Webflow (the Big Question home photos, the people portraits and the press featured images are served at their upload size), so the three Big Question home photos were re-saved at 1000 px for their 350 to 480 px tiles. The portraits stay at 1080 px, which is what a retina phone needs for a 430 px card; Lighthouse on a 1x desktop counts that as waste. Images added to the CMS later should be uploaded at about twice their display width.*
 - [x] Lazy loading below the fold: 8 of 10 images on Our Work, 29 of 31 on Our People, 9 of 11 on Home.
-- [ ] Eager loading on the hero photos. *Webflow lazy-loads every image by default and the connector cannot change that, so in the Designer set Image settings > Load > Eager on the first home hero slide, the Our Work hero (`.slot-wwd`), the Our People hero (`.slot-studio`) and the Join Us hero (`.chero-img`). Lighthouse flagged the Our People hero as a lazy-loaded largest paint.*
+- [x] Eager loading on the hero photos: the first home hero slide and the Our Work, Our People and Join Us heroes load eagerly (set in the Designer, 4 November); everything else stays lazy.
 - [x] Fonts: Regular and Bold are preloaded from the site head (4 November); Italic is not used above the fold and is not preloaded.
 - [x] Site settings > Publishing: minify HTML, CSS and JS on (4 November).
-- [x] Lighthouse re-run on 4 November (Lighthouse 12 from the terminal, through the password gate), with the hero intro kept as designed:
+- [x] Lighthouse re-run on 4 November (Lighthouse 12 from the terminal, through the password gate), with the hero intro kept as designed. Two runs: the first before the eager heroes and lighter tiles, the second after.
 
   | | Home | Our Work | Our People | Post (CNN) |
   |---|---|---|---|---|
-  | Performance, mobile | 66 | 76 | 83 | 79 |
-  | Performance, desktop | 87 | 93 | 80 | 92 |
-  | LCP, mobile / desktop | 6.2 s / 1.8 s | 4.3 s / 1.3 s | 3.9 s / 2.3 s | 4.2 s / 1.4 s |
+  | Performance, mobile (run 1 / run 2) | 66 / 76 | 76 / 71 | 83 / 83 | 79 / 83 |
+  | Performance, desktop (run 1 / run 2) | 87 / 88 | 93 / 94 | 80 / 62 | 92 / 95 |
+  | LCP mobile, run 2 | 5.2 s | 4.9 s | 3.9 s | 3.8 s |
   | Accessibility | 100 | 100 | 100 | 100 |
   | Best practices | 100 | 100 | 100 | 96 |
   | SEO | 66 | 66 | 66 | 66 |
 
-  *The SEO score is only "page is blocked from indexing" (robots.txt while the password is on) and will clear at launch. Every page waits 1 to 1.6 s for the staging server's first byte, which is the password gate; the live domain should be quicker. Home mobile is held back by the hero intro, which stays. The post page's 96 is the YouTube embed's third-party cookies. The remaining wins are the responsive hero images (next item) and the Our People hero, which was lazy-loaded although it is that page's largest paint.*
+  *The SEO score is only "page is blocked from indexing" (robots.txt while the password is on) and will clear at launch. The spread between runs is the staging server's time to first byte, which swung from 0.5 s to 2.9 s between runs (Our People desktop's 62 is a 2.9 s wait); the live domain, without the password gate, should be steadier. Home mobile is held back by the hero intro, which stays. The post page's 96 is the YouTube embed's third-party cookies. What is left is the people portraits, which Lighthouse counts as oversized on a 1x screen but which a retina phone needs at 1080 px.*
 - [ ] Check total page weight on Our People once the fellows' and advisors' real photos are in (31 images today).
 
 ## 6. Forms, integrations and tracking (B decides, D sets)

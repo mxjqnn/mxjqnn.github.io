@@ -626,6 +626,10 @@ The home page's second photo slot (`.slot-tailor`, beside "There is no plan for 
 
 Home, Our Work, Our People, Our Insights and Join Us have meta descriptions written from their own copy (Privacy policy and Accessibility already had theirs; posts take the Excerpt). Every page, the post template included, uses `assets/og-breakwater.png` (the logo on dark, 1200 x 630; site asset `og-breakwater.png`) as its Open Graph image, with the share title and description copied from the SEO fields, so a post shares with its own title and excerpt. There is no site-wide default share image setting in the API, so a new static page needs the image set on it. The favicon and webclip were uploaded in Site settings > General (the API cannot set them); the mark is also saved as `assets/favicon-breakwater.png` (128 px).
 
+## Lighthouse pass and lighter home tiles (4 November 2026)
+
+Lighthouse 12 was run from the terminal through the password gate (`tools/cdp.py` hands over the `wf_auth` cookie; see LAUNCH-CHECKLIST.md for the numbers). The static photos, heroes included, already serve Webflow's responsive variants (srcset and sizes), and the first home hero slide and the Our Work, Our People and Join Us heroes now load eagerly (Image settings > Load > Eager in the Designer; the connector cannot set it). CMS-bound images get no variants from Webflow, so the three pinned Big Questions' Home photos were re-saved at 1000 px wide (`assets/questions/`, WebP quality 82, 27 to 191 KB from 119 to 264 KB) for their 350 to 480 px tiles. Images added to the CMS later should be uploaded at about twice their display width. The people portraits stay at 1080 px, which a retina phone needs for a 430 px card.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

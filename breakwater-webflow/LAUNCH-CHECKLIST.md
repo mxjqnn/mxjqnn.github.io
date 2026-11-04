@@ -37,7 +37,7 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 - [x] Big Questions: cut to three real questions on 3 November, all three pinned to Home.
 - [x] Hidden FAQ blocks on Our People and Join Us: stay hidden (decided 15 October).
 - [ ] Footer: the LinkedIn and X links are still `#`. *The legal line and the Privacy and Accessibility links are done.*
-- [ ] Nav and drawer: the "Why we exist" link in the phone drawer is still `#`. *Decide where it goes or remove it.*
+- [x] Nav and drawer: the phone drawer's first link reads Home and goes to the home page (4 November).
 - [x] Join Us page copy and the email address (hello@breakwaterinitiative.org).
 - [ ] A full read-through of every page by someone who has not seen it before; spelling, capitalisation of Breakwater Initiative, consistent author names, date formats.
 - [ ] Image rights. *Final photos are in for Our Work, Our People, Join Us, the approach slides, the home team photo and the second Big Question. The home hero slides and the tailor photo are still placeholders. Licences and consents for the final photos to be confirmed; the hero captions are empty slots at the moment.*
@@ -54,7 +54,7 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 - [ ] Page transitions: crossfade with the nav held still in Chrome, Edge and Safari; plain loads in Firefox; back and forward buttons restore pages cleanly; arriving from a tile glides to the right group.
 - [ ] Images: nothing stretched, correct crops and focal points on phones, no missing images on CMS items. *A person with no photo now shows the grey placeholder.*
 - [ ] 404 page: still Webflow's default (plain "Page not found"). *Design it in Pages > Utility pages > 404, and style the password page while the password is on.*
-- [ ] Favicon and webclip (Site settings > General) show in a tab and when saved to a phone home screen.
+- [ ] Favicon and webclip: both files are set (favicon.ico and webclip.png). *Check they are Breakwater's mark in a tab and on a phone home screen.*
 - [ ] Browser matrix: Safari (macOS, iOS), Chrome (macOS, Windows, Android), Firefox, Edge; iPad both orientations.
 
 ## 3. Accessibility (D for fixes, anyone to test)
@@ -70,15 +70,15 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 
 ## 4. SEO (D, some C)
 
-- [ ] Page titles: Our Work, Our People, Our Insights, Join Us, Privacy policy and Accessibility have theirs. *Home and the post template still use the site name ("Breakwater Initiative website"); Home needs a title, and the post template's title should be bound to the post's Title.*
-- [ ] Meta descriptions: only Privacy policy and Accessibility have one. *Home, Our Work, Our People, Our Insights and Join Us need copy (C can set them once supplied); the post template's description should be bound to Excerpt.*
-- [ ] Collection templates: Posts bound as above; the People, Big Questions, FAQs and Authors templates are live with no SEO fields. *Set them to noindex (or delete the Authors one with its collection), since they are not meant to be visited.*
+- [x] Page titles: every page has one. *Home is "Breakwater Initiative"; the post template's title is bound to the post's Title (4 November).*
+- [ ] Meta descriptions: Privacy policy and Accessibility have one, and posts take theirs from the Excerpt (4 November). *Home, Our Work, Our People, Our Insights and Join Us need copy; C can set them once supplied.*
+- [x] Collection templates: the People, Big Questions, FAQs and Authors templates all return 404 on staging (none of their item pages is reachable), and each carries a noindex tag in its page head code as a safeguard (4 November); Webflow will not draft a template through the API. *D: delete the Authors collection in the Designer, which removes its template.*
 - [ ] Open Graph: nothing set. *Only Our Work copies its title; no page has a share image and there is no default share image in Site settings. Add a default image and per-page titles and descriptions; test with the LinkedIn Post Inspector and X card validator after launch.*
-- [ ] Crawlable internal links: the Insights rows, the Featured card, the agenda card and the press cards are `#` in the HTML until the script fills them. *Set each link block to Collection page > Current Post in the Designer; the script leaves a real link alone.*
-- [ ] No remaining `#` links: the drawer's "Why we exist" and the footer's LinkedIn and X (see section 1). *The filter buttons, Load more and the approach tabs are `#` by design as the script handles them; they could become buttons.*
+- [ ] Crawlable internal links: the Insights rows, the post page's Read more rows, the press cards and the agenda card are `#` in the HTML until the script fills them. *D: the connector cannot set a Current Post link (it only writes a literal slug), so in the Designer select each of the four link blocks (`.jrow` on Our Insights, `.jrow` in the Read more list on the Posts template, `.pcard` and `.agenda` on Our Work), open Link settings and choose Collection page > Current Post; the script leaves a real link alone. The Featured card on Insights is static and stays `#` until the script fills it.*
+- [ ] No remaining `#` links: the footer's LinkedIn and X (see section 1). *The filter buttons, Load more and the approach tabs are `#` by design as the script handles them; they could become buttons.*
 - [x] Heading structure sensible on every page; no empty headings. *Checked 4 November.*
 - [x] Alt text: no image on any page is missing an alt attribute. *The press and post images carry alt text from the CMS; decorative images are marked empty.*
-- [ ] Sitemap and robots: the sitemap is not generated (returns 404) and robots.txt disallows everything, which is right while the password is on. *Before launch: Site settings > SEO > auto-generate sitemap on; "Disable Webflow subdomain indexing" on so the webflow.io copy is never indexed; confirm robots.txt allows the live domain.*
+- [ ] Sitemap and robots: every static page is flagged for the sitemap, but the sitemap is not generated (returns 404) because the Auto-generate sitemap toggle in Site settings > SEO is off; the API cannot reach it. *D: turn it on. robots.txt disallows everything, which is right while the password is on; at launch, "Disable Webflow subdomain indexing" on so the webflow.io copy is never indexed, and confirm robots.txt allows the live domain.*
 - [ ] Canonical domain: no custom domain is connected yet. *Choose `www` or bare, redirect the other, SSL on.*
 - [ ] 301 redirects for any old URLs if Breakwater had a previous site (Site settings > Publishing > 301 redirects).
 - [ ] Structured data: none yet. *Organization JSON-LD on Home (name, logo, URL, sameAs); Article JSON-LD on posts if wanted. C can write both.*
@@ -90,7 +90,7 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 - [ ] Hero intro versus LCP: decide whether to keep the 1.55 s hold before the hero words (mobile LCP 5.5 s on 19 October) or show the first photo immediately.
 - [ ] Responsive images: the connector-placed hero photos load at their full 2400 px width (three on Our Work, one each on Our People and Join Us). *Switch them to Webflow's responsive variants or upload smaller sources.*
 - [x] Lazy loading below the fold: 8 of 10 images on Our Work, 29 of 31 on Our People, 9 of 11 on Home.
-- [ ] Fonts: preload Regular; confirm Italic is needed above the fold.
+- [x] Fonts: Regular and Bold are preloaded from the site head (4 November); Italic is not used above the fold and is not preloaded.
 - [ ] Site settings > Publishing: minify HTML, CSS and JS on.
 - [ ] Re-run Lighthouse mobile and desktop on Home, Our Work, Our People and a post; target 85+ mobile with the intro kept as designed.
 - [ ] Check total page weight on Our People once the fellows' and advisors' real photos are in (31 images today).
@@ -114,7 +114,7 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 
 ## 8. Webflow housekeeping (D)
 
-- [ ] Delete the orphan Authors collection and its template; delete the "Field notes" option from the Posts Category field; remove unused classes (Style manager > Clean up) and unused assets (the old studio hero and the first person placeholder are no longer used). *The draft Terms and Company pages are already gone.*
+- [ ] Delete the orphan Authors collection and its template (Designer only); delete the "Field notes" option from the Posts Category field; remove unused classes (Style manager > Clean up) and unused assets (the old studio hero and the first person placeholder are no longer used). *The draft Terms and Company pages are already gone.*
 - [ ] Check the Navigator on every page for stray empty elements or hidden test blocks.
 - [ ] Components: Styles, Header, Footer, Wave CTA and Newsletter are single components; no page has a detached copy.
 - [x] CMS: field help text filled in; Photo on People is optional (grey placeholder when empty); no empty required values on published items.

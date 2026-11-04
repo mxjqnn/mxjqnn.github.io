@@ -1,4 +1,7 @@
 <!-- Breakwater: paste into Site settings > Custom code > Head code -->
+<!-- Breakwater: the two font weights every page uses above the fold are fetched before the stylesheet asks for them -->
+<link rel="preload" href="https://webflow-files-prod.global.ssl.fastly.net/6abaf46b46ac1a767baffaee/fonts/6ace17b960f44fc0dab30193-ABCArizonaFlare-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://webflow-files-prod.global.ssl.fastly.net/6abaf46b46ac1a767baffaee/fonts/6ace178ec39920dc812d4c6e-ABCArizonaFlare-Bold.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add('bw-js')</script>
 <style>.news .w-form{margin:0}.srow.soon .news label{display:none}</style>
 <!-- Page to page. Opts in to the browser's cross-document view transition (the rule has to be in the head to count on a cold load) and keeps the header in place through it. When the visitor came from another page of this site, holds the first frame until the end of the body has parsed (the footer code puts #bw-foot there) so the new page arrives complete. Marks such arrivals before any style is computed so the nav doesn't wipe in again (the pagereveal event then confirms or clears the mark), and prerenders a page when its link is hovered -->

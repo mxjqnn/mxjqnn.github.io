@@ -111,7 +111,7 @@ Div Block .drawer                            (yellow full-screen drawer, below 7
     Div Block .drawer-mark                   (the dark stepped mark)
     Link Block .drawer-close                 (aria-label "Close menu"; the X is drawn by CSS)
   Div Block .drawer-links                    (optional: set Tag to Nav)
-    Text Link .mlink           "Why we exist"
+    Text Link .mlink           "Home" (links to the home page)
     Text Link .mlink           "What we do"
     Text Link .mlink           "Who we are"
     Text Link .mlink           "Journal"
@@ -608,6 +608,15 @@ Eilis Klein (Special Assistant to the CEO) is the eighth core-team item in the P
 ## "Our policy agenda" post removed; empty slots hide themselves (4 November 2026)
 
 The placeholder post "Our policy agenda" is unpublished and deleted, so two slots are empty: the agenda card under Our approach on Our Work (the post with Pin to What we do = Yes) and the Featured card at the top of Insights (the newest post with Featured = Yes). Both already hid themselves when nothing qualified; now nothing is left behind either. On Our Work the whole Collection List goes (`display: none`; the script finds it from the card, as the Webflow list carries no class of its own), taking the card's top margin with it, so the section ends after the three tabs' paragraphs with its usual bottom padding. On Insights the card and its label go and the script zeroes the filter row's top margin, so the category filters sit straight under the page's top padding. Marking a post Pinned or Featured again brings the slot back on the next load with nothing else to change. The reference pages no longer carry the sample agenda post.
+
+## Launch checklist items (4 November 2026)
+
+- The phone drawer's first link reads **Home** and goes to the home page (it was "Why we exist" linking nowhere).
+- The CMS link blocks that the script fills (the Insights rows, the post page's Read more rows, the press cards and the agenda card on Our Work) still carry `#` in the HTML: the connector's collection-page link mode only writes a literal slug as the href, not Webflow's Current Post link, so that setting has to be made in the Designer (Link settings > Collection page > Current Post on each of the four link blocks). The script sets the same `/posts/<slug>` URL either way, so visitors see no difference; the change is for crawlers.
+- Home's page title is "Breakwater Initiative". The post template's title and description are bound to the post's Title and Excerpt.
+- The People, Big Questions, FAQs and Authors collection templates cannot be drafted through the API; their item pages all return 404 on staging anyway, and each template carries `<meta name="robots" content="noindex">` in its page head code as a safeguard. Deleting the Authors collection (and so its template) is a Designer job, as is deleting the Field notes option on Posts.
+- The site head code preloads the Regular and Bold font files (`webflow-1-head.html` mirrors it); they are the two weights every page uses above the fold. Italic is not preloaded.
+- The sitemap is still not generated: that is the Auto-generate sitemap toggle in Site settings > SEO, which the API cannot reach. Every static page is flagged for inclusion.
 
 ## Where to change things later
 

@@ -601,6 +601,10 @@ The contact page hero (`.chero-img img`) is mirrored horizontally with `transfor
 
 The Our People hero's studio slot (`.slot-studio`, the big photo beside "Turning big ideas into policy") now shows the meeting-room photo supplied in chat, saved as `assets/core/people-hero.webp` (2400 x 1601 WebP, quality 82) and swapped on the Image element (asset `6aeb380b1d652bdc8b4d202f`), so the caption slot, stepped mask and entrance motion are untouched. The slot is landscape and crops with `object-position: 50% 25%`, which keeps the two people at the table in view; the blurred figure at the right edge falls mostly under the top-right cut. The earlier studio placeholder (`assets/wwa-hero-studio.webp`) is no longer used.
 
+## Eilis Klein joins the core team; placeholder for people without a photo (4 November 2026)
+
+Eilis Klein (Special Assistant to the CEO) is the eighth core-team item in the People collection, Order 8, with the bio supplied in chat and no social links. She has no portrait yet: the People collection's **Photo** field is now optional, and a person with no photo shows the grey stepped placeholder (`assets/person-placeholder-step.webp`, site asset `person-placeholder-step.webp`, 1600 x 1600 WebP) on the card and in the pop-up. The script does this (`PERSON_FALLBACK` near the top of the footer code): a card whose image has no source, or which Webflow has marked empty, gets the placeholder's URL instead, so adding a photo to the item later replaces it with nothing else to change. To change the placeholder, upload a new asset and put its URL in `PERSON_FALLBACK`.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

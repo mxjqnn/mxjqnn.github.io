@@ -78,7 +78,7 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 - [ ] No remaining `#` links: the footer's LinkedIn and X (see section 1). *The filter buttons, Load more and the approach tabs are `#` by design as the script handles them; they could become buttons.*
 - [x] Heading structure sensible on every page; no empty headings. *Checked 4 November.*
 - [x] Alt text: no image on any page is missing an alt attribute. *The press and post images carry alt text from the CMS; decorative images are marked empty.*
-- [ ] Sitemap and robots: every static page is flagged for the sitemap, but the sitemap is not generated (returns 404) because the Auto-generate sitemap toggle in Site settings > SEO is off; the API cannot reach it. *D: turn it on. robots.txt disallows everything, which is right while the password is on; at launch, "Disable Webflow subdomain indexing" on so the webflow.io copy is never indexed, and confirm robots.txt allows the live domain.*
+- [x] Sitemap: Auto-generate sitemap is on (4 November); `/sitemap.xml` lists the seven static pages and the six posts. *robots.txt disallows everything, which is right while the password is on; at launch, "Disable Webflow subdomain indexing" on so the webflow.io copy is never indexed, and confirm robots.txt allows the live domain.*
 - [ ] Canonical domain: no custom domain is connected yet. *Choose `www` or bare, redirect the other, SSL on.*
 - [ ] 301 redirects for any old URLs if Breakwater had a previous site (Site settings > Publishing > 301 redirects).
 - [ ] Structured data: none yet. *Organization JSON-LD on Home (name, logo, URL, sameAs); Article JSON-LD on posts if wanted. C can write both.*
@@ -87,17 +87,29 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 
 ## 5. Performance (D, some C)
 
-- [ ] Hero intro versus LCP: decide whether to keep the 1.55 s hold before the hero words (mobile LCP 5.5 s on 19 October) or show the first photo immediately.
+- [x] Hero intro versus LCP: keep the 1.55 s hold before the hero words as designed (decided 4 November).
 - [ ] Responsive images: the connector-placed hero photos load at their full 2400 px width (three on Our Work, one each on Our People and Join Us). *Switch them to Webflow's responsive variants or upload smaller sources.*
 - [x] Lazy loading below the fold: 8 of 10 images on Our Work, 29 of 31 on Our People, 9 of 11 on Home.
+- [ ] Eager loading on the hero photos. *Webflow lazy-loads every image by default and the connector cannot change that, so in the Designer set Image settings > Load > Eager on the first home hero slide, the Our Work hero (`.slot-wwd`), the Our People hero (`.slot-studio`) and the Join Us hero (`.chero-img`). Lighthouse flagged the Our People hero as a lazy-loaded largest paint.*
 - [x] Fonts: Regular and Bold are preloaded from the site head (4 November); Italic is not used above the fold and is not preloaded.
 - [x] Site settings > Publishing: minify HTML, CSS and JS on (4 November).
-- [ ] Re-run Lighthouse mobile and desktop on Home, Our Work, Our People and a post; target 85+ mobile with the intro kept as designed.
+- [x] Lighthouse re-run on 4 November (Lighthouse 12 from the terminal, through the password gate), with the hero intro kept as designed:
+
+  | | Home | Our Work | Our People | Post (CNN) |
+  |---|---|---|---|---|
+  | Performance, mobile | 66 | 76 | 83 | 79 |
+  | Performance, desktop | 87 | 93 | 80 | 92 |
+  | LCP, mobile / desktop | 6.2 s / 1.8 s | 4.3 s / 1.3 s | 3.9 s / 2.3 s | 4.2 s / 1.4 s |
+  | Accessibility | 100 | 100 | 100 | 100 |
+  | Best practices | 100 | 100 | 100 | 96 |
+  | SEO | 66 | 66 | 66 | 66 |
+
+  *The SEO score is only "page is blocked from indexing" (robots.txt while the password is on) and will clear at launch. Every page waits 1 to 1.6 s for the staging server's first byte, which is the password gate; the live domain should be quicker. Home mobile is held back by the hero intro, which stays. The post page's 96 is the YouTube embed's third-party cookies. The remaining wins are the responsive hero images (next item) and the Our People hero, which was lazy-loaded although it is that page's largest paint.*
 - [ ] Check total page weight on Our People once the fellows' and advisors' real photos are in (31 images today).
 
 ## 6. Forms, integrations and tracking (B decides, D sets)
 
-- [ ] Contact form: notification recipients in Site settings > Forms, reply-to set, success and error messages read well, test submission from the live domain lands in the inbox.
+- [x] Contact form: notification recipients set in Site settings > Forms (4 November). *Still to do at launch: a test submission from the live domain lands in the inbox.*
 - [ ] Newsletter form: connect to the mailing tool or confirm the submissions inbox is watched; test a signup.
 - [ ] Spam protection on both forms once they are live.
 - [ ] Analytics: nothing connected (no Google tag on the site, data collection off). *Add GA4 or Plausible via Site settings > Custom code. Hover prerendering is on, so wrap the snippet to wait for `document.prerendering` to become false; otherwise prerendered pages inflate visits. The privacy policy already describes Google Analytics cookies, so the two should match.*
@@ -114,7 +126,7 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 
 ## 8. Webflow housekeeping (D)
 
-- [ ] Delete the orphan Authors collection and its template (Designer only); delete the "Field notes" option from the Posts Category field; remove unused classes (Style manager > Clean up) and unused assets (the old studio hero and the first person placeholder are no longer used). *The draft Terms and Company pages are already gone.*
+- [ ] Delete the orphan Authors collection and its template (Designer only); remove unused classes (Style manager > Clean up) and unused assets (the old studio hero and the first person placeholder are no longer used). *The Field notes option was deleted on 4 November; the draft Terms and Company pages are already gone.*
 - [ ] Check the Navigator on every page for stray empty elements or hidden test blocks.
 - [ ] Components: Styles, Header, Footer, Wave CTA and Newsletter are single components; no page has a detached copy.
 - [x] CMS: field help text filled in; Photo on People is optional (grey placeholder when empty); no empty required values on published items.

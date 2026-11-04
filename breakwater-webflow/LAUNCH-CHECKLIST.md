@@ -40,7 +40,7 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 - [x] Nav and drawer: the phone drawer's first link reads Home and goes to the home page (4 November).
 - [x] Join Us page copy and the email address (hello@breakwaterinitiative.org).
 - [ ] A full read-through of every page by someone who has not seen it before; spelling, capitalisation of Breakwater Initiative, consistent author names, date formats.
-- [ ] Image rights. *Final photos are in for Our Work, Our People, Join Us, the approach slides, the home team photo and the second Big Question. The home hero slides and the tailor photo are still placeholders. Licences and consents for the final photos to be confirmed; the hero captions are empty slots at the moment.*
+- [ ] Image rights. *Final photos are in for Home (the boardroom beside "There is no plan" and the team photo), Our Work, Our People, Join Us, the approach slides and the second Big Question. Only the home hero slides are still placeholders. Licences and consents for the final photos to be confirmed; the hero captions are empty slots at the moment.*
 - [x] Font licence: ABC Arizona Flare files stay out of the public repo. *Still to confirm with Breakwater that the licence covers the live domain and expected page views.*
 
 ## 2. Design QA (D)

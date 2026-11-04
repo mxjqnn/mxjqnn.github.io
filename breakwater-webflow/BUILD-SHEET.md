@@ -605,6 +605,10 @@ The Our People hero's studio slot (`.slot-studio`, the big photo beside "Turning
 
 Eilis Klein (Special Assistant to the CEO) is the eighth core-team item in the People collection, Order 8, with the bio supplied in chat and no social links. She has no portrait yet: the People collection's **Photo** field is now optional, and a person with no photo shows the grey stepped placeholder (`assets/person-placeholder-step.webp`, site asset `person-placeholder-step.webp`, 1600 x 1600 WebP) on the card and in the pop-up. The script does this (`PERSON_FALLBACK` near the top of the footer code): a card whose image has no source, or which Webflow has marked empty, gets the placeholder's URL instead, so adding a photo to the item later replaces it with nothing else to change. To change the placeholder, upload a new asset and put its URL in `PERSON_FALLBACK`.
 
+## "Our policy agenda" post removed; empty slots hide themselves (4 November 2026)
+
+The placeholder post "Our policy agenda" is unpublished and deleted, so two slots are empty: the agenda card under Our approach on Our Work (the post with Pin to What we do = Yes) and the Featured card at the top of Insights (the newest post with Featured = Yes). Both already hid themselves when nothing qualified; now nothing is left behind either. On Our Work the whole Collection List goes (`display: none`; the script finds it from the card, as the Webflow list carries no class of its own), taking the card's top margin with it, so the section ends after the three tabs' paragraphs with its usual bottom padding. On Insights the card and its label go and the script zeroes the filter row's top margin, so the category filters sit straight under the page's top padding. Marking a post Pinned or Featured again brings the slot back on the next load with nothing else to change. The reference pages no longer carry the sample agenda post.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

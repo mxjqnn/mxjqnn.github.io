@@ -648,7 +648,10 @@ if (journal) {
     var set = function (sel, v) { var e = $(sel, card); if (e) e.textContent = v; };
     set('.jcat', feat.cat); set('.jdate', fmtDate(feat.date)); set('.jauthor', feat.author);
     card.setAttribute('href', feat.href);
-  } else { if (card) card.style.display = 'none'; if (label) label.style.display = 'none'; }
+  } else {   // no featured post: the card goes, and the filter row loses the gap it kept below the card, so nothing shows where it was
+    if (card) card.style.display = 'none'; if (label) label.style.display = 'none';
+    var jf = $('.jfilter', journal); if (jf) jf.style.marginTop = '0';
+  }
   var more = $('.jmore', journal), empty = $('.jempty', journal);
   var apply = function () {
     var list = jrows.filter(function (r) {
@@ -718,6 +721,7 @@ if (pressSec) {
 // What we do: the policy agenda card is the post with "Pin to What we do" = Yes (the newest if several), linked to the post
 var acards = $$('.agenda[data-slug]');
 if (acards.length) {
+  var alist = $('.agenda-list') || acards[0].closest('.w-dyn-list');   // found before any item is removed: a detached card no longer knows its list
   var ainfo = acards.map(function (a) {
     var t = function (sel) { var e = $(sel, a); return e ? e.textContent.trim() : ''; };
     return { el: a.closest('.w-dyn-item') || a, a: a, pinned: /^yes$/i.test(t('.apin')), date: new Date(t('.jdate')).getTime() || 0 };
@@ -729,7 +733,7 @@ if (acards.length) {
     var aslug = apick.a.getAttribute('data-slug');
     if (aslug && !/^https?:/.test(aslug)) apick.a.setAttribute('href', '/posts/' + aslug);
     var ad = $('.jdate', apick.a); if (ad) ad.textContent = fmtDate(ad.textContent.trim());
-  } else { var alist = $('.agenda-list'); if (alist) alist.style.display = 'none'; }
+  } else if (alist) { alist.style.display = 'none'; }   // nothing pinned: the whole list goes (in Webflow it carries no class, so it is found from the card)
 }
 
 var resizeTimer;

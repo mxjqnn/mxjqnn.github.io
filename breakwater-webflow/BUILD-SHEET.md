@@ -581,6 +581,10 @@ Custom embeds in a post body (a YouTube iframe pasted as a Custom embed block) f
 
 The "Field notes" category: the connector cannot edit an Option field’s choices, so the option still exists on the Category field and has to be removed in the Designer (Collection settings > Category > remove "Field notes"). Nothing uses it: no post carries it and the journal’s Field notes filter button has been removed from the page (the reference journal.html matches).
 
+## Final photos for nine slots (4 November 2026)
+
+The photos in `Dropbox/Work/Breakwater Initiative/01. Images/01. Core` went into their slots, as WebP at quality 82 (long edge 2400px for the full-width ones, 1600 to 1200 for the smaller slots), kept in `assets/core/`: `contact-hero` (Join Us hero), `whatwedo-hero` (Our Work hero), `whatwedo-approachscroll-1/2/3` (the Policy, R&D and Public slides, in that order), `home-meridiansystems` (the home page team photo), `home-bigquestions-2` (the Home photo of the second Big Question, set on the CMS item), `whoweare-adolina` (the headphones slot) and `whoweare-moma-fliphorizontal` (the potter slot, mirrored as the name asks). The page images were swapped on the Image elements (new asset ids), so captions, masks and the entrance motion are untouched. The home hero slides, the tailor photo, the studio photo and the "We've made a start" photo still use the earlier placeholders.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

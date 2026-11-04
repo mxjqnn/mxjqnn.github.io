@@ -618,6 +618,10 @@ The placeholder post "Our policy agenda" is unpublished and deleted, so two slot
 - The site head code preloads the Regular and Bold font files (`webflow-1-head.html` mirrors it); they are the two weights every page uses above the fold. Italic is not preloaded.
 - The sitemap is still not generated: that is the Auto-generate sitemap toggle in Site settings > SEO, which the API cannot reach. Every static page is flagged for inclusion.
 
+## Home: boardroom photo in the second slot (4 November 2026)
+
+The home page's second photo slot (`.slot-tailor`, beside "There is no plan for what's ahead") now shows the empty boardroom photo supplied in chat, saved as `assets/core/home-boardroom.webp` (2400 x 1602 WebP, quality 82) and swapped on the Image element, so the mask, caption slot and entrance motion are untouched. The slot is squarer than the photo (about 1.22:1 against 1.5:1) and crops with `object-position: 50% 30%`, which keeps the figure at the window in view. The tailor placeholder (`assets/photo-tailor.jpg`) is no longer used; of the original placeholders only the home hero slides remain.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

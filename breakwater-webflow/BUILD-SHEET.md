@@ -577,6 +577,8 @@ Three Press & media posts followed (3 November 2026): "New York Times Feature" (
 
 Photo credits and chart sources sit inside the figure as `<figcaption>` (13px italic, 1.5em under the image, about half the gap a paragraph gets after a figure), not as a paragraph after it. Where Substack had a link wrapped around small superscript text, the link now sits inside the `<sup>`, so its underline follows the small text rather than being drawn at the full-size baseline below it. Post links use a 1px underline (`text-decoration-thickness`), and `sup` has `line-height: 0` so raised notes do not open up the line.
 
+Custom embeds in a post body (a YouTube iframe pasted as a Custom embed block) fill the column: the iframe is a block at 100% width with a 16:9 `aspect-ratio`, whatever width and height attributes the embed code carries, and the embed block gets the same 2.4em margins as a figure. (4 November 2026, pushed from the stylesheet once the connector is back.)
+
 The "Field notes" category: the connector cannot edit an Option field’s choices, so the option still exists on the Category field and has to be removed in the Designer (Collection settings > Category > remove "Field notes"). Nothing uses it: no post carries it and the journal’s Field notes filter button has been removed from the page (the reference journal.html matches).
 
 ## Where to change things later

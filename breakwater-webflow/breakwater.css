@@ -978,7 +978,8 @@ html.modal-open, html.modal-open body { overflow: hidden; }
 .post-body img.square { --cut: none; }
 .post-body figcaption { margin-top: 1.5em; font-size: 13px; font-style: italic; color: rgba(43, 41, 41, .7); }   /* about 20px under the image: half the gap a paragraph gets after a figure */
 .post-body sup { line-height: 0; }           /* raised notes and footnote numbers do not open up the line */
-.post-body .w-embed iframe, .post-body iframe { max-width: 100%; }
+.post-body .w-embed { margin: 2.4em 0; }           /* a custom embed (YouTube etc.) gets the same room as a figure */
+.post-body .w-embed iframe, .post-body iframe { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 16 / 9; }   /* fills the column whatever width/height the embed code carries */
 .post-body .w-video { margin: 2.4em 0; }
 .readmore { position: relative; background: var(--beige); color: var(--dark); padding: 5vw var(--gutter) 6vw; }
 .readmore-label { padding-bottom: 1.2vw; margin-bottom: 0; border-bottom: 1px solid rgba(43, 41, 41, .18); }

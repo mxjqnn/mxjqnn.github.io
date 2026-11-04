@@ -597,6 +597,10 @@ The "We've made a start" section on Our Work is gone, replaced by a **Press & me
 
 The contact page hero (`.chero-img img`) is mirrored horizontally with `transform: scaleX(-1)` in the CSS; the asset itself is unchanged.
 
+## Our People hero photo (4 November 2026)
+
+The Our People hero's studio slot (`.slot-studio`, the big photo beside "Turning big ideas into policy") now shows the meeting-room photo supplied in chat, saved as `assets/core/people-hero.webp` (2400 x 1601 WebP, quality 82) and swapped on the Image element (asset `6aeb380b1d652bdc8b4d202f`), so the caption slot, stepped mask and entrance motion are untouched. The slot is landscape and crops with `object-position: 50% 25%`, which keeps the two people at the table in view; the blurred figure at the right edge falls mostly under the top-right cut. The earlier studio placeholder (`assets/wwa-hero-studio.webp`) is no longer used.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

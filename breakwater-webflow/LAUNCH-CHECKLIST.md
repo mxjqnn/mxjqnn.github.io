@@ -31,7 +31,7 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 ## 1. Content and copy (B, with D for entry)
 
 - [x] Placeholder copy replaced. *The 4 November crawl finds no "placeholder" text on any page; the final copy went in on 2 and 3 November.*
-- [ ] People collection complete. *The core team is real (eight people, Eilis Klein without a photo yet). The fellows and advisors are still the placeholder people: real names, roles, photos, bios and links needed, then the placeholders deleted. No one has a LinkedIn link yet.*
+- [ ] People collection complete. *The core team is real (eight people, Eilis Klein without a photo yet). The fellows and advisors are still the placeholder people: real names, roles, photos, bios and links needed, then the placeholders deleted. The core team's social links went in on 6 November (LinkedIn for all eight, plus Substack, X and Bluesky where they have them).*
 - [x] Posts: launch set in place. *Six posts: three Ideas pieces by Molly Kinder, three Press & media items (New York Times, CNN, Platformer). "Our policy agenda" is deleted, so nothing is Featured on Insights or pinned to Our Work; both slots hide themselves until a post is marked.*
 - [x] Featured and pinned posts: none at launch (decided 4 November). *Both slots stay hidden until a post is marked Featured or Pin to What we do.*
 - [x] Big Questions: cut to three real questions on 3 November, all three pinned to Home.

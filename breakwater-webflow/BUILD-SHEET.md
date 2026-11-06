@@ -630,6 +630,10 @@ Home, Our Work, Our People, Our Insights and Join Us have meta descriptions writ
 
 Lighthouse 12 was run from the terminal through the password gate (`tools/cdp.py` hands over the `wf_auth` cookie; see LAUNCH-CHECKLIST.md for the numbers). The static photos, heroes included, already serve Webflow's responsive variants (srcset and sizes), and the first home hero slide and the Our Work, Our People and Join Us heroes now load eagerly (Image settings > Load > Eager in the Designer; the connector cannot set it). CMS-bound images get no variants from Webflow, so the three pinned Big Questions' Home photos were re-saved at 1000 px wide (`assets/questions/`, WebP quality 82, 27 to 191 KB from 119 to 264 KB) for their 350 to 480 px tiles. Images added to the CMS later should be uploaded at about twice their display width. The people portraits stay at 1080 px, which a retina phone needs for a 430 px card.
 
+## Team social links, Bluesky, and Molly's title (6 November 2026)
+
+Molly Kinder's role reads "CEO". The eight core team members have their social links: LinkedIn for all eight, Substack and X for Molly, X and Bluesky for Samuel Thorpe. Bluesky is new: the People collection has a **Bluesky** link field (below Order in the item editor), each of the three person card templates carries a fourth hidden `.person-link` (`data-net="bluesky"`) bound to it, and the pop-up's `.modal-links` row has a fourth `.modal-link` after X. The script already matches links by `data-net`, so nothing in the footer code changed: the pop-up shows LinkedIn, Substack, X and Bluesky in that order and hides any a person has not got.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

@@ -169,7 +169,7 @@ Div Block .why                               (optional: Tag Section)
     Text Block .line           "nobody"       wrap the word in a span with class hl
     Text Block .line           "has"
     Text Block .line           "a plan"
-  Paragraph .para .p3          "The people closest to the technology are quietly, seriously worried..."
+  Paragraph .para .p3          "To most people, AI feels like an unstoppable wave..."
 ```
 
 - Bold the first sentence of the first paragraph.
@@ -633,6 +633,10 @@ Lighthouse 12 was run from the terminal through the password gate (`tools/cdp.py
 ## Team social links, Bluesky, and Molly's title (6 November 2026)
 
 Molly Kinder's role reads "CEO". The eight core team members have their social links: LinkedIn for all eight, Substack and X for Molly, X and Bluesky for Samuel Thorpe. Bluesky is new: the People collection has a **Bluesky** link field (below Order in the item editor), each of the three person card templates carries a fourth hidden `.person-link` (`data-net="bluesky"`) bound to it, and the pop-up's `.modal-links` row has a fourth `.modal-link` after X. The script already matches links by `data-net`, so nothing in the footer code changed: the pop-up shows LinkedIn, Substack, X and Bluesky in that order and hides any a person has not got.
+
+## Copy edits from Breakwater (6 November 2026)
+
+Three wording changes from the client's copy review. Home, second module, bottom right paragraph (`.para .p3`): "To most people, AI feels like an unstoppable wave, coming for jobs, livelihoods and purpose. This keeps policymakers up at night, and the experts who are diagnosing the problem are all searching for an answer. It's time to act." The email's wording had a doubled phrase ("This keeps policymakers this keeps up at night"), set here as the evident intent. Our Work, second Big Question (CMS, Answer field): "Administrative and back office jobs are the factory floor of today's economy, and they are disappearing without headlines. We're tracking this invisible disruption and developing policy and solutions to protect these workers and their families." Molly Kinder's bio (CMS): "led research on how AI is transforming work" now reads "led work on".
 
 ## Where to change things later
 

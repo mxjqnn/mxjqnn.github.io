@@ -638,6 +638,24 @@ Molly Kinder's role reads "CEO". The eight core team members have their social l
 
 Three wording changes from the client's copy review. Home, second module, bottom right paragraph (`.para .p3`): "To most people, AI feels like an unstoppable wave, coming for jobs, livelihoods and purpose. This keeps policymakers up at night, and the experts who are diagnosing the problem are all searching for an answer. It's time to act." The email's wording had a doubled phrase ("This keeps policymakers this keeps up at night"), set here as the evident intent. Our Work, second Big Question (CMS, Answer field): "Administrative and back office jobs are the factory floor of today's economy, and they are disappearing without headlines. We're tracking this invisible disruption and developing policy and solutions to protect these workers and their families." Molly Kinder's bio (CMS): "led research on how AI is transforming work" now reads "led work on".
 
+## Team portraits: new photos for Anmol and Mayu, every head the same size (17 November 2026)
+
+The client noticed the heads in the team grid were different sizes (the old crops took the largest frame each photo allowed, so the head filled anywhere from 19% to 31% of the frame width). All seven portraits were re-cut from the photographer's originals (Dropbox, `01. Images/Staff-Team-Portraits/`) to one head size, and two people have new photos:
+
+| Person | Source photo |
+| --- | --- |
+| Molly Kinder | 20261022-BWIStaff-2664.jpg |
+| Gretchen Phillips | 20261022-BWIStaff-0292.jpg |
+| Palak Shah | 20261022-BWIStaff-0555.jpg |
+| Anmol Chaddha | 20261022-BWIStaff-2046.jpg (new) |
+| Mayu Takeuchi | 20261022-BWIStaff-0976.jpg (new) |
+| Diana Degnan | 20261022-BWIStaff-2257.jpg |
+| Samuel Thorpe | 20261022-BWIStaff-1670.jpg |
+
+The rule, kept in `tools/portraits.py` (face box and landmarks from `tools/face-landmarks.swift`, macOS Vision): the head measure is the mean of the face box width and the eye-to-chin distance / 0.708, and the 4:5 frame is that measure / 0.315 wide, so every face is about 340 px across in the 1080 x 1350 file. The frame is centred on the face horizontally and sits 0.15 head measures above the face box centre, which puts the whole head (hair included) in the middle band the cards show and stops hair being clipped at the card's top edge. 0.315 is as loose as the photos allow: Mayu's and Palak's landscape shots have little room above the head. Where the frame runs past the top of the photo, the out-of-focus background is stretched upward and softened to fill it: Mayu (top 17% of the file), Palak (3.5%) and Diana (1.3%). None of that shows in the cards, only at the top of the pop-up photo. Files are WebP quality 82, 59 to 134 KB, in `assets/people/` under the same names. A new person's portrait should go through the same script so the head matches.
+
+**Webflow:** the seven files still need uploading to the People items' Photo fields (the Webflow connector was not available in the session that made them).
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

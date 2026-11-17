@@ -656,7 +656,7 @@ The rule, kept in `tools/portraits.py` (face box and landmarks from `tools/face-
 
 Molly's and Palak's heads were then taken down a further 10% at Max's request (they still read as bigger than the rest, mostly hair and glasses): their head measure is scaled by 1.1 in the script's tweaks (`"s": 1.1`), which also raises Palak's extended background to the top 8% of her file. Their site assets are `person-molly-kinder-v4.webp` and `person-palak-shah-v4.webp`.
 
-**Webflow:** the seven files are site assets `person-<slug>-v3.webp`, set on the seven core team People items' Photo fields (alt text is the person's name) and published to staging on 17 November 2026. The older `person-<slug>.webp` and `person-palak-shah-2.webp` assets are no longer used by any item.
+**Webflow:** the seven files are site assets `person-<slug>-v3.webp`, set on the seven core team People items' Photo fields (alt text is the person's name) and published to staging on 17 November 2026. The superseded portrait assets (both 3 November sets of `person-<slug>.webp`, `person-palak-shah-2.webp`, and the `-v3` files for Molly and Palak, 17 in all) were deleted from the asset panel the same day; the People items keep their own CMS copies of the current photos.
 
 ## Where to change things later
 

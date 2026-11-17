@@ -654,7 +654,7 @@ The client noticed the heads in the team grid were different sizes (the old crop
 
 The rule, kept in `tools/portraits.py` (face box and landmarks from `tools/face-landmarks.swift`, macOS Vision): the head measure is the mean of the face box width and the eye-to-chin distance / 0.708, and the 4:5 frame is that measure / 0.315 wide, so every face is about 340 px across in the 1080 x 1350 file. The frame is centred on the face horizontally and sits 0.15 head measures above the face box centre, which puts the whole head (hair included) in the middle band the cards show and stops hair being clipped at the card's top edge. 0.315 is as loose as the photos allow: Mayu's and Palak's landscape shots have little room above the head. Where the frame runs past the top of the photo, the out-of-focus background is stretched upward and softened to fill it: Mayu (top 17% of the file), Palak (3.5%) and Diana (1.3%). None of that shows in the cards, only at the top of the pop-up photo. Files are WebP quality 82, 59 to 134 KB, in `assets/people/` under the same names. A new person's portrait should go through the same script so the head matches.
 
-**Webflow:** the seven files still need uploading to the People items' Photo fields (the Webflow connector was not available in the session that made them).
+**Webflow:** the seven files are site assets `person-<slug>-v3.webp`, set on the seven core team People items' Photo fields (alt text is the person's name) and published to staging on 17 November 2026. The older `person-<slug>.webp` and `person-palak-shah-2.webp` assets are no longer used by any item.
 
 ## Where to change things later
 

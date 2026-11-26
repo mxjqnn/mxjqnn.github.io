@@ -658,6 +658,27 @@ Molly's and Palak's heads were then taken down a further 10% at Max's request (t
 
 **Webflow:** the seven files are site assets `person-<slug>-v3.webp`, set on the seven core team People items' Photo fields (alt text is the person's name) and published to staging on 17 November 2026. The superseded portrait assets (both 3 November sets of `person-<slug>.webp`, `person-palak-shah-2.webp`, and the `-v3` files for Molly and Palak, 17 in all) were deleted from the asset panel the same day; the People items keep their own CMS copies of the current photos.
 
+## Fellows and advisors populated (26 November 2026)
+
+The placeholder fellows and advisors are replaced by the real people from Breakwater's sheet (`Fellow_Advisor bios.xlsx` in Dropbox, `01. Images/Fellows + Advisors/`). Anyone marked TBC was left out, as asked.
+
+| Group | In, in sheet order | Left out |
+| --- | --- | --- |
+| Breakwater fellows (10) | Asad Ramzanali, Sam Manning, Ioana Marinescu, Rachel Lipson, Brad Littlejohn (Senior Fellows); Bharat Chandar, Will Raderman, Sam Hiner, Devesh Kodnani, Mary Olson (Fellows) | Stephanie Bell (TBC, no bio) |
+| Our advisors (8) | Michael Toscano, Ganesh Sitaraman, Oren Cass, Roy Bahat, Mike Kubzansky, Don Gips, Elizabeth Wilkins, Sam Hammond | The seven names prefixed TBC, and Sayash Kapoor (not marked TBC, but the sheet says his confirmation is being checked and he has no bio or photo) |
+
+**CMS.** The sixteen placeholder items were reused (Fellow 1 to 10 became the fellows; Advisor 1 to 4 and Fellow 11 and 12 became advisors one to six) and two items were created for Elizabeth Wilkins and Sam Hammond, so nothing was deleted. Role is the sheet's title ("Senior Fellow", "Fellow", "Advisor"), Order follows the sheet, and the placeholder LinkedIn URLs were cleared, so the pop-ups show no link row until real links are supplied.
+
+**Bios** are the sheet's text, one `<p>` per paragraph, with straight quotes and apostrophes made curly and only these mechanical fixes: a stray space before a comma (Asad), "and, and" (Ioana), "from regions from that" (Rachel), a double full stop (Elizabeth), double spaces and "served in the White House during as Chief" (Don Gips, "during" dropped). Roy Bahat's "[Going to Work] conference" is as supplied, brackets included. Several bios run well past the 80 to 120 words Breakwater asked for (Roy Bahat 307, Oren Cass 300, Don Gips 270, Ioana Marinescu 217, Rachel Lipson 192): the pop-up scrolls, and on a tall screen it grows to full height, which crops the photo tighter.
+
+**Photos.** The supplied headshots are much tighter than the team portraits, so they could not be cut to the team's 4:5 frame. Each is a **1080 x 1080** file with the head at the team size (same measure, 0.315 of the width, same centring), so the cards match the core team exactly; the pop-up, which shows the full height of the file, frames these people a little closer than the team. Where the frame runs past the photo, the background is extended: sides mirrored and softened, the top mirrored with the head painted out first and softened, the bottom stretched slightly. That is in `tools/portraits-square.py` (person mask by GrabCut from the face box; `"ell": 1` for low-contrast hair). Most photos needed 15 to 21% of the height added above the head; it shows only in the pop-up, never in the cards. Files are WebP quality 82, 26 to 87 KB, in `assets/people/` and as site assets `person-<slug>.webp`. Low-resolution sources, enlarged to fit: Don Gips (500 px), Elizabeth Wilkins (600 px), Ganesh Sitaraman, Sam Hiner and Will Raderman.
+
+**No photo (grey placeholder card):**
+
+- Rachel Lipson: no photo in the folder.
+- Bharat Chandar: the only candidate is `Bharat Ramamurti headshot.jpg`, which names a different person, so it was not used until someone confirms who is in it.
+- Mike Kubzansky: `Mike K.png` is cropped tight to the face in front of a logo backdrop (800 px, hair cut off at the top), so it cannot be brought to the common head size; a wider photo is needed.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

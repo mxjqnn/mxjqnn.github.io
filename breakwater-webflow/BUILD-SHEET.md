@@ -707,7 +707,7 @@ Breakwater's picks from `01. Images/Buffalo-and-DC-worker-portraits/` replace th
 
 **Our People hero.** The photo is unchanged (20261022-BWIStaff-1371) but looked soft because the first version was made from a small copy pasted into chat. It is now exported from the original at 3200 px wide (`assets/core/people-hero.webp`, site asset `people-hero-v2.webp`), about three times as sharp by edge contrast at the same size.
 
-**Two jobs for the Designer** (the connector cannot do either). Images uploaded through the connector get no responsive variants until Webflow generates them, so the new hero, policy-shop and People hero images are currently served at full size (2000 to 3200 px, 180 to 560 KB each) to every screen: open the Home and Our People pages in the Designer, regenerate responsive images (Cmd+Shift+I on a Mac) and publish. And set the first hero Image (the welder) to load Eager; at the moment only the third is.
+**Designer follow-ups, done 26 November.** Images uploaded through the connector get no responsive variants until Webflow generates them in the Designer (Cmd+Shift+I on the page, then publish), and the connector cannot set an image's loading. Max regenerated the variants on Home and Our People and set the hero slides to Eager; staging now serves a 500 to 2600 px srcset for the hero and policy-shop photos and up to 3200 px for the People hero. Lighthouse numbers are in LAUNCH-CHECKLIST.md.
 
 ## Where to change things later
 

@@ -91,7 +91,18 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 - [x] Responsive images (4 November). *Every static photo, the heroes included, already serves Webflow's responsive variants (a 500 to 2600 px srcset with sizes), so a 1440 px screen gets the 1080 or 1600 px file. CMS-bound images get no variants from Webflow (the Big Question home photos, the people portraits and the press featured images are served at their upload size), so the three Big Question home photos were re-saved at 1000 px for their 350 to 480 px tiles. The portraits stay at 1080 px, which is what a retina phone needs for a 430 px card; Lighthouse on a 1x desktop counts that as waste. Images added to the CMS later should be uploaded at about twice their display width.*
 - [x] Lazy loading below the fold: 8 of 10 images on Our Work, 29 of 31 on Our People, 9 of 11 on Home.
 - [x] Eager loading on the hero photos: the first home hero slide and the Our Work, Our People and Join Us heroes load eagerly (set in the Designer, 4 November); everything else stays lazy.
-- [ ] Home and Our People photos replaced on 26 November (Buffalo and DC shoot; sharper People hero). *In the Designer: regenerate responsive images on the Home and Our People pages (Cmd+Shift+I) and publish, because the new hero, policy-shop and People hero images have no srcset variants yet and load at full size; and set the first home hero Image (the welder) to Eager, as only the third is now. Then re-run Lighthouse.*
+- [x] Home and Our People photos replaced on 26 November (Buffalo and DC shoot; sharper People hero). *Responsive images regenerated in the Designer and all three home hero slides set to Eager the same day: the hero, policy-shop and People hero images now carry a 500 to 2600 px srcset (3200 for the People hero), so a phone gets the 800 px hero files (52 to 58 KB each) and a 1350 px desktop the 1600 px ones (136 to 209 KB). Lighthouse re-run after that:*
+
+  | 26 November | Home | Our Work | Our People | Post (CNN) |
+  |---|---|---|---|---|
+  | Performance, mobile | 76 | 92 | 81 | 86 |
+  | Performance, desktop | 92 | 96 | 86 | 95 |
+  | LCP mobile | 5.2 s | 3.0 s | 3.9 s | 3.7 s |
+  | Accessibility | 100 | 100 | 100 | 100 |
+  | Best practices | 100 | 100 | 100 | 96 |
+  | SEO | 66 | 66 | 66 | 66 |
+
+  *Nothing fell with the new photos, and the staging server was steadier this time (0.4 to 1.0 s to first byte). Home mobile is unchanged at 76: its largest paint is the headline, held back by the hero intro, which stays. What Lighthouse still counts as oversized is the three question tiles on Home (1000 px files in 350 to 480 px tiles, which a retina screen needs) and the portraits on Our People (now 22 of them at 1080 px, about 1.2 MB of images on that page).*
 - [x] Fonts: Regular and Bold are preloaded from the site head (4 November); Italic is not used above the fold and is not preloaded.
 - [x] Site settings > Publishing: minify HTML, CSS and JS on (4 November).
 - [x] Lighthouse re-run on 4 November (Lighthouse 12 from the terminal, through the password gate), with the hero intro kept as designed. Two runs: the first before the eager heroes and lighter tiles, the second after.

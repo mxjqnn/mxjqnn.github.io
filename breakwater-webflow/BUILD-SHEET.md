@@ -679,6 +679,36 @@ The placeholder fellows and advisors are replaced by the real people from Breakw
 - Bharat Chandar: the only candidate is `Bharat Ramamurti headshot.jpg`, which names a different person, so it was not used until someone confirms who is in it.
 - Mike Kubzansky: `Mike K.png` is cropped tight to the face in front of a logo backdrop (800 px, hair cut off at the top), so it cannot be brought to the common head size; a wider photo is needed.
 
+## Home page photos from the Buffalo and DC shoot; sharper People hero (26 November 2026)
+
+Breakwater's picks from `01. Images/Buffalo-and-DC-worker-portraits/` replace the placeholder photos on the home page. All are WebP cut from the photographer's originals; the files are in `assets/home/` and `assets/questions/` and are site assets under the same names.
+
+**Hero** (three Image elements in `.hero-img`, in this order). Each file keeps the photo's full height and is cropped at the sides so that, on a desktop screen, the face sits beside the centred first line of the headline rather than under it.
+
+| Slide | Source | Crop of the original | data-x | data-pos | data-zoom-m |
+| --- | --- | --- | --- | --- | --- |
+| 1 | 20261112-BWIBuffalo-1474 (welder) | left 21% removed | `-10,-19,-13` | `11% 5%` | `1.08` |
+| 2 | 20261112-BWIBuffalo-1876 | right 32% removed | `-14.9,-26,-21` | `90% 39%` | `1.25` |
+| 3 | 20261112-BWIBuffalo-2132 | left 27% removed | `-8,-1,-9` | `5% 52%` | `1.25` |
+
+- `data-zoom-m` is new. On phones the headline sits in the middle of the screen and the photo is scaled to the full height, so a face in the middle of a photo lands under the text. `data-zoom-m="1.25"` makes that photo 1.25 times the hero's height on phones, pinned to its bottom edge, which lifts the face above the headline. `data-pos-m`, if present, replaces `data-pos` on phones. Both are read by a short script in the **Home page's own footer code** (Page settings > Custom code > Before </body> tag), mirrored at the end of `reference.html`; the site-wide script is unchanged.
+- Slide 3 is a tight portrait: on a desktop it is a large close-up on the left, and on phones the face cannot clear the headline at any zoom (the head is nearly a third of the photo's height). At 1.25 the eyes sit above the headline and the text crosses the lower face. A looser photo, or leaving this slide out on phones, would fix it.
+- On a 16:9 desktop screen slide 1 shows the top two thirds of the photo, so the torch flame at the bottom is out of frame there; it shows on taller windows and on phones.
+
+**"A policy shop built to act"** (`.slot-team`): 20261112-BWIBuffalo-1765 with the left 16% removed, 2000 px wide, so the stepped mask's cut-out corner at the top right misses his head.
+
+**Three questions** (Big Questions, Home photo field): 1000 px wide portrait crops to suit the 3:4 tiles, with the faces in the top half because the question text covers the bottom half.
+
+| Question | Source | Alt text |
+| --- | --- | --- |
+| Young people | 20261112-BWIBuffalo-1633 | A young machinist checking a part beside a CNC machine |
+| Jobs that sustain families | 20261111-BWIBuffalo-0879 | Two women embracing in front of buffalo sculptures |
+| Moonshot | 20261023-BWIElisa-0903 | A ceramicist holding a piece of work in a pottery studio |
+
+**Our People hero.** The photo is unchanged (20261022-BWIStaff-1371) but looked soft because the first version was made from a small copy pasted into chat. It is now exported from the original at 3200 px wide (`assets/core/people-hero.webp`, site asset `people-hero-v2.webp`), about three times as sharp by edge contrast at the same size.
+
+**Two jobs for the Designer** (the connector cannot do either). Images uploaded through the connector get no responsive variants until Webflow generates them, so the new hero, policy-shop and People hero images are currently served at full size (2000 to 3200 px, 180 to 560 KB each) to every screen: open the Home and Our People pages in the Designer, regenerate responsive images (Cmd+Shift+I on a Mac) and publish. And set the first hero Image (the welder) to load Eager; at the moment only the third is.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

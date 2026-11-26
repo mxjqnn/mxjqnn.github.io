@@ -85,9 +85,9 @@ if(window.HTMLScriptElement&&HTMLScriptElement.supports&&HTMLScriptElement.suppo
   <div class="hero-mark"><div class="mark-shape"></div></div>
   <div class="fig"></div>
   <div class="hero-img">
-    <img src="assets/hero-sculptor.jpg" alt="" data-x="-14.9,-26,-21,-7.4" data-pos="0% 50%">
-    <img src="assets/hero-accountant.jpg" alt="" data-x="-9.3,-19.2,-15.7,-4.4" data-pos="25% 50%">
-    <img src="assets/hero-welder.jpg" alt="" data-x="-9.6,-1,-13.1,1.3" data-pos="25% 50%">
+    <img src="assets/home/hero-buffalo-1474.webp" alt="" data-x="-10,-19,-13" data-pos="11% 5%" data-zoom-m="1.08">
+    <img src="assets/home/hero-buffalo-1876.webp" alt="" data-x="-14.9,-26,-21" data-pos="90% 39%" data-zoom-m="1.25">
+    <img src="assets/home/hero-buffalo-2132.webp" alt="" data-x="-8,-1,-9" data-pos="5% 52%" data-zoom-m="1.25">
   </div>
   <h1 class="hero-text"><span class="word">Tackling</span><span class="word">AI&rsquo;s</span><span class="word">threat</span><span class="word">to work</span></h1>
 </div>
@@ -119,7 +119,7 @@ if(window.HTMLScriptElement&&HTMLScriptElement.supports&&HTMLScriptElement.suppo
   </div>
   <div class="slot slot-team right">
     <div class="cap cap-tr"></div>
-    <div class="pic from-right"><img src="assets/core/home-team.webp" alt=""></div>
+    <div class="pic from-right"><img src="assets/home/policy-shop-buffalo-1765.webp" alt=""></div>
   </div>
   <p class="para p1">Independent of industry and political tribe; pioneering the solutions, building the political will, and co-creating the public vision that AI transformation demands.</p>
   <p class="para p2">We ask the hard questions and stay in the room for the answer. Working at the frontier and bringing the rest of the room along.</p>
@@ -127,9 +127,9 @@ if(window.HTMLScriptElement&&HTMLScriptElement.supports&&HTMLScriptElement.suppo
   <div class="qs">
     <!-- Collection List of Big Questions. Only items with Pin to home page = Yes are kept (lowest Order first, three at most); the script splits each question into lines -->
     <div class="w-dyn-list"><div class="w-dyn-items">
-      <div class="w-dyn-item"><a class="tile w-inline-block" href="what-we-do.html#questions" data-slug="faq-young-people"><img src="assets/hero-welder.jpg" alt=""><div class="tile-title">How do we make sure young people aren&rsquo;t the collateral damage of the AI economy?</div><div class="jdata"><div class="qpin">Yes</div><div class="qorder">1</div></div></a></div>
-      <div class="w-dyn-item"><a class="tile w-inline-block" href="what-we-do.html#questions" data-slug="faq-jobs-that-sustain-families"><img src="assets/core/question-jobs-that-sustain-families.webp" alt=""><div class="tile-title">How do we keep AI from hollowing out the jobs that sustain families, the way deindustrialization did?</div><div class="jdata"><div class="qpin">Yes</div><div class="qorder">2</div></div></a></div>
-      <div class="w-dyn-item"><a class="tile w-inline-block" href="what-we-do.html#questions" data-slug="faq-moonshot-for-new-jobs"><img src="assets/wwa-potter.webp" alt=""><div class="tile-title">How do we build a moonshot program for new jobs that gives people a reason to believe in the future?</div><div class="jdata"><div class="qpin">Yes</div><div class="qorder">3</div></div></a></div>
+      <div class="w-dyn-item"><a class="tile w-inline-block" href="what-we-do.html#questions" data-slug="faq-young-people"><img src="assets/questions/question-young-people-1633.webp" alt="A young machinist checking a part beside a CNC machine"><div class="tile-title">How do we make sure young people aren&rsquo;t the collateral damage of the AI economy?</div><div class="jdata"><div class="qpin">Yes</div><div class="qorder">1</div></div></a></div>
+      <div class="w-dyn-item"><a class="tile w-inline-block" href="what-we-do.html#questions" data-slug="faq-jobs-that-sustain-families"><img src="assets/questions/question-jobs-that-sustain-families-0879.webp" alt="Two women embracing in front of buffalo sculptures"><div class="tile-title">How do we keep AI from hollowing out the jobs that sustain families, the way deindustrialization did?</div><div class="jdata"><div class="qpin">Yes</div><div class="qorder">2</div></div></a></div>
+      <div class="w-dyn-item"><a class="tile w-inline-block" href="what-we-do.html#questions" data-slug="faq-moonshot-for-new-jobs"><img src="assets/questions/question-moonshot-for-new-jobs-0903.webp" alt="A ceramicist holding a piece of work in a pottery studio"><div class="tile-title">How do we build a moonshot program for new jobs that gives people a reason to believe in the future?</div><div class="jdata"><div class="qpin">Yes</div><div class="qorder">3</div></div></a></div>
     </div></div>
   </div>
 </div>
@@ -198,5 +198,17 @@ if(window.HTMLScriptElement&&HTMLScriptElement.supports&&HTMLScriptElement.suppo
 
 <div id="bw-foot" hidden></div>
 <script src="breakwater.js"></script>
+<!-- Home page footer code in Webflow (Page settings > Custom code > Before </body> tag) -->
+<script>
+/* Home hero on phones: data-zoom-m="1.25" on a hero Image makes that photo 1.25x the hero's height, pinned to its bottom edge, which lifts a face clear of the headline. data-pos-m, if set, replaces data-pos on phones. */
+(function () {
+  if (window.innerWidth > 767) return;
+  [].forEach.call(document.querySelectorAll('.hero-img img'), function (im) {
+    var pos = im.getAttribute('data-pos-m'), zoom = parseFloat(im.getAttribute('data-zoom-m'));
+    if (pos) im.style.objectPosition = pos;
+    if (zoom > 1) { im.style.top = 'auto'; im.style.height = (zoom * 100) + '%'; }
+  });
+})();
+</script>
 </body>
 </html>

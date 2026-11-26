@@ -40,7 +40,7 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 - [x] Nav and drawer: the phone drawer's first link reads Home and goes to the home page (4 November).
 - [x] Join Us page copy and the email address (hello@breakwaterinitiative.org).
 - [x] Full read-through of every page (4 November).
-- [x] Image rights confirmed (4 November). *Only the home hero slides are still placeholders; the hero captions are empty slots at the moment.*
+- [x] Image rights confirmed (4 November). *The home hero slides, the policy-shop photo and the three question photos were replaced with Breakwater's own shoot on 26 November, so no placeholder photos are left on Home; the hero captions are still empty slots.*
 - [x] Font licence: ABC Arizona Flare files stay out of the public repo. *Still to confirm with Breakwater that the licence covers the live domain and expected page views.*
 
 ## 2. Design QA (D)
@@ -117,7 +117,7 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
   | SEO | 66 | 66 | 66 | 66 |
 
   *The SEO score is only "page is blocked from indexing" (robots.txt while the password is on) and will clear at launch. The spread between runs is the staging server's time to first byte, which swung from 0.5 s to 2.9 s between runs (Our People desktop's 62 is a 2.9 s wait); the live domain, without the password gate, should be steadier. Home mobile is held back by the hero intro, which stays. The post page's 96 is the YouTube embed's third-party cookies. What is left is the people portraits, which Lighthouse counts as oversized on a 1x screen but which a retina phone needs at 1080 px.*
-- [ ] Check total page weight on Our People once the fellows' and advisors' real photos are in (31 images today).
+- [x] Total page weight on Our People with the fellows' and advisors' photos in (26 November): about 1.45 MB, of which 1.2 MB is images (the hero plus 22 portraits; three people still have no photo). *Portraits below the fold load lazily, so a visitor who does not scroll downloads far less.*
 
 ## 6. Forms, integrations and tracking (B decides, D sets)
 

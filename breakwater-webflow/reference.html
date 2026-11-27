@@ -46,6 +46,17 @@ if(document.referrer.indexOf(location.origin+'/')===0){document.documentElement.
 addEventListener('pagereveal',function(e){document.documentElement.classList.toggle('vt',!!e.viewTransition)});
 if(window.HTMLScriptElement&&HTMLScriptElement.supports&&HTMLScriptElement.supports('speculationrules')){var s=document.createElement('script');s.type='speculationrules';s.textContent='{"prerender":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}';document.head.appendChild(s)}
 </script>
+<!-- Home page head code in Webflow (Page settings > Custom code > Inside <head> tag) -->
+<style>
+/* Home hero: a faint black gradient down from the top edge, as a backdrop to the navigation. It belongs to the
+   photo box, so it fades in with the photos, sits above them and stays below the headline. */
+.hero-img::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; z-index: 3;
+  height: clamp(120px, 24vh, 220px);
+  background: linear-gradient(to bottom, rgba(0,0,0,.32) 0%, rgba(0,0,0,.2) 32%, rgba(0,0,0,.08) 64%, rgba(0,0,0,.02) 86%, rgba(0,0,0,0) 100%);
+  pointer-events: none;
+}
+</style>
 </head>
 <body>
 

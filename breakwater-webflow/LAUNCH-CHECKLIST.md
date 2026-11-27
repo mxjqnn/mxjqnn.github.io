@@ -40,7 +40,7 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 - [x] Nav and drawer: the phone drawer's first link reads Home and goes to the home page (4 November).
 - [x] Join Us page copy and the email address (hello@breakwaterinitiative.org).
 - [x] Full read-through of every page (4 November).
-- [x] Image rights confirmed (4 November). *The home hero slides, the policy-shop photo and the three question photos were replaced with Breakwater's own shoot on 26 November, so no placeholder photos are left on Home; the hero captions are still empty slots.*
+- [x] Image rights confirmed (4 November). *The home hero slides, the policy-shop photo and the three question photos were replaced with Breakwater's own shoot on 26 November (hero slides again on 27 November), so no placeholder photos are left on Home; the hero captions are still empty slots.*
 - [x] Font licence: ABC Arizona Flare files stay out of the public repo. *Still to confirm with Breakwater that the licence covers the live domain and expected page views.*
 
 ## 2. Design QA (D)
@@ -102,6 +102,7 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
   | SEO | 66 | 66 | 66 | 66 |
 
   *Nothing fell with the new photos, and the staging server was steadier this time (0.4 to 1.0 s to first byte). Home mobile is unchanged at 76: its largest paint is the headline, held back by the hero intro, which stays. What Lighthouse still counts as oversized is the three question tiles on Home (1000 px files in 350 to 480 px tiles, which a retina screen needs) and the portraits on Our People (now 22 of them at 1080 px, about 1.2 MB of images on that page).*
+- [ ] Home hero photos replaced again on 27 November (Max's treated photos and layout). *In the Designer: regenerate responsive images on the Home page (Cmd+Shift+I) and publish, as the three new hero files (2880 px, 320 to 360 KB each) have no srcset variants yet. They already load eagerly.*
 - [x] Fonts: Regular and Bold are preloaded from the site head (4 November); Italic is not used above the fold and is not preloaded.
 - [x] Site settings > Publishing: minify HTML, CSS and JS on (4 November).
 - [x] Lighthouse re-run on 4 November (Lighthouse 12 from the terminal, through the password gate), with the hero intro kept as designed. Two runs: the first before the eager heroes and lighter tiles, the second after.

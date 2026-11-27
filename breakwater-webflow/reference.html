@@ -85,9 +85,9 @@ if(window.HTMLScriptElement&&HTMLScriptElement.supports&&HTMLScriptElement.suppo
   <div class="hero-mark"><div class="mark-shape"></div></div>
   <div class="fig"></div>
   <div class="hero-img">
-    <img src="assets/home/hero-buffalo-1474.webp" alt="" data-x="-10,-19,-13" data-pos="11% 5%" data-zoom-m="1.08">
-    <img src="assets/home/hero-buffalo-1876.webp" alt="" data-x="-14.9,-26,-21" data-pos="90% 39%" data-zoom-m="1.25">
-    <img src="assets/home/hero-buffalo-2132.webp" alt="" data-x="-8,-1,-9" data-pos="5% 52%" data-zoom-m="1.25">
+    <img src="assets/home/hero-welder-1474.webp" alt="" data-x="-7.08,0.42,-11.88" data-x1="6.73" data-pos="40% 13.3%" data-pos-m="28% 50%" data-zoom-m="1.08">
+    <img src="assets/home/hero-buffalo-0151.webp" alt="" data-x="-11.18,-9.03,-18.75" data-x1="-6.77" data-pos="67% 93%" data-pos-m="73% 50%" data-zoom-m="1.4 top">
+    <img src="assets/home/hero-ceramicist-0839.webp" alt="" data-x="-5.83,1.11,-10.14" data-x1="6.73" data-pos="36% 44.9%" data-pos-m="23% 50%" data-zoom-m="1.15">
   </div>
   <h1 class="hero-text"><span class="word">Tackling</span><span class="word">AI&rsquo;s</span><span class="word">threat</span><span class="word">to work</span></h1>
 </div>
@@ -200,14 +200,28 @@ if(window.HTMLScriptElement&&HTMLScriptElement.supports&&HTMLScriptElement.suppo
 <script src="breakwater.js"></script>
 <!-- Home page footer code in Webflow (Page settings > Custom code > Before </body> tag) -->
 <script>
-/* Home hero on phones: data-zoom-m="1.25" on a hero Image makes that photo 1.25x the hero's height, pinned to its bottom edge, which lifts a face clear of the headline. data-pos-m, if set, replaces data-pos on phones. */
+/* Home hero extras, read from custom attributes on each hero Image:
+   data-x1="6.7"            desktop: moves the first headline line off centre by that many vw while the photo shows
+   data-pos-m="29% 50%"     phones: the crop anchor, replacing data-pos
+   data-zoom-m="1.15"       phones: the photo is 1.15x the hero's height, pinned to its bottom edge (lifts a face above the
+                            headline); "1.45 top" pins it to the top edge instead (drops a face below the headline) */
 (function () {
-  if (window.innerWidth > 767) return;
-  [].forEach.call(document.querySelectorAll('.hero-img img'), function (im) {
-    var pos = im.getAttribute('data-pos-m'), zoom = parseFloat(im.getAttribute('data-zoom-m'));
+  var imgs = [].slice.call(document.querySelectorAll('.hero-img img')), first = document.querySelector('.hero-text .word');
+  if (!imgs.length) return;
+  var phone = window.innerWidth <= 767;
+  if (phone) imgs.forEach(function (im) {
+    var pos = im.getAttribute('data-pos-m'), zm = (im.getAttribute('data-zoom-m') || '').split(' '), zoom = parseFloat(zm[0]);
     if (pos) im.style.objectPosition = pos;
-    if (zoom > 1) { im.style.top = 'auto'; im.style.height = (zoom * 100) + '%'; }
+    if (zoom > 1) { im.style.height = (zoom * 100) + '%'; if (zm[1] === 'top') im.style.bottom = 'auto'; else im.style.top = 'auto'; }
   });
+  function line1() {
+    var on = imgs.filter(function (i) { return i.classList.contains('on'); })[0];
+    if (!on || !first) return;
+    var x = phone ? '' : on.getAttribute('data-x1');
+    first.style.setProperty('--x', (x || '0') + 'vw');
+  }
+  line1();
+  if (window.MutationObserver) imgs.forEach(function (im) { new MutationObserver(line1).observe(im, { attributes: true, attributeFilter: ['class'] }); });
 })();
 </script>
 </body>

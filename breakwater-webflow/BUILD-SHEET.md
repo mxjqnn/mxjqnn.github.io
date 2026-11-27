@@ -683,17 +683,21 @@ The placeholder fellows and advisors are replaced by the real people from Breakw
 
 Breakwater's picks from `01. Images/Buffalo-and-DC-worker-portraits/` replace the placeholder photos on the home page. All are WebP cut from the photographer's originals; the files are in `assets/home/` and `assets/questions/` and are site assets under the same names.
 
-**Hero** (three Image elements in `.hero-img`, in this order). Each file keeps the photo's full height and is cropped at the sides so that, on a desktop screen, the face sits beside the centred first line of the headline rather than under it.
+**Hero** (three Image elements in `.hero-img`, in this order). *Replaced on 27 November: the three photos of 26 November (1474, 1876, 2132) gave way to Max's own selection and layout, below.*
 
-| Slide | Source | Crop of the original | data-x | data-pos | data-zoom-m |
-| --- | --- | --- | --- | --- | --- |
-| 1 | 20261112-BWIBuffalo-1474 (welder) | left 21% removed | `-10,-19,-13` | `11% 5%` | `1.08` |
-| 2 | 20261112-BWIBuffalo-1876 | right 32% removed | `-14.9,-26,-21` | `90% 39%` | `1.25` |
-| 3 | 20261112-BWIBuffalo-2132 | left 27% removed | `-8,-1,-9` | `5% 52%` | `1.25` |
+Max supplied three treated photos and a desktop mock-up of each (1440 x 780) showing where the photo sits and how the headline steps around it. The files are cut from his full-size treated exports (4096 px), not from the photographer's folder; each keeps the photo's full height and is cropped at the sides to the mock-up's width plus 80 px on the left, because the hero's image box is 80 px wider than the screen and starts 80 px off its left edge. On staging at 1440 x 780 the photos land where the mock-ups put them.
 
-- `data-zoom-m` is new. On phones the headline sits in the middle of the screen and the photo is scaled to the full height, so a face in the middle of a photo lands under the text. `data-zoom-m="1.25"` makes that photo 1.25 times the hero's height on phones, pinned to its bottom edge, which lifts the face above the headline. `data-pos-m`, if present, replaces `data-pos` on phones. Both are read by a short script in the **Home page's own footer code** (Page settings > Custom code > Before </body> tag), mirrored at the end of `reference.html`; the site-wide script is unchanged.
-- Slide 3 is a tight portrait: on a desktop it is a large close-up on the left, and on phones the face cannot clear the headline at any zoom (the head is nearly a third of the photo's height). At 1.25 the eyes sit above the headline and the text crosses the lower face. A looser photo, or leaving this slide out on phones, would fix it.
-- On a 16:9 desktop screen slide 1 shows the top two thirds of the photo, so the torch flame at the bottom is out of frame there; it shows on taller windows and on phones.
+| Slide | Source (treated) | Site asset | data-x | data-x1 | data-pos | data-pos-m | data-zoom-m |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 20261112-BWIBuffalo-1474 | `hero-welder-1474.webp` | `-7.08,0.42,-11.88` | `6.73` | `40% 13.3%` | `28% 50%` | `1.08` |
+| 2 | 20261111-BWIBuffalo-0151 | `hero-buffalo-0151.webp` | `-11.18,-9.03,-18.75` | `-6.77` | `67% 93%` | `73% 50%` | `1.4 top` |
+| 3 | 20261023-BWIElisa-0839 | `hero-ceramicist-0839.webp` | `-5.83,1.11,-10.14` | `6.73` | `36% 44.9%` | `23% 50%` | `1.15` |
+
+- **Headline.** The mock-ups carry the old five-line headline ("The future of work is still ours to shape"); the site's headline is the four-line "Tackling / AI's / threat / to work", which stays. Lines 2 to 4 take the left edges of the mock-up's lines 2 to 4 (`data-x`). The first line cannot simply stay centred, because "Tackling" is more than twice as wide as "The" and would run into each face, so it is anchored on the side away from the face: its left edge where "The" began on slides 1 and 3, its right edge where "The" ended on slide 2. That is `data-x1`, new: an offset in vw for the first line while that photo shows.
+- **`data-pos`'s second value** puts the vertical crop where the mock-up has it; on a taller or shorter window the photo keeps its width and shows more or less above and below that point.
+- **Phones.** `data-pos-m` is the crop anchor on phones and `data-zoom-m` the zoom: a plain number pins the enlarged photo to the bottom edge, which lifts a face above the headline (slides 1 and 3); `1.4 top` pins it to the top edge, which drops the face below the headline (slide 2, whose face sits too low in the photo to be lifted clear).
+- `data-x1`, `data-pos-m` and `data-zoom-m` are read by the short script in the **Home page's own footer code** (Page settings > Custom code > Before </body> tag), mirrored at the end of `reference.html`; the site-wide script is unchanged and still reads `data-x` and `data-pos`.
+- No captions: the mock-ups' captions are the old placeholders, and the hero Images carry no `data-caption`.
 
 **"A policy shop built to act"** (`.slot-team`): 20261112-BWIBuffalo-1765 with the left 16% removed, 2000 px wide, so the stepped mask's cut-out corner at the top right misses his head.
 
@@ -707,7 +711,7 @@ Breakwater's picks from `01. Images/Buffalo-and-DC-worker-portraits/` replace th
 
 **Our People hero.** The photo is unchanged (20261022-BWIStaff-1371) but looked soft because the first version was made from a small copy pasted into chat. It is now exported from the original at 3200 px wide (`assets/core/people-hero.webp`, site asset `people-hero-v2.webp`), about three times as sharp by edge contrast at the same size.
 
-**Designer follow-ups, done 26 November.** Images uploaded through the connector get no responsive variants until Webflow generates them in the Designer (Cmd+Shift+I on the page, then publish), and the connector cannot set an image's loading. Max regenerated the variants on Home and Our People and set the hero slides to Eager; staging now serves a 500 to 2600 px srcset for the hero and policy-shop photos and up to 3200 px for the People hero. Lighthouse numbers are in LAUNCH-CHECKLIST.md.
+**Designer follow-ups (done 26 November for that day's images; the three hero images of 27 November need the same again).** Images uploaded through the connector get no responsive variants until Webflow generates them in the Designer (Cmd+Shift+I on the page, then publish), and the connector cannot set an image's loading. Max regenerated the variants on Home and Our People and set the hero slides to Eager; staging now serves a 500 to 2600 px srcset for the hero and policy-shop photos and up to 3200 px for the People hero. Lighthouse numbers are in LAUNCH-CHECKLIST.md.
 
 ## 404 page (27 November 2026)
 

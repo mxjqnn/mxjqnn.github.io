@@ -699,6 +699,7 @@ Max supplied three treated photos and a desktop mock-up of each (1440 x 780) sho
 - `data-x1`, `data-pos-m` and `data-zoom-m` are read by the short script in the **Home page's own footer code** (Page settings > Custom code > Before </body> tag), mirrored at the end of `reference.html`; the site-wide script is unchanged and still reads `data-x` and `data-pos`.
 - No captions: the mock-ups' captions are the old placeholders, and the hero Images carry no `data-caption`.
 - **Gradient behind the navigation** (27 November, Max's request). A faint black gradient runs down from the top edge of the hero: 32% black at the top, easing to nothing over `clamp(120px, 24vh, 220px)`. It is `.hero-img::after`, so it fades in with the photos, sits above them and below the headline, and needs no extra element. The rule lives in the **Home page's own head code** (Page settings > Custom code > Inside <head> tag), mirrored in the head of `reference.html`; the site-wide styles are unchanged. To make it stronger or weaker, change the first alpha value (and the ones after it in proportion).
+- **The same gradient on Join Us** (27 November). The Join Us hero carries the identical rule on `.chero-img::after`, in the **Join Us page's own head code** and mirrored in the head of `contact.html`. Keep the two in step if the strength changes.
 
 **"A policy shop built to act"** (`.slot-team`): 20261112-BWIBuffalo-1765 with the left 16% removed, 2000 px wide, so the stepped mask's cut-out corner at the top right misses his head.
 

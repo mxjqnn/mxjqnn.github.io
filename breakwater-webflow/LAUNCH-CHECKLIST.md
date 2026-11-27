@@ -53,7 +53,7 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 - [ ] Reduced motion: System settings > Accessibility > Reduce motion, then every page is readable with the motion off.
 - [ ] Page transitions: crossfade with the nav held still in Chrome, Edge and Safari; plain loads in Firefox; back and forward buttons restore pages cleanly; arriving from a tile glides to the right group.
 - [ ] Images: nothing stretched, correct crops and focal points on phones, no missing images on CMS items. *A person with no photo now shows the grey placeholder.*
-- [ ] 404 page: still Webflow's default (plain "Page not found"). *Design it in Pages > Utility pages > 404, and style the password page while the password is on.*
+- [ ] 404 page: designed and built on 27 November as the **Not found** component, checked on staging at `/page-not-found` (a working page, noindex). *Still Webflow's default at real missing URLs, because the connector cannot reach utility pages. D: Pages > Utility pages > 404, clear it, then add the components Breakwater styles, Site header, Not found, Wave CTA and Footer in that order (or copy everything from the Page not found page), set the title to "Page not found" and publish. Then delete the Page not found working page so it does not go into the sitemap. The password page is still unstyled.*
 - [x] Favicon and webclip: both uploaded in Site settings on 4 November (`favicon-dark.png`); staging serves them as the tab icon and the Apple touch icon.
 - [ ] Browser matrix: Safari (macOS, iOS), Chrome (macOS, Windows, Android), Firefox, Edge; iPad both orientations.
 

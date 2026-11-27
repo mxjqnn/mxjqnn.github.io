@@ -709,6 +709,16 @@ Breakwater's picks from `01. Images/Buffalo-and-DC-worker-portraits/` replace th
 
 **Designer follow-ups, done 26 November.** Images uploaded through the connector get no responsive variants until Webflow generates them in the Designer (Cmd+Shift+I on the page, then publish), and the connector cannot set an image's loading. Max regenerated the variants on Home and Our People and set the hero slides to Eager; staging now serves a 500 to 2600 px srcset for the hero and policy-shop photos and up to 3200 px for the People hero. Lighthouse numbers are in LAUNCH-CHECKLIST.md.
 
+## 404 page (27 November 2026)
+
+Built from Max's design: a light section with "Sorry, / that page / doesn't / exist" at headline size on the left, and on the right the line "Use the navigation above, or visit our home page to find out why we exist." with a dark "Why we exist" link to Home (yellow wipe on hover), followed by the Wave CTA and the footer. The header, Wave CTA and footer are the site's components, so they carry today's labels and copy rather than the older ones in the mock-up.
+
+- **Component: Not found** (group Breakwater). A `section.nf.light-top` holding a Code Embed with the section's own CSS, the headline (`.nf-title.sec-title`, four `.line` blocks, marked as the page's level 1 heading) and `.nf-copy` (a `.para` and the link `.nf-link.wipe`). The headline uses the shared `.sec-title` and `.line` styles, so it slides in like every other headline. The classes `nf`, `nf-title`, `nf-copy` and `nf-link` are empty in the Style panel, like the rest of the site's classes.
+- **Its CSS lives in the component's Code Embed**, not in the main stylesheet embeds, so nothing else had to be republished. The same rules are in a `<style>` block in `404.html`; if they are ever folded into `breakwater.css`, delete the embed. One rule, `.nf > .w-embed { display: none }`, is there because Webflow wraps an embed in a box that would otherwise take the first cell of the section's two-column grid.
+- **Working page.** Webflow's connector cannot see or create utility pages, and the site has no 404 page of its own yet (a missing URL shows Webflow's built-in page). So the design was assembled on an ordinary page, **Page not found** (`/page-not-found`, noindex in its head code), and checked there on staging: at 1453 px wide it matches the mock-up to the pixel (section 670 px tall, copy at 747 px from the left). On phones the copy stacks under the headline.
+- **To finish (Designer):** Pages > Utility pages > 404; clear whatever is there; add the components Breakwater styles, Site header, Not found, Wave CTA and Footer in that order (or copy all of the Page not found page's elements across); set the page title to "Page not found"; publish. Then delete the Page not found working page.
+- Reference: `404.html`.
+
 ## Where to change things later
 
 Edit `breakwater.css` or `breakwater.js`, then re-create the snippets by pasting the file contents between the `<style>` or `<script>` tags.

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Breakwater — Page not found (Webflow reference build)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  REFERENCE ONLY. This page is built exactly the way the Webflow page should be:
+  plain elements with the class names from BUILD-SHEET.md, plus breakwater.css and
+  breakwater.js. Open it through a local server to compare against the Webflow build.
+-->
+<style>
+/* The four Arizona Flare faces; Webflow serves the same family from Site settings > Fonts */
+@font-face { font-family: 'Arizona Flare'; src: url('assets/ABCArizonaFlare-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: block; }
+@font-face { font-family: 'Arizona Flare'; src: url('assets/ABCArizonaFlare-RegularItalic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: block; }
+@font-face { font-family: 'Arizona Flare'; src: url('assets/ABCArizonaFlare-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: block; }
+@font-face { font-family: 'Arizona Flare'; src: url('assets/ABCArizonaFlare-BoldItalic.woff2') format('woff2'); font-weight: 700; font-style: italic; font-display: block; }
+/* Stand-in for Webflow's base stylesheet, so this page hits the same defaults the real build will */
+body { margin: 0; min-height: 100%; background-color: #fff; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px; color: #333; }
+img { max-width: 100%; vertical-align: middle; display: inline-block; }
+h1 { font-size: 38px; line-height: 44px; margin-top: 20px; margin-bottom: 10px; font-weight: bold; }
+p { margin-top: 0; margin-bottom: 10px; }
+label { display: block; margin-bottom: 5px; font-weight: bold; }
+.w-inline-block { max-width: 100%; display: inline-block; }
+.w-form { margin: 0 0 15px; }
+.w-input { display: block; width: 100%; height: 38px; padding: 8px 12px; margin-bottom: 10px; font-size: 14px; line-height: 1.42857143; color: #333; background-color: #fff; border: 1px solid #ccc; }
+.w-button { display: inline-block; padding: 9px 15px; background-color: #3898EC; color: white; border: 0; line-height: inherit; text-decoration: none; cursor: pointer; border-radius: 0; }
+</style>
+<link rel="stylesheet" href="breakwater.css">
+<!-- Same token mapping the Webflow page uses. No Webflow Variables exist here, so the fallbacks apply. -->
+<style>
+/* Breakwater tokens: maps the Webflow Variables in the "Breakwater" collection onto the stylesheet. Must sit AFTER the styles embed. Fallbacks are the original values. */
+:root{--dark:var(--_breakwater---dark,#2B2929);--beige:var(--_breakwater---beige,#DFD8D0);--light:var(--_breakwater---light,#EEEDEC);--yellow:var(--_breakwater---yellow,#F6F675);--size-body:var(--_breakwater---body-copy-size-vw,1.95);--size-headline:var(--_breakwater---headline-size-vw,7.6);--size-hero:var(--_breakwater---hero-and-wave-headline-size-vw,6.1)}
+.para,.bridge .more{font-size:clamp(18px,calc(var(--size-body) * 1vw),calc(var(--size-body) * 14.8718px))}
+.tile::after{background:color-mix(in srgb,var(--yellow) 60%,transparent)}
+.foot,.foot-top{border-color:color-mix(in srgb,var(--light) 14%,transparent)}
+.news-input{border-bottom-color:color-mix(in srgb,var(--light) 50%,transparent)}
+.news-input::placeholder{color:color-mix(in srgb,var(--light) 50%,transparent)}
+.foot-bottom{color:color-mix(in srgb,var(--light) 70%,transparent)}
+@media (min-width:768px){:root{--gutter:var(--_breakwater---page-gutter,2.8vw)}.big,.who-title,.bridge-title,.sec-title{font-size:clamp(56px,calc(var(--size-headline) * 1vw),calc(var(--size-headline) * 15.7895px))}.hero-text,.wave-text,.wwd-title,.wwa-title{font-size:clamp(40px,calc(var(--size-hero) * 1vw),calc(var(--size-hero) * 15.7377px))}.ctitle{font-size:clamp(42px,calc(var(--size-hero) * 1.08vw),calc(var(--size-hero) * 17px))}}
+</style>
+<script>document.documentElement.classList.add('bw-js')</script>
+<style>@view-transition{navigation:auto}.nav{view-transition-name:nav}</style>
+<script>
+if(document.referrer.indexOf(location.origin+'/')===0){document.documentElement.classList.add('vt');document.write('<link rel="expect" href="#bw-foot" blocking="render">')}
+addEventListener('pagereveal',function(e){document.documentElement.classList.toggle('vt',!!e.viewTransition)});
+if(window.HTMLScriptElement&&HTMLScriptElement.supports&&HTMLScriptElement.supports('speculationrules')){var s=document.createElement('script');s.type='speculationrules';s.textContent='{"prerender":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}';document.head.appendChild(s)}
+</script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="menu left">
+    <a class="wipe" href="#">Our Work</a>
+    <a class="wipe" href="#">Our People</a>
+  </div>
+  <a class="logo w-inline-block" href="reference.html" aria-label="Breakwater Initiative">
+    <div class="lrow ltop"><div class="ltxt"><img src="assets/logo-yellow.svg" alt=""></div></div><div class="lrow lbot"><div class="ltxt"><img src="assets/logo-yellow.svg" alt=""></div></div>
+  </a>
+  <div class="menu right">
+    <a class="wipe" href="#">Our Insights</a>
+    <a class="nav-btn wipe" href="#">Join Us</a>
+    <a class="burger" href="#" role="button" aria-label="Menu"><span class="burger-ico"></span></a>
+  </div>
+</div>
+
+<!-- Mobile menu drawer (hidden above 767px) -->
+<div class="drawer">
+  <div class="drawer-top">
+    <div class="drawer-mark"></div>
+    <a class="drawer-close" href="#" role="button" aria-label="Close menu"></a>
+  </div>
+  <nav class="drawer-links">
+    <a class="mlink" href="reference.html">Home</a>
+    <a class="mlink" href="#">Our Work</a>
+    <a class="mlink" href="#">Our People</a>
+    <a class="mlink" href="#">Our Insights</a>
+    <a class="mlink mcta" href="#">Join Us</a>
+  </nav>
+</div>
+
+<!-- 404 page. In Webflow this section is the "Not found" component: its styles travel with it in a Code Embed,
+     so the 404 page is five components in a row: Breakwater styles, Site header, Not found, Wave CTA, Footer. -->
+<main>
+<div class="nf light-top">
+  <style>
+  /* 404 page ("Not found" component). Kept in the component's own Code Embed, not in breakwater.css. */
+  .nf { position: relative; display: grid; grid-template-columns: 48.6vw 1fr; align-items: end; background: var(--light); color: var(--dark); padding: calc(6.3vw + 79px) var(--gutter) 5.5vw; }
+  .nf > .w-embed { display: none; }   /* in Webflow the Code Embed's wrapper would otherwise take the first grid cell */
+  .nf-copy { padding-bottom: .8vw; }
+  .nf-copy .para { max-width: 41.5vw; margin: 0; }
+  .nf-link { display: inline-block; background: var(--dark); color: var(--light); padding: 0 .1em; font-size: clamp(18px, 1.95vw, 29px); line-height: 1.4; text-decoration: none; }
+  @media (max-width: 767px) {
+    .nf { display: block; padding: 34vw var(--gutter) 14vw; }
+    .nf-copy { margin-top: 12vw; padding-bottom: 0; }
+    .nf-copy .para { max-width: none; }
+  }
+  </style>
+  <div class="nf-title sec-title" role="heading" aria-level="1" aria-label="Sorry, that page doesn&rsquo;t exist">
+    <div class="line">Sorry,</div>
+    <div class="line">that page</div>
+    <div class="line">doesn&rsquo;t</div>
+    <div class="line">exist</div>
+  </div>
+  <div class="nf-copy">
+    <p class="para">Use the navigation above, or visit our home page to find out why we exist.</p>
+    <a class="nf-link wipe" href="reference.html">Why we exist</a>
+  </div>
+</div>
+</main>
+<div class="wave">
+  <div class="wave-mark"><div class="mark-shape"></div></div>
+  <div class="wave-text" role="heading" aria-level="2" aria-label="The wave is coming. Help us build the breakwater">
+    <div class="wave-row"><div class="word">The</div></div>
+    <div class="wave-row"><div class="word">wave</div></div>
+    <div class="wave-row"><div class="word">is coming</div><div class="word">help us</div></div>
+    <div class="wave-row"><div class="word">build the</div></div>
+    <div class="wave-row"><div class="word">breakwater</div></div>
+  </div>
+  <p class="para p1">Policy takes time. If we don&rsquo;t act now, we will miss the window of opportunity. To invest, collaborate or find out more, get in touch.</p>
+  <a class="cta-dark wipe" href="#">Contact us</a>
+</div>
+<div class="foot">
+  <div class="foot-top">
+    <div class="foot-about">
+      <a class="foot-logo w-inline-block" href="reference.html"><img src="assets/logo-light.svg" alt="Breakwater Initiative"></a>
+      <p>An action-oriented policy shop tackling AI's threat to work.</p>
+    </div>
+    <div class="news w-form">
+      <form>
+        <label for="news-email">The occasional briefing on the future of work. No noise.</label>
+        <div class="news-row">
+          <input class="news-input w-input" id="news-email" type="email" name="email" placeholder="Email address" required>
+          <input class="news-submit w-button" type="submit" value="Subscribe">
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p class="legal">Breakwater Initiative is a fiscally sponsored project of RF Catalytic Capital.<br>&copy; 2026 Breakwater Initiative. All rights reserved.</p>
+    <div class="foot-links">
+      <a class="wipe" href="#">LinkedIn</a>
+      <a class="wipe" href="#">X</a>
+      <a class="wipe" href="privacy.html">Privacy policy</a>
+      <a class="wipe" href="accessibility.html">Accessibility</a>
+    </div>
+  </div>
+</div>
+
+<div id="bw-foot" hidden></div>
+<script src="breakwater.js"></script>
+</body>
+</html>

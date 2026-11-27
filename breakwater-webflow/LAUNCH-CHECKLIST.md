@@ -102,7 +102,18 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
   | SEO | 66 | 66 | 66 | 66 |
 
   *Nothing fell with the new photos, and the staging server was steadier this time (0.4 to 1.0 s to first byte). Home mobile is unchanged at 76: its largest paint is the headline, held back by the hero intro, which stays. What Lighthouse still counts as oversized is the three question tiles on Home (1000 px files in 350 to 480 px tiles, which a retina screen needs) and the portraits on Our People (now 22 of them at 1080 px, about 1.2 MB of images on that page).*
-- [ ] Home hero photos replaced again on 27 November (Max's treated photos and layout). *Still to do in the Designer: the three new hero files (2880 px, 320 to 360 KB each) have no srcset variants. A first attempt at regenerating them did not take (checked 27 November: no variants on staging or in Webflow's asset records). Reload the Designer so it has the new images, open Home, Cmd+Shift+I, wait for the confirmation, publish. Until then every screen downloads all three originals, and because the headline waits for the page to finish loading, Lighthouse on Home reads 66 mobile (LCP 11.5 s) and 83 desktop, against 76 (5.2 s) and 92 the day before. They already load eagerly.*
+- [x] Home hero photos replaced again on 27 November (Max's treated photos and layout; headline re-laid from his second mock-ups the same day). *Responsive images regenerated in the Designer on the second attempt: the three hero files now carry a 500 to 2880 px srcset and load eagerly, so a phone gets the 800 px files (37 to 47 KB each) and a 1350 px desktop the 1600 px ones (97 to 118 KB), lighter than the photos they replaced. Lighthouse run twice after that:*
+
+  | 27 November (run 1, run 2) | Home | Our Work | Our People | Post (CNN) |
+  |---|---|---|---|---|
+  | Performance, mobile | 74, 75 | 89, 76 | 59, 83 | 89, 58 |
+  | Performance, desktop | 88, 89 | 96, 94 | 86, 85 | 87, 95 |
+  | LCP mobile | 5.4 s, 5.2 s | 3.3 s, 5.1 s | 6.9 s, 3.8 s | 3.5 s, 10.2 s |
+  | Accessibility | 100 | 100 | 100 | 100 |
+  | Best practices | 100 | 100 | 100 | 96 |
+  | SEO | 66 | 66 | 66 | 66 |
+
+  *Home is back where it was before the swap: 74 to 75 on mobile with a 5.2 to 5.4 s largest paint (76 and 5.2 s on 26 November; 66 and 11.5 s while the variants were missing), and the page is lighter (750 KB on mobile against 790 KB). Home desktop reads 88 to 89 against 92: its largest paint is quicker (1.6 to 1.7 s against 1.8 s) and it downloads less (953 KB against 1,124 KB); the difference is Lighthouse's Speed Index (2.0 s against 0.9 s), which times how the hero paints in, not what is downloaded. Not traced further. The other three pages did not change, and each had one poor run out of two (Our People mobile 59 with the staging server taking 4.0 s to answer; Our Work mobile 76; the post 58 on mobile and 87 on desktop), which is run-to-run noise on staging: their better runs match 26 November.*
 - [x] Fonts: Regular and Bold are preloaded from the site head (4 November); Italic is not used above the fold and is not preloaded.
 - [x] Site settings > Publishing: minify HTML, CSS and JS on (4 November).
 - [x] Lighthouse re-run on 4 November (Lighthouse 12 from the terminal, through the password gate), with the hero intro kept as designed. Two runs: the first before the eager heroes and lighter tiles, the second after.

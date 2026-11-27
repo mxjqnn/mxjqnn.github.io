@@ -673,11 +673,11 @@ The placeholder fellows and advisors are replaced by the real people from Breakw
 
 **Photos.** The supplied headshots are much tighter than the team portraits, so they could not be cut to the team's 4:5 frame. Each is a **1080 x 1080** file with the head at the team size (same measure, 0.315 of the width, same centring), so the cards match the core team exactly; the pop-up, which shows the full height of the file, frames these people a little closer than the team. Where the frame runs past the photo, the background is extended: sides mirrored and softened, the top mirrored with the head painted out first and softened, the bottom stretched slightly. That is in `tools/portraits-square.py` (person mask by GrabCut from the face box; `"ell": 1` for low-contrast hair). Most photos needed 15 to 21% of the height added above the head; it shows only in the pop-up, never in the cards. Files are WebP quality 82, 26 to 87 KB, in `assets/people/` and as site assets `person-<slug>.webp`. Low-resolution sources, enlarged to fit: Don Gips (500 px), Elizabeth Wilkins (600 px), Ganesh Sitaraman, Sam Hiner and Will Raderman.
 
-**No photo (grey placeholder card):**
+**Photos that needed a decision:**
 
 - Rachel Lipson: no photo in the folder.
-- Bharat Chandar: the only candidate is `Bharat Ramamurti headshot.jpg`, which names a different person, so it was not used until someone confirms who is in it.
-- Mike Kubzansky: `Mike K.png` is cropped tight to the face in front of a logo backdrop (800 px, hair cut off at the top), so it cannot be brought to the common head size; a wider photo is needed.
+- Bharat Chandar (added 27 November): Max confirmed that `Bharat Ramamurti headshot.jpg` is Bharat Chandar despite its file name, so it went through `tools/portraits-square.py` like the others (`person-bharat-chandar.webp`).
+- Mike Kubzansky (added 27 November, "add it anyway"): `Mike K.png` is an 800 px crop tight to the face in front of a sponsor wall, so the common head size needs a frame nearly twice the photo's width. `tools/portrait-mike-kubzansky.py` paints out the wall's logos and the other person's hair at the corner, continues the plain backdrop on every side and draws the shoulders and jacket on below the collar. The card shows only his real head and collar against a clean backdrop; in the pop-up the bottom fifth (the jacket) and the top quarter are made up. A wider original would replace all of that.
 
 ## Home page photos from the Buffalo and DC shoot; sharper People hero (26 November 2026)
 

@@ -31,7 +31,7 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 ## 1. Content and copy (B, with D for entry)
 
 - [x] Placeholder copy replaced. *The 4 November crawl finds no "placeholder" text on any page; the final copy went in on 2 and 3 November.*
-- [ ] People collection complete. *The core team is real (eight people, Eilis Klein without a photo yet). The confirmed fellows (10) and advisors (8) went in on 26 November from Breakwater's bios sheet, and the placeholder people are gone. Still open: photos for Rachel Lipson, Bharat Chandar and Mike Kubzansky (see BUILD-SHEET.md), the people marked TBC in the sheet (Stephanie Bell and seven advisors) plus Sayash Kapoor, and social links for fellows and advisors (none supplied). The core team's social links went in on 6 November.*
+- [ ] People collection complete. *The core team is real (eight people, Eilis Klein without a photo yet). The confirmed fellows (10) and advisors (8) went in on 26 November from Breakwater's bios sheet; Bharat Chandar's and Mike Kubzansky's photos followed on 27 November. Still open: photos for Rachel Lipson and Eilis Klein, the people marked TBC in the sheet (Stephanie Bell and seven advisors) plus Sayash Kapoor, and social links for fellows and advisors (none supplied). The core team's social links went in on 6 November.*
 - [x] Posts: launch set in place. *Six posts: three Ideas pieces by Molly Kinder, three Press & media items (New York Times, CNN, Platformer). "Our policy agenda" is deleted, so nothing is Featured on Insights or pinned to Our Work; both slots hide themselves until a post is marked.*
 - [x] Featured and pinned posts: none at launch (decided 4 November). *Both slots stay hidden until a post is marked Featured or Pin to What we do.*
 - [x] Big Questions: cut to three real questions on 3 November, all three pinned to Home.
@@ -72,7 +72,7 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 
 - [x] Page titles: every page has one. *Home is "Breakwater Initiative"; the post template's title is bound to the post's Title (4 November).*
 - [x] Meta descriptions: every page has one. *Home, Our Work, Our People, Our Insights and Join Us were written from each page's own copy on 4 November; Privacy policy and Accessibility had theirs; posts take the Excerpt.*
-- [x] Collection templates: the People, Big Questions, FAQs and Authors templates all return 404 on staging (none of their item pages is reachable), and each carries a noindex tag in its page head code as a safeguard (4 November); Webflow will not draft a template through the API. *D: delete the Authors collection in the Designer, which removes its template.*
+- [x] Collection templates: the People, Big Questions and FAQs templates all return 404 on staging (none of their item pages is reachable), and each carries a noindex tag in its page head code as a safeguard (4 November); Webflow will not draft a template through the API. *The Authors collection and its template were deleted on 27 November.*
 - [x] Open Graph: every page, including posts, shares the Breakwater logo card (`assets/og-breakwater.png`, 1200 x 630) and copies its title and description from the SEO fields (4 November). *Test with the LinkedIn Post Inspector and X card validator after launch.*
 - [x] Crawlable internal links: the Insights rows, the post page's Read more rows, the press cards and the agenda card now link to the current post in the published HTML (set to Collection page > Current Post in the Designer, 4 November). *The Featured card on Insights is static and stays `#` until the script fills it.*
 - [ ] No remaining `#` links: the footer's LinkedIn and X (see section 1). *The filter buttons, Load more and the approach tabs are `#` by design as the script handles them; they could become buttons.*
@@ -80,7 +80,6 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 - [x] Alt text: no image on any page is missing an alt attribute. *The press and post images carry alt text from the CMS; decorative images are marked empty.*
 - [x] Sitemap: Auto-generate sitemap is on (4 November); `/sitemap.xml` lists the seven static pages and the six posts. *robots.txt disallows everything, which is right while the password is on; at launch, "Disable Webflow subdomain indexing" on so the webflow.io copy is never indexed, and confirm robots.txt allows the live domain.*
 - [ ] Canonical domain: no custom domain is connected yet. *Choose `www` or bare, redirect the other, SSL on.*
-- [ ] 301 redirects for any old URLs if Breakwater had a previous site (Site settings > Publishing > 301 redirects).
 - [ ] Structured data: none yet. *Organization JSON-LD on Home (name, logo, URL, sameAs); Article JSON-LD on posts if wanted. C can write both.*
 - [x] Post slugs final. *The three press posts were renamed to the outlet names on 4 November (`new-york-times`, `cnn`, `platformer`); the Ideas slugs are the titles.*
 - [ ] After launch: Google Search Console and Bing Webmaster verified, sitemap submitted, live URL inspected and indexed.
@@ -122,29 +121,30 @@ Phases run roughly in order. Each line says who can do it: **C** the connector f
 ## 6. Forms, integrations and tracking (B decides, D sets)
 
 - [x] Contact form: notification recipients set in Site settings > Forms (4 November). *Still to do at launch: a test submission from the live domain lands in the inbox.*
-- [ ] Newsletter form: connect to the mailing tool or confirm the submissions inbox is watched; test a signup.
-- [ ] Spam protection on both forms once they are live.
+- [x] Newsletter form: no mailing tool connection needed (decided 27 November); sign-ups arrive as Webflow form submissions.
+- [x] Spam protection on the forms: not required (decided 27 November).
 - [ ] Analytics: nothing connected (no Google tag on the site, data collection off). *Add GA4 or Plausible via Site settings > Custom code. Hover prerendering is on, so wrap the snippet to wait for `document.prerendering` to become false; otherwise prerendered pages inflate visits. The privacy policy already describes Google Analytics cookies, so the two should match.*
 - [ ] Search Console and analytics linked; conversion events for form submits if wanted.
-- [ ] Cookie consent if the chosen analytics or any embeds need it for the audience's jurisdiction.
-- [ ] Third-party embeds: the three press posts embed YouTube and New York Times video players. *Check them for performance and consent.*
+- [x] Cookie consent: not required (decided 27 November).
+- [x] Third-party embeds: the three press posts' YouTube and New York Times players checked (27 November).
 
 ## 7. Legal and privacy (B)
 
 - [x] Privacy policy written and linked from the footer (`/privacy-policy`, final copy 2 November). *Terms & conditions were dropped on purpose; the Accessibility page (`/accessibility`) is live.*
-- [ ] Cookie notice if required; data retention for form submissions agreed. *The privacy policy states retention periods; confirm they are what Breakwater wants.*
+- [ ] Data retention for form submissions agreed. *The privacy policy states retention periods; confirm they are what Breakwater wants. A cookie notice is not required (decided 27 November).*
 - [ ] Company details in the footer or an imprint page if required where Breakwater is registered. *RF Catalytic Capital is named in the privacy policy.*
 - [x] Accessibility statement: the Accessibility page.
 
 ## 8. Webflow housekeeping (D)
 
-- [ ] Delete the orphan Authors collection and its template (Designer only); remove unused classes (Style manager > Clean up) and unused assets (the old studio hero and the first person placeholder are no longer used). *The Field notes option was deleted on 4 November; the draft Terms and Company pages are already gone.*
+- [x] Authors collection and its template deleted (27 November); the Field notes option was deleted on 4 November and the draft Terms and Company pages are gone.
+- [ ] Remove unused classes (Style manager > Clean up) and unused assets (the old studio hero, the first person placeholder, the placeholder home photos).
 - [ ] Check the Navigator on every page for stray empty elements or hidden test blocks.
 - [ ] Components: Styles, Header, Footer, Wave CTA and Newsletter are single components; no page has a detached copy.
 - [x] CMS: field help text filled in; Photo on People is optional (grey placeholder when empty); no empty required values on published items.
 - [ ] Editor and collaborator access set up for whoever will edit content; a short CMS guide (BUILD-SHEET.md has one) handed over.
-- [ ] Workspace and site ownership transferred or shared with Breakwater; billing on their card; two-factor authentication on the Webflow accounts.
-- [ ] Site plan: CMS plan (the site uses collections), bandwidth and form limits adequate.
+- [x] Workspace and site ownership, billing and two-factor authentication on the Webflow accounts: in order (27 November).
+- [x] Site plan: adequate for the CMS, bandwidth and forms (27 November).
 - [ ] Backups: Webflow keeps versions; note the pre-launch version in Site settings > Backups and restore test once.
 - [ ] Site settings reviewed: time zone (America/New_York today), site name, custom code head and footer reviewed line by line, no leftover test scripts.
 

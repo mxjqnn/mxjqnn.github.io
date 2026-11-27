@@ -81,8 +81,7 @@ if(window.HTMLScriptElement&&HTMLScriptElement.supports&&HTMLScriptElement.suppo
 
 <!-- 404 page. In Webflow this section is the "Not found" component: its styles travel with it in a Code Embed,
      so the 404 page is five components in a row: Breakwater styles, Site header, Not found, Wave CTA, Footer. -->
-<main>
-<div class="nf light-top">
+<main class="nf light-top">
   <style>
   /* 404 page ("Not found" component). Kept in the component's own Code Embed, not in breakwater.css. */
   .nf { position: relative; display: grid; grid-template-columns: 48.6vw 1fr; align-items: end; background: var(--light); color: var(--dark); padding: calc(6.3vw + 79px) var(--gutter) 5.5vw; }
@@ -106,7 +105,6 @@ if(window.HTMLScriptElement&&HTMLScriptElement.supports&&HTMLScriptElement.suppo
     <p class="para">Use the navigation above, or visit our home page to find out why we exist.</p>
     <a class="nf-link wipe" href="reference.html">Why we exist</a>
   </div>
-</div>
 </main>
 <div class="wave">
   <div class="wave-mark"><div class="mark-shape"></div></div>
